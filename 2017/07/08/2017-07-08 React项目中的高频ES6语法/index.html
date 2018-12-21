@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>React项目中的高频ES6语法 | Hansenwang&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在学习React过程中，注意到无论是GitHub上的Demo还是React相关文档，ES6语法都有大量使用。如果不了解其中一些语法，学习曲线就会越来越陡峭。但是要系统学习ES6，又会消耗大量时间。 在这篇博客里，我把一些常用的ES6语法做一些总结，以更快更好地理解React中的概念和用法。">
+<meta name="keywords" content="前端 React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React项目中的高频ES6语法">
+<meta property="og:url" content="https://hansenwangvip.github.io/2017/07/08/2017-07-08 React项目中的高频ES6语法/index.html">
+<meta property="og:site_name" content="Hansenwang&#39;s Blog">
+<meta property="og:description" content="在学习React过程中，注意到无论是GitHub上的Demo还是React相关文档，ES6语法都有大量使用。如果不了解其中一些语法，学习曲线就会越来越陡峭。但是要系统学习ES6，又会消耗大量时间。 在这篇博客里，我把一些常用的ES6语法做一些总结，以更快更好地理解React中的概念和用法。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-21T12:18:45.236Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React项目中的高频ES6语法">
+<meta name="twitter:description" content="在学习React过程中，注意到无论是GitHub上的Demo还是React相关文档，ES6语法都有大量使用。如果不了解其中一些语法，学习曲线就会越来越陡峭。但是要系统学习ES6，又会消耗大量时间。 在这篇博客里，我把一些常用的ES6语法做一些总结，以更快更好地理解React中的概念和用法。">
+  
+    <link rel="alternate" href="/atom.xml" title="Hansenwang&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hansenwang&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hansenwangvip.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-07-08 React项目中的高频ES6语法" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/08/2017-07-08 React项目中的高频ES6语法/" class="article-date">
+  <time datetime="2017-07-08T08:06:44.000Z" itemprop="datePublished">2017-07-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React项目中的高频ES6语法
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>在学习React过程中，注意到无论是GitHub上的Demo还是React相关文档，ES6语法都有大量使用。如果不了解其中一些语法，学习曲线就会越来越陡峭。但是要系统学习ES6，又会消耗大量时间。</p>
+<p>在这篇博客里，我把一些常用的ES6语法做一些总结，以更快更好地理解React中的概念和用法。</p>
+<a id="more"></a>
+<p>在线练习ES6的工具：<a href="http://www.es6fiddle.net" target="_blank" rel="noopener">ES6 fiddle</a></p>
+<hr>
+<h2 id="1-let-amp-const"><a href="#1-let-amp-const" class="headerlink" title="1. let &amp; const"></a>1. let &amp; const</h2><p>ES6的两个新关键字，主要是引入了块级作用域，不存在变量提升，不允许重复定义等特性，减少了ES5中很容易踩到的地雷。const用来定义常量，不允许后期修改赋值。<br>参考文档：<a href="http://es6.ruanyifeng.com/#docs/let" target="_blank" rel="noopener">阮一峰的博客</a></p>
+<h2 id="2-解构赋值"><a href="#2-解构赋值" class="headerlink" title="2.解构赋值"></a>2.解构赋值</h2><ul>
+<li>常规用法：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;x&#125; = &#123;<span class="attr">x</span>:<span class="number">1</span>, <span class="attr">y</span>:<span class="number">2</span>&#125;</span><br><span class="line"><span class="keyword">let</span> &#123; PropTypes &#125; = React</span><br></pre></td></tr></table></figure>
+<p>这里是对象的解构赋值，等同于<code>let PropTypes = React.PropTypes</code></p>
+<blockquote>
+<p>这里其实包含了两步：</p>
+<ol>
+<li>声明变量PropTypes;</li>
+<li>给其赋值为React.PropTypes。</li>
+</ol>
+</blockquote>
+<p>所以等效于这样的写法：</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let PropTypes</span><br><span class="line">&#123; PropTypes &#125; = React;</span><br></pre></td></tr></table></figure>
+</code></pre><ul>
+<li>可以同时写多个变量：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; PropTypes, Component &#125; = React;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果想定义的变量名和属性名不一样：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明x1变量，赋值为1. </span></span><br><span class="line"><span class="comment">//x是模式，不是变量也不会被赋值</span></span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">x</span> : x1 &#125; = &#123; <span class="attr">x</span>:<span class="number">1</span>, <span class="attr">y</span>:<span class="number">2</span> &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>对象， 数组， 字符串等都有解构赋值的用法。</strong></p>
+</li>
+<li><p>参考文档：<a href="http://es6.ruanyifeng.com/#docs/destructuring" target="_blank" rel="noopener">解构赋值</a></p>
+</li>
+</ul>
+<h2 id="3-对象的拓展"><a href="#3-对象的拓展" class="headerlink" title="3.对象的拓展"></a>3.对象的拓展</h2><h3 id="3-1-属性的简洁表达式"><a href="#3-1-属性的简洁表达式" class="headerlink" title="3.1 属性的简洁表达式"></a>3.1 属性的简洁表达式</h3><pre><code>let x = &apos;123&apos;;
+//等同于：let obj = { x: x, y: &apos;33}
+let obj = {x, y: &apos;33&apos; };
+</code></pre><h3 id="3-2-方法名的简写"><a href="#3-2-方法名的简写" class="headerlink" title="3.2 方法名的简写"></a>3.2 方法名的简写</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let User = &#123;</span><br><span class="line"> method ()&#123;   //等同于method: function()&#123;...&#125;</span><br><span class="line">  //...</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-3属性名表达式"><a href="#3-3属性名表达式" class="headerlink" title="3.3属性名表达式"></a>3.3属性名表达式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">let</span> key = <span class="string">'id'</span>;</span><br><span class="line">   <span class="keyword">let</span> obj = &#123;</span><br><span class="line">	    [key] : <span class="string">'1010'</span>, <span class="comment">//注意方括号</span></span><br><span class="line">	    [<span class="string">'use'</span> + <span class="string">'name'</span> ]: <span class="string">'x'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>把表达式写在 [] 中， 表达式的值作为字段名称：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">let</span> obj = &#123;</span><br><span class="line">    id : <span class="string">'1010'</span>,</span><br><span class="line">    usename: <span class="string">'x'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：属性名表达式与属性名简写不能同时使用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">let</span> key = <span class="string">'id'</span>;</span><br><span class="line">   <span class="keyword">let</span> id = <span class="string">'1010'</span>;</span><br><span class="line">   <span class="keyword">let</span> obj =&#123;</span><br><span class="line">    [key]</span><br><span class="line">&#125;  <span class="comment">//Error!</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-ES6-Class语法"><a href="#4-ES6-Class语法" class="headerlink" title="4. ES6 Class语法"></a>4. ES6 Class语法</h2><p>使用ES6语法定义一个React组件：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">		<span class="keyword">super</span>(props);</span><br><span class="line">		<span class="keyword">this</span>.state = &#123;<span class="attr">count</span>: props.initialCount&#125;;</span><br><span class="line">		<span class="keyword">this</span>.tick = <span class="keyword">this</span>.tick.bind(<span class="keyword">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	tick()&#123;</span><br><span class="line">		<span class="keyword">this</span>.setState(&#123;<span class="attr">count</span>: <span class="keyword">this</span>.state.count + <span class="number">1</span>&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">	render()&#123;</span><br><span class="line">			<span class="keyword">return</span> (</span><br><span class="line">				&lt;div onClick = &#123;<span class="keyword">this</span>.tick&#125;</span><br><span class="line">				&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">			);</span></span><br><span class="line"><span class="regexp">	&#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">Counter.propTypes = &#123; initialCount : Reart.PropTypes.number &#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">Counter.defaultProps = &#123; initialCount: 0 &#125;;</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：</p>
+<ol>
+<li>ES6的继承语法： extends关键字；</li>
+<li>各个方法使用了方法简写，如tick(){}和render(){}, 方法之间不加 “,”；</li>
+<li><code>constructor</code> 是构造函数， 可以替代getInitialState ； </li>
+<li>构造函数内需要调用父类的构造函数：<code>super(props)</code> , 否则就会报错。因为子类没有自身的<code>this</code> 对象，需要从父类继承。</li>
+<li><p><code>this.tick = this.tick.bind(this)</code>中， 使用<strong>bind</strong>来绑定执行作用域（使用React.createClass是自动绑定的), 也可以在render中监听事件的位置，使用bind(this):</p>
+ <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    &lt;div onClick= &#123;<span class="keyword">this</span>.tick.bind(<span class="keyword">this</span>)&#125;&gt;</span><br><span class="line">	      Clicks: &#123;<span class="keyword">this</span>.state.count&#125;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">	```    </span></span><br><span class="line"><span class="regexp">**官方建议统一写在constructor中，这样子该方法就只需绑定一次。**</span></span><br><span class="line"><span class="regexp">6. 除了使用bind, 还可以使用箭头函数：</span></span><br><span class="line"><span class="regexp">``` jsx</span></span><br><span class="line"><span class="regexp">	&lt;div onClick = &#123;() =&gt; this.tick()&#125;&gt;</span></span><br><span class="line"><span class="regexp">		Clicks: &#123;this.state.count&#125;</span></span><br><span class="line"><span class="regexp">	&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<blockquote>
+<p>箭头函数的特性：<br>函数体内的this就是定义是的对象， 而非调用时所在的对象。箭头函数的this指向是固定的， 而普通函数是可变的。</p>
+</blockquote>
+<h2 id="5-箭头函数"><a href="#5-箭头函数" class="headerlink" title="5. 箭头函数"></a>5. 箭头函数</h2><ul>
+<li><p>ES6允许使用 <code>=&gt;</code> 来定义函数：</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> f = <span class="function"><span class="params">v</span> =&gt;</span> v+<span class="number">2</span></span><br><span class="line"><span class="comment">//等同于</span></span><br><span class="line"><span class="keyword">let</span> f = <span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> v + <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果有多个参数：</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">let</span> f = <span class="function">(<span class="params">x ,y</span>) =&gt;</span> x + y;</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- 函数有多条语句， 用大括号包装：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span> js</span><br><span class="line">	<span class="keyword">let</span> f = <span class="function">(<span class="params">x,y</span>) =&gt;</span> &#123;</span><br><span class="line">		x = x + <span class="number">11</span>;</span><br><span class="line">		y = y + <span class="number">33</span>;</span><br><span class="line">		<span class="keyword">return</span> x + y;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>箭头函数的this指向能保持不变， 不是因为内部有绑定机制， 而是因为，<strong>箭头函数没有自己的this， 导致代码内的this就是外层代码块的this。</strong></p>
+</blockquote>
+<ul>
+<li>参考文档： <a href="#">箭头函数</a></li>
+</ul>
+<h2 id="6-export-amp-import"><a href="#6-export-amp-import" class="headerlink" title="6. export &amp; import"></a>6. export &amp; import</h2><ul>
+<li>export用于输出模块对外的接口， import用于导入其他模块提供的功能。 </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">let</span> client = <span class="string">"App"</span>	<span class="comment">//输出变量</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">mul</span>(<span class="params">x, y</span>)</span>&#123;	<span class="comment">//输出函数</span></span><br><span class="line">	<span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Toast</span>()</span>&#123;&#125;		<span class="comment">//输出类</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>也可以统一输出：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//文件名： Util.js</span></span><br><span class="line"><span class="keyword">let</span> client = <span class="string">'App'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mul</span> (<span class="params">x , y</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> &#123; client, mul &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>那么别的组件就要这样导入它：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;client, mul&#125; <span class="keyword">from</span> <span class="string">'./Util.js'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>还可以打包导入：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> U <span class="keyword">from</span> <span class="string">'./Util.js'</span></span><br><span class="line">U.client <span class="comment">//使用U</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常用的 <code>export default</code> 命令， 用于输出默认的方法， 变量或类：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> React.createClass(&#123;</span><br><span class="line">	<span class="comment">//...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>引入的时候就更方便， 可以随意指定名称：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Tab <span class="keyword">from</span> <span class="string">'tab'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参考文档：<a href="#">export&amp;import</a></p>
+</li>
+</ul>
+<h2 id="7-对象的拓展运算符-“…”"><a href="#7-对象的拓展运算符-“…”" class="headerlink" title="7. 对象的拓展运算符: “…”"></a>7. 对象的拓展运算符: “…”</h2><p>拓展运算符在Redux的示例Demo中很常见。</p>
+<ul>
+<li><p>拓展运算符可以用来合并两个对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//state = &#123; name: 'y' &#125;</span></span><br><span class="line"><span class="keyword">return</span> &#123;...state, <span class="attr">name</span>: <span class="string">'x'</span>, <span class="attr">id</span>: <span class="number">101</span> &#125;</span><br><span class="line"><span class="comment">//返回 &#123; name: 'x', id: 101 &#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>上面代码有两个过程:1.去除state对象的所有可比案例属性， 拷贝到当前对象上；</p>
+<pre><code>2.如果自定义的属性在后面， 拓展运算符的同名属性会被覆盖。
+</code></pre></blockquote>
+</li>
+<li><p>这种用法等同于 Object.assign:</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">//assign字面意思为分配</span></span><br><span class="line">	<span class="built_in">Object</span>.assign(&#123;&#125;, state, &#123;<span class="attr">name</span>: <span class="string">'x'</span>, <span class="attr">id</span>:<span class="number">101</span>&#125;)</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- 使用拓展运算符需要安装`</span>transform-object-rest-spread<span class="string">`插件， 然后在babel中配置。 配置如下：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span> js</span><br><span class="line">test: <span class="regexp">/\.js$/</span>,</span><br><span class="line">exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">loader: <span class="string">'babel'</span>,</span><br><span class="line">query:&#123;</span><br><span class="line">    presets: [<span class="string">'react'</span>, <span class="string">'es2015'</span>],</span><br><span class="line">    plugins: [<span class="string">"transform-object-rest-spread"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>参考文档：<a href="#">ES6拓展运算符</a></li>
+</ul>
+<hr>
+<p>The End.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hansenwangvip.github.io/2017/07/08/2017-07-08 React项目中的高频ES6语法/" data-id="cjpy049li003fwgs480li05br" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/22/2017-07-22 工作日志/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2017-07-22-工作日志
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/07/2017-06-07 Mac安装Sass万能方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Mac安装Sass万能方法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日志/">日志</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/">笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指南-笔记-Mac/">指南 笔记 Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日志/">日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/前端/" style="font-size: 15px;">前端</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/指南-笔记-Mac/" style="font-size: 10px;">指南 笔记 Mac</a> <a href="/tags/日志/" style="font-size: 10px;">日志</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/10/23/2017-10-23 更好用的border-box/">更好用的border-box</a>
+          </li>
+        
+          <li>
+            <a href="/2017/09/05/2017-09-05 第一次翻译MDN文档/">2017-09-05-翻译了第一篇英文文档</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/22/2017-12-03 随笔-人生哪有那么多太晚，都是懒惰和恐惧的借口罢了/">2017-12-03 日记：村上春树的文摘</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/22/2017-07-22 工作日志/">2017-07-22-工作日志</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/08/2017-07-08 React项目中的高频ES6语法/">React项目中的高频ES6语法</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Hansen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

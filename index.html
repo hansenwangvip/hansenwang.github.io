@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hansenwang&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="https://hansenwangvip.github.io/index.html">
 <meta property="og:site_name" content="Hansenwang&#39;s Blog">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hansenwangvip.github.io"></form>
       </div>
     </div>
   </div>
@@ -62,32 +62,47 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-对象排序" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-2017-10-23 更好用的border-box" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/10/27/对象排序/" class="article-date">
-  <time datetime="2018-10-27T07:55:02.000Z" itemprop="datePublished">2018-10-27</time>
+    <a href="/2017/10/23/2017-10-23 更好用的border-box/" class="article-date">
+  <time datetime="2017-10-22T16:00:00.000Z" itemprop="datePublished">2017-10-23</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/23/2017-10-23 更好用的border-box/">更好用的border-box</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<hr>
-<h1 id="对象数组排序"><a href="#对象数组排序" class="headerlink" title="对象数组排序"></a>对象数组排序</h1><hr>
-<h2 id="一、按照对象的属性排序"><a href="#一、按照对象的属性排序" class="headerlink" title="一、按照对象的属性排序"></a>一、按照对象的属性排序</h2><p>我要一个函数，传入要对比的key，就能以这个key，把对象数组进行排序。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//示例代码</span></span><br><span class="line"><span class="keyword">var</span> by = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">o, p</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> a, b;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> o === <span class="string">'object'</span> &amp;&amp; <span class="keyword">typeof</span> p === <span class="string">'object'</span> &amp;&amp; o &amp;&amp; p) &#123;</span><br><span class="line">			a = o[key];</span><br><span class="line">			b = p[key];</span><br><span class="line">			<span class="keyword">if</span> (a === b) &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (<span class="keyword">typeof</span> a === <span class="keyword">typeof</span> b) &#123;</span><br><span class="line">				<span class="keyword">return</span> a &lt; b ? <span class="number">-1</span> : <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//如果a,b所属类型不同，则按类型的英文字符排序，比如'function'排在'object'前面。</span></span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">typeof</span> a &lt; <span class="keyword">typeof</span> b ? <span class="number">-1</span> : <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">throw</span>(<span class="string">'error'</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> employees=[]</span><br><span class="line">employees[<span class="number">0</span>]=&#123;<span class="attr">name</span>:<span class="string">"George"</span>, <span class="attr">age</span>:<span class="number">32</span>, <span class="attr">retiredate</span>:<span class="string">"March 12, 2014"</span>&#125;</span><br><span class="line">employees[<span class="number">1</span>]=&#123;<span class="attr">name</span>:<span class="string">"Edward"</span>, <span class="attr">age</span>:<span class="number">17</span>, <span class="attr">retiredate</span>:<span class="string">"June 2, 2023"</span>&#125;</span><br><span class="line">employees[<span class="number">2</span>]=&#123;<span class="attr">name</span>:<span class="string">"Christine"</span>, <span class="attr">age</span>:<span class="number">58</span>, <span class="attr">retiredate</span>:<span class="string">"December 20, 2036"</span>&#125;</span><br><span class="line">employees[<span class="number">3</span>]=&#123;<span class="attr">name</span>:<span class="string">"Sarah"</span>, <span class="attr">age</span>:<span class="number">62</span>, <span class="attr">retiredate</span>:<span class="string">"April 30, 2020"</span>&#125;</span><br><span class="line"></span><br><span class="line">employees.sort(by(<span class="string">'age'</span>));</span><br><span class="line"><span class="comment">//得到根据age属性排序的数组。</span></span><br><span class="line"><span class="comment">//[&#123;name:"Edward", age:17, retiredate:"June 2, 2023"&#125;,</span></span><br><span class="line"><span class="comment">//&#123;name:"George", age:32, retiredate:"March 12, 2014"&#125;,</span></span><br><span class="line"><span class="comment">//&#123;name:"Christine", age:58, retiredate:"December 20, 2036"&#125;,</span></span><br><span class="line"><span class="comment">//&#123;name:"Sarah", age:62, retiredate:"April 30, 2020"&#125;]</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="二、高级by-函数"><a href="#二、高级by-函数" class="headerlink" title="二、高级by()函数"></a>二、高级by()函数</h2><p>当主要的键值产生一个匹配的时候，另一个compare方法（第二个参数）将被调用以决出高下。<br>举个例子，在比较两个对象的age属性时，age的值相等，现在我想要age相等的人，按照别的属性进行排序。于是我想增强<code>by()</code> ，现在我这样使用：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//注意外层by函数内有俩个参数，第二个参数就是备用的比较函数。</span><br><span class="line">employees.sort(by(&apos;age&apos;,by(&apos;name&apos;)));</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var by = function(name,minor)&#123;</span><br><span class="line">    return function(o,p)&#123;</span><br><span class="line">        var a,b;</span><br><span class="line">        if(o &amp;&amp; p &amp;&amp; typeof o === &apos;object&apos; &amp;&amp; typeof p ===&apos;object&apos;)&#123;</span><br><span class="line">            a = o[name];</span><br><span class="line">            b = p[name];</span><br><span class="line">            if(a === b)&#123;</span><br><span class="line">	            //如果前后元素相同时，用minor函数比较。</span><br><span class="line">                return typeof minor === &apos;function&apos; ? minor(o,p):0;</span><br><span class="line">            &#125;</span><br><span class="line">            if(typeof a === typeof b)&#123;</span><br><span class="line">                return a &lt;b ? -1 : 1;</span><br><span class="line">            &#125;</span><br><span class="line">            return typeof a &lt; typeof b ? -1 : 1;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            throw(&quot;error&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <p>英文原文来自CSS-tricks: <a href="https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/" target="_blank" rel="noopener">Inheriting box-sizing Probably Slightly Better Best-Practice</a></p>
+<p>我是把<code>box-sizing</code>重置为<code>border-box</code>的忠实粉丝，甚至于我们有一个“年度特别日子”。但是这里有一个细小的调整，而且看起来是个不错的思路。<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2017/10/23/2017-10-23 更好用的border-box/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/27/对象排序/" data-id="cjpxg30p70016g5s4vgfu9nij" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2017/10/23/2017-10-23 更好用的border-box/" data-id="cjpy05dgd003kwgs4r39k3ezq" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
     </footer>
   </div>
   
@@ -95,44 +110,46 @@
 
 
   
-    <article id="post-university" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-2017-09-05 第一次翻译MDN文档" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/10/27/university/" class="article-date">
-  <time datetime="2018-10-27T07:55:02.000Z" itemprop="datePublished">2018-10-27</time>
+    <a href="/2017/09/05/2017-09-05 第一次翻译MDN文档/" class="article-date">
+  <time datetime="2017-09-05T12:10:33.000Z" itemprop="datePublished">2017-09-05</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/日志/">日志</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/05/2017-09-05 第一次翻译MDN文档/">2017-09-05-翻译了第一篇英文文档</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>**</em>大学，是我的母校，她给了我很多。</p>
-<p>虽然我从一开始就不喜欢她，根本的理由就是，她并不是我的初衷。</p>
-<p>但如今，就在这个清晨，我想通了。</p>
-<p>我在学校的四年，是我与自己战斗的四年。</p>
-<ul>
-<li><p>大一，我讨厌她的破旧，我恨自己没用。于是颓废地玩了一年的游戏，这是并肩战斗，不过是在电脑上。</p>
-</li>
-<li><p>大二，我讨厌她的无聊，无聊的课程密密麻麻，无聊的老师抓得紧紧。我更加恨自己了，我好无能，我想惩罚自己。于是，我去跑步，去健身，因为只有这样才能感受到痛苦。这是向自己开战的一年。</p>
-</li>
-<li><p>大三，我讨厌她的······，我竟说不出讨厌她的什么。我白天泡图书馆，晚上去操场和健身房，心态淡然。</p>
-</li>
-<li><p>大四，为了转行，持续学习，明确目标，这又是并肩作战。</p>
-</li>
-</ul>
-<p>这四年里，我从宿舍出发，往返于教室，穿梭于图书馆，在操场绕圈，在体育馆流汗。</p>
-<p>我在狭小的空间里，逐渐找到了自我。</p>
-<p>直到今天我才意识到，原来母校一直默默注视着我。她给不了我想要的，但给了她能给我的。</p>
-<p>可我，在离校的那天，竟无情地，头也不回地走了。</p>
-<p>我想回去看望她，谢谢她。</p>
-
+        <p>9月4日翻译了MDN上的一篇英文文档，这是第一次尝试翻译，尝到了成就感.<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2017/09/05/2017-09-05 第一次翻译MDN文档/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/27/university/" data-id="cjpxg30ow0011g5s4egv0lfvl" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2017/09/05/2017-09-05 第一次翻译MDN文档/" data-id="cjpy088by004jwgs44rfpu14b" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日志/">日志</a></li></ul>
+
     </footer>
   </div>
   
@@ -140,43 +157,29 @@
 
 
   
-    <article id="post-diary-1129" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-2017-12-03 随笔-人生哪有那么多太晚，都是懒惰和恐惧的借口罢了" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/10/27/diary-1129/" class="article-date">
-  <time datetime="2018-10-27T07:55:02.000Z" itemprop="datePublished">2018-10-27</time>
+    <a href="/2017/07/22/2017-12-03 随笔-人生哪有那么多太晚，都是懒惰和恐惧的借口罢了/" class="article-date">
+  <time datetime="2017-07-22T14:38:55.000Z" itemprop="datePublished">2017-07-22</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/随笔/">随笔</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一个活动搞了一整天，卧槽！<br>结果发现是链接的协议问题，低级错误！</p>
-<p>错误总是藏在最容易忽略的地方。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/27/diary-1129/" data-id="cjpxg30os000xg5s4pyx3gnni" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
+      <header class="article-header">
+        
   
-</article>
-
-
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/22/2017-12-03 随笔-人生哪有那么多太晚，都是懒惰和恐惧的借口罢了/">2017-12-03 日记：村上春树的文摘</a>
+    </h1>
   
-    <article id="post-20171203-diary" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/27/20171203-diary/" class="article-date">
-  <time datetime="2018-10-27T07:55:02.000Z" itemprop="datePublished">2018-10-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -194,51 +197,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/27/20171203-diary/" data-id="cjpxg30of000ag5s4269or141" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2017/07/22/2017-12-03 随笔-人生哪有那么多太晚，都是懒惰和恐惧的借口罢了/" data-id="cjpy09lf6004owgs49g920zpo" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-20171215-log" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/15/20171215-log/" class="article-date">
-  <time datetime="2017-12-14T16:00:00.000Z" itemprop="datePublished">2017-12-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/15/20171215-log/">20171215开发日志</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="已完成："><a href="#已完成：" class="headerlink" title="已完成："></a>已完成：</h1><h2 id="1-刺激战场临时需求，完成。"><a href="#1-刺激战场临时需求，完成。" class="headerlink" title="1. 刺激战场临时需求，完成。"></a>1. 刺激战场临时需求，完成。</h2><p>主人态预约即给主人加一个活动货币；<br>抽奖活动条件为活动货币 &gt;= 1 ；<br>白名单用户不限制次数，非白名单只能抽一次。</p>
-<h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1><h2 id="1-拳皇命运5-0更新50-；"><a href="#1-拳皇命运5-0更新50-；" class="headerlink" title="1. 拳皇命运5.0更新50%；"></a>1. 拳皇命运5.0更新50%；</h2><p>难点：复杂的重构对接静态数据，逐个对接静态数据，预计还要半天时间；</p>
-<h2 id="2-炫舞详情页更新-0-；"><a href="#2-炫舞详情页更新-0-；" class="headerlink" title="2. 炫舞详情页更新 0%；"></a>2. 炫舞详情页更新 0%；</h2><p>重构包已拿到，暂未开发，计划在周日上午之前完成。</p>
-<h1 id="记事"><a href="#记事" class="headerlink" title="记事"></a>记事</h1><p>昨天手机摔坏了，直至今天挑了很久手机，浪费了不少时间。<br>今天下午项目组去海岸城聚餐，泰国料理，味道不错。咖喱，热带水果，海鲜，牛排，我给满分，可能是自己见识短吧，毕竟第一次吃泰国菜。<br>鹅厂今天圣诞晚会，Pony在现场，我没去。</p>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/15/20171215-log/" data-id="cjpxg30oi000fg5s40gir7eqk" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/logs/">logs</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
 
     </footer>
   </div>
@@ -247,110 +209,16 @@
 
 
   
-    <article id="post-better box-sizing" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-2017-07-22 工作日志" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/10/23/better box-sizing/" class="article-date">
-  <time datetime="2017-10-22T16:00:00.000Z" itemprop="datePublished">2017-10-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/23/better box-sizing/">更好用的border-box</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>英文原文来自CSS-tricks: <a href="https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/" target="_blank" rel="noopener">Inheriting box-sizing Probably Slightly Better Best-Practice</a></p>
-<p>我是把<code>box-sizing</code>重置为<code>border-box</code>的忠实粉丝，甚至于我们有一个“年度特别日子”。但是这里有一个细小的调整，而且看起来是个不错的思路。</p>
-<p>这是微调的版本：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   <span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line">*, *<span class="selector-pseudo">:before</span>, *<span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">	<span class="attribute">box-sizing</span>:inherit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>感谢<a href="http://blog.teamtreehouse.com/box-sizing-secret-simple-css-layouts#comment-50223" target="_blank" rel="noopener">Job Neal的继承思想</a>，他说：</p>
-<blockquote>
-<p>This will give you the same result ,and make it easier to change the box-sizing in plugins or other components that leverage other behavior.<br>这会给你同样的结果，而且使得在插件中或其他组件中更容易改变 box-sizing 的值，而不会影响别的表现。</p>
-</blockquote>
-<p>进一步解释，打个比方，你有一个组件，它本被设计为默认的<code>box-sizing</code> 为 <code>content-box</code>. 你只想要使用，又不搞砸它。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.component</span>&#123;</span><br><span class="line">	<span class="comment">/*旨在以默认的box-sizing工作*/</span></span><br><span class="line">	<span class="comment">/*在你的页面中， 你可以把它重置为normal */</span></span><br><span class="line">	<span class="attribute">box-sizing</span>: content-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>但问题是，这样实际上并不重置整个组件。也许在组件内部有一个<code>&lt;header&gt;</code>，期望它在一个<code>content-box</code>中。如果这个选择器在你的CSS中，老办法就是做一个 box-sizing <strong>reset</strong>…</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">	<span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后这个header不是你想要的<code>content-box</code>, 而是 <code>border-box</code>. 就像：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>= <span class="string">"component"</span>&gt;</span> <span class="comment">&lt;!-- I'm content box --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">header</span>&gt;</span> <span class="comment">&lt;!-- I'm border-box still&gt;</span></span><br><span class="line"><span class="comment">	&lt;/header&gt;</span></span><br><span class="line"><span class="comment">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>为了更简单直观地做到<strong>reset</strong>，你可以使用文章顶部的继承的代码段，继承的值就会被保留。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   <span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line">*, *<span class="selector-pseudo">:before</span>, *<span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">	<span class="attribute">box-sizing</span>:inherit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p>这并不是一个很庞大的东西。你可能已经在使用 box-sizing reset 的老办法，并且从没踩到这个坑。但是，只要我们推广一个“最佳实践”风格的片段，我们也可以慢慢把它变成最好的。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/10/23/better box-sizing/" data-id="cjpxg30or000ug5s4uefqpwzf" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2017-09-05-翻译日志" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/05/2017-09-05-翻译日志/" class="article-date">
-  <time datetime="2017-09-05T12:10:33.000Z" itemprop="datePublished">2017-09-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/05/2017-09-05-翻译日志/">2017-09-05-翻译了第一篇英文文档</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>9月4日翻译了MDN上的一篇英文文档，这是第一次尝试翻译，尝到了成就感.<br>
-        
-          </p><p class="article-more-link">
-            <a href="/2017/09/05/2017-09-05-翻译日志/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/05/2017-09-05-翻译日志/" data-id="cjpxg30oc0006g5s4x7ta717m" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-document-translation/">JavaScript document translation</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2017-07-22-工作日志" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/22/2017-07-22-工作日志/" class="article-date">
+    <a href="/2017/07/22/2017-07-22 工作日志/" class="article-date">
   <time datetime="2017-07-22T14:38:55.000Z" itemprop="datePublished">2017-07-22</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/日志/">日志</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -359,7 +227,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/22/2017-07-22-工作日志/">2017-07-22-工作日志</a>
+      <a class="article-title" href="/2017/07/22/2017-07-22 工作日志/">2017-07-22-工作日志</a>
     </h1>
   
 
@@ -370,17 +238,15 @@
         <p>今天是大暑，热的一逼。<br>
         
           </p><p class="article-more-link">
-            <a href="/2017/07/22/2017-07-22-工作日志/#more">Read More</a>
+            <a href="/2017/07/22/2017-07-22 工作日志/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/22/2017-07-22-工作日志/" data-id="cjpxg30nu0001g5s4ph34eoir" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2017/07/22/2017-07-22 工作日志/" data-id="cjpy04e7h003hwgs49udnth9p" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/logs/">logs</a></li></ul>
-
     </footer>
   </div>
   
@@ -388,14 +254,14 @@
 
 
   
-    <article id="post-2017-07-08-ES2015-in-react" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-2017-07-08 React项目中的高频ES6语法" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/07/08/2017-07-08-ES2015-in-react/" class="article-date">
+    <a href="/2017/07/08/2017-07-08 React项目中的高频ES6语法/" class="article-date">
   <time datetime="2017-07-08T08:06:44.000Z" itemprop="datePublished">2017-07-08</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/FrontEnd/">FrontEnd</a>
+    <a class="article-category-link" href="/categories/技术/">技术</a>
   </div>
 
   </div>
@@ -406,7 +272,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/08/2017-07-08-ES2015-in-react/">React项目中的高频ES6语法</a>
+      <a class="article-title" href="/2017/07/08/2017-07-08 React项目中的高频ES6语法/">React项目中的高频ES6语法</a>
     </h1>
   
 
@@ -419,13 +285,13 @@
 <p>在这篇博客里，我把一些常用的ES6语法做一些总结，以更快更好地理解React中的概念和用法。</p>
         
           <p class="article-more-link">
-            <a href="/2017/07/08/2017-07-08-ES2015-in-react/#more">Read More</a>
+            <a href="/2017/07/08/2017-07-08 React项目中的高频ES6语法/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/08/2017-07-08-ES2015-in-react/" data-id="cjpxg30oe0009g5s4xt7x412r" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2017/07/08/2017-07-08 React项目中的高频ES6语法/" data-id="cjpy049li003fwgs480li05br" class="article-share-link">Share</a>
       
       
     </footer>
@@ -435,14 +301,14 @@
 
 
   
-    <article id="post-Mac安装Sass万能方法" class="article article-type-post" itemscope="" itemprop="blogPost">
+    <article id="post-2017-06-07 Mac安装Sass万能方法" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/06/07/Mac安装Sass万能方法/" class="article-date">
+    <a href="/2017/06/07/2017-06-07 Mac安装Sass万能方法/" class="article-date">
   <time datetime="2017-06-06T16:00:00.000Z" itemprop="datePublished">2017-06-07</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Guide/">Guide</a>
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
   </div>
 
   </div>
@@ -453,7 +319,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/07/Mac安装Sass万能方法/">Mac安装Sass万能方法</a>
+      <a class="article-title" href="/2017/06/07/2017-06-07 Mac安装Sass万能方法/">Mac安装Sass万能方法</a>
     </h1>
   
 
@@ -464,16 +330,205 @@
         <h1 id="Mac-OSX系统下使用RVM修复安装Sass的错误"><a href="#Mac-OSX系统下使用RVM修复安装Sass的错误" class="headerlink" title="Mac OSX系统下使用RVM修复安装Sass的错误"></a>Mac OSX系统下使用RVM修复安装Sass的错误</h1><p>这个万金油方法能解决大多数的gem安装问题。</p>
         
           <p class="article-more-link">
-            <a href="/2017/06/07/Mac安装Sass万能方法/#more">Read More</a>
+            <a href="/2017/06/07/2017-06-07 Mac安装Sass万能方法/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/06/07/Mac安装Sass万能方法/" data-id="cjpxg30om000mg5s44r69r91h" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2017/06/07/2017-06-07 Mac安装Sass万能方法/" data-id="cjpy06m970045wgs4267bq07j" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指南/">指南</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指南-笔记-Mac/">指南 笔记 Mac</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2017-06-06 前端网络原理和优化" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/06/06/2017-06-06 前端网络原理和优化/" class="article-date">
+  <time datetime="2017-06-06T09:01:19.000Z" itemprop="datePublished">2017-06-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/笔记/">笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/06/2017-06-06 前端网络原理和优化/">简述网络原理和优化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？"><a href="#1-一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？" class="headerlink" title="1. 一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？"></a>1. 一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？</h1>
+        
+          <p class="article-more-link">
+            <a href="/2017/06/06/2017-06-06 前端网络原理和优化/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hansenwangvip.github.io/2017/06/06/2017-06-06 前端网络原理和优化/" data-id="cjpy03v86003awgs4sf22zjpd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2017-05-23 深入研究CSRF" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/23/2017-05-23 深入研究CSRF/" class="article-date">
+  <time datetime="2017-05-22T16:00:00.000Z" itemprop="datePublished">2017-05-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/23/2017-05-23 深入研究CSRF/">如何应对CSRF攻击</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>作为Web安全数一数二的隐患，CSRF一直让开发人员头疼。本文详细介绍了CSRF攻击的概念，危害，案例和解决方案，为网站安全优化理清思路。</p>
+        
+          <p class="article-more-link">
+            <a href="/2017/05/23/2017-05-23 深入研究CSRF/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hansenwangvip.github.io/2017/05/23/2017-05-23 深入研究CSRF/" data-id="cjpy03km90036wgs4pu8ff0fx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安全/">安全</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2017-05-07 JavaScript观察者模式的通用实现" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/07/2017-05-07 JavaScript观察者模式的通用实现/" class="article-date">
+  <time datetime="2017-05-06T16:00:00.000Z" itemprop="datePublished">2017-05-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/07/2017-05-07 JavaScript观察者模式的通用实现/">JavaScript 观察者模式的通用实现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这篇文章主要是列举代码，关于一个经典的设计模式——观察者模式，又名发布-订阅模式的通用实现。<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2017/05/07/2017-05-07 JavaScript观察者模式的通用实现/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hansenwangvip.github.io/2017/05/07/2017-05-07 JavaScript观察者模式的通用实现/" data-id="cjpy07obr004gwgs4xllalrkw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2017-05-07 JavaScript对象数组排序" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/07/2017-05-07 JavaScript对象数组排序/" class="article-date">
+  <time datetime="2017-05-06T16:00:00.000Z" itemprop="datePublished">2017-05-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/07/2017-05-07 JavaScript对象数组排序/">JavaScript对象数组排序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="对象数组排序"><a href="#对象数组排序" class="headerlink" title="对象数组排序"></a>对象数组排序</h1><hr>
+        
+          <p class="article-more-link">
+            <a href="/2017/05/07/2017-05-07 JavaScript对象数组排序/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hansenwangvip.github.io/2017/05/07/2017-05-07 JavaScript对象数组排序/" data-id="cjpy05riq003qwgs46uwhyh50" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -497,7 +552,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Code/">Code</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/">FrontEnd</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Guide/">Guide</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/日志/">日志</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/笔记/">笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul>
     </div>
   </div>
 
@@ -507,7 +562,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-document-translation/">JavaScript document translation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logs/">logs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作品集/">作品集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指南/">指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指南-笔记-Mac/">指南 笔记 Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/日志/">日志</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
     </div>
   </div>
 
@@ -517,7 +572,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Code/" style="font-size: 10px;">Code</a> <a href="/tags/JavaScript-document-translation/" style="font-size: 10px;">JavaScript document translation</a> <a href="/tags/logs/" style="font-size: 15px;">logs</a> <a href="/tags/作品集/" style="font-size: 15px;">作品集</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/指南/" style="font-size: 10px;">指南</a> <a href="/tags/笔记/" style="font-size: 20px;">笔记</a>
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/前端/" style="font-size: 15px;">前端</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/指南-笔记-Mac/" style="font-size: 10px;">指南 笔记 Mac</a> <a href="/tags/日志/" style="font-size: 10px;">日志</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
     </div>
   </div>
 
@@ -526,7 +581,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
     </div>
   </div>
 
@@ -539,23 +594,23 @@
       <ul>
         
           <li>
-            <a href="/2018/10/27/对象排序/">(no title)</a>
+            <a href="/2017/10/23/2017-10-23 更好用的border-box/">更好用的border-box</a>
           </li>
         
           <li>
-            <a href="/2018/10/27/university/">(no title)</a>
+            <a href="/2017/09/05/2017-09-05 第一次翻译MDN文档/">2017-09-05-翻译了第一篇英文文档</a>
           </li>
         
           <li>
-            <a href="/2018/10/27/diary-1129/">(no title)</a>
+            <a href="/2017/07/22/2017-12-03 随笔-人生哪有那么多太晚，都是懒惰和恐惧的借口罢了/">2017-12-03 日记：村上春树的文摘</a>
           </li>
         
           <li>
-            <a href="/2018/10/27/20171203-diary/">(no title)</a>
+            <a href="/2017/07/22/2017-07-22 工作日志/">2017-07-22-工作日志</a>
           </li>
         
           <li>
-            <a href="/2017/12/15/20171215-log/">20171215开发日志</a>
+            <a href="/2017/07/08/2017-07-08 React项目中的高频ES6语法/">React项目中的高频ES6语法</a>
           </li>
         
       </ul>
