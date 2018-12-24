@@ -7,18 +7,18 @@
   
   <title>Array.prototype.sort()的高级用法 | Hansenwang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Array.prototype.sort()一、基本操作sort()方法的默认排序顺序是根据串Unicode码点。12345678var fruit = [&amp;apos;cherries&amp;apos;, &amp;apos;apples&amp;apos;, &amp;apos;bananas&amp;apos;];fruit.sort();//[&amp;apos;apples&amp;apos;, &amp;apos;bananas&amp;apos;, &amp;a">
+  <meta name="description" content="Array.prototype.sort()一、基本操作sort()方法的默认排序顺序是根据串Unicode码点。">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Array.prototype.sort()的高级用法">
 <meta property="og:url" content="https://hansenwangvip.github.io/2018/01/28/2018-01-28 Array.prototype.sort的高级用法/index.html">
 <meta property="og:site_name" content="Hansenwang&#39;s Blog">
-<meta property="og:description" content="Array.prototype.sort()一、基本操作sort()方法的默认排序顺序是根据串Unicode码点。12345678var fruit = [&amp;apos;cherries&amp;apos;, &amp;apos;apples&amp;apos;, &amp;apos;bananas&amp;apos;];fruit.sort();//[&amp;apos;apples&amp;apos;, &amp;apos;bananas&amp;apos;, &amp;a">
+<meta property="og:description" content="Array.prototype.sort()一、基本操作sort()方法的默认排序顺序是根据串Unicode码点。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-24T07:46:14.643Z">
+<meta property="og:updated_time" content="2018-12-24T08:03:50.237Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Array.prototype.sort()的高级用法">
-<meta name="twitter:description" content="Array.prototype.sort()一、基本操作sort()方法的默认排序顺序是根据串Unicode码点。12345678var fruit = [&amp;apos;cherries&amp;apos;, &amp;apos;apples&amp;apos;, &amp;apos;bananas&amp;apos;];fruit.sort();//[&amp;apos;apples&amp;apos;, &amp;apos;bananas&amp;apos;, &amp;a">
+<meta name="twitter:description" content="Array.prototype.sort()一、基本操作sort()方法的默认排序顺序是根据串Unicode码点。">
   
     <link rel="alternate" href="/atom.xml" title="Hansenwang&#39;s Blog" type="application/atom+xml">
   
@@ -91,7 +91,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Array-prototype-sort"><a href="#Array-prototype-sort" class="headerlink" title="Array.prototype.sort()"></a>Array.prototype.sort()</h1><h2 id="一、基本操作"><a href="#一、基本操作" class="headerlink" title="一、基本操作"></a>一、基本操作</h2><p><code>sort()</code>方法的默认排序顺序是根据串Unicode码点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var fruit = [&apos;cherries&apos;, &apos;apples&apos;, &apos;bananas&apos;];</span><br><span class="line">fruit.sort();</span><br><span class="line">//[&apos;apples&apos;, &apos;bananas&apos;, &apos;cherries&apos;]</span><br><span class="line"></span><br><span class="line">var scores = [1, 10, 21, 2];</span><br><span class="line">scores.sort();</span><br><span class="line">//[1, 10, 2, 21]</span><br><span class="line">//这里的10竟然在2之前，因为在Unicode指针顺序中 &apos;10&apos; 在 &apos;2&apos; 之前。</span><br></pre></td></tr></table></figure></p>
+        <h1 id="Array-prototype-sort"><a href="#Array-prototype-sort" class="headerlink" title="Array.prototype.sort()"></a>Array.prototype.sort()</h1><h2 id="一、基本操作"><a href="#一、基本操作" class="headerlink" title="一、基本操作"></a>一、基本操作</h2><p><code>sort()</code>方法的默认排序顺序是根据串Unicode码点。<br><a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var fruit = [&apos;cherries&apos;, &apos;apples&apos;, &apos;bananas&apos;];</span><br><span class="line">fruit.sort();</span><br><span class="line">//[&apos;apples&apos;, &apos;bananas&apos;, &apos;cherries&apos;]</span><br><span class="line"></span><br><span class="line">var scores = [1, 10, 21, 2];</span><br><span class="line">scores.sort();</span><br><span class="line">//[1, 10, 2, 21]</span><br><span class="line">//这里的10竟然在2之前，因为在Unicode指针顺序中 &apos;10&apos; 在 &apos;2&apos; 之前。</span><br></pre></td></tr></table></figure>
 <h2 id="二、进阶操作（compareFunction）"><a href="#二、进阶操作（compareFunction）" class="headerlink" title="二、进阶操作（compareFunction）"></a>二、进阶操作（compareFunction）</h2><p>这时我们需要一个比较函数，来得到我们所需要的排序。<br>如果指明了<code>compareFunction</code>,那么数组会按照调用<strong>该函数的返回值</strong>排序。即a和b是两个将要被比较的元素：</p>
 <h3 id="2-0-字符串排序"><a href="#2-0-字符串排序" class="headerlink" title="2.0 字符串排序"></a>2.0 字符串排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var str_arr = [&apos;cherries&apos;, &apos;apples&apos;, &apos;bananas&apos;];</span><br><span class="line">function compareStr(a, b)&#123;</span><br><span class="line">	if(a&lt;b)&#123;</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;</span><br><span class="line">	if(a&gt;b)&#123;</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line">str_arr.sort(compareStr);</span><br><span class="line">// [&apos;apples&apos;, &apos;bananas&apos;, &apos;cherries&apos;]</span><br></pre></td></tr></table></figure>
 <h3 id="2-1-数字排序"><a href="#2-1-数字排序" class="headerlink" title="2.1 数字排序"></a>2.1 数字排序</h3><ul>
@@ -112,7 +113,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hansenwangvip.github.io/2018/01/28/2018-01-28 Array.prototype.sort的高级用法/" data-id="cjq217p1j000x4hs4jtw9hw7f" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2018/01/28/2018-01-28 Array.prototype.sort的高级用法/" data-id="cjq21c5n8000wi7s4v2lgb56a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -196,11 +197,11 @@
           </li>
         
           <li>
-            <a href="/2017/07/22/2017-07-22 工作日志/">2017-07-22-工作日志</a>
+            <a href="/2017/07/22/2017-12-03 随笔-人生哪有那么多太晚，都是懒惰和恐惧的借口罢了/">2017-12-03 日记：村上春树的文摘</a>
           </li>
         
           <li>
-            <a href="/2017/07/22/2017-12-03 随笔-人生哪有那么多太晚，都是懒惰和恐惧的借口罢了/">2017-12-03 日记：村上春树的文摘</a>
+            <a href="/2017/07/22/2017-07-22 工作日志/">2017-07-22-工作日志</a>
           </li>
         
       </ul>
