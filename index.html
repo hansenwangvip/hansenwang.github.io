@@ -62,6 +62,65 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2018-01-28 Array.prototype.sort的高级用法" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/28/2018-01-28 Array.prototype.sort的高级用法/" class="article-date">
+  <time datetime="2018-01-27T16:00:00.000Z" itemprop="datePublished">2018-01-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/技术/">技术</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/28/2018-01-28 Array.prototype.sort的高级用法/">Array.prototype.sort()的高级用法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Array-prototype-sort"><a href="#Array-prototype-sort" class="headerlink" title="Array.prototype.sort()"></a>Array.prototype.sort()</h1><h2 id="一、基本操作"><a href="#一、基本操作" class="headerlink" title="一、基本操作"></a>一、基本操作</h2><p><code>sort()</code>方法的默认排序顺序是根据串Unicode码点。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var fruit = [&apos;cherries&apos;, &apos;apples&apos;, &apos;bananas&apos;];</span><br><span class="line">fruit.sort();</span><br><span class="line">//[&apos;apples&apos;, &apos;bananas&apos;, &apos;cherries&apos;]</span><br><span class="line"></span><br><span class="line">var scores = [1, 10, 21, 2];</span><br><span class="line">scores.sort();</span><br><span class="line">//[1, 10, 2, 21]</span><br><span class="line">//这里的10竟然在2之前，因为在Unicode指针顺序中 &apos;10&apos; 在 &apos;2&apos; 之前。</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、进阶操作（compareFunction）"><a href="#二、进阶操作（compareFunction）" class="headerlink" title="二、进阶操作（compareFunction）"></a>二、进阶操作（compareFunction）</h2><p>这时我们需要一个比较函数，来得到我们所需要的排序。<br>如果指明了<code>compareFunction</code>,那么数组会按照调用<strong>该函数的返回值</strong>排序。即a和b是两个将要被比较的元素：</p>
+<h3 id="2-0-字符串排序"><a href="#2-0-字符串排序" class="headerlink" title="2.0 字符串排序"></a>2.0 字符串排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var str_arr = [&apos;cherries&apos;, &apos;apples&apos;, &apos;bananas&apos;];</span><br><span class="line">function compareStr(a, b)&#123;</span><br><span class="line">	if(a&lt;b)&#123;</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;</span><br><span class="line">	if(a&gt;b)&#123;</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line">str_arr.sort(compareStr);</span><br><span class="line">// [&apos;apples&apos;, &apos;bananas&apos;, &apos;cherries&apos;]</span><br></pre></td></tr></table></figure>
+<h3 id="2-1-数字排序"><a href="#2-1-数字排序" class="headerlink" title="2.1 数字排序"></a>2.1 数字排序</h3><ul>
+<li>如果compareFunction(a, b)小于0，那么a会排到b之前；</li>
+<li>如果compareFunction(a, b)等于0 ,  那么位置不变；</li>
+<li>如果compareFunction(a, b)大于0，那么b会排到a之前；<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function compareNumbers(a, b)&#123;</span><br><span class="line">	return a - b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var numbers = [4, 2, 5, 1, 3];</span><br><span class="line">numbers.sort(function(a, b)&#123;</span><br><span class="line">	return a - b;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(numbers);</span><br><span class="line"></span><br><span class="line">//也可以写成：</span><br><span class="line">var numbers = [4, 2, 5, 1, 3];</span><br><span class="line">numbers.sort((a, b) =&gt; a - b);</span><br><span class="line">console.log(numbers);</span><br><span class="line"></span><br><span class="line">//输出：[1, 2, 3, 4, 5]</span><br><span class="line">``` </span><br><span class="line">### 2.2 对象按照某个属性排序</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>var items = [<br>  { name: ‘Edward’, value: 21 },<br>  { name: ‘Sharpe’, value: 37 },<br>  { name: ‘And’, value: 45 },<br>  { name: ‘The’, value: -12 },<br>  { name: ‘Magnetic’ },<br>  { name: ‘Zeros’, value: 37 }<br>];</p>
+<p>//按value值排序<br>items.sort(function (a,b){<br>    return (a,.value - b.value)<br>});</p>
+<p>//按name值排序<br>items.sort(function(a, b){<br>    var nameA = a.name.toUpperCase();<br>    var nameB = b.name.toUpperCase();<br>    if(nameA &lt; nameB){<br>        return -1;<br>    }<br>    if(nameA &gt; nameB){<br>        return 1;<br>    }<br>    return 0;<br>});<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 三、高级操作：使用映射改善排序</span><br><span class="line">`compareFunction`可能需要对元素做多次映射以实现排序，尤其当compareFunction较为复杂，且元素较多的时候，某些compareFunction 可能会导致很高的负载。使用map辅助排序将会是个好主意。</span><br><span class="line"></span><br><span class="line">基本思想是首先将数组中的每个元素比较的实际值取出来，排序后再将数组恢复。</span><br></pre></td></tr></table></figure></p>
+<p>// 需要被排序的数组<br>var list = [‘Delta’, ‘alpha’, ‘CHARLIE’, ‘bravo’];</p>
+<p>// 对需要排序的数字和位置的临时存储, mapped为临时容器<br>var mapped = list.map(function(el, i) {<br>  return { index: i, value: el.toLowerCase() };<br>})</p>
+<p>// 按照多个值排序数组<br>mapped.sort(function(a, b) {<br>  return +(a.value &gt; b.value) || +(a.value === b.value) - 1;<br>});</p>
+<p>// 根据索引得到排序的结果<br>var result = mapped.map(function(el){<br>  return list[el.index];<br>});<br>//result : [“alpha”, “bravo”, “CHARLIE”, “Delta”]<br><code>`</code></p>
+<p><br><br><br><br><br><br><br><br><br><br><br></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hansenwangvip.github.io/2018/01/28/2018-01-28 Array.prototype.sort的高级用法/" data-id="cjq20v1o0000jwss4wbz33w51" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2017-10-23 更好用的border-box" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/10/23/2017-10-23 更好用的border-box/" class="article-date">
@@ -98,7 +157,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hansenwangvip.github.io/2017/10/23/2017-10-23 更好用的border-box/" data-id="cjpy05dgd003kwgs4r39k3ezq" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2017/10/23/2017-10-23 更好用的border-box/" data-id="cjq20v1o4000qwss4y6zjujwp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -145,7 +204,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hansenwangvip.github.io/2017/09/05/2017-09-05 第一次翻译MDN文档/" data-id="cjpy088by004jwgs44rfpu14b" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2017/09/05/2017-09-05 第一次翻译MDN文档/" data-id="cjq20v1o8000uwss4xngsaz08" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/日志/">日志</a></li></ul>
@@ -197,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hansenwangvip.github.io/2017/07/22/2017-12-03 随笔-人生哪有那么多太晚，都是懒惰和恐惧的借口罢了/" data-id="cjpy09lf6004owgs49g920zpo" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2017/07/22/2017-12-03 随笔-人生哪有那么多太晚，都是懒惰和恐惧的借口罢了/" data-id="cjq20v1ob000xwss4hm0uv307" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
@@ -244,7 +303,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hansenwangvip.github.io/2017/07/22/2017-07-22 工作日志/" data-id="cjpy04e7h003hwgs49udnth9p" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2017/07/22/2017-07-22 工作日志/" data-id="cjq20v1o2000nwss4lcmsplv8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -291,7 +350,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hansenwangvip.github.io/2017/07/08/2017-07-08 React项目中的高频ES6语法/" data-id="cjpy049li003fwgs480li05br" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2017/07/08/2017-07-08 React项目中的高频ES6语法/" data-id="cjq20v1nx000hwss4x4zp3o6n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -336,7 +395,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hansenwangvip.github.io/2017/06/07/2017-06-07 Mac安装Sass万能方法/" data-id="cjpy06m970045wgs4267bq07j" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2017/06/07/2017-06-07 Mac安装Sass万能方法/" data-id="cjq20v1nl0005wss4x919brzb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/指南-笔记-Mac/">指南 笔记 Mac</a></li></ul>
@@ -383,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hansenwangvip.github.io/2017/06/06/2017-06-06 前端网络原理和优化/" data-id="cjpy03v86003awgs4sf22zjpd" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2017/06/06/2017-06-06 前端网络原理和优化/" data-id="cjq20v1nv000cwss4ez7mc4eq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
@@ -431,7 +490,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hansenwangvip.github.io/2017/05/23/2017-05-23 深入研究CSRF/" data-id="cjpy03km90036wgs4pu8ff0fx" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2017/05/23/2017-05-23 深入研究CSRF/" data-id="cjq20v1nt000awss4acsduhgn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/安全/">安全</a></li></ul>
@@ -478,57 +537,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hansenwangvip.github.io/2017/05/07/2017-05-07 JavaScript观察者模式的通用实现/" data-id="cjpy07obr004gwgs4xllalrkw" class="article-share-link">Share</a>
+      <a data-url="https://hansenwangvip.github.io/2017/05/07/2017-05-07 JavaScript观察者模式的通用实现/" data-id="cjq20v1nb0001wss40y4330bg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2017-05-07 JavaScript对象数组排序" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/07/2017-05-07 JavaScript对象数组排序/" class="article-date">
-  <time datetime="2017-05-06T16:00:00.000Z" itemprop="datePublished">2017-05-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/技术/">技术</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/07/2017-05-07 JavaScript对象数组排序/">JavaScript对象数组排序</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="对象数组排序"><a href="#对象数组排序" class="headerlink" title="对象数组排序"></a>对象数组排序</h1><hr>
-        
-          <p class="article-more-link">
-            <a href="/2017/05/07/2017-05-07 JavaScript对象数组排序/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://hansenwangvip.github.io/2017/05/07/2017-05-07 JavaScript对象数组排序/" data-id="cjpy05riq003qwgs46uwhyh50" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -581,7 +593,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
     </div>
   </div>
 
@@ -592,6 +604,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/01/28/2018-01-28 Array.prototype.sort的高级用法/">Array.prototype.sort()的高级用法</a>
+          </li>
         
           <li>
             <a href="/2017/10/23/2017-10-23 更好用的border-box/">更好用的border-box</a>
@@ -607,10 +623,6 @@
         
           <li>
             <a href="/2017/07/22/2017-07-22 工作日志/">2017-07-22-工作日志</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/08/2017-07-08 React项目中的高频ES6语法/">React项目中的高频ES6语法</a>
           </li>
         
       </ul>
