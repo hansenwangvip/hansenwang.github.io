@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>2017-09-05-翻译了第一篇英文文档 | Hansenwang&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="9月4日翻译了MDN上的一篇英文文档，这是第一次尝试翻译，尝到了成就感.">
+<meta name="keywords" content="JavaScript document translation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2017-09-05-翻译了第一篇英文文档">
+<meta property="og:url" content="http://yoursite.com/2017/09/05/2017-09-05-翻译日志/index.html">
+<meta property="og:site_name" content="Hansenwang&#39;s Blog">
+<meta property="og:description" content="9月4日翻译了MDN上的一篇英文文档，这是第一次尝试翻译，尝到了成就感.">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-27T07:55:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2017-09-05-翻译了第一篇英文文档">
+<meta name="twitter:description" content="9月4日翻译了MDN上的一篇英文文档，这是第一次尝试翻译，尝到了成就感.">
+  
+    <link rel="alternate" href="/atom.xml" title="Hansenwang&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hansenwang&#39;s Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2017-09-05-翻译日志" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/05/2017-09-05-翻译日志/" class="article-date">
+  <time datetime="2017-09-05T12:10:33.000Z" itemprop="datePublished">2017-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2017-09-05-翻译了第一篇英文文档
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>9月4日翻译了MDN上的一篇英文文档，这是第一次尝试翻译，尝到了成就感.<br><a id="more"></a></p>
+<p>MDN是Web开发者的参考文档的官方网站——<a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener">MDN Web 文档</a>，有大量开发者不断贡献和更新文档和教程。</p>
+<h2 id="做了什么"><a href="#做了什么" class="headerlink" title="做了什么"></a>做了什么</h2><p>最近，在对JavaScript中this关键字的细节整理中，查阅MDN的中文文档，有些语句翻译的不错，但是还是存在部分疏漏。</p>
+<p>仔细一番MDN的一些中文文档，少数文档的部分语句有明显的语义和内容上的毛病。</p>
+<p>索性去看英文文档，豁然开朗，遂决定更新中文翻译文档。</p>
+<p>在9月4日翻译了MDN上JavaScript的this关键字的英文文档：<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="noopener">原版英文文档</a>。</p>
+<ol>
+<li>保留了部分原有翻译，纠正了大部分语义措辞漏洞，并更新了关于箭头函数的this指向。</li>
+<li>部分语句参考了谷歌翻译，我承认谷歌翻译真的很NB。</li>
+</ol>
+<h2 id="有什么总结"><a href="#有什么总结" class="headerlink" title="有什么总结"></a>有什么总结</h2><ol>
+<li>要彻底弄懂this的机制，首先你要准备好面向对象的基础，理解OOP的重要概念：<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript" target="_blank" rel="noopener">JavaScript面向对象编程</a></li>
+</ul>
+</li>
+<li>然后记住，this是一个变量，它是一个指针，指向一个对象。再看我的文档:<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/this" target="_blank" rel="noopener">this关键字</a></li>
+</ul>
+</li>
+<li>在过程中看不懂时，及时查阅相关API的文档:<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">箭头函数</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="noopener">Function.prototype.call()</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply" target="_blank" rel="noopener">Function.prototype.apply()</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="noopener">Function.prototype.bind()</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="写在结尾"><a href="#写在结尾" class="headerlink" title="写在结尾"></a>写在结尾</h2><p>在英文文档末尾的参考链接，有一篇写得非常精彩的博客：<br><a href="https://rainsoft.io/gentle-explanation-of-this-in-javascript/" target="_blank" rel="noopener">Gentle-explanation-of-this-in-JavaScript, 温和解释JS中的this</a></p>
+<p>计划在不久将来，我会挤出时间认真翻译这篇英文博客。</p>
+<p>The end.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/09/05/2017-09-05-翻译日志/" data-id="cjpxg30oc0006g5s4x7ta717m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript-document-translation/">JavaScript document translation</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/10/23/better box-sizing/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          更好用的border-box
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/22/2017-07-22-工作日志/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2017-07-22-工作日志</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Code/">Code</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/FrontEnd/">FrontEnd</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Guide/">Guide</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notes/">Notes</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code/">Code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript-document-translation/">JavaScript document translation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/logs/">logs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作品集/">作品集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/安全/">安全</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/指南/">指南</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Code/" style="font-size: 10px;">Code</a> <a href="/tags/JavaScript-document-translation/" style="font-size: 10px;">JavaScript document translation</a> <a href="/tags/logs/" style="font-size: 15px;">logs</a> <a href="/tags/作品集/" style="font-size: 15px;">作品集</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/指南/" style="font-size: 10px;">指南</a> <a href="/tags/笔记/" style="font-size: 20px;">笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/10/27/对象排序/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/27/university/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/27/diary-1129/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/27/20171203-diary/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/15/20171215-log/">20171215开发日志</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Hansen<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
