@@ -1,6 +1,6 @@
 language: node_js
 node_js: 
-  - 8.9.0
+  - 8.9.1
 
 # Travis-CI Caching
 cache:
@@ -9,7 +9,7 @@ cache:
 
 
 before_script:
-  # - npm install -g hexo-cli
+  - npm install -g hexo-cli
 
 
 install:
@@ -17,17 +17,15 @@ install:
 
 
 script:
-  - hexo g
+  - hexo clean
+  - hexo generate
   
 # 设置git提交名，邮箱；替换真实token到_config.yml文件，最后depoy部署
 after_script:
-  - cd ./public
-  - git init
   - git config user.name "hansenwangvip"
   - git config user.email "hansenwangvip@gmail.com"
-  - git add .
-  - git commit -m "Update docs"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+  - sed -i "s/gh_token/${GH_TOKEN}/g" ./_config.yml
+  - hexo deploy
 
 
 branches:
