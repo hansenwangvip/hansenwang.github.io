@@ -9,7 +9,7 @@ cache:
 
 
 before_script:
-  - npm install -g hexo-cli
+  # - npm install -g hexo-cli
 
 
 install:
@@ -17,16 +17,17 @@ install:
 
 
 script:
-  - hexo clean
-  - hexo generate
-
+  - hexo g
+  
 # 设置git提交名，邮箱；替换真实token到_config.yml文件，最后depoy部署
 after_script:
+  - cd ./public
+  - git init
   - git config user.name "hansenwangvip"
   - git config user.email "hansenwangvip@gmail.com"
-  # 替换同目录下的_config.yml文件中github_token字符串为travis后台刚才配置的变量，注>意此处sed命令用了双引号。单引号无效！
-  - sed -i "s/github_token/${GH_TOKEN}/g" ./_config.yml
-  - hexo deploy
+  - git add .
+  - git commit -m "Update docs"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
 
 
 branches:
