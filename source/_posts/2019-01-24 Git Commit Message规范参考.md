@@ -8,11 +8,13 @@ date: 2019-01-24
 
 update: 2019-01-24
 
-tags: 规范 Git 团队协作 软件工程
+tags: ['规范', 'Git', '软件工程']
 
 ---
 
 > 注：在Git协作模式的团队中，Commit Message的规范对版本控制起着很重要的作用。本文引用自团队内部的规范，分享出来，一是为了贡献社区，二是为了加深印象。
+
+<!-- more -->
 
 ## Commit Message规范
 
@@ -117,5 +119,5 @@ fix(详情页): 修复展开活动的sid为string的bug
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NzIyNTgzNjldfQ==
+eyJoaXN0b3J5IjpbNTM2Nzc2MTU5XX0=
 -->
