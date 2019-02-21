@@ -13,9 +13,7 @@ tags: ['TravisCI, 'HEXO', 'Git', '自动化']
 正在写作中
 
 # 已完成测试
-遗留问题：
-- 在stackedit中编辑后，发布到GitHub repo，文件提交成功了，但是没有自己账户的提交记录。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgzMDkzNTA5MCw1Mjg0Mjg1MDMsMTA5OD
-I2NjUwMiwxODIyNTUzMzY4XX0=
+eyJoaXN0b3J5IjpbNjg3NjU3MzcyLDE4MzA5MzUwOTAsNTI4ND
+I4NTAzLDEwOTgyNjY1MDIsMTgyMjU1MzM2OF19
 -->
