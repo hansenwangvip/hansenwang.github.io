@@ -3,15 +3,9 @@ node_js: stable
 
 dist: xenial
 
-# Travis-CI Caching
-cache:
-  directories:
-    - node_modules
-
-
 before_install: 
   - export TZ='Asia/Shanghai' #配置时区为东八区UTC+8
-  - npm install hexo-cli # 安装 hexo
+  - npm install hexo-cli -g # 安装 hexo
 #  - sudo apt-get install libpng16-dev # 安装 libpng16-dev CI编译出现相关报错时请取消注释
 
 install:
