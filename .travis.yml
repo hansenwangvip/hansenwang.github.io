@@ -9,10 +9,6 @@ cache:
     - node_modules
 
 
-before_script:
-  # - npm install -g hexo-cli
-
-
 before_install: 
   - export TZ='Asia/Shanghai' #配置时区为东八区UTC+8
   - npm install hexo-cli # 安装 hexo
@@ -25,20 +21,14 @@ script: # 执行脚本，清除缓存，生成静态文件
   - hexo clean
   - hexo generate
 
-# 设置git提交名，邮箱；替换真实token到_config.yml文件，最后depoy部署
-after_script:
-  - cd ./public
-  - git init
-  - git config user.name "hansenwang"
-  - git config user.email "whs123717@gmail.com"
-  - git add .
-  - git commit -m "Update docs with Travis CI."
-  - git push --force "https://${GH_TOKEN}@${GH_REF}" master:master
-
-
-branches:
-  only:
-    - hexo
-env:
- global:
-   - GH_REF: github.com/hansenwangvip/hansenwangvip.github.io.git
+deploy:
+  provider: pages
+  skip_cleanup: true # 跳过清理
+  local_dir: public # 需要推送到Github的静态文件目录 
+  name: $GIT_NAME # 用户名变量
+  email: $GIT_EMAIL # 用户邮箱变量
+  github_token: $GH_TOKEN # GitHub Token变量
+  keep-history: true # 保持推送记录，以增量提交的方式
+  target-branch: master # 推送的目标分支 local_dir->>master分支
+  on:
+    branch: hexo # 工作分支
