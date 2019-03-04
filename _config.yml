@@ -4,10 +4,10 @@
 
 # Site
 title: Hansenwang's Blog
-subtitle: 
-description: 
+subtitle:
+description:
 author: Hansen
-language: zh-Hans
+language: zh-CN
 timezone:
 
 # URL
@@ -27,7 +27,7 @@ code_dir: downloads/code
 i18n_dir: :lang
 
 # 忽略渲染的文件
-skip_render: 
+skip_render:
   - "**.html"
   - imgs/**
   - demo/img/**
@@ -82,4 +82,4 @@ deploy:
   type: git
   repo: git@github.com:hansenwangvip/hansenwang.github.io.git
   branch: master
-  message: "更新网站于: {{ now('YYYY-MM-DD HH:mm:ss') }}"
+  message: "更新网站于: {{ now('YYYY-MM-DD HH:mm:ss') }} with hexo deploy."
