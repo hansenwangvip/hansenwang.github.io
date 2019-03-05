@@ -13,7 +13,9 @@ tags: [ 'Git', '技巧' ]
 ---
 
 # 痛点
-
+在Hexo和Travis结合的过程中，遇到了submodule的问题。
+HEXO中，我使用了NexT主题，该主题的一些功能，需要依赖一些子组件，也就是直接clone一些repo到主题的目录下。
+但是Git会默认为我安装de
 
 > 参考链接 https://stackoverflow.com/questions/1759587/un-submodule-a-git-submodule
 
@@ -29,5 +31,5 @@ git commit -m "remove submodule"
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjYzOTY4MDhdfQ==
+eyJoaXN0b3J5IjpbLTI5MjQzOTE1XX0=
 -->
