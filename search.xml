@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[如何忽略一个submodule?]]></title>
     <url>%2F2019%2F03%2F05%2F2019-03-05%20%E5%A6%82%E4%BD%95%E5%9C%A8%E4%BD%A0%E7%9A%84Git%E4%BB%93%E5%BA%93%E4%B8%AD%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AAsubmodule%3F%2F</url>
-    <content type="text"><![CDATA[痛点在Hexo和Travis结合的过程中，遇到了submodule的问题。HEXO中，我使用了NexT主题，该主题的一些功能，需要依赖一些子组件，也就是直接clone一些repo到主题的目录下。但是Git会默认为我安装de 参考链接 https://stackoverflow.com/questions/1759587/un-submodule-a-git-submodule 123456git rm --cached submodule_path # delete reference to submodule HEAD (no trailing slash)git rm .gitmodules # if you have more than one submodules, # you need to edit this file instead of deleting!rm -rf submodule_path/.git # make sure you have backup!!git add submodule_path # will add files instead of commit referencegit commit -m "remove submodule" Written with StackEdit.]]></content>
+    <content type="text"><![CDATA[痛点在Hexo和Travis结合的过程中，遇到了submodule的问题。HEXO中，我使用了NexT主题，该主题的一些功能，需要依赖一些插件，也就是直接clone一些repo到主题的目录下。比如加载进度的pace插件，移动设备的fastclick插件。但是clone之后，Git会默认为我安装的插件是一个submodule，submodule 参考链接 https://stackoverflow.com/questions/1759587/un-submodule-a-git-submodule 123456git rm --cached submodule_path # delete reference to submodule HEAD (no trailing slash)git rm .gitmodules # if you have more than one submodules, # you need to edit this file instead of deleting!rm -rf submodule_path/.git # make sure you have backup!!git add submodule_path # will add files instead of commit referencegit commit -m "remove submodule" Written with StackEdit.]]></content>
       <categories>
         <category>技术</category>
       </categories>
