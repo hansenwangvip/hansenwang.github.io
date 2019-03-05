@@ -1,6 +1,6 @@
 ---
 
-title: 如何忽略一个submodule?
+title: Git tips] 如何忽略一个submodule?
 
 categories: 技术
 
@@ -45,5 +45,5 @@ git commit -m "remove submodule"
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5MDYwNTE4NF19
+eyJoaXN0b3J5IjpbLTE4MDkzNjc5NzcsMTI5MDYwNTE4NF19
 -->
