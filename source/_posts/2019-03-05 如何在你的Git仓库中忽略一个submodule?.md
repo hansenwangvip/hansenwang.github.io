@@ -12,7 +12,7 @@ tags: [ 'Git', '技巧' ]
 
 ---
 
-# 痛点
+## 痛点
 在Hexo和Travis结合的过程中，遇到了submodule的问题。
 HEXO中，我使用了NexT主题，该主题的一些功能，需要依赖一些插件，也就是直接clone一些repo到主题的目录下。比如加载进度的pace插件，移动设备的fastclick插件。
 但是clone之后，Git会默认为我安装的插件是一个submodule，submodule在一个repo中，是不会被track的，也就是它不会以文件形式存在于repo中。Git这样设计就是为了尽量减小repo的体积，以及更灵活地控制依赖。
@@ -23,7 +23,7 @@ TravisCI在构建时，submodule里的文件不存在，在CI中无法构建，�
 
 要么在构建时报错，要么生成的页面是空白的。
 
-# 解药
+## 解药
 直接忽略一个submodule，使用几行命令即可解脱这个痛点。
 所有submodule的文件都要成为整个repo的一部分。
 
@@ -37,13 +37,13 @@ git commit -m "remove submodule"
 
 ```
 
-# 参考链接
+## 参考链接
 
 
 > StackOverflow的解答 https://stackoverflow.com/questions/1759587/un-submodule-a-git-submodule
-> Git submodule的概念和命令
+> [Git submodule的概念和命令](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDYzNjEyNzBdfQ==
+eyJoaXN0b3J5IjpbMTI5MDYwNTE4NF19
 -->
