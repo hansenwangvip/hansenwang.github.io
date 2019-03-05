@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
+    <title><![CDATA[如何忽略一个submodule?]]></title>
     <url>%2F2019%2F03%2F05%2F2019-03-05%20%E5%A6%82%E4%BD%95%E5%9C%A8%E4%BD%A0%E7%9A%84Git%E4%BB%93%E5%BA%93%E4%B8%AD%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AAsubmodule%3F%2F</url>
-    <content type="text"><![CDATA[https://stackoverflow.com/questions/1759587/un-submodule-a-git-submodule ` Written with StackEdit.]]></content>
+    <content type="text"><![CDATA[痛点 参考链接 https://stackoverflow.com/questions/1759587/un-submodule-a-git-submodule 123456git rm --cached submodule_path # delete reference to submodule HEAD (no trailing slash)git rm .gitmodules # if you have more than one submodules, # you need to edit this file instead of deleting!rm -rf submodule_path/.git # make sure you have backup!!git add submodule_path # will add files instead of commit referencegit commit -m "remove submodule" Written with StackEdit.]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>技巧</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Git Commit Message规范参考]]></title>
