@@ -621,7 +621,7 @@ gitalk:
   client_id: 1fcc3a44e106a8fc79eb  # Github Application Client ID
   client_secret: 905b13003ed8849e456df884eca6707a4e40a108  # Github Application Client Secret
   admin_user: hansenwangvip # GitHub repo owner and collaborators, only these guys can initialize github issues
-  distraction_free_mode: true # Facebook-like distraction free mode
+  distraction_free_mode: false # Facebook-like distraction free mode
 
 # Baidu Share
 # Available values: button | slide
@@ -643,16 +643,16 @@ gitalk:
 # Weibo,Wechat,Douban,QQZone,Twitter,Linkedin,Mailto,Reddit,Delicious,StumbleUpon,Pinterest,Facebook,GooglePlus,
 # Slashdot,Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru
 needmoreshare2:
-  enable: false
+  enable: true
   postbottom:
-    enable: false
+    enable: true
     options:
       iconStyle: box
       boxForm: horizontal
       position: bottomCenter
       networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
   float:
-    enable: false
+    enable: true
     options:
       iconStyle: box
       boxForm: horizontal
