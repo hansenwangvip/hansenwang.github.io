@@ -19,7 +19,13 @@ HEXO中，我使用了NexT主题，该主题的一些功能，需要依赖一些
 
 但是冲突就来了。
 
-TravisCI在构建时，su'b
+TravisCI在构建时，submodule里的文件不存在，在CI中无法构建，我的博客静态页面生成不了。
+
+要么在构建时报错，要么生成的页面是空白的。
+
+# 解药
+直接忽略一个submodule，使用几行命令即可解脱这个痛点。
+所有su'b'mo'du'l
 
 > 参考链接 https://stackoverflow.com/questions/1759587/un-submodule-a-git-submodule
 
@@ -35,5 +41,5 @@ git commit -m "remove submodule"
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg2NjkyNTAwXX0=
+eyJoaXN0b3J5IjpbMTE5MDA5MTgyNl19
 -->
