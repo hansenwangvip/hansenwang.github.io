@@ -107,18 +107,18 @@
 
 
 
-  <meta name="description" content="痛点在Hexo和Travis结合的过程中，遇到了submodule的问题。HEXO中，我使用了NexT主题，该主题的一些功能，需要依赖一些插件，也就是直接clone一些repo到主题的目录下。比如加载进度的pace插件，移动设备的fastclick插件。但是clone之后，Git会默认为我安装的插件是一个submodule，submodule  参考链接 https://stackoverflow">
+  <meta name="description" content="痛点在Hexo和Travis结合的过程中，遇到了submodule的问题。HEXO中，我使用了NexT主题，该主题的一些功能，需要依赖一些插件，也就是直接clone一些repo到主题的目录下。比如加载进度的pace插件，移动设备的fastclick插件。但是clone之后，Git会默认为我安装的插件是一个submodule，submodule在一个repo中，是不会被track的，也就是它不会以文">
 <meta name="keywords" content="Git,技巧">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何忽略一个submodule?">
 <meta property="og:url" content="https://hansenwangvip.github.io/2019/03/05/2019-03-05 如何在你的Git仓库中忽略一个submodule">
 <meta property="og:site_name" content="Hansenwang&#39;s Blog">
-<meta property="og:description" content="痛点在Hexo和Travis结合的过程中，遇到了submodule的问题。HEXO中，我使用了NexT主题，该主题的一些功能，需要依赖一些插件，也就是直接clone一些repo到主题的目录下。比如加载进度的pace插件，移动设备的fastclick插件。但是clone之后，Git会默认为我安装的插件是一个submodule，submodule  参考链接 https://stackoverflow">
+<meta property="og:description" content="痛点在Hexo和Travis结合的过程中，遇到了submodule的问题。HEXO中，我使用了NexT主题，该主题的一些功能，需要依赖一些插件，也就是直接clone一些repo到主题的目录下。比如加载进度的pace插件，移动设备的fastclick插件。但是clone之后，Git会默认为我安装的插件是一个submodule，submodule在一个repo中，是不会被track的，也就是它不会以文">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-05T15:38:36.024Z">
+<meta property="og:updated_time" content="2019-03-05T15:40:19.753Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何忽略一个submodule?">
-<meta name="twitter:description" content="痛点在Hexo和Travis结合的过程中，遇到了submodule的问题。HEXO中，我使用了NexT主题，该主题的一些功能，需要依赖一些插件，也就是直接clone一些repo到主题的目录下。比如加载进度的pace插件，移动设备的fastclick插件。但是clone之后，Git会默认为我安装的插件是一个submodule，submodule  参考链接 https://stackoverflow">
+<meta name="twitter:description" content="痛点在Hexo和Travis结合的过程中，遇到了submodule的问题。HEXO中，我使用了NexT主题，该主题的一些功能，需要依赖一些插件，也就是直接clone一些repo到主题的目录下。比如加载进度的pace插件，移动设备的fastclick插件。但是clone之后，Git会默认为我安装的插件是一个submodule，submodule在一个repo中，是不会被track的，也就是它不会以文">
 
 
 
@@ -374,7 +374,7 @@
                 
               
 
-              <time title="创建时间：2019-03-05 00:00:00 / 修改时间：23:38:36" itemprop="dateCreated datePublished" datetime="2019-03-05T00:00:00+08:00">2019-03-05</time>
+              <time title="创建时间：2019-03-05 00:00:00 / 修改时间：23:40:19" itemprop="dateCreated datePublished" datetime="2019-03-05T00:00:00+08:00">2019-03-05</time>
             
 
             
@@ -451,14 +451,16 @@
       
 
       
-        <h1 id="痛点"><a href="#痛点" class="headerlink" title="痛点"></a>痛点</h1><p>在Hexo和Travis结合的过程中，遇到了submodule的问题。<br>HEXO中，我使用了NexT主题，该主题的一些功能，需要依赖一些插件，也就是直接clone一些repo到主题的目录下。比如加载进度的pace插件，移动设备的fastclick插件。<br>但是clone之后，Git会默认为我安装的插件是一个submodule，submodule</p>
+        <h1 id="痛点"><a href="#痛点" class="headerlink" title="痛点"></a>痛点</h1><p>在Hexo和Travis结合的过程中，遇到了submodule的问题。<br>HEXO中，我使用了NexT主题，该主题的一些功能，需要依赖一些插件，也就是直接clone一些repo到主题的目录下。比如加载进度的pace插件，移动设备的fastclick插件。<br>但是clone之后，Git会默认为我安装的插件是一个submodule，submodule在一个repo中，是不会被track的，也就是它不会以文件形式存在于repo中。Git这样设计就是为了尽量减小repo的体积，以及更灵活地控制依赖。</p>
+<p>但是冲突就来了。</p>
+<p>TravisCI在构建时，su’b</p>
 <blockquote>
 <p>参考链接 <a href="https://stackoverflow.com/questions/1759587/un-submodule-a-git-submodule" target="_blank" rel="noopener">https://stackoverflow.com/questions/1759587/un-submodule-a-git-submodule</a></p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git rm --cached submodule_path <span class="comment"># delete reference to submodule HEAD (no trailing slash)</span></span><br><span class="line">git rm .gitmodules             <span class="comment"># if you have more than one submodules,</span></span><br><span class="line">                               <span class="comment"># you need to edit this file instead of deleting!</span></span><br><span class="line">rm -rf submodule_path/.git     <span class="comment"># make sure you have backup!!</span></span><br><span class="line">git add submodule_path         <span class="comment"># will add files instead of commit reference</span></span><br><span class="line">git commit -m <span class="string">"remove submodule"</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Written with <a href="https://stackedit.io/" target="_blank" rel="noopener">StackEdit</a>.<br><!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxOTk3NTg5MF19
+eyJoaXN0b3J5IjpbLTg2NjkyNTAwXX0=
 --></p>
 </blockquote>
 
