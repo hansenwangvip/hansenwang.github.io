@@ -73,13 +73,13 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: theme-next
+theme: next
 
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:hansenwangvip/hansenwang.github.io.git
+  repo: git@github.com:hansenwangvip/hansenwangvip.github.io.git
   branch: master
   message: "更新网站于: {{ now('YYYY-MM-DD HH:mm:ss') }} with hexo deploy."
