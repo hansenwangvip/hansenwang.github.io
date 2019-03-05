@@ -22,6 +22,10 @@
 <meta name="theme-color" content="#222">
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -104,7 +108,7 @@
 <meta property="og:site_name" content="Hansenwang&#39;s Blog">
 <meta property="og:description" content="注：在Git协作模式的团队中，Commit Message的规范对版本控制起着很重要的作用。本文引用自团队内部的规范，分享出来，一是为了贡献社区，二是为了加深印象。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-05T06:30:48.560Z">
+<meta property="og:updated_time" content="2019-03-05T13:45:18.176Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git Commit Message规范参考">
 <meta name="twitter:description" content="注：在Git协作模式的团队中，Commit Message的规范对版本控制起着很重要的作用。本文引用自团队内部的规范，分享出来，一是为了贡献社区，二是为了加深印象。">
@@ -349,7 +353,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-05 14:30:48" itemprop="dateModified" datetime="2019-03-05T14:30:48+08:00">2019-03-05</time>
+                <time title="修改时间：2019-03-05 21:45:18" itemprop="dateModified" datetime="2019-03-05T21:45:18+08:00">2019-03-05</time>
               
             
           </span>
@@ -492,6 +496,26 @@ eyJoaXN0b3J5IjpbNTM2Nzc2MTU5XX0=
 
       
       
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+          </div>
+        
+        </div>
+      
       
 
       
@@ -527,6 +551,10 @@ eyJoaXN0b3J5IjpbNTM2Nzc2MTU5XX0=
 
           </div>
           
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
 
   
 
@@ -738,6 +766,12 @@ eyJoaXN0b3J5IjpbNTM2Nzc2MTU5XX0=
     
 
     
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
 
     
 
@@ -824,6 +858,32 @@ eyJoaXN0b3J5IjpbNTM2Nzc2MTU5XX0=
 
 
   
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: '1fcc3a44e106a8fc79eb',
+    clientSecret: '905b13003ed8849e456df884eca6707a4e40a108',
+    repo: 'hansenwangvip.github.io',
+    owner: 'hansenwangvip',
+    admin: ['hansenwangvip'],
+    id: md5(location.pathname),
+    distractionFreeMode: 'false'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
 
 
   
@@ -844,6 +904,38 @@ eyJoaXN0b3J5IjpbNTM2Nzc2MTU5XX0=
   
 
   
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "box";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+        flOptions.iconStyle = "box";
+      
+        flOptions.boxForm = "horizontal";
+      
+        flOptions.position = "middleRight";
+      
+        flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
 
   
 
