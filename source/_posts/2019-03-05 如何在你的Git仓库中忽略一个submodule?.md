@@ -25,9 +25,7 @@ TravisCI在构建时，submodule里的文件不存在，在CI中无法构建，�
 
 # 解药
 直接忽略一个submodule，使用几行命令即可解脱这个痛点。
-所有su'b'mo'du'l
-
-> 参考链接 https://stackoverflow.com/questions/1759587/un-submodule-a-git-submodule
+所有submodule的文件都要成为整个repo的一部分。
 
 ``` bash
 git rm --cached submodule_path # delete reference to submodule HEAD (no trailing slash)
@@ -39,7 +37,13 @@ git commit -m "remove submodule"
 
 ```
 
+# 参考链接
+
+
+> StackOverflow的解答 https://stackoverflow.com/questions/1759587/un-submodule-a-git-submodule
+> Git submodule的概念和命令
+
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE5MDA5MTgyNl19
+eyJoaXN0b3J5IjpbLTEyMDYzNjEyNzBdfQ==
 -->
