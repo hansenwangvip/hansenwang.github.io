@@ -68,6 +68,6 @@
   }
 
   document.onclick = init;
-  document.ontouchstart = init;
+//   document.ontouchstart = init;
   init();
 }();

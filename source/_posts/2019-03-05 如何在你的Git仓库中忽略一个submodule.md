@@ -1,20 +1,17 @@
 ---
 
-title: [Git tips] 如何忽略一个submodule?
-
+title: Git-如何忽略一个submodule
 categories: 技术
-
 date: 2019-03-05
-
 update: 2019-03-05
-
 tags: [ 'Git', '技巧' ]
 
 ---
 
 ## 痛点
 在Hexo和Travis搭配的过程中，遇到了submodule的问题。
-<!--more-->
+
+<!-- more -->
 
 HEXO中，我使用了NexT主题，该主题的一些功能，需要依赖一些插件，也就是直接clone一些repo到主题的目录下。比如加载进度的pace插件，移动设备的fastclick插件。
 但是clone之后，Git会默认为我安装的插件是一个submodule，submodule在一个repo中，是不会被track的，也就是它不会以文件形式存在于repo中。Git这样设计就是为了尽量减小repo的体积，以及更灵活地控制依赖。
