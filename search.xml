@@ -2,8 +2,13 @@
 <search>
   <entry>
     <title></title>
-    <url>%2F2019%2F03%2F26%2F2019-03-14%20web%E5%AE%89%E5%85%A8%E6%89%8B%E5%86%8C%EF%BC%9AOWASP%20-%20%E5%BC%80%E6%94%BE%E5%BC%8Fweb%E7%A8%8B%E5%BA%8F%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%2F</url>
+    <url>%2F2019%2F03%2F27%2F2019-03-14%20web%E5%AE%89%E5%85%A8%E6%89%8B%E5%86%8C%EF%BC%9AOWASP%20-%20%E5%BC%80%E6%94%BE%E5%BC%8Fweb%E7%A8%8B%E5%BA%8F%E5%AE%89%E5%85%A8%E9%A1%B9%E7%9B%AE%2F</url>
     <content type="text"><![CDATA[title: web安全手册（一）：资源收集 categories: 技术 date: 2019-03-14 update: 2019-03-14 tags: [ ‘技术’, ‘安全’, ‘收藏夹’ ] OWASPOWASP 全称:# The Open Web Application Security Project中文名称：开放式Web应用程序安全项目wikipedia介绍：https://zh.wikipedia.org/wiki/OWASPOWASP的官网：https://www.owasp.org/index.php/Main_Page 简单介绍：开放式Web应用程序安全项目（OWASP）是一个在线社区，在 Web应用程序安全性领域 提供免费的文章，方法，文档，工具和技术。 OWASP在github开源了很多项目，这是它的organization：https://github.com/OWASP 包括一些很完善的项目： CheatSheetSeries 这个表列出了几乎所有的网络安全漏洞以及防范指南，不必去各大论坛看良莠不齐的文章了，认真阅读这个仓库，就会有很大的收获。如果它没有中文翻译的话，我希望参与翻译。 The Mobile Security Testing Guide (MSTG) The Mobile Security Testing Guide (MSTG) is a comprehensive manual for mobile app security testing and reverse engineering. 移动安全测试指南，是一个面向移动APP测试和反向工程的全能指南。]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2019%2F03%2F27%2F2019-03-27%20%E5%BF%AB%E9%80%9F%E5%AD%A6%E4%B9%A0%E7%9A%84%E8%AF%80%E7%AA%8D%EF%BC%9A%E8%BE%93%E5%87%BA%2F</url>
+    <content type="text"><![CDATA[学习是一项输入的过程。 我们四处收集信息，然后经过大脑的理解和记忆，输入到大脑皮层，存储在神经元]]></content>
   </entry>
   <entry>
     <title><![CDATA[我的网站收藏夹]]></title>
