@@ -1,5 +1,3 @@
-
-
 ---
 
 title: web安全手册（一）：资源收集
@@ -17,6 +15,8 @@ tags: [ '技术', ‘安全’, '收藏夹' ]
 # OWASP
 OWASP 全称:# The Open Web Application Security Project
 中文名称：开放式Web应用程序安全项目
+<!-- more -->
+
 wikipedia介绍：https://zh.wikipedia.org/wiki/OWASP
 OWASP的官网：https://www.owasp.org/index.php/Main_Page
 
@@ -33,5 +33,5 @@ OWASP在github开源了很多项目，这是它的organization：https://github.
 	移动安全测试指南，是一个面向移动APP测试和反向工程的全能指南。
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYyMDM5Mjc3MF19
+eyJoaXN0b3J5IjpbMTQ4MzUzNjg1OCwtNjIwMzkyNzcwXX0=
 -->
