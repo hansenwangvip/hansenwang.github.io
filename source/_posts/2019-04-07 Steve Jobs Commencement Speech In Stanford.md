@@ -4,11 +4,11 @@ title: Steve Jobs Commencement Speech In Stanford
 
 categories: 随笔
 
-date: 2019-04-07
+date: 2019-04-05
 
 update: 2019-04-07
 
-tags: [ '收藏夹' ]
+tags: [ '随笔', '文摘', '演讲' ]
 
 ---
 
@@ -205,5 +205,5 @@ Thank you all very much.
 演讲报告原文：[https://news.stanford.edu/2005/06/14/jobs-061505/](https://news.stanford.edu/2005/06/14/jobs-061505/)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzQ0ODE1MDRdfQ==
+eyJoaXN0b3J5IjpbLTEyNDI1ODk3OF19
 -->
