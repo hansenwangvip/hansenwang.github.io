@@ -1,9 +1,11 @@
 ---
+
 title: 笔记：JavaScript事件处理
 categories: 技术
 date: 2017-01-27
 update: 8
 tags: [JavaScript,前端]
+
 ---
 
 
@@ -373,3 +375,6 @@ ele.attachEvent("onclick", doSomething2);
 在写的时候翻阅《JS权威指南》，里面有更深入的细节，有一部分事件类型已经被HTML5标准化。
 
 后续再补充。^_^
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTc1NzgxMDY4MF19
+-->
