@@ -105,17 +105,17 @@
 
 
 
-  <meta name="description" content="title: LeetCode in JavaScript (1): Two Sumdate: 2019-05-19categories: 算法tags: [算法, LeetCode]keywords: 算法 性能 LeetCodedescription: LeetCode的第一个题目，Two Sum。 LeetCode JavaScript (1): Two Sum 直达链接：https://l">
+  <meta name="description" content="title: LeetCode in JavaScript (1): Two Sumdate: 2019-05-19categories: 算法tags: [算法, LeetCode]keywords: 算法 性能 LeetCode JavaScriptdescription: LeetCode的第一个题目，Two Sum。 LeetCode JavaScript (1): Two Sum 直达链">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hansenwang&#39;s Blog">
 <meta property="og:url" content="https://hansenwangvip.github.io/2019/05/19/2019-05-19 leetcode-js-1-two-sum/index.html">
 <meta property="og:site_name" content="Hansenwang&#39;s Blog">
-<meta property="og:description" content="title: LeetCode in JavaScript (1): Two Sumdate: 2019-05-19categories: 算法tags: [算法, LeetCode]keywords: 算法 性能 LeetCodedescription: LeetCode的第一个题目，Two Sum。 LeetCode JavaScript (1): Two Sum 直达链接：https://l">
+<meta property="og:description" content="title: LeetCode in JavaScript (1): Two Sumdate: 2019-05-19categories: 算法tags: [算法, LeetCode]keywords: 算法 性能 LeetCode JavaScriptdescription: LeetCode的第一个题目，Two Sum。 LeetCode JavaScript (1): Two Sum 直达链">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-19T13:19:29.163Z">
+<meta property="og:updated_time" content="2019-05-19T13:21:04.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hansenwang&#39;s Blog">
-<meta name="twitter:description" content="title: LeetCode in JavaScript (1): Two Sumdate: 2019-05-19categories: 算法tags: [算法, LeetCode]keywords: 算法 性能 LeetCodedescription: LeetCode的第一个题目，Two Sum。 LeetCode JavaScript (1): Two Sum 直达链接：https://l">
+<meta name="twitter:description" content="title: LeetCode in JavaScript (1): Two Sumdate: 2019-05-19categories: 算法tags: [算法, LeetCode]keywords: 算法 性能 LeetCode JavaScriptdescription: LeetCode的第一个题目，Two Sum。 LeetCode JavaScript (1): Two Sum 直达链">
 
 
 
@@ -371,7 +371,7 @@
                 
               
 
-              <time title="创建时间：2019-05-19 21:19:29" itemprop="dateCreated datePublished" datetime="2019-05-19T21:19:29+08:00">2019-05-19</time>
+              <time title="创建时间：2019-05-19 21:21:04" itemprop="dateCreated datePublished" datetime="2019-05-19T21:21:04+08:00">2019-05-19</time>
             
 
             
@@ -426,7 +426,7 @@
       
 
       
-        <p>title: LeetCode in JavaScript (1): Two Sum<br>date: 2019-05-19<br>categories: 算法<br>tags: [算法, LeetCode]<br>keywords: 算法 性能 LeetCode<br>description: LeetCode的第一个题目，Two Sum。</p>
+        <p>title: LeetCode in JavaScript (1): Two Sum<br>date: 2019-05-19<br>categories: 算法<br>tags: [算法, LeetCode]<br>keywords: 算法 性能 LeetCode JavaScript<br>description: LeetCode的第一个题目，Two Sum。</p>
 <h1 id="LeetCode-JavaScript-1-Two-Sum"><a href="#LeetCode-JavaScript-1-Two-Sum" class="headerlink" title="LeetCode JavaScript (1): Two Sum"></a>LeetCode JavaScript (1): Two Sum</h1><blockquote>
 <p><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">直达链接：https://leetcode.com/problems/two-sum/</a></p>
 </blockquote>
@@ -447,7 +447,7 @@
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; target</span></span><br><span class="line"><span class="comment"> * @return &#123;number[]&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">twoSum</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = nums.length;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> hash = &#123;&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">        <span class="keyword">let</span> j = target - nums[i]; <span class="comment">// hash table 要找的值</span></span><br><span class="line">        <span class="keyword">if</span>(hash[j] !== <span class="literal">undefined</span>)&#123; <span class="comment">// hash table里面有这个值，说明这个数组中存在匹配nums[i]的另一个数nums[j]</span></span><br><span class="line">            <span class="keyword">return</span> [i, hash[j]];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            hash[nums[i]] = i <span class="comment">// hash table没有这个值,就先把它加入哈希表中，缓存。</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1MDY1ODg3MV19
+eyJoaXN0b3J5IjpbMTkzODU5MTQzNF19
 -->
       
     </div>
