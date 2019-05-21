@@ -1,3 +1,5 @@
+---
+
 title: LeetCode in JavaScript (1): Two Sum
 date: 2019-05-19
 categories: 算法
@@ -5,6 +7,7 @@ tags: [算法, LeetCode]
 keywords: 算法 性能 LeetCode JavaScript
 description: LeetCode的第一个题目，Two Sum。
 
+---
 
 
 # LeetCode JavaScript (1): Two Sum
@@ -80,5 +83,5 @@ function twoSum(nums, target) {
 };
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkzODU5MTQzNF19
+eyJoaXN0b3J5IjpbLTY2MTkxNDg2OCwxOTM4NTkxNDM0XX0=
 -->
