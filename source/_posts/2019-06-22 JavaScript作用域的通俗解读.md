@@ -16,6 +16,8 @@
 
 这篇文章将正面解决问题，概述上下文和作用域的定义，检查两个允许我们修改上下文的JavaScript方法，并深入探讨我遇到的百分之九十的问题的有效解决方案。
 
+<!--more-->
+
 ## 我在哪里？你是谁？
 
 JavaScript程序的每一部分都在一个执行上下文中执行。你可以把这些上下文当作你的代码的邻居，告诉每一行代码它从哪来，还有它有哪些朋友和邻居。事实证明，这是重要的信息，因为JavaScript社会对谁可以与谁联系有着相当严格的规则；执行上下文更多地被认为是封闭社区，而不是开放式小区。
@@ -178,5 +180,5 @@ multiply.call(second_object, 5); // returns 24 * 5
 未完待续... 
 下一篇：《JavaScript作用域的通俗解读 （下篇）》
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjExMjk5NzYzXX0=
+eyJoaXN0b3J5IjpbLTc2OTgxNjI1NSw2MTEyOTk3NjNdfQ==
 -->
