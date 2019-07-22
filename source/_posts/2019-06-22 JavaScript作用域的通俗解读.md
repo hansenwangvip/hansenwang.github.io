@@ -1,3 +1,14 @@
+
+---
+
+title: 【译文】JavaScript作用域的通俗解读
+categories: 技术
+date: 2019-06-22
+tags: [技术，翻译，JS]
+
+---
+
+
 > 原文：[http://www.digital-web.com/articles/scope_in_javascript/](http://www.digital-web.com/articles/scope_in_javascript/)
 原文发表于2006年11月11日。
 译文发表于2019年6月22日。
@@ -180,5 +191,6 @@ multiply.call(second_object, 5); // returns 24 * 5
 未完待续... 
 下一篇：《JavaScript作用域的通俗解读 （下篇）》
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2OTgxNjI1NSw2MTEyOTk3NjNdfQ==
+eyJoaXN0b3J5IjpbMzMwNjA2MDY5LC03Njk4MTYyNTUsNjExMj
+k5NzYzXX0=
 -->
