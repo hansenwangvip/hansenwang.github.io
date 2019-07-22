@@ -11,6 +11,8 @@ tags: [JavaScript,前端]
 
 ## JavaScript --- 事件处理：
 
+<!--more-->
+
 ### 笔记摘要
 > 参考书籍：
 > 《Modern JavaScript》(Larry Ullman 著);
@@ -376,5 +378,5 @@ ele.attachEvent("onclick", doSomething2);
 
 后续再补充。^_^
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1NzgxMDY4MF19
+eyJoaXN0b3J5IjpbMjk0MTU3NTgyLDE3NTc4MTA2ODBdfQ==
 -->
