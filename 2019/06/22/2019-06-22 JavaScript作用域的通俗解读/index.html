@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="Hansenwang&#39;s Blog">
 <meta property="og:description" content="原文：http://www.digital-web.com/articles/scope_in_javascript/原文发表于2006年11月11日。译文发表于2019年6月22日。   译注单词表： - Scope : 作用域 - Context：上下文 - Scope Chain：作用域链 - Execution context: 执行上下文   JavaScript作用域的通俗解读 （上">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-22T16:32:03.043Z">
+<meta property="og:updated_time" content="2019-07-23T08:02:08.287Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【译文】JavaScript作用域的通俗解读">
 <meta name="twitter:description" content="原文：http://www.digital-web.com/articles/scope_in_javascript/原文发表于2006年11月11日。译文发表于2019年6月22日。   译注单词表： - Scope : 作用域 - Context：上下文 - Scope Chain：作用域链 - Execution context: 执行上下文   JavaScript作用域的通俗解读 （上">
@@ -389,7 +389,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-23 00:32:03" itemprop="dateModified" datetime="2019-07-23T00:32:03+08:00">2019-07-23</time>
+                <time title="修改时间：2019-07-23 16:02:08" itemprop="dateModified" datetime="2019-07-23T16:02:08+08:00">2019-07-23</time>
               
             
           </span>
@@ -473,8 +473,8 @@
 </code></pre></blockquote>
 <hr>
 <h1 id="JavaScript作用域的通俗解读-（上篇）"><a href="#JavaScript作用域的通俗解读-（上篇）" class="headerlink" title="JavaScript作用域的通俗解读 （上篇）"></a>JavaScript作用域的通俗解读 （上篇）</h1><p>作用域是JavaScript语言的基础概念之一，也可能是我在编写复杂程序时最挣扎的一个概念。我已数不清多少次，在函数间传递控制时，丢失了<code>this</code>关键字的指向。我也经常发现自己经常以各种令人困惑的方式扭曲自己的代码，试图在我理解哪些变量可以访问哪些地方的时候，保留一些外观上的理智。</p>
-<p>这篇文章将正面解决问题，概述上下文和作用域的定义，检查两个允许我们修改上下文的JavaScript方法，并深入探讨我遇到的百分之九十的问题的有效解决方案。</p>
 <a id="more"></a>
+<p>这篇文章将正面解决问题，概述上下文和作用域的定义，检查两个允许我们修改上下文的JavaScript方法，并深入探讨我遇到的百分之九十的问题的有效解决方案。</p>
 <h2 id="我在哪里？你是谁？"><a href="#我在哪里？你是谁？" class="headerlink" title="我在哪里？你是谁？"></a>我在哪里？你是谁？</h2><p>JavaScript程序的每一部分都在一个执行上下文中执行。你可以把这些上下文当作你的代码的邻居，告诉每一行代码它从哪来，还有它有哪些朋友和邻居。事实证明，这是重要的信息，因为JavaScript社会对谁可以与谁联系有着相当严格的规则；执行上下文更多地被认为是封闭社区，而不是开放式小区。</p>
 <blockquote>
 <p>译注：封闭社区(gated communities): 一个通过大门控制交通和人流进出的住宅区。</p>
@@ -516,8 +516,8 @@
 <h2 id="使用-apply-和-call-修改上下文"><a href="#使用-apply-和-call-修改上下文" class="headerlink" title="使用.apply() 和 .call()修改上下文"></a>使用<code>.apply()</code> 和 <code>.call()</code>修改上下文</h2><p>我们很想在点击按钮的时候向<code>deep_thought</code>提一个问题，并且更一般地说，我们希望能够在响应事件和setTimeout调用之类的事情时在其本地上下文中调用对象方法。两个鲜为人知的JavaScript方法，<code>apply()</code>和<code>call()</code>，通过允许我们在执行函数调用时手动覆盖this的值，来间接启用这个功能。我们先来看<code>call</code>:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> first_object = &#123;  </span><br><span class="line">	num: <span class="number">42</span>  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="keyword">var</span> second_object = &#123;  </span><br><span class="line">	num: <span class="number">24</span>  </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">multiply</span>(<span class="params">mult</span>) </span>&#123;  </span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.num * mult;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">multiply.call(first_object, <span class="number">5</span>); <span class="comment">// returns 42 * 5  </span></span><br><span class="line">multiply.call(second_object, <span class="number">5</span>); <span class="comment">// returns 24 * 5</span></span><br></pre></td></tr></table></figure></p>
 <hr>
 <p>未完待续…<br>下一篇：《JavaScript作用域的通俗解读 （下篇）》<br><!--stackedit_data:
-eyJoaXN0b3J5IjpbMzMwNjA2MDY5LC03Njk4MTYyNTUsNjExMj
-k5NzYzXX0=
+eyJoaXN0b3J5IjpbLTEzMzU5OTUzNywtNzY5ODE2MjU1LDYxMT
+I5OTc2M119
 --></p>
 
       
@@ -575,8 +575,8 @@ k5NzYzXX0=
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/19/2019-04-19 《知识就是力量》如何做一个受欢迎的人？/" rel="next" title="《如何做一个受欢迎的人？》">
-                <i class="fa fa-chevron-left"></i> 《如何做一个受欢迎的人？》
+              <a href="/2019/04/19/2019-04-19 《知识就是力量》如何做一个受欢迎的人？/" rel="next" title="如何做一个受欢迎的人？">
+                <i class="fa fa-chevron-left"></i> 如何做一个受欢迎的人？
               </a>
             
           </div>
