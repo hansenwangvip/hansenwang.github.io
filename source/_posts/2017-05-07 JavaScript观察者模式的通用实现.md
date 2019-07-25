@@ -1,8 +1,10 @@
 ---
+
 title: JavaScript 观察者模式的通用实现
 categories: 技术
 date: 2017-05-07
 tags: JavaScript
+
 ---
 
 这篇文章主要是列举代码，关于一个经典的设计模式——观察者模式，又名发布-订阅模式的通用实现。
@@ -72,3 +74,6 @@ salesOffices.trigger('squareMeter88',2000000);	//输出："88平方米的价格=
 salesOffices.trigger('squareMeter110',3000000);	//输出："110平方米的价格=3000000"	
 
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTY1NjY3NTEyNF19
+-->
