@@ -1,9 +1,9 @@
 ---
 
-title: 【译文】JavaScript作用域的通俗解读
+title: 译文JavaScript作用域的通俗解读
 categories: 技术
 date: 2019-06-22
-tags: [技术，翻译，JS]
+tags: [技术,翻译,JS]
 
 --- 
 
@@ -187,6 +187,6 @@ multiply.call(second_object, 5); // returns 24 * 5
 未完待续... 
 下一篇：《JavaScript作用域的通俗解读 （下篇）》
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2NTY5NTc0MCwtMTM1NTM0NjY0NiwxNj
-UzMTE5MDE4LC03Njk4MTYyNTUsNjExMjk5NzYzXX0=
+eyJoaXN0b3J5IjpbLTU2ODA5MjMxLC0xMzU1MzQ2NjQ2LDE2NT
+MxMTkwMTgsLTc2OTgxNjI1NSw2MTEyOTk3NjNdfQ==
 -->
