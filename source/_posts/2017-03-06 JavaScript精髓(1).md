@@ -4,7 +4,7 @@ title: JavaScript精髓(1)
 categories: 技术
 date: 2017-03-06 
 update: 2017-07-11
-tags: [JavaScript 技术
+tags: [JavaScript,技术]
 
 ---
 
@@ -194,5 +194,5 @@ tags: [JavaScript 技术
 ----------
 To be continue。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5OTk4Mjk3N119
+eyJoaXN0b3J5IjpbODA3NzAxODM2XX0=
 -->
