@@ -1,9 +1,11 @@
 ---
+
 title: JavaScript精髓(2)
 categories: 技术
 date: 2017-03-07 
 update: 2017-07-11
 tags: JavaScript
+
 ---
 
 这篇博客延续上一篇[JavaScript精髓(1)](#)，继续总结JavaScript语言的核心特性和思想精髓。
@@ -156,3 +158,6 @@ markyun.Event = {
 		
 } //End
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE3MDgzMDU0MDddfQ==
+-->
