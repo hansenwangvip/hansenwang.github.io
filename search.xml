@@ -98,6 +98,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[写博客的意义]]></title>
+    <url>%2F2019%2F01%2F01%2F2019-07-25%20%E9%9A%8F%E7%AC%94%EF%BC%9A%E5%86%99%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%84%8F%E4%B9%89%2F</url>
+    <content type="text"><![CDATA[摘要：为什么我觉得写博客是一个好习惯？写博客的意义在哪里？ 思考：写博客的意义Hexo是一个简洁，高效的静态博客工具，在使用它的两年时间里，我养成了持续写作的习惯。 在写作的过程中，我思考，博客的意义在哪里？ 我们技术宅喜欢折腾各种工具，各种软件，往往忽略了折腾的本质是什么。 折腾静态博客，比如Hexo，你可以说是为了脱离各个平台的限制，为了更高效地创作，为了省下ECS的钱。 但是本质都是为了更舒服地创作。脱离了这个本质的努力，都是浅尝辄止的浪费时间罢了。 类比生活和工作，工作的目的是为了更好地生活，生活是目的，工作是手段。很多人在二者关系上没有领悟，于是陷入加班和贫困的恶性循环中。 而我写博客的初衷，在于记录生活，沉淀知识，学会思考和写作。这是一个过程和习惯，而不是目的和手段。 写博客，让人平静，让思想深邃，让生活更美好。 这就是博客的意义。 感谢阅读，祝您生活愉快！The End.]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Array.prototype.sort()的高级用法]]></title>
     <url>%2F2018%2F01%2F28%2F2018-01-28%20Array.prototype.sort%E7%9A%84%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95%2F</url>
     <content type="text"><![CDATA[Array.prototype.sort()一、基本操作sort()方法的默认排序顺序是根据串Unicode码点。 12345678var fruit = [&apos;cherries&apos;, &apos;apples&apos;, &apos;bananas&apos;];fruit.sort();//[&apos;apples&apos;, &apos;bananas&apos;, &apos;cherries&apos;]var scores = [1, 10, 21, 2];scores.sort();//[1, 10, 2, 21]//这里的10竟然在2之前，因为在Unicode指针顺序中 &apos;10&apos; 在 &apos;2&apos; 之前。 二、进阶操作（compareFunction）这时我们需要一个比较函数，来得到我们所需要的排序。如果指明了compareFunction,那么数组会按照调用该函数的返回值排序。即a和b是两个将要被比较的元素： 2.0 字符串排序123456789101112var str_arr = [&apos;cherries&apos;, &apos;apples&apos;, &apos;bananas&apos;];function compareStr(a, b)&#123; if(a&lt;b)&#123; return -1; &#125; if(a&gt;b)&#123; return 1; &#125; return 0;&#125;str_arr.sort(compareStr);// [&apos;apples&apos;, &apos;bananas&apos;, &apos;cherries&apos;] 2.1 数字排序 如果compareFunction(a, b)小于0，那么a会排到b之前； 如果compareFunction(a, b)等于0 , 那么位置不变； 如果compareFunction(a, b)大于0，那么b会排到a之前；12345678910111213141516function compareNumbers(a, b)&#123; return a - b;&#125;var numbers = [4, 2, 5, 1, 3];numbers.sort(function(a, b)&#123; return a - b;&#125;);console.log(numbers);//也可以写成：var numbers = [4, 2, 5, 1, 3];numbers.sort((a, b) =&gt; a - b);console.log(numbers);//输出：[1, 2, 3, 4, 5] 2.2 对象按照某个属性排序1234567891011121314151617181920212223242526var items = [ &#123; name: 'Edward', value: 21 &#125;, &#123; name: 'Sharpe', value: 37 &#125;, &#123; name: 'And', value: 45 &#125;, &#123; name: 'The', value: -12 &#125;, &#123; name: 'Magnetic' &#125;, &#123; name: 'Zeros', value: 37 &#125;];//按value值排序items.sort(function (a,b)&#123; return (a,.value - b.value)&#125;);//按name值排序items.sort(function(a, b)&#123; var nameA = a.name.toUpperCase(); var nameB = b.name.toUpperCase(); if(nameA &lt; nameB)&#123; return -1; &#125; if(nameA &gt; nameB)&#123; return 1; &#125; return 0;&#125;); 三、高级操作：使用映射改善排序compareFunction可能需要对元素做多次映射以实现排序，尤其当compareFunction较为复杂，且元素较多的时候，某些compareFunction 可能会导致很高的负载。使用map辅助排序将会是个好主意。 基本思想是首先将数组中的每个元素比较的实际值取出来，排序后再将数组恢复。 123456789101112131415161718// 需要被排序的数组var list = [&apos;Delta&apos;, &apos;alpha&apos;, &apos;CHARLIE&apos;, &apos;bravo&apos;];// 对需要排序的数字和位置的临时存储, mapped为临时容器var mapped = list.map(function(el, i) &#123; return &#123; index: i, value: el.toLowerCase() &#125;;&#125;)// 按照多个值排序数组mapped.sort(function(a, b) &#123; return +(a.value &gt; b.value) || +(a.value === b.value) - 1;&#125;);// 根据索引得到排序的结果var result = mapped.map(function(el)&#123; return list[el.index];&#125;);//result : [&quot;alpha&quot;, &quot;bravo&quot;, &quot;CHARLIE&quot;, &quot;Delta&quot;]]]></content>
