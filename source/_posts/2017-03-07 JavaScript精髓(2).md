@@ -4,7 +4,7 @@ title: JavaScript精髓(2)
 categories: 技术
 date: 2017-03-07 
 update: 2017-07-11
-tags: JavaScript
+tags: [JavaScript,技术]
 
 ---
 
@@ -159,5 +159,5 @@ markyun.Event = {
 } //End
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3MDgzMDU0MDddfQ==
+eyJoaXN0b3J5IjpbLTEzNjI1MDY2MjhdfQ==
 -->
