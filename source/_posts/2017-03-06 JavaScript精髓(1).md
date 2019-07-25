@@ -1,9 +1,11 @@
 ---
+
 title: JavaScript精髓(1)
 categories: 技术
 date: 2017-03-06 
 update: 2017-07-11
-tags: JavaScript
+tags: [JavaScript 技术
+
 ---
 
 这篇文章主要总结了JavaScript的基础，包括数据类型，值和易混淆的概念。
@@ -191,3 +193,6 @@ tags: JavaScript
 
 ----------
 To be continue。
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTI5OTk4Mjk3N119
+-->
