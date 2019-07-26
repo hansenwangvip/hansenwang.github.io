@@ -2,7 +2,7 @@
 
 title: Git Commit Message规范参考
 
-categories: 软件工程
+categories: 工程
 
 date: 2019-01-24
 
@@ -119,5 +119,5 @@ fix(详情页): 修复展开活动的sid为string的bug
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTM2Nzc2MTU5XX0=
+eyJoaXN0b3J5IjpbNjEyNDQ5ODRdfQ==
 -->
