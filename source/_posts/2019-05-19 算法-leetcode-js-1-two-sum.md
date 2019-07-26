@@ -10,15 +10,17 @@ tags: [算法,LeetCode]
 
 # LeetCode JavaScript (1): Two Sum
 
+
+<!--more-->
+
+
+
 > [直达链接：https://leetcode.com/problems/two-sum/](https://leetcode.com/problems/two-sum/)
 
 ## 问题
 Given an array of integers, return  **indices**  of the two numbers such that they add up to a specific target.
 
 You may assume that each input would have  **_exactly_**  one solution, and you may not use the  _same_  element twice.
-
-<!--more-->
-
 ## 示例
 
 > Given nums = [2, 7, 11, 15], target = 9,
@@ -83,5 +85,6 @@ function twoSum(nums, target) {
 };
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyNzU5MDQyMyw4NDcyMzU5NTVdfQ==
+eyJoaXN0b3J5IjpbMjEyMjk4OTY0OSwyMDI3NTkwNDIzLDg0Nz
+IzNTk1NV19
 -->
