@@ -385,7 +385,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-26 14:03:09" itemprop="dateModified" datetime="2019-07-26T14:03:09+08:00">2019-07-26</time>
+                <time title="修改时间：2019-07-26 14:05:05" itemprop="dateModified" datetime="2019-07-26T14:05:05+08:00">2019-07-26</time>
               
             
           </span>
@@ -515,6 +515,212 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2019/05/19/2019-05-19 算法-leetcode-js-1-two-sum/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hansen">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hansenwang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/19/2019-05-19 算法-leetcode-js-1-two-sum/" class="post-title-link" itemprop="url">LeetCode in JavaScript(1) Two Sum</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-05-19 00:00:00" itemprop="dateCreated datePublished" datetime="2019-05-19T00:00:00+08:00">2019-05-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-26 14:05:05" itemprop="dateModified" datetime="2019-07-26T14:05:05+08:00">2019-07-26</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/05/19/2019-05-19 算法-leetcode-js-1-two-sum/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/05/19/2019-05-19 算法-leetcode-js-1-two-sum/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="LeetCode-JavaScript-1-Two-Sum"><a href="#LeetCode-JavaScript-1-Two-Sum" class="headerlink" title="LeetCode JavaScript (1): Two Sum"></a>LeetCode JavaScript (1): Two Sum</h1><blockquote>
+<p><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">直达链接：https://leetcode.com/problems/two-sum/</a></p>
+</blockquote>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>Given an array of integers, return  <strong>indices</strong>  of the two numbers such that they add up to a specific target.</p>
+<p>You may assume that each input would have  <strong><em>exactly</em></strong>  one solution, and you may not use the  <em>same</em>  element twice.</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><blockquote>
+<p>Given nums = [2, 7, 11, 15], target = 9,<br>Because nums[<strong>0</strong>] + nums[<strong>1</strong>] = 2 + 7 = 9,<br>return [<strong>0</strong>, <strong>1</strong>].</p>
+</blockquote>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>给定一个数组<code>nums</code>和一个目标值<code>target</code>，数组<code>nums</code>中如果有两数之和等于<code>target</code>，那么返回包含这个两个值的坐标的数组<code>[i,j]</code>。</p>
+<h2 id="解法一：暴力遍历"><a href="#解法一：暴力遍历" class="headerlink" title="解法一：暴力遍历"></a>解法一：暴力遍历</h2><p>最简单暴力的方法，就是遍历整个数组，最坏的情况是两个结果分别位于两端，数组要遍历两边。<br>时间复杂度：O(n^2)<br>空间复杂度：O(1)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i,len = nums.length;</span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;len<span class="number">-1</span>;i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (j=i+<span class="number">1</span>;j&lt;len;j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] + nums[j] === target) &#123;</span><br><span class="line">                <span class="keyword">return</span> [i,j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="解法二：哈希表"><a href="#解法二：哈希表" class="headerlink" title="解法二：哈希表"></a>解法二：哈希表</h2><p>比较高效的一个方法就是，以JavaScript的对象作为哈希表，通过对象的键值查询快速判断。<br>将js对象当做hashtable来使用，key是数组元素的值，value是数组元素的索引，只遍历一次数组，每次先查找哈希表中是否有匹配的元素，如果没有就将现有元素添加进哈希表中。</p>
+<p>从头遍历数组，通过哈希表，查找第一个元素a1的匹配值，如果哈希表中没有，就先缓存当前元素，以此类推。</p>
+<p>每个元素都要通过对象查到匹配值，JavaScript对于对象的取值有所优化，所以查询哈希表的方法很高效。</p>
+<p>所以哈希表的方法看似还是在遍历两次，但是其中的第二次遍历是在哈希表中执行的。JavaScript的对象取值速度很快，远远快于数组遍历。这就是优势所在。</p>
+<blockquote>
+<p>关于JavaScript的性能问题，我打算在后面的博客写一篇性能分析。这里我推荐《高性能JavaScript》这本书，里面有关于优化性能的措施和原理。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * @param &#123;number[]&#125; nums</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; target</span></span><br><span class="line"><span class="comment"> * @return &#123;number[]&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">twoSum</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = nums.length;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> hash = &#123;&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">        <span class="keyword">let</span> j = target - nums[i]; <span class="comment">// hash table 要找的值</span></span><br><span class="line">        <span class="keyword">if</span>(hash[j] !== <span class="literal">undefined</span>)&#123; <span class="comment">// hash table里面有这个值，说明这个数组中存在匹配nums[i]的另一个数nums[j]</span></span><br><span class="line">            <span class="keyword">return</span> [i, hash[j]];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            hash[nums[i]] = i <span class="comment">// hash table没有这个值,就先把它加入哈希表中，缓存。</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTM1NTY3MTczMSw4NDcyMzU5NTVdfQ==
+-->
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2019/04/19/2019-04-19 笔记-《知识就是力量》如何做一个受欢迎的人？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -577,7 +783,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-26 14:03:09" itemprop="dateModified" datetime="2019-07-26T14:03:09+08:00">2019-07-26</time>
+                <time title="修改时间：2019-07-26 14:05:05" itemprop="dateModified" datetime="2019-07-26T14:05:05+08:00">2019-07-26</time>
               
             
           </span>
@@ -771,7 +977,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-26 14:03:09" itemprop="dateModified" datetime="2019-07-26T14:03:09+08:00">2019-07-26</time>
+                <time title="修改时间：2019-07-26 14:05:05" itemprop="dateModified" datetime="2019-07-26T14:05:05+08:00">2019-07-26</time>
               
             
           </span>
@@ -963,7 +1169,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-26 14:03:09" itemprop="dateModified" datetime="2019-07-26T14:03:09+08:00">2019-07-26</time>
+                <time title="修改时间：2019-07-26 14:05:05" itemprop="dateModified" datetime="2019-07-26T14:05:05+08:00">2019-07-26</time>
               
             
           </span>
@@ -1158,7 +1364,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-26 14:03:09" itemprop="dateModified" datetime="2019-07-26T14:03:09+08:00">2019-07-26</time>
+                <time title="修改时间：2019-07-26 14:05:05" itemprop="dateModified" datetime="2019-07-26T14:05:05+08:00">2019-07-26</time>
               
             
           </span>
@@ -1350,7 +1556,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-26 14:03:09" itemprop="dateModified" datetime="2019-07-26T14:03:09+08:00">2019-07-26</time>
+                <time title="修改时间：2019-07-26 14:05:05" itemprop="dateModified" datetime="2019-07-26T14:05:05+08:00">2019-07-26</time>
               
             
           </span>
@@ -1542,7 +1748,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-26 14:03:09" itemprop="dateModified" datetime="2019-07-26T14:03:09+08:00">2019-07-26</time>
+                <time title="修改时间：2019-07-26 14:05:05" itemprop="dateModified" datetime="2019-07-26T14:05:05+08:00">2019-07-26</time>
               
             
           </span>
@@ -1734,7 +1940,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-26 14:03:09" itemprop="dateModified" datetime="2019-07-26T14:03:09+08:00">2019-07-26</time>
+                <time title="修改时间：2019-07-26 14:05:05" itemprop="dateModified" datetime="2019-07-26T14:05:05+08:00">2019-07-26</time>
               
             
           </span>
@@ -1926,7 +2132,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-26 14:03:09" itemprop="dateModified" datetime="2019-07-26T14:03:09+08:00">2019-07-26</time>
+                <time title="修改时间：2019-07-26 14:05:05" itemprop="dateModified" datetime="2019-07-26T14:05:05+08:00">2019-07-26</time>
               
             
           </span>
@@ -2043,198 +2249,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2018/01/28/2018-01-28 前端-Array.prototype.sort的高级用法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hansen">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hansenwang's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/01/28/2018-01-28 前端-Array.prototype.sort的高级用法/" class="post-title-link" itemprop="url">Array.prototype.sort()的高级用法</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-01-28 00:00:00" itemprop="dateCreated datePublished" datetime="2018-01-28T00:00:00+08:00">2018-01-28</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-26 14:03:09" itemprop="dateModified" datetime="2019-07-26T14:03:09+08:00">2019-07-26</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/01/28/2018-01-28 前端-Array.prototype.sort的高级用法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/28/2018-01-28 前端-Array.prototype.sort的高级用法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Array-prototype-sort"><a href="#Array-prototype-sort" class="headerlink" title="Array.prototype.sort()"></a>Array.prototype.sort()</h1><h2 id="一、基本操作"><a href="#一、基本操作" class="headerlink" title="一、基本操作"></a>一、基本操作</h2><p><code>sort()</code>方法的默认排序顺序是根据串Unicode码点。<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/01/28/2018-01-28 前端-Array.prototype.sort的高级用法/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </p></div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2281,7 +2295,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2365,7 +2379,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                    <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
