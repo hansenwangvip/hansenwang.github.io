@@ -17,6 +17,8 @@ Given an array of integers, return  **indices**  of the two numbers such that th
 
 You may assume that each input would have  **_exactly_**  one solution, and you may not use the  _same_  element twice.
 
+<!--more-->
+
 ## 示例
 
 > Given nums = [2, 7, 11, 15], target = 9,
@@ -81,5 +83,5 @@ function twoSum(nums, target) {
 };
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM1NTY3MTczMSw4NDcyMzU5NTVdfQ==
+eyJoaXN0b3J5IjpbMjAyNzU5MDQyMyw4NDcyMzU5NTVdfQ==
 -->
