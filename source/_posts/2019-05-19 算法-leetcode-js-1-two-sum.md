@@ -1,6 +1,6 @@
 ---
 
-title: LeetCode in JavaScript (1): Two Sum
+title: LeetCode in JavaScript(1) Two Sum
 date: 2019-05-19
 categories: 技术
 tags: [算法,LeetCode]
@@ -81,5 +81,5 @@ function twoSum(nums, target) {
 };
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyNTczODkzMSw4NDcyMzU5NTVdfQ==
+eyJoaXN0b3J5IjpbLTM1NTY3MTczMSw4NDcyMzU5NTVdfQ==
 -->
