@@ -8,7 +8,7 @@ date: 2019-06-22
 
 tags: 翻译
 
---- 
+---
 
 
 摘要：作用域是JavaScript语言的基础概念之一，也可能是我在编写复杂程序时最挣扎的一个概念。我已数不清多少次，在函数间传递控制时，丢失了`this`关键字的指向。我也经常发现自己经常以各种令人困惑的方式扭曲自己的代码，试图在我理解哪些变量可以访问哪些地方的时候，让我保持清醒。
@@ -193,5 +193,5 @@ multiply.call(second_object, 5); // returns 24 * 5
 未完待续... 
 下一篇：《JavaScript作用域的通俗解读 （下篇）》
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODg4NDkxMDc2LDcxNjYwODY4M119
+eyJoaXN0b3J5IjpbMjk2MDAzMzkwLDcxNjYwODY4M119
 -->
