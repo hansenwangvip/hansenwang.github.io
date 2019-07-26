@@ -1,8 +1,9 @@
 ---
 title: 更好用的border-box
 date: 2017-10-23
-categories: 技术
+categories: 前端
 tags: [前端,CSS]
+
 ---
 
 英文原文来自CSS-tricks: [Inheriting box-sizing Probably Slightly Better Best-Practice](https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/)
@@ -61,5 +62,5 @@ tags: [前端,CSS]
 ---
 这并不是一个很庞大的东西。你可能已经在使用 box-sizing reset 的老办法，并且从没踩到这个坑。但是，只要我们推广一个“最佳实践”风格的片段，我们也可以慢慢把它变成最好的。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5OTA0MDkyOTNdfQ==
+eyJoaXN0b3J5IjpbNDc5NzYxNDU0XX0=
 -->
