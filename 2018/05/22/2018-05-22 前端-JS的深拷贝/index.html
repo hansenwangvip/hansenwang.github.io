@@ -105,18 +105,18 @@
 
 
 
-  <meta name="description" content="为什么要深拷贝？JS的值分为引用类型和原始类型，当我们在开发过程中需要拷贝一个对象时，希望生成一份完全独立的副本，这时候我们就需要深拷贝。 最高效的深拷贝？不要重复造轮子如果你的项目中依赖了第三方类库，并且它们提供了克隆方法，请使用它们的方法，不要重复造轮子！ 比如：  lodash -  cloneDeep; 可以通过  lodash.clonedeep 独立引用。 AngularJS -  a">
+  <meta name="description" content="为什么要深拷贝？JS的值分为引用类型和原始类型，当我们在开发过程中需要拷贝一个对象时，希望生成一份完全独立的副本，这时候我们就需要深拷贝。">
 <meta name="keywords" content="技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端-JS的深拷贝">
 <meta property="og:url" content="https://hansenwangvip.github.io/2018/05/22/2018-05-22 前端-JS的深拷贝/index.html">
 <meta property="og:site_name" content="Hansenwang&#39;s Blog">
-<meta property="og:description" content="为什么要深拷贝？JS的值分为引用类型和原始类型，当我们在开发过程中需要拷贝一个对象时，希望生成一份完全独立的副本，这时候我们就需要深拷贝。 最高效的深拷贝？不要重复造轮子如果你的项目中依赖了第三方类库，并且它们提供了克隆方法，请使用它们的方法，不要重复造轮子！ 比如：  lodash -  cloneDeep; 可以通过  lodash.clonedeep 独立引用。 AngularJS -  a">
+<meta property="og:description" content="为什么要深拷贝？JS的值分为引用类型和原始类型，当我们在开发过程中需要拷贝一个对象时，希望生成一份完全独立的副本，这时候我们就需要深拷贝。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-06T23:40:44.346Z">
+<meta property="og:updated_time" content="2019-08-06T23:41:18.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端-JS的深拷贝">
-<meta name="twitter:description" content="为什么要深拷贝？JS的值分为引用类型和原始类型，当我们在开发过程中需要拷贝一个对象时，希望生成一份完全独立的副本，这时候我们就需要深拷贝。 最高效的深拷贝？不要重复造轮子如果你的项目中依赖了第三方类库，并且它们提供了克隆方法，请使用它们的方法，不要重复造轮子！ 比如：  lodash -  cloneDeep; 可以通过  lodash.clonedeep 独立引用。 AngularJS -  a">
+<meta name="twitter:description" content="为什么要深拷贝？JS的值分为引用类型和原始类型，当我们在开发过程中需要拷贝一个对象时，希望生成一份完全独立的副本，这时候我们就需要深拷贝。">
 
 
 
@@ -389,7 +389,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-08-07 07:40:44" itemprop="dateModified" datetime="2019-08-07T07:40:44+08:00">2019-08-07</time>
+                <time title="修改时间：2019-08-07 07:41:18" itemprop="dateModified" datetime="2019-08-07T07:41:18+08:00">2019-08-07</time>
               
             
           </span>
@@ -462,6 +462,7 @@
 
       
         <h1 id="为什么要深拷贝？"><a href="#为什么要深拷贝？" class="headerlink" title="为什么要深拷贝？"></a>为什么要深拷贝？</h1><p>JS的值分为引用类型和原始类型，当我们在开发过程中需要拷贝一个对象时，希望生成一份完全独立的副本，这时候我们就需要深拷贝。</p>
+<a id="more"></a>
 <h1 id="最高效的深拷贝？"><a href="#最高效的深拷贝？" class="headerlink" title="最高效的深拷贝？"></a>最高效的深拷贝？</h1><h2 id="不要重复造轮子"><a href="#不要重复造轮子" class="headerlink" title="不要重复造轮子"></a>不要重复造轮子</h2><p>如果你的项目中依赖了第三方类库，并且它们提供了克隆方法，请使用它们的方法，不要重复造轮子！</p>
 <p>比如：</p>
 <ul>
@@ -481,9 +482,14 @@
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fakeDeepClone</span>(<span class="params">target</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Object</span>.assign(&#123;&#125;, target)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="ES6还有一个浅拷贝-扩展运算符"><a href="#ES6还有一个浅拷贝-扩展运算符" class="headerlink" title="ES6还有一个浅拷贝: 扩展运算符"></a>ES6还有一个浅拷贝: 扩展运算符</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax" target="_blank" rel="noopener">Spread_syntax</a></p>
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMzMyMjkzNTddfQ==
--->
+<blockquote>
+<p>参考链接：<br><a href="https://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript?page=1&amp;tab=votes#tab-top" target="_blank" rel="noopener">what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript</a></p>
+</blockquote>
+<hr>
+<p>The End.<br><!--stackedit_data:
+eyJoaXN0b3J5IjpbLTUwNjgyMjM0Ml19
+--></p>
+
       
     </div>
 
