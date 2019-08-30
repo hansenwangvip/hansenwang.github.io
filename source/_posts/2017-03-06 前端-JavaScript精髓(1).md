@@ -189,10 +189,6 @@ tags: [JavaScript,技术]
  7. For循环必须使用大括号；
  8. if语句必须使用大括号；
  9. for-in循环中的变量应该使用let 关键字明确限定作用域，避免命名空间污染。
-
-
-----------
-To be continue。
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODA3NzAxODM2XX0=
+eyJoaXN0b3J5IjpbMTMyNjgwOTE5Nyw4MDc3MDE4MzZdfQ==
 -->
