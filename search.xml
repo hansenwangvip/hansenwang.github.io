@@ -82,7 +82,7 @@
   <entry>
     <title><![CDATA[技术-git log的各种姿势]]></title>
     <url>%2F2019%2F04%2F17%2F2019-04-17%20%E6%8A%80%E6%9C%AF-git%20log%E7%9A%84%E5%90%84%E7%A7%8D%E5%A7%BF%E5%8A%BF%2F</url>
-    <content type="text"><![CDATA[原始命令，不好看1git log 单行log，好一点，但是不够1git log --pretty=oneline 单行格式化，但是没有颜色，还是不够1git log --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit 使用快捷方式，五颜六色好看多了123git config --global alias.logline &quot;log --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit&quot;git logline 丢弃本地所有改动123git reset --hard HEADgit checkout -b origin/abc abc]]></content>
+    <content type="text"><![CDATA[git log 的各种姿势 原始命令，不好看1git log 单行log，好一点，但是不够1git log --pretty=oneline 单行格式化，但是没有颜色，还是不够1git log --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit 使用快捷方式，五颜六色好看多了123git config --global alias.logline &quot;log --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit&quot;git logline 丢弃本地所有改动123git reset --hard HEADgit checkout -b origin/abc abc]]></content>
       <categories>
         <category>技术</category>
       </categories>
