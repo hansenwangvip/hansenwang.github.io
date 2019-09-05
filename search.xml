@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title></title>
-    <url>%2F2019%2F09%2F05%2F2019-09-05%20%E6%8A%80%E6%9C%AF-map%20sort%2F</url>
+    <url>%2F2019%2F09%2F05%2Fdrafts%2F2019-09-05%20%E6%8A%80%E6%9C%AF-map%20sort%2F</url>
     <content type="text"><![CDATA[12345678910111213141516171819const sortConfig = ['dog', 'cat', 'bull', 'sheep'];const arrayToSort = ['cat','sheep','bird','people','dog'] tree.children.sort((a, b) =&gt; &#123; const INDEX_A = sortConfig.indexOf(a.title); const INDEX_B = sortConfig.indexOf(b.title); const HAS_A = INDEX_A &gt; -1; const HAS_B = INDEX_B &gt; -1; if (HAS_A &amp;&amp; HAS_B) &#123; /* 对比二者顺序 */ return INDEX_A - INDEX_B; &#125; if (HAS_A &amp;&amp; !HAS_B) &#123; return 1; &#125; if (!HAS_A &amp;&amp; HAS_B) &#123; return -1; &#125; return a.localeCompare(b); &#125;);]]></content>
   </entry>
   <entry>
