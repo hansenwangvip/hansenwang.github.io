@@ -105,17 +105,17 @@
 
 
 
-  <meta name="description" content="12345678910111213141516171819const sortConfig = [&amp;apos;dog&amp;apos;, &amp;apos;cat&amp;apos;, &amp;apos;bull&amp;apos;, &amp;apos;sheep&amp;apos;];const arrayToSort = []    tree.children.sort((a, b) =&amp;gt; &amp;#123;    const INDEX_">
+  <meta name="description" content="12345678910111213141516171819const sortConfig = [&apos;dog&apos;, &apos;cat&apos;, &apos;bull&apos;, &apos;sheep&apos;];const arrayToSort = [&apos;cat&apos;,&apos;sheep&apos;,&apos;bird&apos;,&apos;people&apos;,&apos;dog&apos;]    tree.children.sort((a, b) =&amp;gt; &amp;#123;    const INDEX_A = s">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hansenwang&#39;s Blog">
 <meta property="og:url" content="https://hansenwangvip.github.io/2019/09/05/2019-09-05 技术-map sort/index.html">
 <meta property="og:site_name" content="Hansenwang&#39;s Blog">
-<meta property="og:description" content="12345678910111213141516171819const sortConfig = [&amp;apos;dog&amp;apos;, &amp;apos;cat&amp;apos;, &amp;apos;bull&amp;apos;, &amp;apos;sheep&amp;apos;];const arrayToSort = []    tree.children.sort((a, b) =&amp;gt; &amp;#123;    const INDEX_">
+<meta property="og:description" content="12345678910111213141516171819const sortConfig = [&apos;dog&apos;, &apos;cat&apos;, &apos;bull&apos;, &apos;sheep&apos;];const arrayToSort = [&apos;cat&apos;,&apos;sheep&apos;,&apos;bird&apos;,&apos;people&apos;,&apos;dog&apos;]    tree.children.sort((a, b) =&amp;gt; &amp;#123;    const INDEX_A = s">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-05T03:37:48.458Z">
+<meta property="og:updated_time" content="2019-09-05T03:39:20.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hansenwang&#39;s Blog">
-<meta name="twitter:description" content="12345678910111213141516171819const sortConfig = [&amp;apos;dog&amp;apos;, &amp;apos;cat&amp;apos;, &amp;apos;bull&amp;apos;, &amp;apos;sheep&amp;apos;];const arrayToSort = []    tree.children.sort((a, b) =&amp;gt; &amp;#123;    const INDEX_">
+<meta name="twitter:description" content="12345678910111213141516171819const sortConfig = [&apos;dog&apos;, &apos;cat&apos;, &apos;bull&apos;, &apos;sheep&apos;];const arrayToSort = [&apos;cat&apos;,&apos;sheep&apos;,&apos;bird&apos;,&apos;people&apos;,&apos;dog&apos;]    tree.children.sort((a, b) =&amp;gt; &amp;#123;    const INDEX_A = s">
 
 
 
@@ -371,7 +371,7 @@
                 
               
 
-              <time title="创建时间：2019-09-05 11:37:48" itemprop="dateCreated datePublished" datetime="2019-09-05T11:37:48+08:00">2019-09-05</time>
+              <time title="创建时间：2019-09-05 11:39:20" itemprop="dateCreated datePublished" datetime="2019-09-05T11:39:20+08:00">2019-09-05</time>
             
 
             
@@ -426,9 +426,9 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const sortConfig = [&apos;dog&apos;, &apos;cat&apos;, &apos;bull&apos;, &apos;sheep&apos;];</span><br><span class="line">const arrayToSort = []  </span><br><span class="line">  </span><br><span class="line">tree.children.sort((a, b) =&gt; &#123;  </span><br><span class="line">  const INDEX_A = sortConfig.indexOf(a.title);  </span><br><span class="line">  const INDEX_B = sortConfig.indexOf(b.title);  </span><br><span class="line">  const HAS_A = INDEX_A &gt; -1;  </span><br><span class="line">  const HAS_B = INDEX_B &gt; -1;  </span><br><span class="line">  if (HAS_A &amp;&amp; HAS_B) &#123;  </span><br><span class="line">    /* 对比二者顺序 */  return INDEX_A - INDEX_B;  </span><br><span class="line">  &#125;  </span><br><span class="line">  if (HAS_A &amp;&amp; !HAS_B) &#123;  </span><br><span class="line">    return 1;  </span><br><span class="line">  &#125;  </span><br><span class="line">  if (!HAS_A &amp;&amp; HAS_B) &#123;  </span><br><span class="line">    return -1;  </span><br><span class="line">  &#125;  </span><br><span class="line">  return a.localeCompare(b);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sortConfig = [<span class="string">'dog'</span>, <span class="string">'cat'</span>, <span class="string">'bull'</span>, <span class="string">'sheep'</span>];</span><br><span class="line"><span class="keyword">const</span> arrayToSort = [<span class="string">'cat'</span>,<span class="string">'sheep'</span>,<span class="string">'bird'</span>,<span class="string">'people'</span>,<span class="string">'dog'</span>]  </span><br><span class="line">  </span><br><span class="line">tree.children.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;  </span><br><span class="line">  <span class="keyword">const</span> INDEX_A = sortConfig.indexOf(a.title);  </span><br><span class="line">  <span class="keyword">const</span> INDEX_B = sortConfig.indexOf(b.title);  </span><br><span class="line">  <span class="keyword">const</span> HAS_A = INDEX_A &gt; <span class="number">-1</span>;  </span><br><span class="line">  <span class="keyword">const</span> HAS_B = INDEX_B &gt; <span class="number">-1</span>;  </span><br><span class="line">  <span class="keyword">if</span> (HAS_A &amp;&amp; HAS_B) &#123;  </span><br><span class="line">    <span class="comment">/* 对比二者顺序 */</span>  <span class="keyword">return</span> INDEX_A - INDEX_B;  </span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">if</span> (HAS_A &amp;&amp; !HAS_B) &#123;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;  </span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">if</span> (!HAS_A &amp;&amp; HAS_B) &#123;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;  </span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="keyword">return</span> a.localeCompare(b);  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMzk5NTY1MjddfQ==
+eyJoaXN0b3J5IjpbODAzNzAwMDk5XX0=
 -->
       
     </div>
