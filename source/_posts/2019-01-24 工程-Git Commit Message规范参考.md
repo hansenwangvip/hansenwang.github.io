@@ -8,7 +8,7 @@ date: 2019-01-24
 
 update: 2019-01-24
 
-tags: ['规范', 'Git', '软件工程']
+tags: ['规范', '软件工程']
 
 ---
 
@@ -119,5 +119,6 @@ fix(详情页): 修复展开活动的sid为string的bug
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjEyNDQ5ODQsLTUxMTk4NDcyNl19
+eyJoaXN0b3J5IjpbLTUxMTk4NDcyNiw2MTI0NDk4NCwtNTExOT
+g0NzI2XX0=
 -->
