@@ -1,6 +1,6 @@
 ---
 
-title: 随笔-JavaScript的执行上下文和调用堆栈
+title: 翻译-JavaScript的执行上下文和调用堆栈
 date: 2019-10-05
 categories: 翻译
 tags: [翻译]
@@ -21,10 +21,13 @@ Execution Context | 执行上下文
 Scope | 作用域  
 Closure | 闭包  
 Call Stack | 调用堆栈  
-  
- 正文开始：
- 
----   
+
+
+
+正文：
+
+---
+
 ![image](https://user-images.githubusercontent.com/18462980/66252280-3e68bd00-e78c-11e9-82b4-facf99258546.png)  
   
 # JavaScript：什么是执行上下文？什么是调用堆栈？  
@@ -374,5 +377,5 @@ Javascript的内部机制常常被新手视为神秘的东西，也常常被忽�
   
 感谢阅读，敬请关注！
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3NDU5MzYwMF19
+eyJoaXN0b3J5IjpbLTc0MzUxMTkyMF19
 -->
