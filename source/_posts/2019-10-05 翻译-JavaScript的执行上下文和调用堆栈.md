@@ -1,5 +1,4 @@
 ---
-
 title: 翻译-JavaScript的执行上下文和调用堆栈
 date: 2019-10-05
 categories: 翻译
@@ -377,5 +376,5 @@ Javascript的内部机制常常被新手视为神秘的东西，也常常被忽�
   
 感谢阅读，敬请关注！
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc0MzUxMTkyMF19
+eyJoaXN0b3J5IjpbMTMwNDk3MDc4Nl19
 -->
