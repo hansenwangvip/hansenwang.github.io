@@ -2,7 +2,7 @@
 title: 翻译-JavaScript的执行上下文和调用堆栈
 date: 2019-10-05
 categories: 翻译
-tags: [翻译]
+tags: 翻译
 keywords: 翻译
 
 ---
@@ -11,7 +11,9 @@ keywords: 翻译
 > 原文链接：[JavaScript: What Is The Execution Context? What Is The Call Stack?](valentinog.com/blog/context/)  
 > 原文更新日期：2019.5.14  
 > 译文更新日期：2019.10.5  
-  
+ 
+ <!--more-->
+ 
 术语对照表：  
   
 英文|译文  
@@ -376,5 +378,5 @@ Javascript的内部机制常常被新手视为神秘的东西，也常常被忽�
   
 感谢阅读，敬请关注！
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMwNDk3MDc4Nl19
+eyJoaXN0b3J5IjpbMTI3NDUwNjg2OF19
 -->
