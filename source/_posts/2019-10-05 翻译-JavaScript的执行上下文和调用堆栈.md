@@ -8,7 +8,7 @@ keywords: 翻译
 ---
 
 > 译者介绍：这篇文章用简洁的文字解释了JS的执行上下文和调用堆栈的概念，并通过让读者换位思考的方式，理解JS引擎在运行代码时的行为。对于进阶的JS程序员来说，执行上下文和调用堆栈是理解JS代码运行原理的关键。  
-> 原文链接：[JavaScript: What Is The Execution Context? What Is The Call Stack?](valentinog.com/blog/context/)  
+> 原文链接：[JavaScript: What Is The Execution Context? What Is The Call Stack?](httpsvalentinog.com/blog/context/)  
 > 原文更新日期：2019.5.14  
 > 译文更新日期：2019.10.5  
  
@@ -378,5 +378,5 @@ Javascript的内部机制常常被新手视为神秘的东西，也常常被忽�
   
 感谢阅读，敬请关注！
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI3NDUwNjg2OF19
+eyJoaXN0b3J5IjpbMTA0OTAxODI3NV19
 -->
