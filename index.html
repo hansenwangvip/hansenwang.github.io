@@ -368,7 +368,7 @@
                 
               
 
-              <time title="创建时间：2019-10-05 00:00:00 / 修改时间：22:16:05" itemprop="dateCreated datePublished" datetime="2019-10-05T00:00:00+08:00">2019-10-05</time>
+              <time title="创建时间：2019-10-05 00:00:00 / 修改时间：22:17:38" itemprop="dateCreated datePublished" datetime="2019-10-05T00:00:00+08:00">2019-10-05</time>
             
 
             
@@ -439,267 +439,18 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>译者介绍：这篇文章用简洁的文字解释了JS的执行上下文和调用堆栈的概念，并通过让读者换位思考的方式，理解JS引擎在运行代码时的行为。对于进阶的JS程序员来说，执行上下文和调用堆栈是理解JS代码运行原理的关键。<br>原文链接：<a href="valentinog.com/blog/context/">JavaScript: What Is The Execution Context? What Is The Call Stack?</a><br>原文更新日期：2019.5.14<br>译文更新日期：2019.10.5  </p>
 </blockquote>
-<p>术语对照表：  </p>
-<table>
-<thead>
-<tr>
-<th>英文</th>
-<th>译文  </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Execution Context</td>
-<td>执行上下文  </td>
-</tr>
-<tr>
-<td>Scope</td>
-<td>作用域  </td>
-</tr>
-<tr>
-<td>Closure</td>
-<td>闭包  </td>
-</tr>
-<tr>
-<td>Call Stack</td>
-<td>调用堆栈  </td>
-</tr>
-</tbody>
-</table>
-<p>正文：</p>
-<hr>
-<p><img src="https://user-images.githubusercontent.com/18462980/66252280-3e68bd00-e78c-11e9-82b4-facf99258546.png" alt="image">  </p>
-<h1 id="JavaScript：什么是执行上下文？什么是调用堆栈？"><a href="#JavaScript：什么是执行上下文？什么是调用堆栈？" class="headerlink" title="JavaScript：什么是执行上下文？什么是调用堆栈？"></a>JavaScript：什么是执行上下文？什么是调用堆栈？</h1><p><strong>JavaScript中的执行上下文</strong>是什么？  </p>
-<p>我打赌您不知道这个答案。一门编程语言的最基础的组件是什么？  </p>
-<blockquote>
-<p>更新：这里有一片改进并扩展的博客文章：<a href="https://www.valentinog.com/blog/engines/" target="_blank" rel="noopener">JavaScript引擎：它们是如何工作的？从调用堆栈到Promise，您需要知道的一切</a>  </p>
-</blockquote>
-<p>变量和函数对吗？每个人都可以学会这些基础的概念。但是，除了这些基础之外还有什么？  </p>
-<p>在成为中级（甚至是高级）JavaScript开发者之前，您应该掌握哪些<strong>JavaScript的核心</strong>？  </p>
-<p>答案有许多：作用域，闭包，回调函数，原型等等。  </p>
-<p>但是在深入理解这些概念之前，您至少应该知道<strong>JavaScript引擎如何工作？</strong>  </p>
-<p>这篇文章，我们将介绍每个JavaScript引擎都具备的两个基本部分：<strong>执行上下文和调用堆栈</strong>  </p>
-<p>（不要害怕，比您想象的要简单）  </p>
-<p>准备好了吗？  </p>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>目录  </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>您将会学到哪些东西  </td>
-</tr>
-<tr>
-<td>2</td>
-<td>JavaScript如何运行您的代码？  </td>
-</tr>
-<tr>
-<td>3</td>
-<td>JavaScript引擎  </td>
-</tr>
-<tr>
-<td>4</td>
-<td>它是怎么工作的？  </td>
-</tr>
-<tr>
-<td>5</td>
-<td>全局内存  </td>
-</tr>
-<tr>
-<td>6</td>
-<td>调用堆栈是什么？  </td>
-</tr>
-<tr>
-<td>7</td>
-<td>局部执行上下文  </td>
-</tr>
-<tr>
-<td>8</td>
-<td>总结  </td>
-</tr>
-</tbody>
-</table>
-<h2 id="1-您将会学到哪些东西"><a href="#1-您将会学到哪些东西" class="headerlink" title="1. 您将会学到哪些东西"></a>1. 您将会学到哪些东西</h2><p>通过这篇文章，您将学到：  </p>
-<ul>
-<li>JavaScript引擎如何工作  </li>
-<li>JavaScript的执行上下文  </li>
-<li>调用堆栈是什么  </li>
-<li>全局执行上下文和局部执行上下文之间的区别  </li>
-</ul>
-<h2 id="2-JavaScript如何运行您的代码？"><a href="#2-JavaScript如何运行您的代码？" class="headerlink" title="2. JavaScript如何运行您的代码？"></a>2. JavaScript如何运行您的代码？</h2><p>如果您是一个高级开发者，您可能已经知道了答案。<br>如果您是新手，那我们一起来探索。  </p>
-<p>现在，看看下面的代码：  </p>
-<pre><code class="js"><span class="keyword">var</span> num = <span class="number">2</span>;  
-
-<span class="function"><span class="keyword">function</span> <span class="title">pow</span>(<span class="params">num</span>)</span>{  
-    <span class="keyword">return</span> num * num  
-}  
-</code></pre>
-<p>好了吗？  </p>
-<p>看起来不难嘛！  </p>
-<p>现在告诉我：<strong>您认为浏览器会以什么顺序来执行这段代码？</strong>  </p>
-<p>换句话说，如果<strong>您</strong>是浏览器，您会如何解读这段代码？  </p>
-<p>这看起来好像很简单。  </p>
-<p>大多数人认为：“嗯，浏览器先执行函数<code>pow</code>，返回了结果，然后把2赋值给num。”  </p>
-<p>您想知道我的学生们的回答吗？  </p>
-<blockquote>
-<p><em>从上到下</em><br><em>浏览器会从函数pow开始，计算num*num</em><br><em>JS 引擎会一行一行地运行代码（好像是这样）</em>  </p>
-</blockquote>
-<p>我倒是希望那样。  </p>
-<p>几年前我也说过同样的回答。  </p>
-<p>在接下来的几个部分，您将了解这些<strong>貌似简单的几行代码</strong>背后的机制。  </p>
-<h2 id="3-JavaScript-引擎"><a href="#3-JavaScript-引擎" class="headerlink" title="3. JavaScript 引擎"></a>3. JavaScript 引擎</h2><p>要理解JavaScript如何运行，我们首先要了解第一个可怕的东西：<strong>执行上下文</strong>。  </p>
-<p>JavaScript中的执行上下文是什么？  </p>
-<p><strong>每次在浏览器（或者Node）中运行JavaScript时，引擎都会执行一系列步骤。</strong>  </p>
-<p>其中一步就是：<strong>创建全局执行上下文</strong>。  </p>
-<p>等等，瓦伦蒂诺(作者名字)，<strong>引擎是啥？</strong>  </p>
-<p>简单来说，JavaScript引擎就是运行JavaScript代码的“引擎”。  </p>
-<p>如今有两个著名的JavaScript引擎：<a href="https://developers.google.com/v8/" target="_blank" rel="noopener">Google V8</a> 和 <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey" target="_blank" rel="noopener">SpiderMonkey</a>  </p>
-<p>V8是Google开源的 JavaScript 引擎，被用于Chrome浏览器和 Node.js 中。  </p>
-<p>SpiderMonkey 是Mozilla的JavaScript引擎， 被用于Firefox浏览器。  </p>
-<p>到目前为止，我们已经有了JavaScript引擎和一个执行上下文。  </p>
-<p>现在是时候了解它们是如何协同工作的了。  </p>
-<h2 id="它是如何运作的？"><a href="#它是如何运作的？" class="headerlink" title="它是如何运作的？"></a>它是如何运作的？</h2><p>每次您运行JavaScript代码时，引擎就创建了一个全局执行上下文。  </p>
-<p>执行上下文是描述JavaScript代码运行环境的漂亮词汇。  </p>
-<blockquote>
-<p>译者注：Execution Context被译作执行上下文，“上下文”一词对于一些初学者来说可能有些抽象，我们可以理解为 <strong>供代码执行的一个环境，一个容器</strong>。  </p>
-</blockquote>
-<p>很难想象这些抽象的东西，我理解您。  </p>
-<p>现在，把 全局作用域 想象成一个盒子：<br><img src="https://user-images.githubusercontent.com/18462980/66252642-6e19c400-e790-11e9-94f4-381c56327ba8.png" alt="image">  </p>
-<p>我们在来看之前的代码：  </p>
-<pre><code class="javascript"><span class="keyword">var</span> num = <span class="number">2</span>;  
-
-<span class="function"><span class="keyword">function</span> <span class="title">pow</span>(<span class="params">num</span>) </span>{  
-    <span class="keyword">return</span> num * num;  
-}  
-</code></pre>
-<p>引擎会如何解读这些代码？  </p>
-<p>这是一个简化的版本：  </p>
-<p><strong>引擎</strong>：第一行。这里有一个变量！酷！我们把它存到全局内存(Global Memory)里吧。<br><strong>引擎</strong>：第三行。我看到了一个函数声明。酷！我们把它也存进全局内存吧！<br><strong>引擎</strong>：看起来我完事了。  </p>
-<p>如果我再问您一次：浏览器怎么“看”这些代码，您会怎么回答？  </p>
-<p>是的，它是自上而下的，但是…  </p>
-<p>您能看到，引擎并没有执行函数<code>pow</code>！  </p>
-<p>它是一个<strong>函数声明</strong>，不是函数调用。  </p>
-<p>上面的代码将转换存储在<strong>全局内存</strong>中的一些值：一个函数声明和一个变量。  </p>
-<p><strong>全局内存？</strong>  </p>
-<p>老哥，我已经被执行上下文搞得晕头转向了，现在您又扔一个“全局内存”给我？  </p>
-<p>是的。  </p>
-<p>让我们来看看全局内存是啥玩意。  </p>
-<h2 id="全局内存"><a href="#全局内存" class="headerlink" title="全局内存"></a>全局内存</h2><p><strong>JS引擎也有一个全局内存。</strong>  </p>
-<p>全局内存包含了全局变量和函数声明，供以后使用。  </p>
-<p>如果您读过 Kyle Simpson的 “<strong>Scope和Closures</strong>”，您会发现“全局内存”和“全局作用域”的概念重叠。  </p>
-<p>实际上，它们是同一样东西。  </p>
-<p>我扯这么远，是有原因的。  </p>
-<p>这些都是很难理解的概念。  </p>
-<p>但是您现在不必担心。  </p>
-<p>我想要您理解两个重要的点。  </p>
-<p>当JS引擎运行您的代码时，它创建了：  </p>
-<ul>
-<li>一个全局执行上下文  </li>
-<li>一个全局内存（也叫做全局作用域或者全局变量环境）  </li>
-</ul>
-<p>现在清楚了吗？  </p>
-<p>如果我是您的话，我现在会这么做：  </p>
-<ul>
-<li>写一些JavaScript代码  </li>
-<li>把自己当作引擎，一步一步解析代码  </li>
-<li>在执行过程中，用图形表示<strong>全局执行上下文和全局内存</strong>  </li>
-</ul>
-<p>您可以在纸上或者原型工具上试试。  </p>
-<p>对于我的小例子，图片看起来是这样的：  </p>
-<p><img src="https://user-images.githubusercontent.com/18462980/66252961-12e9d080-e794-11e9-836d-c9515ca3727f.png" alt="image">  </p>
-<p>在接下来的部分，我们将看到另一个可怕的东西：<strong>调用堆栈</strong>。  </p>
-<h2 id="调用堆栈是什么？"><a href="#调用堆栈是什么？" class="headerlink" title="调用堆栈是什么？"></a>调用堆栈是什么？</h2><p>您是否清楚<strong>执行上下文</strong>、<strong>全局内存</strong>和<strong>Javascript引擎</strong>是如何配合的？  </p>
-<p>如果没有，请花时间回看上一部分。  </p>
-<p>我们将要介绍拼图中的另一块：<strong>调用堆栈</strong>。  </p>
-<p>让我们首先重温一下，当JS引擎运行您的代码时，它创建了：  </p>
-<ul>
-<li>一个全局执行上下文  </li>
-<li>一个全局内存  </li>
-</ul>
-<p>除此之外，在我们的例子中没有发生什么：  </p>
-<pre><code class="javascript"><span class="keyword">var</span> num = <span class="number">2</span>;  
-
-<span class="function"><span class="keyword">function</span> <span class="title">pow</span>(<span class="params">num</span>) </span>{  
-    <span class="keyword">return</span> num * num;  
-}  
-</code></pre>
-<p>这段代码就是单纯的值分配。  </p>
-<p>让我们走远一点。  </p>
-<p>如果我调用函数，会发生什么？  </p>
-<pre><code class="javascript"><span class="keyword">var</span> num = <span class="number">2</span>;  
-<span class="function"><span class="keyword">function</span> <span class="title">pow</span>(<span class="params">num</span>) </span>{  
-    <span class="keyword">return</span> num * num;  
-}  
-
-<span class="keyword">var</span> res = pow(num);  
-</code></pre>
-<p>有趣的问题。  </p>
-<p>在JavaScript中<strong>调用函数</strong>的行为，<strong>会使引擎请求帮助</strong>。  </p>
-<p>这个帮助来自JavaScript引擎的一个朋友： <strong>调用堆栈</strong>。  </p>
-<p>这听起来可能不太明显，但是JavaScript引擎需要跟踪正在发生的事情。  </p>
-<p>它依赖于调用堆栈。  </p>
-<p>那在JavaScript中，调用堆栈到底是什么？  </p>
-<p><strong>调用堆栈类似于程序当前执行的日志。</strong>  </p>
-<p>实际上，它是一个数据结构：一个<a href="https://zh.wikipedia.org/wiki/%E5%A0%86%E6%A0%88" target="_blank" rel="noopener">堆栈</a>。  </p>
-<p>不出意外，它有两个方法：加入数据（英语：push）和移除数据（英语：pop）。  </p>
-<p>加入数据就是<strong>把某些东西加入堆栈</strong>。  </p>
-<p>也就是说，当您在JavaScript中执行一个函数，引擎会把函数加入调用堆栈中。  </p>
-<p>每个函数都会被加入到调用堆栈中。  </p>
-<p>第一个加入的是<code>main()</code>(或者<code>global()</code>)，执行JavaScript程序的主线程。  </p>
-<p>现在，上面的图片将会是这样：  </p>
-<p><img src="https://user-images.githubusercontent.com/18462980/66253168-69580e80-e796-11e9-8f75-ff6e8d4e5f1c.png" alt="image">  </p>
-<p>当一个函数执行完毕，它将会从调用堆栈中移除。  </p>
-<p>然后我们的调用堆栈就会这样：  </p>
-<p><img src="https://user-images.githubusercontent.com/18462980/66253178-b6d47b80-e796-11e9-8e96-225062b6ebf7.png" alt="image">  </p>
-<p>那么现在呢？您已经做好准备去掌握每一个JavaScript概念了。  </p>
-<p>我没开玩笑。  </p>
-<p>但是我们还没结束！进入下一节！  </p>
-<h2 id="局部执行上下文"><a href="#局部执行上下文" class="headerlink" title="局部执行上下文"></a>局部执行上下文</h2><p>到目前为止一切似乎都很清楚。  </p>
-<p>我们是不是遗漏了什么？  </p>
-<p>我们知道，<strong>JavaScript引擎创建了一个全局执行上下文和一个全局内存</strong>。  </p>
-<p>然后，当您在代码中调用一个函数时：  </p>
-<ul>
-<li>JS引擎求助  </li>
-<li>JS引擎的朋友 调用堆栈 过来帮忙  </li>
-<li>调用堆栈追踪代码中正在调用的函数  </li>
-</ul>
-<p>当您在执行一个函数时，还会发生另外一件事情。  </p>
-<p>首先，函数出现在了全局执行上下文。  </p>
-<p>然后，另一个 迷您版的上下文出现在函数身边：  </p>
-<p>那个小盒子叫做：<strong>局部执行上下文</strong>。  </p>
-<p>啥？？  </p>
-<p>如果您注意到了，在前一幅图中，全局内存中出现了一个新变量: <code>var res</code>。  </p>
-<p>变量<code>res</code>最初的值为<code>undefined</code>。  </p>
-<p>然后，一旦<code>pow</code><strong>出现在全局执行上下文中，函数执行，res获取到函数的返回值</strong>。  </p>
-<p>在执行过程中，一个局部的执行上下文创建了，用于存储局部变量。  </p>
-<p>多么强大的概念。  </p>
-<p><img src="https://user-images.githubusercontent.com/18462980/66253275-29922680-e798-11e9-8384-91222c4fe9c8.png" alt="image">  </p>
-<p>请记住这些概念。  </p>
-<p>理解全局和本地执行上下文是掌握<a href="https://github.com/getify/You-Dont-Know-JS/tree/2nd-ed" target="_blank" rel="noopener">作用域和闭包</a>的关键。  </p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>您能相信这四行代码背后是什么吗？  </p>
-<p>Javascript引擎创建执行上下文、全局内存和调用堆栈。  </p>
-<p>但是，一旦您调用了一个函数，引擎就会创建一个本地执行上下文，其中包含一个本地内存。  </p>
-<p>在这篇文章的最后，您应该能够理解当您运行一些Javascript代码时发生了什么。  </p>
-<p>Javascript的内部机制常常被新手视为神秘的东西，也常常被忽视。  </p>
-<p>然而，它们是掌握高级Javascript概念的关键。  </p>
-<p>如果您学习了执行上下文、全局内存和调用堆栈，那么<strong>作用域、闭包、回调和其他东西</strong>就会很容易了。  </p>
-<p>特别是，理解调用堆栈是至关重要的。  </p>
-<p>一旦您将它可视化，所有的Javascript将开始清晰: 您将最终理解为什么Javascript是异步的，为什么我们确实需要回调。  </p>
-<p>您知道4行Javascript代码背后是什么吗？  </p>
-<p>现在您知道了。  </p>
-<p>感谢阅读，敬请关注！<br><!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc0MzUxMTkyMF19
---></p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/10/05/2019-10-05 翻译-JavaScript的执行上下文和调用堆栈/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -816,7 +567,7 @@ eyJoaXN0b3J5IjpbLTc0MzUxMTkyMF19
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-05 22:16:05" itemprop="dateModified" datetime="2019-10-05T22:16:05+08:00">2019-10-05</time>
+                <time title="修改时间：2019-10-05 22:17:38" itemprop="dateModified" datetime="2019-10-05T22:17:38+08:00">2019-10-05</time>
               
             
           </span>
@@ -1008,7 +759,7 @@ eyJoaXN0b3J5IjpbLTc0MzUxMTkyMF19
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-05 22:16:05" itemprop="dateModified" datetime="2019-10-05T22:16:05+08:00">2019-10-05</time>
+                <time title="修改时间：2019-10-05 22:17:38" itemprop="dateModified" datetime="2019-10-05T22:17:38+08:00">2019-10-05</time>
               
             
           </span>
@@ -1200,7 +951,7 @@ eyJoaXN0b3J5IjpbLTc0MzUxMTkyMF19
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-05 22:16:05" itemprop="dateModified" datetime="2019-10-05T22:16:05+08:00">2019-10-05</time>
+                <time title="修改时间：2019-10-05 22:17:38" itemprop="dateModified" datetime="2019-10-05T22:17:38+08:00">2019-10-05</time>
               
             
           </span>
@@ -1392,7 +1143,7 @@ eyJoaXN0b3J5IjpbLTc0MzUxMTkyMF19
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-05 22:16:05" itemprop="dateModified" datetime="2019-10-05T22:16:05+08:00">2019-10-05</time>
+                <time title="修改时间：2019-10-05 22:17:38" itemprop="dateModified" datetime="2019-10-05T22:17:38+08:00">2019-10-05</time>
               
             
           </span>
@@ -1584,7 +1335,7 @@ eyJoaXN0b3J5IjpbLTc0MzUxMTkyMF19
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-05 22:16:05" itemprop="dateModified" datetime="2019-10-05T22:16:05+08:00">2019-10-05</time>
+                <time title="修改时间：2019-10-05 22:17:38" itemprop="dateModified" datetime="2019-10-05T22:17:38+08:00">2019-10-05</time>
               
             
           </span>
@@ -1776,7 +1527,7 @@ eyJoaXN0b3J5IjpbLTc0MzUxMTkyMF19
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-05 22:16:05" itemprop="dateModified" datetime="2019-10-05T22:16:05+08:00">2019-10-05</time>
+                <time title="修改时间：2019-10-05 22:17:38" itemprop="dateModified" datetime="2019-10-05T22:17:38+08:00">2019-10-05</time>
               
             
           </span>
@@ -1972,7 +1723,7 @@ eyJoaXN0b3J5IjpbMTQ5Mzc4MTM5Nl19
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-05 22:16:05" itemprop="dateModified" datetime="2019-10-05T22:16:05+08:00">2019-10-05</time>
+                <time title="修改时间：2019-10-05 22:17:38" itemprop="dateModified" datetime="2019-10-05T22:17:38+08:00">2019-10-05</time>
               
             
           </span>
@@ -2166,7 +1917,7 @@ eyJoaXN0b3J5IjpbMTQ5Mzc4MTM5Nl19
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-05 22:16:05" itemprop="dateModified" datetime="2019-10-05T22:16:05+08:00">2019-10-05</time>
+                <time title="修改时间：2019-10-05 22:17:38" itemprop="dateModified" datetime="2019-10-05T22:17:38+08:00">2019-10-05</time>
               
             
           </span>
@@ -2358,7 +2109,7 @@ eyJoaXN0b3J5IjpbMTQ5Mzc4MTM5Nl19
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-10-05 22:16:05" itemprop="dateModified" datetime="2019-10-05T22:16:05+08:00">2019-10-05</time>
+                <time title="修改时间：2019-10-05 22:17:38" itemprop="dateModified" datetime="2019-10-05T22:17:38+08:00">2019-10-05</time>
               
             
           </span>
