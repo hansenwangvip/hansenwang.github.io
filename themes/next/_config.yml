@@ -665,8 +665,8 @@ needmoreshare2:
 
 # Google Analytics
 # google_analytics:
-#   tracking_id:
-#   localhost_ignored: true
+tracking_id: UA-149670973-1
+localhost_ignored: true
 
 # Bing Webmaster tools verification setting
 # See: https://www.bing.com/webmaster
@@ -749,7 +749,7 @@ firestore:
 # Show Views / Visitors of the website / page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi
 busuanzi_count:
-  enable: true
+  enable: false
   total_visitors: true
   total_visitors_icon: user
   total_views: true
