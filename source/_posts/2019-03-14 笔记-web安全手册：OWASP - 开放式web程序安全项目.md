@@ -12,15 +12,20 @@ tags: [ '技术', ‘安全’, '收藏夹' ]
 
 ---
 
+
+> **开放式Web应用程序安全项目**（**OWASP**）是一个在线社区，在 Web应用程序安全性领域 提供免费的文章，方法，文档，工具和技术。
+
+<!-- more -->
+
+
+
 # OWASP
 OWASP 全称:# The Open Web Application Security Project
 中文名称：开放式Web应用程序安全项目
-<!-- more -->
 
 wikipedia介绍：https://zh.wikipedia.org/wiki/OWASP
 OWASP的官网：https://www.owasp.org/index.php/Main_Page
 
-> 简单介绍：**开放式Web应用程序安全项目**（**OWASP**）是一个在线社区，在 Web应用程序安全性领域 提供免费的文章，方法，文档，工具和技术。
 
 OWASP在github开源了很多项目，这是它的organization：https://github.com/OWASP
 

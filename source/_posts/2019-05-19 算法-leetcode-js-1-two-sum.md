@@ -4,15 +4,15 @@ title: 算法-LeetCode in JavaScript(1) Two Sum
 date: 2019-05-19
 categories: 技术
 tags: [算法,LeetCode]
-
+description: https://leetcode.com/problems/two-sum/
 ---
 
 
-# LeetCode JavaScript (1): Two Sum
-
+...
 
 <!--more-->
 
+# LeetCode JavaScript (1): Two Sum
 
 
 > [直达链接：https://leetcode.com/problems/two-sum/](https://leetcode.com/problems/two-sum/)
