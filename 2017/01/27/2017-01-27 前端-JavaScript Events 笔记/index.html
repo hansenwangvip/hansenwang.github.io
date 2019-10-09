@@ -11,8 +11,10 @@
 
 
 
+  
 
-<html class="theme-next pisces" lang="zh-CN">
+
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -81,14 +83,14 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Muse',
     version: '7.0.1',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
     fancybox: false,
     fastclick: true,
     lazyload: true,
     tabs: true,
-    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -115,7 +117,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://img.blog.csdn.net/20161210172136724?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2lubmVyMTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20161211094137004?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2lubmVyMTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2019-10-06T00:36:14.177Z">
+<meta property="og:updated_time" content="2019-10-09T01:21:00.011Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="笔记：JavaScript事件处理">
 <meta name="twitter:description" content="JavaScript — 事件处理：">
@@ -267,6 +269,9 @@
   
 
   
+    
+
+  
 
   
     <div class="site-search">
@@ -302,6 +307,8 @@
 
 </div>
     </header>
+    
+    <a href="https://github.com/hansenwangvip/hansenwangvip.github.io/tree/hexo" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
     
 
@@ -309,9 +316,6 @@
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          
-            
-
           
           <div id="content" class="content">
             
@@ -381,22 +385,6 @@
             
 
             
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-10-06 08:36:14" itemprop="dateModified" datetime="2019-10-06T08:36:14+08:00">2019-10-06</time>
-              
-            
           </span>
 
           
@@ -421,19 +409,6 @@
 
           
             
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2017/01/27/2017-01-27 前端-JavaScript Events 笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/27/2017-01-27 前端-JavaScript Events 笔记/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -472,7 +447,7 @@
 <p>参考书籍：<br>《Modern JavaScript》(Larry Ullman 著);<br>《JavaScript高级程序设计》 (Nicholas C Zakas著).</p>
 </blockquote>
 <hr>
-<h3 id="一、-事件处理："><a href="#一、-事件处理：" class="headerlink" title="一、 事件处理："></a>一、 事件处理：</h3><h4 id="1-嵌入式事件处理器（强烈不建议）"><a href="#1-嵌入式事件处理器（强烈不建议）" class="headerlink" title="1.嵌入式事件处理器（强烈不建议）:"></a>1.嵌入式事件处理器（强烈不建议）:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/*比如*/</span><br><span class="line">      &lt;form action= &quot;#&quot; method = &quot;post&quot; onsubmit = &quot;validataForm();&quot;&gt;</span><br><span class="line">      /*或者*/</span><br><span class="line">   	&lt;a href = &quot;somepage.html&quot; onclick = &quot;doSomething();&quot;&gt;Some link&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="一、-事件处理："><a href="#一、-事件处理：" class="headerlink" title="一、 事件处理："></a>一、 事件处理：</h3><h4 id="1-嵌入式事件处理器（强烈不建议）"><a href="#1-嵌入式事件处理器（强烈不建议）" class="headerlink" title="1.嵌入式事件处理器（强烈不建议）:"></a>1.嵌入式事件处理器（强烈不建议）:</h4><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*比如*/</span></span><br><span class="line">      &lt;form <span class="attr">action=</span> <span class="string">"#"</span> <span class="attr">method</span> = <span class="string">"post"</span> <span class="attr">onsubmit</span> = <span class="string">"validataForm();"</span>&gt;</span><br><span class="line">      <span class="comment">/*或者*/</span></span><br><span class="line">   	&lt;a <span class="attr">href</span> = <span class="string">"somepage.html"</span> <span class="attr">onclick</span> = <span class="string">"doSomething();"</span>&gt;Some link&lt;/a&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="2-传统事件处理方法-不建议-："><a href="#2-传统事件处理方法-不建议-：" class="headerlink" title="2.传统事件处理方法(不建议)："></a>2.传统事件处理方法(不建议)：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 以下传统方法不建议使用 */</span></span><br><span class="line"><span class="built_in">window</span>.onload = init; <span class="comment">//易用，可靠，属性名必须全小写。</span></span><br><span class="line"><span class="comment">/* 或者 */</span></span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">//匿名函数方法</span></span><br><span class="line"><span class="comment">//Do whatever.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>原因：</p>
@@ -482,7 +457,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'theForm'</span>).onsubmit = progress;</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'theForm'</span>).onsubmit = calculate; <span class="comment">// 呃!有问题.</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//缓解方法</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'theForm'</span>).onsubmit = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	progress();  <span class="comment">//当然你也可以这样解决，但是这样的代码很丑陋。</span></span><br><span class="line">	calculate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="3-W3C事件处理-建议"><a href="#3-W3C事件处理-建议" class="headerlink" title="3.W3C事件处理(建议)"></a>3.W3C事件处理(建议)</h4><ol>
-<li>接受三个参数：事件类型，事件发生时调用的函数，表示事件阶段的布尔值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">	addEventListener(&apos;load&apos;, init , false);  //可以为相同元素添加多个事件监听器；`</span><br><span class="line">	removeEventListener()(&apos;load&apos;, process , false);</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">2. IE&lt;9的事件处理(事件名称前缀多了&quot;on&quot;)</span><br><span class="line"></span><br><span class="line">		1. attachEvent(&apos;onload&apos; , init);</span><br><span class="line">		2. detachEvent(&apos;onload&apos; , init);</span><br><span class="line">3. 创建一个事件分配器</span><br><span class="line">	</span><br><span class="line">	``` javascript</span><br><span class="line">	function addEvent( obj , type , fn)&#123;</span><br><span class="line">	     if(obj &amp;&amp; objEventListener)&#123;          //W3c</span><br><span class="line">	          obj.addEventListener(type, fn , false);</span><br><span class="line">	     &#125;else if(obj &amp;&amp; obj.attachEvent)&#123;     //IE&lt;9</span><br><span class="line">	          obj.attachEvent(&quot;on&quot; + type, fn);</span><br><span class="line">	     &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<li>接受三个参数：事件类型，事件发生时调用的函数，表示事件阶段的布尔值。<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">	add<span class="constructor">EventListener('<span class="params">load</span>', <span class="params">init</span> , <span class="params">false</span>)</span>;  <span class="comment">//可以为相同元素添加多个事件监听器；`</span></span><br><span class="line">	remove<span class="constructor">EventListener()</span>('load', process , <span class="literal">false</span>);</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> IE&lt;<span class="number">9</span>的事件处理(事件名称前缀多了<span class="string">"on"</span>)</span><br><span class="line"></span><br><span class="line">		<span class="number">1.</span> attach<span class="constructor">Event('<span class="params">onload</span>' , <span class="params">init</span>)</span>;</span><br><span class="line">		<span class="number">2.</span> detach<span class="constructor">Event('<span class="params">onload</span>' , <span class="params">init</span>)</span>;</span><br><span class="line"><span class="number">3.</span> 创建一个事件分配器</span><br><span class="line">	</span><br><span class="line">	``` javascript</span><br><span class="line">	<span class="keyword">function</span> add<span class="constructor">Event( <span class="params">obj</span> , <span class="params">type</span> , <span class="params">fn</span>)</span>&#123;</span><br><span class="line">	     <span class="keyword">if</span>(obj<span class="operator"> &amp;&amp; </span>objEventListener)&#123;          <span class="comment">//W3c</span></span><br><span class="line">	          obj.add<span class="constructor">EventListener(<span class="params">type</span>, <span class="params">fn</span> , <span class="params">false</span>)</span>;</span><br><span class="line">	     &#125;<span class="keyword">else</span> <span class="keyword">if</span>(obj<span class="operator"> &amp;&amp; </span>obj.attachEvent)&#123;     <span class="comment">//IE&lt;9</span></span><br><span class="line">	          obj.attach<span class="constructor">Event(<span class="string">"on"</span> + <span class="params">type</span>, <span class="params">fn</span>)</span>;</span><br><span class="line">	     &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h4 id="4-范例：创建一个实用程序库"><a href="#4-范例：创建一个实用程序库" class="headerlink" title="4. 范例：创建一个实用程序库"></a>4. <strong>范例：创建一个实用程序库</strong></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//所有函数都定义在全局对象U中，避免多个新函数污染全局命名空间。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//新对象U （Utility的缩写）</span></span><br><span class="line"><span class="keyword">var</span> U = &#123;</span><br><span class="line">      <span class="comment">//定义$()方法</span></span><br><span class="line">      $: <span class="function"><span class="keyword">function</span>(<span class="params">id</span>)</span>&#123;</span><br><span class="line"><span class="meta">           'use strict'</span>;</span><br><span class="line">           <span class="keyword">if</span> (<span class="keyword">typeof</span> id == <span class="string">'string'</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">document</span>.getElementById(id);</span><br><span class="line">           &#125;</span><br><span class="line">      &#125;,</span><br><span class="line"><span class="comment">//定义setText 方法，两个参数：要更新的元素id和消息本身</span></span><br><span class="line">      setText: <span class="function"><span class="keyword">function</span>(<span class="params">id, message</span>)</span>&#123;</span><br><span class="line"><span class="meta">      	'use strict'</span>;</span><br><span class="line">      	<span class="keyword">if</span>( (<span class="keyword">typeof</span> id == <span class="string">'string'</span>) &amp;&amp; (<span class="keyword">typeof</span> message == <span class="string">'string'</span>))&#123;</span><br><span class="line">      		<span class="keyword">var</span> output = <span class="keyword">this</span>.$(id);</span><br><span class="line">      		<span class="keyword">if</span> (!output) &#123;<span class="keyword">return</span> <span class="literal">false</span>&#125;;	<span class="comment">//获取id的元素失败</span></span><br><span class="line">      		<span class="keyword">if</span>(output.textContext !== <span class="literal">undefined</span>)&#123;</span><br><span class="line">      			output.textContext = message;</span><br><span class="line">      		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      			output.innerText = message;</span><br><span class="line">      		&#125;</span><br><span class="line">      		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      	&#125;	<span class="comment">//End of main IF.</span></span><br><span class="line">      &#125;, 	<span class="comment">//End of setText() function.</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment">//封装一个‘添加事件监听器’ 函数</span></span><br><span class="line">      addEvent: <span class="function"><span class="keyword">function</span>(<span class="params"> obj , type , fn</span>)</span>&#123;</span><br><span class="line"><span class="meta">      		'use strict'</span>;</span><br><span class="line">            <span class="keyword">if</span>(obj &amp;&amp; obj.removeEventListener)&#123;</span><br><span class="line">            	obj.addEventListener(type, fn, <span class="literal">false</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (obj &amp;&amp; obj.detachEvent)&#123;</span><br><span class="line">            	obj.attachEvent(<span class="string">'on'</span> + type , fn);</span><br><span class="line">            &#125;</span><br><span class="line">      &#125;,   	<span class="comment">//End of addEvent() function</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment">//封装一个‘移除事件监听器’函数</span></span><br><span class="line">      removeEvent: <span class="function"><span class="keyword">function</span>(<span class="params"> obj , type , fn</span>)</span>&#123;</span><br><span class="line"><span class="meta">      		'use strict'</span>;</span><br><span class="line">            <span class="keyword">if</span>(obj &amp;&amp; obj.removeEventListener)&#123;</span><br><span class="line">            	obj.removeEventListener(type, fn, <span class="literal">false</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (obj &amp;&amp; obj.detachEvent)&#123;</span><br><span class="line">            	obj.detachEvent(<span class="string">'on'</span> + type , fn);</span><br><span class="line">            &#125;</span><br><span class="line">      &#125;   	<span class="comment">//End of removeEvent() function</span></span><br><span class="line"> &#125;;	<span class="comment">//End of U declaration.</span></span><br></pre></td></tr></table></figure>
@@ -511,7 +486,7 @@
 6. cut;
 7. paste;  
 </code></pre><h5 id="5-表单事件："><a href="#5-表单事件：" class="headerlink" title="5. 表单事件："></a>5. 表单事件：</h5><p>   – <strong>reset</strong>：表单重置(点击重置html按钮)时触发，用户很少有重置表单的需要；若要使用此事件，可以添加监视：     </p>
-<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">addEvent(document.getElementById(&apos;theForm&apos;), &apos;reset&apos; , function()&#123;</span><br><span class="line">	return confirm(&quot;您确定想要重置表单吗？&quot;);		</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">addEvent(<span class="built_in">document</span>.getElementById(<span class="string">'theForm'</span>), <span class="string">'reset'</span> , <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> confirm(<span class="string">"您确定想要重置表单吗？"</span>);		</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </code></pre><p><img src="http://img.blog.csdn.net/20161210172136724?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2lubmVyMTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="重置表单提醒"></p>
 <p>– <strong>select</strong>: 文本输入域和文本区域的文本内容被选中时；</p>
 <p>– <strong>change</strong>: 元素值变化时；</p>
@@ -557,11 +532,11 @@
 <p>当键盘事件触发时，可以通过事件对象确定按下的具体键。这个问题有点复杂，在这里稍微带过。</p>
 </blockquote>
 <p>示例代码：以一致的方式获得字符：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var charCode = e.which || e.keyCode;	//IE中不支持which</span><br><span class="line">// 或者更准确的</span><br><span class="line">var charCode = (typeof e.which == &apos;number&apos;)?e.which : e.keyCode;</span><br><span class="line"></span><br><span class="line">//获得与字符代码相对应的实际字符:</span><br><span class="line">String.fromCharCode(charcode);</span><br></pre></td></tr></table></figure>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> charCode = <span class="keyword">e</span>.<span class="keyword">which</span> || <span class="keyword">e</span>.keyCode;	<span class="comment">//IE中不支持which</span></span><br><span class="line"><span class="comment">// 或者更准确的</span></span><br><span class="line"><span class="keyword">var</span> charCode = (<span class="keyword">typeof</span> <span class="keyword">e</span>.<span class="keyword">which</span> == 'number')?<span class="keyword">e</span>.<span class="keyword">which</span> : <span class="keyword">e</span>.keyCode;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获得与字符代码相对应的实际字符:</span></span><br><span class="line">String.fromCharCode(charcode);</span><br></pre></td></tr></table></figure>
 <h4 id="4-阻止事件默认行为"><a href="#4-阻止事件默认行为" class="headerlink" title="4.阻止事件默认行为"></a>4.阻止事件默认行为</h4><blockquote>
 <p>一些与基本浏览器相关的JS事件： 单击链接、提交表单等。在事件处理器存在时，事件发生会调用对应的函数，<strong>在函数运行之后，浏览器仍然继续进行它通常应该进行的事件处理。</strong><br>例如：提交表单时，提交事件处理器可能执行客户端验证。<strong>如果发生了错误，应该阻止表单提交到服务器端脚本，让客户有机会改正错误。</strong><br>方法：<strong>从事件处理器中返回false</strong>。</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 仅在传统方法注册事件处理器时可靠工作，不建议。</span><br><span class="line">function handleForm()&#123;</span><br><span class="line">	//Do whatever.</span><br><span class="line">	if(errors)&#123;</span><br><span class="line">		return false;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		return true;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//以下是跨浏览器的兼容方法，调用事件对象的preventDefault();</span><br><span class="line">if(typeof e == &apos;undefined&apos;) &#123;e = window.event;&#125;</span><br><span class="line">if(e.preventDefault)&#123;</span><br><span class="line">	e.preventDefault();</span><br><span class="line">&#125;else &#123;</span><br><span class="line">	e.returnValue = false;</span><br><span class="line">&#125;</span><br><span class="line">return false;	//额外的预防措施。</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 仅在传统方法注册事件处理器时可靠工作，不建议。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleForm</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//Do whatever.</span></span><br><span class="line">	<span class="keyword">if</span>(errors)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以下是跨浏览器的兼容方法，调用事件对象的preventDefault();</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span> e == <span class="string">'undefined'</span>) &#123;e = <span class="built_in">window</span>.event;&#125;</span><br><span class="line"><span class="keyword">if</span>(e.preventDefault)&#123;</span><br><span class="line">	e.preventDefault();</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">	e.returnValue = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;	<span class="comment">//额外的预防措施。</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>使用PreventDefault()或设置returnValue的另一个好处就是：<strong>可以在函数开始时执行，使后续的函数代码仍然运行。</strong></p>
 </blockquote>
@@ -590,7 +565,7 @@
 <p>在W3C模型中，任何事件发生时，先从顶层开始进行事件捕获，直到事件触发到达了事件源元素。然后，再从事件源往上进行事件冒泡，直到到达document。</p>
 </blockquote>
 <p>程序员可以自己选择绑定事件时采用事件捕获还是事件冒泡，方法就是绑定事件时通过addEventListener函数，它有三个参数，第三个参数若是true，则表示采用事件捕获，若是false，则表示采用事件冒泡。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ele.addEventListener(&apos;click&apos;,doSomething2,true)</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ele.add<span class="constructor">EventListener('<span class="params">click</span>',<span class="params">doSomething2</span>,<span class="params">true</span>)</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>true=捕获 false=冒泡</p>
 </blockquote>
@@ -600,14 +575,14 @@
 <blockquote>
 <p>在一个支持W3C DOM的浏览器中，像这样一般的绑定事件方式，是采用的事件冒泡方式。</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ele.onclick = doSomething2</span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ele.onclick</span> = doSomething2</span><br></pre></td></tr></table></figure>
 <ul>
 <li>IE浏览器</li>
 </ul>
 <blockquote>
 <p>如上面所说，IE只支持事件冒泡，不支持事件捕获，它也不支持addEventListener函数，不会用第三个参数来表示是冒泡还是捕获，它提供了另一个函数attachEvent。</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ele.attachEvent(&quot;onclick&quot;, doSomething2);</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ele.attach<span class="constructor">Event(<span class="string">"onclick"</span>, <span class="params">doSomething2</span>)</span>;</span><br></pre></td></tr></table></figure>
 <p>附：事件冒泡（的过程）：事件从发生的目标（event.srcElement||event.target）开始，沿着文档逐层向上冒泡，到document为止。</p>
 <ul>
 <li>事件的传播是可以阻止的：<br>• 在W3C中，使用stopPropagation（）方法<br>• 在IE下设置cancelBubble = true；</li>
@@ -936,11 +911,7 @@ eyJoaXN0b3J5IjpbMjk0MTU3NTgyXX0=
 
 
 
-  <span class="post-meta-divider">|</span>
 
-
-
-  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
 
 
 
@@ -1037,10 +1008,6 @@ eyJoaXN0b3J5IjpbMjk0MTU3NTgyXX0=
 
 
 
-  
-  
-  <script id="ribbon" size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
-
 
 
   
@@ -1079,9 +1046,7 @@ eyJoaXN0b3J5IjpbMjk0MTU3NTgyXX0=
   
 
 
-  <script src="/js/src/affix.js?v=7.0.1"></script>
-
-  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
 
 
 
@@ -1100,8 +1065,6 @@ eyJoaXN0b3J5IjpbMjk0MTU3NTgyXX0=
   
   
   
-  <script id="dsq-count-scr" src="https://hansenblog.disqus.com/count.js" async></script>
-
 
 <script>
   var disqus_config = function() {
