@@ -30,11 +30,6 @@ i18n_dir: :lang
 skip_render:
   - "**.html"
   - imgs/**
-  - demo/img/**
-  - demo/pages/**
-  - demo/react/**
-  - demo/webapp/**
-  - about/**
   - "post/*.html"
 
 # 写作文章的配置
@@ -50,7 +45,7 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace: ""
 
 # Category & Tag
