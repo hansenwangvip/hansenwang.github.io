@@ -566,7 +566,7 @@ quicklink:
 disqus:
   enable: true
   shortname: hansenblog
-  count: true
+  count: false
   lazyload: true
 
 # Changyan
