@@ -159,7 +159,7 @@ menu:
 # Enable/Disable menu icons / item badges.
 menu_settings:
   icons: false
-  badges: true
+  badges: false
 
 
 # ---------------------------------------------------------------
@@ -661,7 +661,7 @@ needmoreshare2:
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters
-#google_site_verification:
+google_site_verification: sOXcS5bW7_3OB8fElVJe2g2Dj9aIWvzWrx4oCBTLcaI
 
 # Google Analytics
 # google_analytics:

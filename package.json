@@ -1,9 +1,12 @@
 {
-  "name": "hexo-site",
+  "name": "hansenwangvip-hexo",
   "version": "1.0.0",
   "private": true,
   "hexo": {
-    "version": "3.8.0"
+    "version": "3.7.0"
+  },
+  "scripts": {
+    "dev": "hexo s"
   },
   "dependencies": {
     "hexo": "3.7.0",
