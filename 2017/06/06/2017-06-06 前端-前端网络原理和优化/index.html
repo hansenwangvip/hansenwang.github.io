@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"请输入要搜索的关键词","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="1. 一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？">
+<meta name="keywords" content="学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简述网络原理和优化">
+<meta property="og:url" content="https://hansenwangvip.github.io/2017/06/06/2017-06-06 前端-前端网络原理和优化/index.html">
+<meta property="og:site_name" content="Hansenwang&#39;s Blog">
+<meta property="og:description" content="1. 一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-12T09:39:29.317Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简述网络原理和优化">
+<meta name="twitter:description" content="1. 一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？">
+  <link rel="canonical" href="https://hansenwangvip.github.io/2017/06/06/2017-06-06 前端-前端网络原理和优化/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>简述网络原理和优化 | Hansenwang's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hansenwang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>
+        
+        搜索
+        </a>
+      </li>
+    
+  </ul>
+
+    
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2017/06/06/2017-06-06 前端-前端网络原理和优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hansenwang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hansenwang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            简述网络原理和优化
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2017-06-06 17:01:19" itemprop="dateCreated datePublished" datetime="2017-06-06T17:01:19+08:00">2017-06-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-12 17:39:29" itemprop="dateModified" datetime="2019-10-12T17:39:29+08:00">2019-10-12</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2017/06/06/2017-06-06 前端-前端网络原理和优化/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/06/06/2017-06-06 前端-前端网络原理和优化/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="1-一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？"><a href="#1-一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？" class="headerlink" title="1. 一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？"></a>1. 一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？</h1><a id="more"></a>
+<h2 id="1-1-浏览器处理请求"><a href="#1-1-浏览器处理请求" class="headerlink" title="1.1 浏览器处理请求"></a>1.1 浏览器处理请求</h2><p>浏览器开启一个线程处理这个请求，对URL分析判断，如果是HTTP协议，就按Web方式处理。</p>
+<h2 id="1-2-浏览器处理URL"><a href="#1-2-浏览器处理URL" class="headerlink" title="1.2 浏览器处理URL"></a>1.2 浏览器处理URL</h2><p>调用浏览器内核中的对应方法，比如WebView中的loadUrl方法。</p>
+<h2 id="1-3-DNS解析"><a href="#1-3-DNS解析" class="headerlink" title="1.3 DNS解析"></a>1.3 DNS解析</h2><p>通过DNS解析，获取域名的IP地址，设置UA等信息发出第二个GET请求。</p>
+<h2 id="1-4-建立连接"><a href="#1-4-建立连接" class="headerlink" title="1.4 建立连接"></a>1.4 建立连接</h2><p>进行HTTP协议回话，客户端发送报头（请求报头）；</p>
+<h2 id="1-5-服务器系统响应"><a href="#1-5-服务器系统响应" class="headerlink" title="1.5 服务器系统响应"></a>1.5 服务器系统响应</h2><p>进入到Web服务器上的Web Server， 如Apache 、Tomcat 、 Node.JS 等服务器。</p>
+<h2 id="1-6-服务器程序处理"><a href="#1-6-服务器程序处理" class="headerlink" title="1.6 服务器程序处理"></a>1.6 服务器程序处理</h2><p>进入部署好的后端应用，如PHP、Java、JavaScript、Python等，找到相应的请求处理。</p>
+<h2 id="1-7-服务器处理完成，返回数据"><a href="#1-7-服务器处理完成，返回数据" class="headerlink" title="1.7 服务器处理完成，返回数据"></a>1.7 服务器处理完成，返回数据</h2><p>处理结束回馈报头，此处如果浏览器访问过，缓存上有对应资源，会与服务器最后修改时间对比，如果一致，则返回304.</p>
+<h2 id="1-8-浏览器开始下载HTML"><a href="#1-8-浏览器开始下载HTML" class="headerlink" title="1.8 浏览器开始下载HTML"></a>1.8 浏览器开始下载HTML</h2><p>浏览器开始下载HTML文档(响应报头，状态码200)，同时使用缓存。</p>
+<h2 id="1-9-DOM树建立，加载外部文件"><a href="#1-9-DOM树建立，加载外部文件" class="headerlink" title="1.9 DOM树建立，加载外部文件"></a>1.9 DOM树建立，加载外部文件</h2><p>文档树开始建立，根据标记请求所需指定MIME类型的文件（比如CSS，JS），同时设置Cookie。</p>
+<h2 id="1-10-页面渲染"><a href="#1-10-页面渲染" class="headerlink" title="1.10 页面渲染"></a>1.10 页面渲染</h2><p>页面开始渲染DOM，JS根据DOM API操作DOM，执行事件绑定等，页面显示完成。</p>
+<h1 id="2-HTTP状态码"><a href="#2-HTTP状态码" class="headerlink" title="2. HTTP状态码"></a>2. HTTP状态码</h1><ul>
+<li>100  继续， 一般在发送post请求时， 已发送了http header之后，服务器将返回此信息，表示确认。</li>
+<li>200 正常返回信息</li>
+<li>201 请求成功并且服务器创建了新的资源</li>
+<li>202 服务器已接受请求，但尚未处理</li>
+<li>301 永久重定向</li>
+<li>302 临时重定向</li>
+<li>303 临时重定向，且总是使用GET请求新的URI</li>
+<li><p>304 资源未修改，自从上次请求后，请求的网页未修改过。</p>
+</li>
+<li><p>400 请求格式错误，客户端不应当再犯同样的错误</p>
+</li>
+<li>401 请求未授权</li>
+<li>403 禁止访问</li>
+<li><p>404 找不到资源</p>
+</li>
+<li><p>500 服务器内部错误</p>
+</li>
+<li>502 网关错误</li>
+<li>503 服务器暂时无法处理请求，可能是过载或者维护</li>
+</ul>
+<h1 id="3-前端性能优化"><a href="#3-前端性能优化" class="headerlink" title="3. 前端性能优化"></a>3. 前端性能优化</h1><h2 id="3-1-减少http请求次数"><a href="#3-1-减少http请求次数" class="headerlink" title="3.1 减少http请求次数"></a>3.1 减少http请求次数</h2><p>CSS雪碧图，JS、CSS代码压缩，图片压缩；</p>
+<p>网页Gzip，CDN托管，data缓存，分离图片服务器。</p>
+<h2 id="3-2-前端模板优化"><a href="#3-2-前端模板优化" class="headerlink" title="3.2 前端模板优化"></a>3.2 前端模板优化</h2><p>精简HTML标签，避免带宽浪费。</p>
+<p>用变量保存AJAX请求结果，每次操作本地变量，不用请求，减少请求次数。</p>
+<h2 id="3-3-DOM操作"><a href="#3-3-DOM操作" class="headerlink" title="3.3 DOM操作"></a>3.3 DOM操作</h2><p>用<code>innerHTML</code>代替DOM操作，减少DOM操作次数，优化JavaScript性能。</p>
+<p>缓存DOM节点查找的结果，减少IO读取操作。</p>
+<h2 id="3-4-避免直接操作style"><a href="#3-4-避免直接操作style" class="headerlink" title="3.4 避免直接操作style"></a>3.4 避免直接操作style</h2><p>当需要设置的样式很多时，设置className，而非直接操作style。</p>
+<h2 id="3-5-少用全局变量"><a href="#3-5-少用全局变量" class="headerlink" title="3.5 少用全局变量"></a>3.5 少用全局变量</h2><p>不要给windows添加变量了，他已经很胖了！</p>
+<hr>
+<p>The End.<br><!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEzNzEwODE2MjJdfQ==
+--></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2017/05/23/2017-05-23 技术-深入研究CSRF/" rel="next" title="如何应对CSRF攻击">
+                  <i class="fa fa-chevron-left"></i> 如何应对CSRF攻击
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2017/06/07/2017-06-07 技术-Mac安装Sass万能方法/" rel="prev" title="Mac安装Sass万能方法">
+                  Mac安装Sass万能方法 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？"><span class="nav-number">1.</span> <span class="nav-text">1. 一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-浏览器处理请求"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 浏览器处理请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-浏览器处理URL"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 浏览器处理URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-DNS解析"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 DNS解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-建立连接"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 建立连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-服务器系统响应"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 服务器系统响应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-服务器程序处理"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 服务器程序处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-服务器处理完成，返回数据"><span class="nav-number">1.7.</span> <span class="nav-text">1.7 服务器处理完成，返回数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-浏览器开始下载HTML"><span class="nav-number">1.8.</span> <span class="nav-text">1.8 浏览器开始下载HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-DOM树建立，加载外部文件"><span class="nav-number">1.9.</span> <span class="nav-text">1.9 DOM树建立，加载外部文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10-页面渲染"><span class="nav-number">1.10.</span> <span class="nav-text">1.10 页面渲染</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-HTTP状态码"><span class="nav-number">2.</span> <span class="nav-text">2. HTTP状态码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-前端性能优化"><span class="nav-number">3.</span> <span class="nav-text">3. 前端性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-减少http请求次数"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 减少http请求次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-前端模板优化"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 前端模板优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-DOM操作"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 DOM操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-避免直接操作style"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 避免直接操作style</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-少用全局变量"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 少用全局变量</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hansenwang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span>
+        
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hansenwang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+      
+    主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+  <script>
+    (function(d, w, c) {
+      w.ChatraID = 'HrFCi3Yuidvj3ASsF';
+      var s = d.createElement('script');
+      w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+      };
+      s.async = true;
+      s.src = 'https://call.chatra.io/chatra.js';
+      if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://hansenblog.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function disqus_config() {
+    this.page.url = "https://hansenwangvip.github.io/2017/06/06/2017-06-06 前端-前端网络原理和优化/";
+    this.page.identifier = "2017/06/06/2017-06-06 前端-前端网络原理和优化/";
+    this.page.title = '简述网络原理和优化';
+  }
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://hansenblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    (function() {
+      var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        window.addEventListener('load', loadComments, false);
+      } else {
+        var disqus_scroll = () => {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
+          var scrollTop = window.scrollY;
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            window.removeEventListener('scroll', disqus_scroll);
+            loadComments();
+          }
+        };
+        window.addEventListener('scroll', disqus_scroll);
+      }
+    })();
+  
+</script>
+
+</body>
+</html>

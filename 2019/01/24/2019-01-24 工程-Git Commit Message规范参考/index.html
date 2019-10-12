@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"请输入要搜索的关键词","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="在Git协作模式的团队中，Commit Message的规范对版本控制起着很重要的作用。本文引用自团队内部的规范，分享出来，一是为了贡献社区，二是为了加深印象。">
+<meta name="keywords" content="规范,软件工程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git Commit Message规范参考">
+<meta property="og:url" content="https://hansenwangvip.github.io/2019/01/24/2019-01-24 工程-Git Commit Message规范参考/index.html">
+<meta property="og:site_name" content="Hansenwang&#39;s Blog">
+<meta property="og:description" content="在Git协作模式的团队中，Commit Message的规范对版本控制起着很重要的作用。本文引用自团队内部的规范，分享出来，一是为了贡献社区，二是为了加深印象。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-12T09:39:29.317Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git Commit Message规范参考">
+<meta name="twitter:description" content="在Git协作模式的团队中，Commit Message的规范对版本控制起着很重要的作用。本文引用自团队内部的规范，分享出来，一是为了贡献社区，二是为了加深印象。">
+  <link rel="canonical" href="https://hansenwangvip.github.io/2019/01/24/2019-01-24 工程-Git Commit Message规范参考/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Git Commit Message规范参考 | Hansenwang's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hansenwang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>
+        
+        搜索
+        </a>
+      </li>
+    
+  </ul>
+
+    
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2019/01/24/2019-01-24 工程-Git Commit Message规范参考/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hansenwang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hansenwang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            Git Commit Message规范参考
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-24 00:00:00" itemprop="dateCreated datePublished" datetime="2019-01-24T00:00:00+08:00">2019-01-24</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-12 17:39:29" itemprop="dateModified" datetime="2019-10-12T17:39:29+08:00">2019-10-12</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工程/" itemprop="url" rel="index">
+                    <span itemprop="name">工程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2019/01/24/2019-01-24 工程-Git Commit Message规范参考/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/01/24/2019-01-24 工程-Git Commit Message规范参考/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>在Git协作模式的团队中，Commit Message的规范对版本控制起着很重要的作用。本文引用自团队内部的规范，分享出来，一是为了贡献社区，二是为了加深印象。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="Commit-Message规范"><a href="#Commit-Message规范" class="headerlink" title="Commit Message规范"></a>Commit Message规范</h2><p>在<code>git</code>开发流程中，每次<code>git commit</code>，都需要对该次<code>commit</code>添加描述信息，描述此次<code>commit</code>的具体改动内容。规范的<code>commit message</code>格式，可以让团队成员对每次改动内容进行快速了解，也可以方便<code>git log</code>时的浏览和筛选。</p>
+<p>目前社区使用最广的是 AngularJS 的规范：</p>
+<ul>
+<li><p><a href="https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.greljkmo14y0" target="_blank" rel="noopener">Google Docs 原文</a></p>
+</li>
+<li><p><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html" target="_blank" rel="noopener">阮一峰博客对于commit message的介绍</a></p>
+</li>
+</ul>
+<h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><p>一条完整的提交信息(<code>commit message</code>)一般来说包含<code>Header</code>和<code>Body</code>，其中<code>Header</code>是必须的，<code>Body</code>是可选的。</p>
+<p>对于大部分可以简单描述清楚的改动，只需要一个<code>Header</code>即可。</p>
+<p>而对于一些需要更详细说明、要分条列出的改动，我们在<code>Header</code>进行简述之外，还要在<code>Body</code>中详细描述。</p>
+<p>一般而言，<code>Header</code>长度不应超过50个字符，如果超过的话则考虑添加<code>Body</code>进行详述。</p>
+<p>我们通常使用的<code>git commit -m &quot;&lt;Commit Message Header&gt;&quot;</code>，就是只添加单行的<code>Header</code>信息。例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里只添加了Header</span></span><br><span class="line">git commit -m <span class="string">"feat(官网主页): 将iOS的头部背景与Android统一，不再使用默认蓝色图片"</span></span><br></pre></td></tr></table></figure>
+<p>如果需要添加<code>Body</code>详细信息，则使用<code>git commit</code>进入文本编辑器，再进行具体编辑。例如：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里既添加了Header，又添加了Body</span></span><br><span class="line">chore(构建优化): 解决构建流程几个问题</span><br><span class="line"></span><br><span class="line">- 每次构建chunkhash会改变的问题</span><br><span class="line">- 内联和外链样式重复问题</span><br><span class="line">- 图片md5错误问题</span><br><span class="line">- 提取项目公共vendor</span><br></pre></td></tr></table></figure>
+<h3 id="具体规范"><a href="#具体规范" class="headerlink" title="具体规范"></a>具体规范</h3><p>从上面的示例可以看到，<code>Header</code>的格式为：<code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</code>。</p>
+<p><code>Header</code>主要由<code>type</code>, <code>scope</code>和<code>subject</code>三部分组成：</p>
+<ul>
+<li><code>type</code>用来描述这次提交属于哪一类修改，比如是<code>完成需求</code>还是<code>修复BUG</code>。<em>（必需）</em></li>
+<li><code>scope</code>用来描述这次提交涉及的范围，比如是<code>详情页</code>还是<code>礼包页</code>。对于一些没有明确范围的改动，可以忽略。<em>（可选）</em></li>
+<li><code>subject</code>是这次提交的简单描述，具体做了什么。如果50字符内不能描述清楚，建议添加<code>Body</code>继续描述。<em>（必需）</em></li>
+</ul>
+<h3 id="type类别"><a href="#type类别" class="headerlink" title="type类别"></a><code>type</code>类别</h3><p>常用：</p>
+<ul>
+<li><code>feat</code> - 新增需求、需求迭代、新功能等相关的提交</li>
+<li><code>fix</code> - BUG修复提交</li>
+<li><code>docs</code> - 文档相关的提交</li>
+<li><code>refactor</code> - 技术优化类的代码重构，不影响具体需求和逻辑，也不涉及BUG修复的修改，如：测速优化、性能优化、模块拆分等</li>
+<li><code>chore</code> - 代码维护相关的小改动，如：更新依赖库、构建工具及其配置的改动、代码格式调整等</li>
+</ul>
+<p>较不常用：</p>
+<ul>
+<li><code>workflow</code> - 开发工作流的改动，比如修改<code>package.json</code>中的<code>scripts</code>，比如增加或修改一些发布脚本</li>
+<li><code>test</code> - 测试相关的修改，比如增加测试用例。</li>
+</ul>
+<h3 id="Revert"><a href="#Revert" class="headerlink" title="Revert"></a>Revert</h3><p>在需要回滚某些改动的时候，使用<code>revert: &lt;reverted commit Header&gt;</code>格式，也就是将回滚的那一条提交的<code>Header</code>作为<code>revert</code>后的内容。</p>
+<p>例如，之前进行了某些改动：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fix(礼包页): 修复了礼包页展示不完全的bug</span><br></pre></td></tr></table></figure>
+<p>之后发现这个改动会引起一些其他的bug，不得已需要回滚：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">revert: fix(礼包页): 修复了礼包页展示不完全的bug</span><br></pre></td></tr></table></figure>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li><code>scope</code>不是必须的，也没有具体的限定，但是有明显范围特征的尽量写上。（比如下面例子中的<code>(详情页)</code>）；</li>
+<li>注意描述要清晰，要针对改动本身，让其他成员在没有任何上下文的情况下，也能看懂改动了什么。</li>
+<li>不写废话（不过可以偶尔卖个萌😉）；</li>
+<li><code>typo</code>修正、代码格式调整之类的，在AngularJS标准里另分到<code>style</code>类别，我们统一放在<code>chore</code>当中。这些很细小的改动，描述可以不用特别详细；</li>
+<li>应保证<code>改动</code>和<code>commit</code>一一对应；</li>
+<li>一个<code>commit</code>只对应一处改动、一个需求或一个BUG，不要把多个改动集中混在一起提交。在同时修改了多个文件时，不要直接<code>git add .</code>，应该挑选相关的文件进行<code>add</code>和<code>commit</code>，再挑选另一部分文件进行<code>add</code>和<code>commit</code>；</li>
+<li>一处改动、一个需求或一个BUG，应尽量集中在同一个<code>commit</code>中，不要开发到中途先提交一次，开发完成再提交一次。</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Bad</span></span><br><span class="line">fix: bug修复</span><br><span class="line">fix: 修复了测试昨天发现的bug</span><br><span class="line">feat: 完成了今天排期的需求</span><br><span class="line"></span><br><span class="line"><span class="comment"># OK</span></span><br><span class="line">chore: 修正了几处拼写错误</span><br><span class="line"></span><br><span class="line"><span class="comment"># Good</span></span><br><span class="line">feat: 在新的主页新增了一个关闭按钮</span><br><span class="line">fix(详情页): 修复展开活动的sid为string的bug</span><br></pre></td></tr></table></figure>
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTUxMTk4NDcyNiw2MTI0NDk4NCwtNTExOT
+g0NzI2XX0=
+-->
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/规范/" rel="tag"># 规范</a>
+            
+              <a href="/tags/软件工程/" rel="tag"># 软件工程</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/09/08/2018-09-08 笔记-学会阅读英文文档/" rel="next" title="笔记-如何阅读英文技术文档">
+                  <i class="fa fa-chevron-left"></i> 笔记-如何阅读英文技术文档
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/03/05/2019-03-05 技术-如何在你的Git仓库中忽略一个submodule/" rel="prev" title="Git-如何忽略一个submodule">
+                  Git-如何忽略一个submodule <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Commit-Message规范"><span class="nav-number">1.</span> <span class="nav-text">Commit Message规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简述"><span class="nav-number">1.1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体规范"><span class="nav-number">1.2.</span> <span class="nav-text">具体规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#type类别"><span class="nav-number">1.3.</span> <span class="nav-text">type类别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Revert"><span class="nav-number">1.4.</span> <span class="nav-text">Revert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事项"><span class="nav-number">1.5.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hansenwang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span>
+        
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hansenwang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+      
+    主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+  <script>
+    (function(d, w, c) {
+      w.ChatraID = 'HrFCi3Yuidvj3ASsF';
+      var s = d.createElement('script');
+      w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+      };
+      s.async = true;
+      s.src = 'https://call.chatra.io/chatra.js';
+      if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://hansenblog.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function disqus_config() {
+    this.page.url = "https://hansenwangvip.github.io/2019/01/24/2019-01-24 工程-Git Commit Message规范参考/";
+    this.page.identifier = "2019/01/24/2019-01-24 工程-Git Commit Message规范参考/";
+    this.page.title = 'Git Commit Message规范参考';
+  }
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://hansenblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    (function() {
+      var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        window.addEventListener('load', loadComments, false);
+      } else {
+        var disqus_scroll = () => {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
+          var scrollTop = window.scrollY;
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            window.removeEventListener('scroll', disqus_scroll);
+            loadComments();
+          }
+        };
+        window.addEventListener('scroll', disqus_scroll);
+      }
+    })();
+  
+</script>
+
+</body>
+</html>

@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"请输入要搜索的关键词","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="JavaScript — 事件处理：">
+<meta name="keywords" content="JavaScript,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记：JavaScript事件处理">
+<meta property="og:url" content="https://hansenwangvip.github.io/2017/01/27/2017-01-27 前端-JavaScript Events 笔记/index.html">
+<meta property="og:site_name" content="Hansenwang&#39;s Blog">
+<meta property="og:description" content="JavaScript — 事件处理：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-12T09:39:29.313Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="笔记：JavaScript事件处理">
+<meta name="twitter:description" content="JavaScript — 事件处理：">
+  <link rel="canonical" href="https://hansenwangvip.github.io/2017/01/27/2017-01-27 前端-JavaScript Events 笔记/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>笔记：JavaScript事件处理 | Hansenwang's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hansenwang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>
+        
+        搜索
+        </a>
+      </li>
+    
+  </ul>
+
+    
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2017/01/27/2017-01-27 前端-JavaScript Events 笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hansenwang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hansenwang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            笔记：JavaScript事件处理
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2017-01-27 00:00:00" itemprop="dateCreated datePublished" datetime="2017-01-27T00:00:00+08:00">2017-01-27</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-12 17:39:29" itemprop="dateModified" datetime="2019-10-12T17:39:29+08:00">2019-10-12</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2017/01/27/2017-01-27 前端-JavaScript Events 笔记/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/27/2017-01-27 前端-JavaScript Events 笔记/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="JavaScript-—-事件处理："><a href="#JavaScript-—-事件处理：" class="headerlink" title="JavaScript — 事件处理："></a>JavaScript — 事件处理：</h2><a id="more"></a>
+<h3 id="笔记摘要"><a href="#笔记摘要" class="headerlink" title="笔记摘要"></a>笔记摘要</h3><blockquote>
+<p>参考书籍：<br>《Modern JavaScript》(Larry Ullman 著);<br>《JavaScript高级程序设计》 (Nicholas C Zakas著).</p>
+</blockquote>
+<hr>
+<h3 id="一、-事件处理："><a href="#一、-事件处理：" class="headerlink" title="一、 事件处理："></a>一、 事件处理：</h3><h4 id="1-嵌入式事件处理器（强烈不建议）"><a href="#1-嵌入式事件处理器（强烈不建议）" class="headerlink" title="1.嵌入式事件处理器（强烈不建议）:"></a>1.嵌入式事件处理器（强烈不建议）:</h4><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*比如*/</span></span><br><span class="line">      &lt;form <span class="attr">action=</span> <span class="string">"#"</span> <span class="attr">method</span> = <span class="string">"post"</span> <span class="attr">onsubmit</span> = <span class="string">"validataForm();"</span>&gt;</span><br><span class="line">      <span class="comment">/*或者*/</span></span><br><span class="line">   	&lt;a <span class="attr">href</span> = <span class="string">"somepage.html"</span> <span class="attr">onclick</span> = <span class="string">"doSomething();"</span>&gt;Some link&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="2-传统事件处理方法-不建议-："><a href="#2-传统事件处理方法-不建议-：" class="headerlink" title="2.传统事件处理方法(不建议)："></a>2.传统事件处理方法(不建议)：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 以下传统方法不建议使用 */</span></span><br><span class="line"><span class="built_in">window</span>.onload = init; <span class="comment">//易用，可靠，属性名必须全小写。</span></span><br><span class="line"><span class="comment">/* 或者 */</span></span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">//匿名函数方法</span></span><br><span class="line"><span class="comment">//Do whatever.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>原因：</p>
+<pre><code>1. 一次只能指定一个时间处理器；
+2. 较后的函数会覆盖较前的；
+</code></pre></blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'theForm'</span>).onsubmit = progress;</span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'theForm'</span>).onsubmit = calculate; <span class="comment">// 呃!有问题.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//缓解方法</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">'theForm'</span>).onsubmit = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	progress();  <span class="comment">//当然你也可以这样解决，但是这样的代码很丑陋。</span></span><br><span class="line">	calculate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-W3C事件处理-建议"><a href="#3-W3C事件处理-建议" class="headerlink" title="3.W3C事件处理(建议)"></a>3.W3C事件处理(建议)</h4><ol>
+<li>接受三个参数：事件类型，事件发生时调用的函数，表示事件阶段的布尔值。<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">	addEventListener(<span class="symbol">'loa</span>d', init , <span class="literal">false</span>);  <span class="comment">//可以为相同元素添加多个事件监听器；`</span></span><br><span class="line">	removeEventListener()(<span class="symbol">'loa</span>d', process , <span class="literal">false</span>);</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> <span class="type">IE</span>&lt;<span class="number">9</span>的事件处理(事件名称前缀多了<span class="string">"on"</span>)</span><br><span class="line"></span><br><span class="line">		<span class="number">1.</span> attachEvent(<span class="symbol">'onloa</span>d' , init);</span><br><span class="line">		<span class="number">2.</span> detachEvent(<span class="symbol">'onloa</span>d' , init);</span><br><span class="line"><span class="number">3.</span> 创建一个事件分配器</span><br><span class="line">	</span><br><span class="line">	``` javascript</span><br><span class="line">	function addEvent( obj , <span class="class"><span class="keyword">type</span> , <span class="title">fn</span>)</span>&#123;</span><br><span class="line">	     <span class="keyword">if</span>(obj &amp;&amp; objEventListener)&#123;          <span class="comment">//W3c</span></span><br><span class="line">	          obj.addEventListener(<span class="class"><span class="keyword">type</span>, <span class="title">fn</span> , <span class="title">false</span>)</span>;</span><br><span class="line">	     &#125;<span class="keyword">else</span> <span class="keyword">if</span>(obj &amp;&amp; obj.attachEvent)&#123;     <span class="comment">//IE&lt;9</span></span><br><span class="line">	          obj.attachEvent(<span class="string">"on"</span> + <span class="class"><span class="keyword">type</span>, <span class="title">fn</span>)</span>;</span><br><span class="line">	     &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="4-范例：创建一个实用程序库"><a href="#4-范例：创建一个实用程序库" class="headerlink" title="4. 范例：创建一个实用程序库"></a>4. <strong>范例：创建一个实用程序库</strong></h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//所有函数都定义在全局对象U中，避免多个新函数污染全局命名空间。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//新对象U （Utility的缩写）</span></span><br><span class="line"><span class="keyword">var</span> U = &#123;</span><br><span class="line">      <span class="comment">//定义$()方法</span></span><br><span class="line">      $: <span class="function"><span class="keyword">function</span>(<span class="params">id</span>)</span>&#123;</span><br><span class="line"><span class="meta">           'use strict'</span>;</span><br><span class="line">           <span class="keyword">if</span> (<span class="keyword">typeof</span> id == <span class="string">'string'</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">document</span>.getElementById(id);</span><br><span class="line">           &#125;</span><br><span class="line">      &#125;,</span><br><span class="line"><span class="comment">//定义setText 方法，两个参数：要更新的元素id和消息本身</span></span><br><span class="line">      setText: <span class="function"><span class="keyword">function</span>(<span class="params">id, message</span>)</span>&#123;</span><br><span class="line"><span class="meta">      	'use strict'</span>;</span><br><span class="line">      	<span class="keyword">if</span>( (<span class="keyword">typeof</span> id == <span class="string">'string'</span>) &amp;&amp; (<span class="keyword">typeof</span> message == <span class="string">'string'</span>))&#123;</span><br><span class="line">      		<span class="keyword">var</span> output = <span class="keyword">this</span>.$(id);</span><br><span class="line">      		<span class="keyword">if</span> (!output) &#123;<span class="keyword">return</span> <span class="literal">false</span>&#125;;	<span class="comment">//获取id的元素失败</span></span><br><span class="line">      		<span class="keyword">if</span>(output.textContext !== <span class="literal">undefined</span>)&#123;</span><br><span class="line">      			output.textContext = message;</span><br><span class="line">      		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      			output.innerText = message;</span><br><span class="line">      		&#125;</span><br><span class="line">      		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">      	&#125;	<span class="comment">//End of main IF.</span></span><br><span class="line">      &#125;, 	<span class="comment">//End of setText() function.</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment">//封装一个‘添加事件监听器’ 函数</span></span><br><span class="line">      addEvent: <span class="function"><span class="keyword">function</span>(<span class="params"> obj , type , fn</span>)</span>&#123;</span><br><span class="line"><span class="meta">      		'use strict'</span>;</span><br><span class="line">            <span class="keyword">if</span>(obj &amp;&amp; obj.removeEventListener)&#123;</span><br><span class="line">            	obj.addEventListener(type, fn, <span class="literal">false</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (obj &amp;&amp; obj.detachEvent)&#123;</span><br><span class="line">            	obj.attachEvent(<span class="string">'on'</span> + type , fn);</span><br><span class="line">            &#125;</span><br><span class="line">      &#125;,   	<span class="comment">//End of addEvent() function</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment">//封装一个‘移除事件监听器’函数</span></span><br><span class="line">      removeEvent: <span class="function"><span class="keyword">function</span>(<span class="params"> obj , type , fn</span>)</span>&#123;</span><br><span class="line"><span class="meta">      		'use strict'</span>;</span><br><span class="line">            <span class="keyword">if</span>(obj &amp;&amp; obj.removeEventListener)&#123;</span><br><span class="line">            	obj.removeEventListener(type, fn, <span class="literal">false</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (obj &amp;&amp; obj.detachEvent)&#123;</span><br><span class="line">            	obj.detachEvent(<span class="string">'on'</span> + type , fn);</span><br><span class="line">            &#125;</span><br><span class="line">      &#125;   	<span class="comment">//End of removeEvent() function</span></span><br><span class="line"> &#125;;	<span class="comment">//End of U declaration.</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="二、事件类型"><a href="#二、事件类型" class="headerlink" title="二、事件类型"></a>二、事件类型</h3><p><strong>事件类型分为4类：</strong></p>
+<ul>
+<li><strong>输入设备</strong></li>
+<li><strong>键盘</strong></li>
+<li><strong>浏览器</strong></li>
+<li><strong>表单</strong> </li>
+</ul>
+<h4 id="1-输入设备事件"><a href="#1-输入设备事件" class="headerlink" title="1.输入设备事件"></a>1.输入设备事件</h4><h5 id="1-输入按钮事件："><a href="#1-输入按钮事件：" class="headerlink" title="1. 输入按钮事件："></a>1. 输入按钮事件：</h5><pre><code>1. click 事件；
+2. dblclick 事件；
+3. contextmenu 事件(罕见)；
+</code></pre><h5 id="2-输入移动事件："><a href="#2-输入移动事件：" class="headerlink" title="2. 输入移动事件："></a>2. 输入移动事件：</h5><pre><code>1.  mouseout 鼠标移出;
+2.  mouseover 鼠标移过;
+3.  mousemove 鼠标移动（持续监视鼠标，消耗性能）;
+</code></pre><h5 id="3-键盘事件："><a href="#3-键盘事件：" class="headerlink" title="3. 键盘事件："></a>3. 键盘事件：</h5><pre><code>1.   keydown (按下);
+2.   keyup (释放); 
+3.   keypress (按键，前二者组合);
+</code></pre><h5 id="4-浏览器事件："><a href="#4-浏览器事件：" class="headerlink" title="4. 浏览器事件："></a>4. 浏览器事件：</h5><pre><code>1. load (加载完成);
+2. unload (卸载);
+3. resize (改变浏览器窗口大小);
+4. scroll (滚动事件);
+5. copy;
+6. cut;
+7. paste;  
+</code></pre><h5 id="5-表单事件："><a href="#5-表单事件：" class="headerlink" title="5. 表单事件："></a>5. 表单事件：</h5><p>   – <strong>reset</strong>：表单重置(点击重置html按钮)时触发，用户很少有重置表单的需要；若要使用此事件，可以添加监视：     </p>
+<pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">addEvent(<span class="built_in">document</span>.getElementById(<span class="string">'theForm'</span>), <span class="string">'reset'</span> , <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> confirm(<span class="string">"您确定想要重置表单吗？"</span>);		</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</code></pre><p><img alt="重置表单提醒" data-src="http://img.blog.csdn.net/20161210172136724?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2lubmVyMTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"></p>
+<p>– <strong>select</strong>: 文本输入域和文本区域的文本内容被选中时；</p>
+<p>– <strong>change</strong>: 元素值变化时；</p>
+<p>– <strong>focus</strong>: 单击或Tab键到文本输入域时；</p>
+<p>– <strong>blur</strong>: 光标或选择项的移动时；</p>
+<hr>
+<h3 id="三、事件可访问性-Accessibility"><a href="#三、事件可访问性-Accessibility" class="headerlink" title="三、事件可访问性(Accessibility)"></a>三、事件可访问性(Accessibility)</h3><h4 id="1-配对事件-Pairing-events"><a href="#1-配对事件-Pairing-events" class="headerlink" title="1. 配对事件(Pairing events):"></a>1. 配对事件(Pairing events):</h4><blockquote>
+<p>使用同一个函数处理相同元素的类似事件。</p>
+</blockquote>
+<h4 id="2-可访问性-Accessibility"><a href="#2-可访问性-Accessibility" class="headerlink" title="2. 可访问性(Accessibility):"></a>2. 可访问性(Accessibility):</h4><p>在移动设备和其他非标准浏览器上，对于不使用输入设备的浏览器，mouseover和mouseout事件毫无意义，因为它们永远不会发生。<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href = &quot;somepage.html&quot; id = &quot;link&quot; &gt; Some Text &lt;/a&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">addEvent(document.getElementById(&apos;link&apos;), &apos;mouseover&apos;,handleLinkMouseOver);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>上述代码中，事件只能通过鼠标触发。<br>但是还是有缓解方法。<br>如果浏览器仅由键盘控制，那么它是可以监视<strong>focus</strong>事件的(Tab键)。<br>因此，<strong>增强可访问性</strong>的事件处理方法是创建两个事件监听器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href = &quot;somepage.html&quot; id = &quot;link&quot;&gt;some Text&lt;/a&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">//配对事件</span><br><span class="line">addEvent(document.getElementById(&apos;link&apos;), &apos;mouseover&apos;, doSomething);</span><br><span class="line">addEvent(document.getElementById(&apos;link&apos;), &apos;focus&apos;, doSomething);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="3-事件和渐进增强"><a href="#3-事件和渐进增强" class="headerlink" title="3.事件和渐进增强"></a>3.事件和渐进增强</h4><ul>
+<li><p>渐进增强的真正原则： </p>
+<blockquote>
+<p>使用JavaScript( 和CSS )改进<strong>基本功能</strong>，使得用户不管使用何种设备，都不会被抛弃(忽略)。</p>
+</blockquote>
+<ul>
+<li>只有在开发者有意识的<strong>忽略</strong>一些用户时，JavaScript才是有必要的。</li>
+<li>但是在很多情况下，<strong>JavaScript是没有必要的</strong>：比如表单的提交应该在有无JavaScript的情况下都能进行(在服务端都能验证)。</li>
+<li>将<strong>渐进增强的思想</strong>应用到事件处理中，向已经有默认事件行为的元素添加事件时必须小心。例如：表单提交时，表单的数据发送给服务器端脚本。为表单添加提交事件，为其添加其他功能，在逻辑上是毫无意义的。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="四、高级事件处理"><a href="#四、高级事件处理" class="headerlink" title="四、高级事件处理"></a>四、高级事件处理</h3><ul>
+<li>引用事件</li>
+<li>事件属性</li>
+<li>检查按键</li>
+<li>阻止默认事件行为</li>
+<li>事件的两个阶段：捕捉和冒泡</li>
+<li>委派事件处理 </li>
+</ul>
+<h4 id="1-引用事件"><a href="#1-引用事件" class="headerlink" title="1.引用事件"></a>1.引用事件</h4><blockquote>
+<p>当事件处理程序用于多个元素上的相同事件（或者相同元素上的不同事件）时，事件处理程序就必须考虑其灵活性。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">someEventHandler</span>(<span class="params">e</span>)</span>&#123;  <span class="comment">//e就是引用事件，代表发生的事件</span></span><br><span class="line">	<span class="keyword">if</span>(<span class="keyword">typeof</span> e == <span class="string">"undefined"</span>)&#123;</span><br><span class="line">		e = <span class="built_in">window</span>.event;      <span class="comment">//考虑IE8及更早</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="2-事件属性"><a href="#2-事件属性" class="headerlink" title="2.事件属性"></a>2.事件属性</h4><blockquote>
+<p>事件对象通过各种属性提供信息，但是不同浏览器支持的属性有所差异。(这里不深究，后续补充。)</p>
+</blockquote>
+<h4 id="3-检查按键"><a href="#3-检查按键" class="headerlink" title="3.检查按键"></a>3.检查按键</h4><blockquote>
+<p>当键盘事件触发时，可以通过事件对象确定按下的具体键。这个问题有点复杂，在这里稍微带过。</p>
+</blockquote>
+<p>示例代码：以一致的方式获得字符：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> charCode = <span class="keyword">e</span>.<span class="keyword">which</span> || <span class="keyword">e</span>.keyCode;	<span class="comment">//IE中不支持which</span></span><br><span class="line"><span class="comment">// 或者更准确的</span></span><br><span class="line"><span class="keyword">var</span> charCode = (<span class="keyword">typeof</span> <span class="keyword">e</span>.<span class="keyword">which</span> == 'number')?<span class="keyword">e</span>.<span class="keyword">which</span> : <span class="keyword">e</span>.keyCode;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获得与字符代码相对应的实际字符:</span></span><br><span class="line">String.fromCharCode(charcode);</span><br></pre></td></tr></table></figure>
+<h4 id="4-阻止事件默认行为"><a href="#4-阻止事件默认行为" class="headerlink" title="4.阻止事件默认行为"></a>4.阻止事件默认行为</h4><blockquote>
+<p>一些与基本浏览器相关的JS事件： 单击链接、提交表单等。在事件处理器存在时，事件发生会调用对应的函数，<strong>在函数运行之后，浏览器仍然继续进行它通常应该进行的事件处理。</strong><br>例如：提交表单时，提交事件处理器可能执行客户端验证。<strong>如果发生了错误，应该阻止表单提交到服务器端脚本，让客户有机会改正错误。</strong><br>方法：<strong>从事件处理器中返回false</strong>。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 仅在传统方法注册事件处理器时可靠工作，不建议。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleForm</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//Do whatever.</span></span><br><span class="line">	<span class="keyword">if</span>(errors)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以下是跨浏览器的兼容方法，调用事件对象的preventDefault();</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">typeof</span> e == <span class="string">'undefined'</span>) &#123;e = <span class="built_in">window</span>.event;&#125;</span><br><span class="line"><span class="keyword">if</span>(e.preventDefault)&#123;</span><br><span class="line">	e.preventDefault();</span><br><span class="line">&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">	e.returnValue = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;	<span class="comment">//额外的预防措施。</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用PreventDefault()或设置returnValue的另一个好处就是：<strong>可以在函数开始时执行，使后续的函数代码仍然运行。</strong></p>
+</blockquote>
+<h4 id="5-事件的两个阶段：捕捉和冒泡"><a href="#5-事件的两个阶段：捕捉和冒泡" class="headerlink" title="5.事件的两个阶段：捕捉和冒泡"></a>5.事件的两个阶段：捕捉和冒泡</h4><h5 id="示例："><a href="#示例：" class="headerlink" title="示例："></a><strong>示例</strong>：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">	&lt;h1&gt;This is a title&lt;/h1&gt;</span><br><span class="line">	&lt;p&gt;This is a paragraph.</span><br><span class="line">		&lt;a href = &quot;#&quot; id = &quot;link&quot;&gt;This is a link.&lt;/a&gt;</span><br><span class="line">	&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	// U.$()方法与jquery获取DOM节点方法一致，只是在前文定义了一个新对象U.</span><br><span class="line">	addEvent(U.$(&apos;link&apos;), &apos;mouseover&apos; , doSomething);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>**在上述代码中，包含关系：a&lt; p&lt; div&lt; html&lt; Document&lt; window。当鼠标悬停在链接之上，mouseover事件实际上经历了几个步骤，在两个不同的阶段到达和离开目标（链接）。</p>
+<p><img alt="这里写图片描述" data-src="http://img.blog.csdn.net/20161211094137004?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2lubmVyMTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"></p>
+<blockquote>
+<p>注意，事件传播一共有<strong>三个阶段</strong>：1.捕获阶段； 2.调用事件处理程序； 3.冒泡阶段。</p>
+</blockquote>
+<p>1.捕捉阶段：</p>
+<blockquote>
+<p>当你使用事件捕获时，由外向内，父级元素先触发，子级元素后触发；即div先触发，p后触发。</p>
+</blockquote>
+<p>2.事件处理：</p>
+<blockquote>
+<p>调用查找到的事件处理程序；</p>
+</blockquote>
+<p>3.冒泡阶段：</p>
+<blockquote>
+<p>事件冒泡<br>当你使用事件冒泡时，由内向外，子级元素先触发，父级元素后触发；即p先触发，div后触发。</p>
+</blockquote>
+<ul>
+<li>W3C模型</li>
+</ul>
+<blockquote>
+<p>在W3C模型中，任何事件发生时，先从顶层开始进行事件捕获，直到事件触发到达了事件源元素。然后，再从事件源往上进行事件冒泡，直到到达document。</p>
+</blockquote>
+<p>程序员可以自己选择绑定事件时采用事件捕获还是事件冒泡，方法就是绑定事件时通过addEventListener函数，它有三个参数，第三个参数若是true，则表示采用事件捕获，若是false，则表示采用事件冒泡。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ele.addEventListener(<span class="string">'click'</span>,doSomething2,<span class="literal">true</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>true=捕获 false=冒泡</p>
+</blockquote>
+<ul>
+<li>传统绑定事件方式</li>
+</ul>
+<blockquote>
+<p>在一个支持W3C DOM的浏览器中，像这样一般的绑定事件方式，是采用的事件冒泡方式。</p>
+</blockquote>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ele.onclick</span> = doSomething2</span><br></pre></td></tr></table></figure>
+<ul>
+<li>IE浏览器</li>
+</ul>
+<blockquote>
+<p>如上面所说，IE只支持事件冒泡，不支持事件捕获，它也不支持addEventListener函数，不会用第三个参数来表示是冒泡还是捕获，它提供了另一个函数attachEvent。</p>
+</blockquote>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ele</span><span class="selector-class">.attachEvent</span>(<span class="string">"onclick"</span>, doSomething2);</span><br></pre></td></tr></table></figure>
+<p>附：事件冒泡（的过程）：事件从发生的目标（event.srcElement||event.target）开始，沿着文档逐层向上冒泡，到document为止。</p>
+<ul>
+<li>事件的传播是可以阻止的：<br>• 在W3C中，使用stopPropagation（）方法<br>• 在IE下设置cancelBubble = true；</li>
+</ul>
+<blockquote>
+<p>在捕获的过程中<code>stopPropagation（）;</code>后，后面的冒泡过程也不会发生了</p>
+</blockquote>
+<ul>
+<li>阻止事件的默认行为<ul>
+<li>例如click后的跳转:<br>• 在W3C中，使用preventDefault（）方法；<br>• 在IE下设置window.event.returnValue = false;</li>
+</ul>
+</li>
+</ul>
+<p>终于写完了，花了一天时间总结了”事件处理”，文末部分参考了网友的经验。</p>
+<p>九月份看的《JS高级程序设计》，当时云里雾里，后来敲了很多代码半懂不懂，现在写完这篇博客才算明白过来。</p>
+<p>在写的时候翻阅《JS权威指南》，里面有更深入的细节，有一部分事件类型已经被HTML5标准化。</p>
+<p>后续再补充。^_^<br><!--stackedit_data:
+eyJoaXN0b3J5IjpbMjk0MTU3NTgyXX0=
+--></p>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            
+              <a href="/tags/前端/" rel="tag"># 前端</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2017/03/06/2017-03-06 前端-JavaScript精髓(1)/" rel="prev" title="JavaScript精髓(1)">
+                  JavaScript精髓(1) <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-—-事件处理："><span class="nav-number">1.</span> <span class="nav-text">JavaScript — 事件处理：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#笔记摘要"><span class="nav-number">1.1.</span> <span class="nav-text">笔记摘要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、-事件处理："><span class="nav-number">1.2.</span> <span class="nav-text">一、 事件处理：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-嵌入式事件处理器（强烈不建议）"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.嵌入式事件处理器（强烈不建议）:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-传统事件处理方法-不建议-："><span class="nav-number">1.2.2.</span> <span class="nav-text">2.传统事件处理方法(不建议)：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-W3C事件处理-建议"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.W3C事件处理(建议)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-范例：创建一个实用程序库"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 范例：创建一个实用程序库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、事件类型"><span class="nav-number">1.3.</span> <span class="nav-text">二、事件类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-输入设备事件"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.输入设备事件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-输入按钮事件："><span class="nav-number">1.3.1.1.</span> <span class="nav-text">1. 输入按钮事件：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-输入移动事件："><span class="nav-number">1.3.1.2.</span> <span class="nav-text">2. 输入移动事件：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-键盘事件："><span class="nav-number">1.3.1.3.</span> <span class="nav-text">3. 键盘事件：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-浏览器事件："><span class="nav-number">1.3.1.4.</span> <span class="nav-text">4. 浏览器事件：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-表单事件："><span class="nav-number">1.3.1.5.</span> <span class="nav-text">5. 表单事件：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、事件可访问性-Accessibility"><span class="nav-number">1.4.</span> <span class="nav-text">三、事件可访问性(Accessibility)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-配对事件-Pairing-events"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. 配对事件(Pairing events):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-可访问性-Accessibility"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. 可访问性(Accessibility):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-事件和渐进增强"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.事件和渐进增强</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、高级事件处理"><span class="nav-number">1.5.</span> <span class="nav-text">四、高级事件处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引用事件"><span class="nav-number">1.5.1.</span> <span class="nav-text">1.引用事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-事件属性"><span class="nav-number">1.5.2.</span> <span class="nav-text">2.事件属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-检查按键"><span class="nav-number">1.5.3.</span> <span class="nav-text">3.检查按键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-阻止事件默认行为"><span class="nav-number">1.5.4.</span> <span class="nav-text">4.阻止事件默认行为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-事件的两个阶段：捕捉和冒泡"><span class="nav-number">1.5.5.</span> <span class="nav-text">5.事件的两个阶段：捕捉和冒泡</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#示例："><span class="nav-number">1.5.5.1.</span> <span class="nav-text">示例：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hansenwang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span>
+        
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hansenwang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+      
+    主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+  <script>
+    (function(d, w, c) {
+      w.ChatraID = 'HrFCi3Yuidvj3ASsF';
+      var s = d.createElement('script');
+      w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+      };
+      s.async = true;
+      s.src = 'https://call.chatra.io/chatra.js';
+      if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://hansenblog.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function disqus_config() {
+    this.page.url = "https://hansenwangvip.github.io/2017/01/27/2017-01-27 前端-JavaScript Events 笔记/";
+    this.page.identifier = "2017/01/27/2017-01-27 前端-JavaScript Events 笔记/";
+    this.page.title = '笔记：JavaScript事件处理';
+  }
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://hansenblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    (function() {
+      var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        window.addEventListener('load', loadComments, false);
+      } else {
+        var disqus_scroll = () => {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
+          var scrollTop = window.scrollY;
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            window.removeEventListener('scroll', disqus_scroll);
+            loadComments();
+          }
+        };
+        window.addEventListener('scroll', disqus_scroll);
+      }
+    })();
+  
+</script>
+
+</body>
+</html>

@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.7.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.4.1',
+    exturl: false,
+    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: true,
+    pangu: true,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"请输入要搜索的关键词","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="这篇文章主要总结了JavaScript的基础，包括数据类型，值和易混淆的概念。">
+<meta name="keywords" content="JavaScript,技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript精髓(1)">
+<meta property="og:url" content="https://hansenwangvip.github.io/2017/03/06/2017-03-06 前端-JavaScript精髓(1)/index.html">
+<meta property="og:site_name" content="Hansenwang&#39;s Blog">
+<meta property="og:description" content="这篇文章主要总结了JavaScript的基础，包括数据类型，值和易混淆的概念。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-12T09:39:29.313Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript精髓(1)">
+<meta name="twitter:description" content="这篇文章主要总结了JavaScript的基础，包括数据类型，值和易混淆的概念。">
+  <link rel="canonical" href="https://hansenwangvip.github.io/2017/03/06/2017-03-06 前端-JavaScript精髓(1)/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>JavaScript精髓(1) | Hansenwang's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hansenwang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+        
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+      
+    
+      
+      
+        
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      
+    
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger">
+        
+          <i class="fa fa-search fa-fw"></i>
+        
+        搜索
+        </a>
+      </li>
+    
+  </ul>
+
+    
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2017/03/06/2017-03-06 前端-JavaScript精髓(1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hansenwang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hansenwang's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            JavaScript精髓(1)
+            
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-06 00:00:00" itemprop="dateCreated datePublished" datetime="2017-03-06T00:00:00+08:00">2017-03-06</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-12 17:39:29" itemprop="dateModified" datetime="2019-10-12T17:39:29+08:00">2019-10-12</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+        
+      
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2017/03/06/2017-03-06 前端-JavaScript精髓(1)/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/06/2017-03-06 前端-JavaScript精髓(1)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这篇文章主要总结了JavaScript的基础，包括数据类型，值和易混淆的概念。<br><a id="more"></a></p>
+<h1 id="1-JavaScript的基本数据类型"><a href="#1-JavaScript的基本数据类型" class="headerlink" title="1. JavaScript的基本数据类型"></a>1. JavaScript的基本数据类型</h1><ol>
+<li>Undefined</li>
+<li>Null</li>
+<li>Number</li>
+<li>Boolean</li>
+<li>String</li>
+<li>Symbol(ES2015新增)</li>
+</ol>
+<h1 id="2-JavaScript的内置对象"><a href="#2-JavaScript的内置对象" class="headerlink" title="2. JavaScript的内置对象"></a>2. JavaScript的内置对象</h1><ul>
+<li>Object 是JS中所有对象的父对象</li>
+<li>数据封装类对象：<ol>
+<li>Object</li>
+<li>Array</li>
+<li>Boolean</li>
+<li>Number</li>
+<li>String</li>
+</ol>
+</li>
+<li>其他对象：<ol>
+<li>Function</li>
+<li>Arguments</li>
+<li>Math</li>
+<li>Date</li>
+<li>RegExp</li>
+<li>Error </li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>参考文档：<a href="http://www.ibm.com/developerworks/cn/web/wa-objectsinjs-v1b/index.html" target="_blank" rel="noopener">文档链接</a></p>
+</blockquote>
+<h1 id="3-JavaScript-中有几种类型的值？"><a href="#3-JavaScript-中有几种类型的值？" class="headerlink" title="3. JavaScript 中有几种类型的值？"></a>3. JavaScript 中有几种类型的值？</h1><ul>
+<li>栈(Stack)：原始(primitive)数据类型(Undefined, Null , Boolean, Number, String)</li>
+<li><p>堆(Heap)：合成(complex)数据类型(Object, Array, Function)</p>
+</li>
+<li><p>两种类型的区别是： <strong>存储位置不同</strong></p>
+</li>
+<li>原始数据类型：直接存储在<strong>栈</strong>中的简单数据段，占据空间小，大小固定，属于被频繁使用的数据，所以放入栈中存储；</li>
+<li><p>引用数据类型：存储在堆(Heap)中的对象，占据空间大，大小不固定。如果存储在栈中，则会影响程序的性能。</p>
+<blockquote>
+<p>引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后，从堆中获得实体。</p>
+</blockquote>
+</li>
+<li><p>内存图：<br><img alt="enter image description here" data-src="https://camo.githubusercontent.com/d1947e624a0444d1032a85800013df487adc5550/687474703a2f2f7777772e77337363686f6f6c2e636f6d2e636e2f692f63745f6a735f76616c75652e676966"></p>
+</li>
+</ul>
+<h1 id="4-null和undefined的区别"><a href="#4-null和undefined的区别" class="headerlink" title="4. null和undefined的区别"></a>4. null和undefined的区别</h1><ul>
+<li><p>null 表示”没有对象”，即该处不应该有值，典型用法：</p>
+<blockquote>
+<ol>
+<li>作为函数的参数，表示该函数的参数不是对象。</li>
+<li>作为对象原型链的终点。 </li>
+</ol>
+</blockquote>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.getPrototypeOf(<span class="built_in">Object</span>.prototype)</span><br><span class="line"><span class="comment">//null</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>undefined 表示“缺少值”，即此处应该有值，但是没有被赋值，典型用法：</p>
+<blockquote>
+<ol>
+<li>变量被声明了，但是没有赋值，默认等于undefined。</li>
+<li>调用函数时，应该提供的参数没有提供，该参数等于undefined。</li>
+<li>对象没有赋值的属性，该属性默认值为undefined。</li>
+<li>函数没有返回值时，默认返回undefined。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i;</span><br><span class="line">i  <span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">x</span>)</span>&#123;<span class="built_in">console</span>.log(x)&#125;</span><br><span class="line">f() <span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">o.p <span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = f();</span><br><span class="line">x <span class="comment">//undefinde</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二者的测试</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span> == <span class="string">"undefined"</span> <span class="comment">//true</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span> == <span class="string">"object"</span> <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">undefined</span>)   <span class="comment">//NaN</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">null</span>)  <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>注意：<br> 在验证null时，一定要使用 <code>===</code>,因为 <code>==</code> 无法分辨null和undefined：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span> <span class="comment">//true</span></span><br><span class="line"><span class="literal">null</span> === <span class="literal">undefined</span> <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打个比方： </p>
+<ul>
+<li>null<ul>
+<li>Q: 有张三这个人吗？</li>
+<li>A:  有！</li>
+<li>Q: 张三有房子吗？</li>
+<li>A: 没有！</li>
+</ul>
+</li>
+<li>undefined<ul>
+<li>Q: 有张三这个人吗？</li>
+<li>A: 有！</li>
+<li>Q: 张三多少岁了？</li>
+<li>A: 不知道（没有被告诉）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="5-JavaScript的this"><a href="#5-JavaScript的this" class="headerlink" title="5. JavaScript的this"></a>5. JavaScript的this</h1><ul>
+<li>this是一个指针</li>
+<li>this的指向：<ol>
+<li>函数直接调用时：this指向函数的直接调用者；</li>
+<li>通过new关键字，this指向new产生的新对象；</li>
+<li>通过call/apply/bind的绑定，this指向绑定对象。</li>
+<li>在JS事件中，this指向触发这个事件的对象，但是在IE中，attachEvent中的this总是指向全局对象Window。</li>
+</ol>
+</li>
+</ul>
+<h1 id="6-JavaScript的作用域链"><a href="#6-JavaScript的作用域链" class="headerlink" title="6.JavaScript的作用域链"></a>6.JavaScript的作用域链</h1><p>全局函数无法查看局部函数的内部细节，但局部函数刻意查看上层函数的细节，直至全局细节。</p>
+<p>当需要从局部函数查找某一属性或方法时，如果当前作用域没有找到，就会上溯到上层作用域查找，直至全局函数，这种组织形式就是作用域链。</p>
+<h1 id="7-JavaScript原型和原型链"><a href="#7-JavaScript原型和原型链" class="headerlink" title="7. JavaScript原型和原型链"></a>7. JavaScript原型和原型链</h1><ul>
+<li><p>原型：每个对象都会在其内部初始化一个属性，就是prototype(原型)。换句话说，<strong>所有对象都是以对象为模板创建实例的。</strong></p>
+</li>
+<li><p>原型链：当我们访问一个对象的属性A时，如果属性A不存在于该对象中，那么我们会去prototype里查找A，而这个prototype又会有自己的prototype，于是就如此查找下去，就形成了一个原型链。这个原型链表示的是一种连带关系。</p>
+</li>
+<li><p>关系：<code>instance.constructor.prototype = instance.__proto__</code></p>
+</li>
+<li><p>特点：JS对象是通过<strong>引用传递</strong>的（对比于值传递），我们创建的每一个新对象实体中，并没有一份属于自己的原型副本。当我们修改了原型，与之相关的对象也会<strong>继承</strong>这些变化。</p>
+</li>
+<li>终点：原型链的顶端，是<code>Object.prototype</code>, 它的<code>__proto__</code>指向<code>null</code>.</li>
+</ul>
+<h1 id="8-JavaScript的闭包"><a href="#8-JavaScript的闭包" class="headerlink" title="8.JavaScript的闭包"></a>8.JavaScript的闭包</h1><ol>
+<li><p>概念<br>闭包是一种手段，一个有权访问另一个函数作用域中变量的函数，记住闭包也是函数。</p>
+</li>
+<li><p>创建闭包<br>最常见的方式，就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量(相当于一个对外的接口)。</p>
+</li>
+<li><p>作用<br>利用闭包可以突破作用域链，将函数内部的变量方法传递到外部。</p>
+</li>
+<li><p>特性</p>
+<pre><code>1. 函数内再嵌套函数
+2. 内部函数可以引用外层的参数和变量
+3. 参数和变量不会被垃圾回收机制回收
+</code></pre></li>
+</ol>
+<h1 id="9-new操作符到底干了什么？"><a href="#9-new操作符到底干了什么？" class="headerlink" title="9. new操作符到底干了什么？"></a>9. new操作符到底干了什么？</h1><ol>
+<li>创建一个空对象，将this指针指向该对象，同时继承该函数的原型。</li>
+<li>属性和方法被添加到this指向的对象中。</li>
+<li><p>新创建的对象由this所应用，并且最后隐式的返回this 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">obj.__proto__ = Base.prototype;</span><br><span class="line">Base.call(obj);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="10-JavaScript开发的基本规范"><a href="#10-JavaScript开发的基本规范" class="headerlink" title="10. JavaScript开发的基本规范"></a>10. JavaScript开发的基本规范</h1><ol>
+<li>不要在同一行声明多个变量；</li>
+<li>请使用 ===/!==来比较布尔值或者数值；</li>
+<li>使用对象字面量替代 new Array这种形式；</li>
+<li>不要使用全局函数；</li>
+<li>Switch语句必须带有default分支；</li>
+<li>函数应该有返回值；</li>
+<li>For循环必须使用大括号；</li>
+<li>if语句必须使用大括号；</li>
+<li>for-in循环中的变量应该使用let 关键字明确限定作用域，避免命名空间污染。<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTMyNjgwOTE5Nyw4MDc3MDE4MzZdfQ==
+--></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            
+              <a href="/tags/技术/" rel="tag"># 技术</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2017/01/27/2017-01-27 前端-JavaScript Events 笔记/" rel="next" title="笔记：JavaScript事件处理">
+                  <i class="fa fa-chevron-left"></i> 笔记：JavaScript事件处理
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2017/03/07/2017-03-07 前端-JavaScript精髓(2)/" rel="prev" title="JavaScript精髓(2)">
+                  JavaScript精髓(2) <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+    
+  <div class="comments" id="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+  
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-JavaScript的基本数据类型"><span class="nav-number">1.</span> <span class="nav-text">1. JavaScript的基本数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-JavaScript的内置对象"><span class="nav-number">2.</span> <span class="nav-text">2. JavaScript的内置对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-JavaScript-中有几种类型的值？"><span class="nav-number">3.</span> <span class="nav-text">3. JavaScript 中有几种类型的值？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-null和undefined的区别"><span class="nav-number">4.</span> <span class="nav-text">4. null和undefined的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-JavaScript的this"><span class="nav-number">5.</span> <span class="nav-text">5. JavaScript的this</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-JavaScript的作用域链"><span class="nav-number">6.</span> <span class="nav-text">6.JavaScript的作用域链</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-JavaScript原型和原型链"><span class="nav-number">7.</span> <span class="nav-text">7. JavaScript原型和原型链</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-JavaScript的闭包"><span class="nav-number">8.</span> <span class="nav-text">8.JavaScript的闭包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-new操作符到底干了什么？"><span class="nav-number">9.</span> <span class="nav-text">9. new操作符到底干了什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-JavaScript开发的基本规范"><span class="nav-number">10.</span> <span class="nav-text">10. JavaScript开发的基本规范</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hansenwang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span>
+        
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span>
+        
+      </div>
+    
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Hansenwang</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">
+      
+    主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
+<script src="/js/schemes/muse.js?v=7.4.1"></script>
+<script src="/js/next-boot.js?v=7.4.1"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.4.1"></script>
+
+
+
+  <script>
+    (function(d, w, c) {
+      w.ChatraID = 'HrFCi3Yuidvj3ASsF';
+      var s = d.createElement('script');
+      w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+      };
+      s.async = true;
+      s.src = 'https://call.chatra.io/chatra.js';
+      if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://hansenblog.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  function disqus_config() {
+    this.page.url = "https://hansenwangvip.github.io/2017/03/06/2017-03-06 前端-JavaScript精髓(1)/";
+    this.page.identifier = "2017/03/06/2017-03-06 前端-JavaScript精髓(1)/";
+    this.page.title = 'JavaScript精髓(1)';
+  }
+  function loadComments() {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://hansenblog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  }
+    (function() {
+      var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
+      if (offsetTop <= 0) {
+        // load directly when there's no a scrollbar
+        window.addEventListener('load', loadComments, false);
+      } else {
+        var disqus_scroll = () => {
+          // offsetTop may changes because of manually resizing browser window or lazy loading images.
+          var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
+          var scrollTop = window.scrollY;
+
+          // pre-load comments a bit? (margin or anything else)
+          if (offsetTop - scrollTop < 60) {
+            window.removeEventListener('scroll', disqus_scroll);
+            loadComments();
+          }
+        };
+        window.addEventListener('scroll', disqus_scroll);
+      }
+    })();
+  
+</script>
+
+</body>
+</html>
