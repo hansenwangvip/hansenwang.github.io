@@ -1,0 +1,49 @@
+body.home {
+  background: linear-gradient(180deg, #0b6fec, #b2b2b2);
+}
+body.home .wrapper {
+  background-image: url("https://hansenwang-vip.oss-cn-hongkong.aliyuncs.com/hexo/Licancabur-day.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: background-image 1s linear;
+}
+body.home .wrapper header a {
+  color: #c3c3c3;
+}
+body.home .main {
+  padding: 0 30%;
+}
+body.home .intro {
+  background: rgba(255,255,255,0.3);
+  border-radius: 4px;
+}
+body.home.dark-theme {
+  background: $home-dark-background-color;
+}
+body.home.dark-theme .wrapper {
+  background-image: url("https://hansenwang-vip.oss-cn-hongkong.aliyuncs.com/hexo/Licancabur-night.jpg");
+  transition: background-image 1s linear;
+}
+body.home.dark-theme .intro {
+  background: rgba(0,0,0,0.3);
+}
+body .footer {
+  margin: 40px 0 20px 0;
+}
+body .footer .copyright a {
+  color: #243240;
+}
+body .footer .copyright span {
+  color: #212121;
+}
+body.dark-theme .post-content img {
+  filter: brightness(0.8);
+}
+body.dark-theme .post-content figure {
+  filter: brightness(0.6);
+}
+body.dark-theme .footer span,
+body.dark-theme .footer a {
+  color: #cbcbcb;
+}

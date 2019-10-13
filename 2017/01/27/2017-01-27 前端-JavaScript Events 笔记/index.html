@@ -1,90 +1,18 @@
 <!DOCTYPE html>
-
-
-
-
-
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.1">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.1">
-  <link rel="mask-icon" href="/images/logo.svg?v=7.4.1" color="#222">
-
-<link rel="stylesheet" href="/css/main.css?v=7.4.1">
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2">
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+
+<title>JavaScript事件处理 | Hansenwang&#39;s Blog</title>
 
 
-<script id="hexo-configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Muse',
-    version: '7.4.1',
-    exturl: false,
-    sidebar: {"position":"right","display":"hide","offset":12,"onmobile":false},
-    copycode: {"enable":false,"show_result":false,"style":null},
-    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
-    fancybox: false,
-    mediumzoom: false,
-    lazyload: true,
-    pangu: true,
-    algolia: {
-      appID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"请输入要搜索的关键词","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    },
-    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
-    path: 'search.xml',
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    translation: {
-      copy_button: '复制',
-      copy_success: '复制成功',
-      copy_failure: '复制失败'
-    },
-    sidebarPadding: 40
-  };
-</script>
 
-  <meta name="description" content="JavaScript — 事件处理：">
-<meta name="keywords" content="JavaScript,前端">
-<meta property="og:type" content="article">
-<meta property="og:title" content="笔记：JavaScript事件处理">
-<meta property="og:url" content="https://hansenwangvip.github.io/2017/01/27/2017-01-27 前端-JavaScript Events 笔记/index.html">
-<meta property="og:site_name" content="Hansenwang&#39;s Blog">
-<meta property="og:description" content="JavaScript — 事件处理：">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-12T09:39:29.313Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔记：JavaScript事件处理">
-<meta name="twitter:description" content="JavaScript — 事件处理：">
-  <link rel="canonical" href="https://hansenwangvip.github.io/2017/01/27/2017-01-27 前端-JavaScript Events 笔记/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome: false,
-    isPost: true,
-    isPage: false,
-    isArchive: false
-  };
-</script>
-
-  <title>笔记：JavaScript事件处理 | Hansenwang's Blog</title>
-  
+    <link rel="icon" href="/favicon.ico">
 
 
 
@@ -93,244 +21,181 @@
 
 
 
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
 
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
 
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-meta">
-
-    <div>
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hansenwang's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-  </div>
-
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
-  </div>
-</div>
-
-
-<nav class="site-nav">
-  
-  <ul id="menu" class="menu">
-      
-      
-        
-        
-        <li class="menu-item menu-item-home">
-      
-    
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-      
-    
-      
-      
-        
-        
-        <li class="menu-item menu-item-archives">
-      
-    
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-      
-    
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger">
-        
-          <i class="fa fa-search fa-fw"></i>
-        
-        搜索
-        </a>
-      </li>
-    
-  </ul>
-
-    
-
-</nav>
-  <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocorrect="off" autocapitalize="none"
-           placeholder="搜索..." spellcheck="false"
-           type="text" id="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result"></div>
-
-</div>
-<div class="search-pop-overlay"></div>
-
-  </div>
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div class="content">
-            
-
-  <div class="posts-expand">
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2017/01/27/2017-01-27 前端-JavaScript Events 笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Hansenwang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hansenwang's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            笔记：JavaScript事件处理
-            
-
-          
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
+<body class="">
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">王恒胜的博客</a></div>
+            <div class="menu navbar-right">
                 
-              
-
-              <time title="创建时间：2017-01-27 00:00:00" itemprop="dateCreated datePublished" datetime="2017-01-27T00:00:00+08:00">2017-01-27</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-12 17:39:29" itemprop="dateModified" datetime="2019-10-12T17:39:29+08:00">2019-10-12</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
+                    <a class="menu-item" href="/">首页</a>
                 
+                    <a class="menu-item" href="/archives">博客</a>
                 
-              
-            </span>
-          
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-        
-      
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2017/01/27/2017-01-27 前端-JavaScript Events 笔记/#comments" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/27/2017-01-27 前端-JavaScript Events 笔记/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
+                    <a class="menu-item" href="https://hansenwangvip.github.io/me/">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
 
         </div>
-      </header>
+    </nav>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">王恒胜的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/">首页</a>
+                
+                    <a class="menu-item" href="/archives">博客</a>
+                
+                    <a class="menu-item" href="https://hansenwangvip.github.io/me/">关于</a>
+                
+            </div>
+        </div>
+    </nav>
 
-      
-        <h2 id="JavaScript-—-事件处理："><a href="#JavaScript-—-事件处理：" class="headerlink" title="JavaScript — 事件处理："></a>JavaScript — 事件处理：</h2><a id="more"></a>
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">JavaScript事件处理</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Hansenwang</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">2017-01-27</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/前端/">前端</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="JavaScript-—-事件处理："><a href="#JavaScript-—-事件处理：" class="headerlink" title="JavaScript — 事件处理："></a>JavaScript — 事件处理：</h2><a id="more"></a>
 <h3 id="笔记摘要"><a href="#笔记摘要" class="headerlink" title="笔记摘要"></a>笔记摘要</h3><blockquote>
 <p>参考书籍：<br>《Modern JavaScript》(Larry Ullman 著);<br>《JavaScript高级程序设计》 (Nicholas C Zakas著).</p>
 </blockquote>
@@ -375,7 +240,7 @@
 7. paste;  
 </code></pre><h5 id="5-表单事件："><a href="#5-表单事件：" class="headerlink" title="5. 表单事件："></a>5. 表单事件：</h5><p>   – <strong>reset</strong>：表单重置(点击重置html按钮)时触发，用户很少有重置表单的需要；若要使用此事件，可以添加监视：     </p>
 <pre><code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">addEvent(<span class="built_in">document</span>.getElementById(<span class="string">'theForm'</span>), <span class="string">'reset'</span> , <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> confirm(<span class="string">"您确定想要重置表单吗？"</span>);		</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</code></pre><p><img alt="重置表单提醒" data-src="http://img.blog.csdn.net/20161210172136724?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2lubmVyMTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"></p>
+</code></pre><p><img src="http://img.blog.csdn.net/20161210172136724?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2lubmVyMTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="重置表单提醒"></p>
 <p>– <strong>select</strong>: 文本输入域和文本区域的文本内容被选中时；</p>
 <p>– <strong>change</strong>: 元素值变化时；</p>
 <p>– <strong>focus</strong>: 单击或Tab键到文本输入域时；</p>
@@ -430,7 +295,7 @@
 </blockquote>
 <h4 id="5-事件的两个阶段：捕捉和冒泡"><a href="#5-事件的两个阶段：捕捉和冒泡" class="headerlink" title="5.事件的两个阶段：捕捉和冒泡"></a>5.事件的两个阶段：捕捉和冒泡</h4><h5 id="示例："><a href="#示例：" class="headerlink" title="示例："></a><strong>示例</strong>：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">	&lt;h1&gt;This is a title&lt;/h1&gt;</span><br><span class="line">	&lt;p&gt;This is a paragraph.</span><br><span class="line">		&lt;a href = &quot;#&quot; id = &quot;link&quot;&gt;This is a link.&lt;/a&gt;</span><br><span class="line">	&lt;/p&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">	// U.$()方法与jquery获取DOM节点方法一致，只是在前文定义了一个新对象U.</span><br><span class="line">	addEvent(U.$(&apos;link&apos;), &apos;mouseover&apos; , doSomething);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <p>**在上述代码中，包含关系：a&lt; p&lt; div&lt; html&lt; Document&lt; window。当鼠标悬停在链接之上，mouseover事件实际上经历了几个步骤，在两个不同的阶段到达和离开目标（链接）。</p>
-<p><img alt="这里写图片描述" data-src="http://img.blog.csdn.net/20161211094137004?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2lubmVyMTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast"></p>
+<p><img src="http://img.blog.csdn.net/20161211094137004?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd2lubmVyMTc=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <blockquote>
 <p>注意，事件传播一共有<strong>三个阶段</strong>：1.捕获阶段； 2.调用事件处理程序； 3.冒泡阶段。</p>
 </blockquote>
@@ -491,315 +356,83 @@
 eyJoaXN0b3J5IjpbMjk0MTU3NTgyXX0=
 --></p>
 
-    </div>
-
-    
-    
-    
-        
-      
-
-      <footer class="post-footer">
-          
-            
-          
-          <div class="post-tags">
-            
-              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-            
-              <a href="/tags/前端/" rel="tag"># 前端</a>
-            
-          </div>
-        
+        </div>
 
         
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>Hansenwang</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://hansenwangvip.github.io/2017/01/27/2017-01-27 前端-JavaScript Events 笔记/">https://hansenwangvip.github.io/2017/01/27/2017-01-27 前端-JavaScript Events 笔记/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-              
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/JavaScript/"># JavaScript</a>
+                    
+                        
+                </span>
             </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2017/03/06/2017-03-06 前端-JavaScript精髓(1)/" rel="prev" title="JavaScript精髓(1)">
-                  JavaScript精髓(1) <i class="fa fa-chevron-right"></i>
-                </a>
-              
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
             </div>
-          </div>
-        
-      </footer>
-    
-  </article>
-  
-  
-  
-
-  </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2017/03/06/2017-03-06 前端-JavaScript精髓(1)/">JavaScript 基础(1)</a>
+            
+            
+        </section>
 
 
-          </div>
-          
-    
-    
-  <div class="comments" id="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-    </div>
-  </div>
-  
-  
+    </article>
+</div>
 
         </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-        
-        
-        
-        
-      
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-—-事件处理："><span class="nav-number">1.</span> <span class="nav-text">JavaScript — 事件处理：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#笔记摘要"><span class="nav-number">1.1.</span> <span class="nav-text">笔记摘要</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一、-事件处理："><span class="nav-number">1.2.</span> <span class="nav-text">一、 事件处理：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-嵌入式事件处理器（强烈不建议）"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.嵌入式事件处理器（强烈不建议）:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-传统事件处理方法-不建议-："><span class="nav-number">1.2.2.</span> <span class="nav-text">2.传统事件处理方法(不建议)：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-W3C事件处理-建议"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.W3C事件处理(建议)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-范例：创建一个实用程序库"><span class="nav-number">1.2.4.</span> <span class="nav-text">4. 范例：创建一个实用程序库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、事件类型"><span class="nav-number">1.3.</span> <span class="nav-text">二、事件类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-输入设备事件"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.输入设备事件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-输入按钮事件："><span class="nav-number">1.3.1.1.</span> <span class="nav-text">1. 输入按钮事件：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-输入移动事件："><span class="nav-number">1.3.1.2.</span> <span class="nav-text">2. 输入移动事件：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-键盘事件："><span class="nav-number">1.3.1.3.</span> <span class="nav-text">3. 键盘事件：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-浏览器事件："><span class="nav-number">1.3.1.4.</span> <span class="nav-text">4. 浏览器事件：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-表单事件："><span class="nav-number">1.3.1.5.</span> <span class="nav-text">5. 表单事件：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、事件可访问性-Accessibility"><span class="nav-number">1.4.</span> <span class="nav-text">三、事件可访问性(Accessibility)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-配对事件-Pairing-events"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. 配对事件(Pairing events):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-可访问性-Accessibility"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. 可访问性(Accessibility):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-事件和渐进增强"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.事件和渐进增强</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、高级事件处理"><span class="nav-number">1.5.</span> <span class="nav-text">四、高级事件处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引用事件"><span class="nav-number">1.5.1.</span> <span class="nav-text">1.引用事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-事件属性"><span class="nav-number">1.5.2.</span> <span class="nav-text">2.事件属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-检查按键"><span class="nav-number">1.5.3.</span> <span class="nav-text">3.检查按键</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-阻止事件默认行为"><span class="nav-number">1.5.4.</span> <span class="nav-text">4.阻止事件默认行为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-事件的两个阶段：捕捉和冒泡"><span class="nav-number">1.5.5.</span> <span class="nav-text">5.事件的两个阶段：捕捉和冒泡</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#示例："><span class="nav-number">1.5.5.1.</span> <span class="nav-text">示例：</span></a></li></ol></li></ol></li></ol></li></ol></div>
-        
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Hansenwang</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">31</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-categories">
-        
-        <span class="site-state-item-count">9</span>
-        <span class="site-state-item-name">分类</span>
-        
-      </div>
-    
-      
-      
-      <div class="site-state-item site-state-tags">
-        
-        <span class="site-state-item-count">23</span>
-        <span class="site-state-item-name">标签</span>
-        
-      </div>
-    
-  </nav>
-</div>
-
-
-
-      </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Hansenwang | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/hansenwangvip/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
 
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Hansenwang</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">
-      
-    主题 – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.4.1
-  </div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-  
-    <span class="post-meta-divider">|</span>
-  
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-  
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js?v=3.1.0"></script>
-  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.1"></script><script src="/js/motion.js?v=7.4.1"></script>
-<script src="/js/schemes/muse.js?v=7.4.1"></script>
-<script src="/js/next-boot.js?v=7.4.1"></script>
-
-
-
-  
-
-
-
-
-
-
-
-
-  <script src="/js/local-search.js?v=7.4.1"></script>
-
-
-
-  <script>
-    (function(d, w, c) {
-      w.ChatraID = 'HrFCi3Yuidvj3ASsF';
-      var s = d.createElement('script');
-      w[c] = w[c] || function() {
-        (w[c].q = w[c].q || []).push(arguments);
-      };
-      s.async = true;
-      s.src = 'https://call.chatra.io/chatra.js';
-      if (d.head) d.head.appendChild(s);
-    })(document, window, 'Chatra');
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-<script>
-  function loadCount() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://hansenblog.disqus.com/count.js';
-    s.id = 'dsq-count-scr';
-    (d.head || d.body).appendChild(s);
-  }
-  // defer loading until the whole page loading is completed
-  window.addEventListener('load', loadCount, false);
-</script>
-<script>
-  function disqus_config() {
-    this.page.url = "https://hansenwangvip.github.io/2017/01/27/2017-01-27 前端-JavaScript Events 笔记/";
-    this.page.identifier = "2017/01/27/2017-01-27 前端-JavaScript Events 笔记/";
-    this.page.title = '笔记：JavaScript事件处理';
-  }
-  function loadComments() {
-    if (window.DISQUS) {
-      DISQUS.reset({
-        reload: true,
-        config: disqus_config
-      });
-    } else {
-      var d = document, s = d.createElement('script');
-      s.src = 'https://hansenblog.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', '' + +new Date());
-      (d.head || d.body).appendChild(s);
-    }
-  }
-    (function() {
-      var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
-      if (offsetTop <= 0) {
-        // load directly when there's no a scrollbar
-        window.addEventListener('load', loadComments, false);
-      } else {
-        var disqus_scroll = () => {
-          // offsetTop may changes because of manually resizing browser window or lazy loading images.
-          var offsetTop = document.getElementById('comments').offsetTop - window.innerHeight;
-          var scrollTop = window.scrollY;
-
-          // pre-load comments a bit? (margin or anything else)
-          if (offsetTop - scrollTop < 60) {
-            window.removeEventListener('scroll', disqus_scroll);
-            loadComments();
-          }
-        };
-        window.addEventListener('scroll', disqus_scroll);
-      }
-    })();
-  
-</script>
-
+    <!-- Chatra {literal} -->
+    <script>
+        // TODO: 抽离Chatra功能到主题中
+        (function(d, w, c) {
+            w.ChatraID = "HrFCi3Yuidvj3ASsF";
+            var s = d.createElement('script');
+            w[c] = w[c] || function() {
+                (w[c].q = w[c].q || []).push(arguments);
+            };
+            s.async = true;
+            s.src = 'https://call.chatra.io/chatra.js';
+            if (d.head) d.head.appendChild(s);
+        })(document, window, 'Chatra');
+    </script>
+    <!-- /Chatra {/literal} -->
 </body>
 </html>
