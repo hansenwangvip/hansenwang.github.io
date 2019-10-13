@@ -71,13 +71,13 @@ Call Stack | 调用堆栈
   
 现在，看看下面的代码：  
   
-```js  
+```javascript
 var num = 2;  
   
 function pow(num){  
     return num * num  
 }  
-```  
+```
   
 好了吗？  
   
@@ -142,15 +142,15 @@ SpiderMonkey 是Mozilla的JavaScript引擎， 被用于Firefox浏览器。
 ![image](https://user-images.githubusercontent.com/18462980/66252642-6e19c400-e790-11e9-94f4-381c56327ba8.png)  
   
   
-我们在来看之前的代码：  
+我们再看之前的代码：  
   
-```javascript  
+```javascript
 var num = 2;  
   
 function pow(num) {  
     return num * num;  
 }  
-```  
+```
   
 引擎会如何解读这些代码？  
   
@@ -233,13 +233,13 @@ function pow(num) {
   
 除此之外，在我们的例子中没有发生什么：  
   
-```javascript  
+```javascript
 var num = 2;  
   
 function pow(num) {  
     return num * num;  
 }  
-```  
+```
   
 这段代码就是单纯的值分配。  
   
@@ -247,14 +247,14 @@ function pow(num) {
   
 如果我调用函数，会发生什么？  
   
-```javascript  
+```javascript
 var num = 2;  
 function pow(num) {  
     return num * num;  
 }  
   
 var res = pow(num);  
-```  
+```
   
 有趣的问题。  
   
