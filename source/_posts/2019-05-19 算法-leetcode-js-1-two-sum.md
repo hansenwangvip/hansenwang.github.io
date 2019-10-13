@@ -1,6 +1,6 @@
 ---
 
-title: 算法-LeetCode in JavaScript(1) Two Sum
+title: LeetCode in JavaScript(1) Two Sum
 date: 2019-05-19
 categories: 技术
 tags: [算法, LeetCode]
