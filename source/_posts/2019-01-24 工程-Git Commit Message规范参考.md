@@ -2,7 +2,7 @@
 
 title: Git Commit Message规范参考
 
-categories: 工程
+categories: 技术
 
 date: 2019-01-24
 

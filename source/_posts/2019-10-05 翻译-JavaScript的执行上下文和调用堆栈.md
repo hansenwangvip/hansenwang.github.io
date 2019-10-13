@@ -2,7 +2,7 @@
 title: 翻译-JavaScript的执行上下文和调用堆栈
 date: 2019-10-05
 categories: 翻译
-tags: 翻译
+tags: [翻译, JavaScript]
 keywords: 翻译
 description: 这篇文章用简洁的文字解释了JS的执行上下文和调用堆栈的概念，并通过让读者换位思考的方式，理解JS引擎在运行代码时的行为。对于进阶的JS程序员来说，执行上下文和调用堆栈是理解JS代码运行原理的关键。
 

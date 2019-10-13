@@ -4,7 +4,7 @@ title: JavaScript对象数组排序
 categories: 技术
 date: 2017-05-07
 tags: [JavaScript, 算法]
-
+description: 数组内元素都是对象的情况下，如何对元素进行排序？
 ---
 
 
@@ -13,7 +13,6 @@ tags: [JavaScript, 算法]
 
 ----------
 
-<!-- more -->
 ## 一、按照对象的属性排序
 我要一个函数，传入要对比的key，就能以这个key，把对象数组进行排序。
 ```js

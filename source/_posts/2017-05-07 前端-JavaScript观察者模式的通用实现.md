@@ -1,9 +1,9 @@
 ---
 
 title: JavaScript 观察者模式的通用实现
-categories: 技术
+categories: 前端
 date: 2017-05-07
-tags: JavaScript
+tags: [JavaScript]
 
 ---
 

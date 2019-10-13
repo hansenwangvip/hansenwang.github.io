@@ -1,10 +1,10 @@
 ---
 
-title: JavaScript精髓(2)
-categories: 技术
+title: JavaScript 基础(2)
+categories: 前端
 date: 2017-03-07 
 update: 2017-07-11
-tags: [JavaScript,技术]
+tags: [JavaScript]
 
 ---
 

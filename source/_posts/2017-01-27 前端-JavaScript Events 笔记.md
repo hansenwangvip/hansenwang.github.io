@@ -1,10 +1,10 @@
 ---
 
-title: 笔记：JavaScript事件处理
-categories: 技术
+title: JavaScript事件处理
+categories: 前端
 date: 2017-01-27
 update: 8
-tags: [JavaScript,前端]
+tags: [JavaScript]
 
 ---
 
