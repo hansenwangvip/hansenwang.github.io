@@ -49,14 +49,18 @@
         <header>
     <nav class="navbar">
         <div class="container">
-            <div class="navbar-header header-logo"><a href="/">王恒胜的博客</a></div>
+            <div class="navbar-header header-logo"><a href="/">Hansen Wang 的个人博客</a></div>
             <div class="menu navbar-right">
                 
                     <a class="menu-item" href="/">首页</a>
                 
                     <a class="menu-item" href="/archives">博客</a>
                 
-                    <a class="menu-item" href="https://hansenwangvip.github.io/me/">关于</a>
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="https://hansenwangvip.github.io/me/">关于我</a>
                 
                 <input id="switch_default" type="checkbox" class="switch_default">
                 <label for="switch_default" class="toggleBtn"></label>
@@ -70,7 +74,7 @@
         <div class="container">
             <div class="navbar-header">
                 <div>
-                    <a href="/">王恒胜的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                    <a href="/">Hansen Wang 的个人博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
                 </div>
                 <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
             </div>
@@ -80,7 +84,11 @@
                 
                     <a class="menu-item" href="/archives">博客</a>
                 
-                    <a class="menu-item" href="https://hansenwangvip.github.io/me/">关于</a>
+                    <a class="menu-item" href="/category">分类</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="https://hansenwangvip.github.io/me/">关于我</a>
                 
             </div>
         </div>
@@ -108,9 +116,9 @@
     <div class="tocbot-list">
     </div>
     <div class="tocbot-list-menu">
-        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
-        <a onclick="go_top()">Back to top</a>
-        <a onclick="go_bottom()">Go to bottom</a>
+        <a class="tocbot-toc-expand" onclick="expand_toc()">展开目录</a>
+        <a onclick="go_top()">回到页首</a>
+        <a onclick="go_bottom()">去往页脚</a>
     </div>
 </div>
 
@@ -174,17 +182,17 @@
             
                 <div class="post-meta">
                     
-                        Author: <a itemprop="author" rel="author" href="/">Hansenwang</a>
+                        作者: <a itemprop="author" rel="author" href="/">Hansenwang</a>
                     
 
                     
                         <span class="post-time">
-                        Date: <a href="#">2019-07-27</a>
+                        发表日期: <a href="#">2019-07-27</a>
                         </span>
                     
                     
                         <span class="post-category">
-                    Category:
+                    分类:
                             
                                 <a href="/categories/随笔/">随笔</a>
                             
@@ -215,29 +223,34 @@
             <section class="post-copyright">
                 
                     <p class="copyright-item">
-                        <span>Author:</span>
+                        <span>作者:</span>
                         <span>Hansenwang</span>
                     </p>
                 
                 
                     <p class="copyright-item">
-                        <span>Permalink:</span>
+                        <span>本文链接:</span>
                         <span><a href="https://hansenwangvip.github.io/2019/07/27/2019-07-27 随笔-陪伴是一件自豪的事/">https://hansenwangvip.github.io/2019/07/27/2019-07-27 随笔-陪伴是一件自豪的事/</a></span>
                     </p>
                 
                 
                     <p class="copyright-item">
-                        <span>License:</span>
+                        <span>版权许可:</span>
                         <span>Copyright (c) 2019 <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
                     </p>
                 
+                
+                     <p class="copyright-item">
+                         <span>签名:</span>
+                         <span>转载请注明出处。</span>
+                     </p>
                 
 
             </section>
         
         <section class="post-tags">
             <div>
-                <span>Tag(s):</span>
+                <span>标签:</span>
                 <span class="tag">
                     
                     
@@ -247,9 +260,9 @@
                 </span>
             </div>
             <div>
-                <a href="javascript:window.history.back();">back</a>
+                <a style="text-decoration: underline" href="javascript:window.history.back();">后退</a>
                 <span>· </span>
-                <a href="/">home</a>
+                <a style="text-decoration: underline" href="/">首页</a>
             </div>
         </section>
         <section class="post-nav">

@@ -8,9 +8,6 @@ body.home .wrapper {
   background-size: cover;
   transition: background-image 1s linear;
 }
-body.home .wrapper header a {
-  color: #c3c3c3;
-}
 body.home .main {
   padding: 0 30%;
 }
