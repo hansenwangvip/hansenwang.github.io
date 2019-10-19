@@ -1,6 +1,6 @@
 ---
 
-title: JavaScript 基础(1)
+title: JavaScript 基本概念(1)
 categories: 前端
 date: 2017-03-06 
 update: 2017-07-11

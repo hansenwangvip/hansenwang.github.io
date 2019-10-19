@@ -4,10 +4,10 @@ title: JavaScript 观察者模式的通用实现
 categories: 前端
 date: 2017-05-07
 tags: [JavaScript]
+description: 一个经典的设计模式——观察者模式，又名发布-订阅模式在JS中的通用实现。
 
 ---
 
-这篇文章主要是列举代码，关于一个经典的设计模式——观察者模式，又名发布-订阅模式的通用实现。
 <!--more-->
 
 ```js

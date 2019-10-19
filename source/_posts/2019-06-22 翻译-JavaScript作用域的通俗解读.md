@@ -1,6 +1,6 @@
 ---
 
-title: 译：JavaScript作用域的通俗解读
+title: 翻译：JavaScript作用域的通俗解读
 
 categories: 翻译
 

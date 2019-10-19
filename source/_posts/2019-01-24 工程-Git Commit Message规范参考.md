@@ -1,6 +1,6 @@
 ---
 
-title: Git Commit Message规范参考
+title: 专业团队的Git Commit Message规范
 
 categories: 技术
 

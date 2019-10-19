@@ -1,6 +1,6 @@
 ---
 
-title: JavaScript 基础(2)
+title: JavaScript 基本概念(2)
 categories: 前端
 date: 2017-03-07 
 update: 2017-07-11
@@ -8,7 +8,7 @@ tags: [JavaScript]
 
 ---
 
-这篇博客延续上一篇[JavaScript精髓(1)](#)，继续总结JavaScript语言的核心特性和思想精髓。
+这篇博客延续上一篇，继续总结JavaScript语言的核心特性和思想精髓。
 <!--more-->
 
 # 1. JavaScript继承的实现方式

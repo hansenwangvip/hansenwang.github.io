@@ -1,6 +1,6 @@
 ---
 
-title: JavaScript对象数组排序
+title: JavaScript 对象数组排序
 categories: 技术
 date: 2017-05-07
 tags: [JavaScript, 算法]

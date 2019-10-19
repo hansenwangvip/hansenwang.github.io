@@ -1,15 +1,14 @@
 ---
-title: 更好用的border-box
+title: 翻译：更好用的border-box
 date: 2017-10-23
 categories: 前端
 tags: [CSS]
-
+description: 翻译文章
 ---
 
-英文原文来自CSS-tricks: [Inheriting box-sizing Probably Slightly Better Best-Practice](https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/)
-
+# 更好用的border-box
 我是把`box-sizing`重置为`border-box`的忠实粉丝，甚至于我们有一个“年度特别日子”。但是这里有一个细小的调整，而且看起来是个不错的思路。
-<!--more-->
+
 这是微调的版本：
 ``` css
     html{
@@ -60,7 +59,8 @@ tags: [CSS]
 ```
 
 ---
+
 这并不是一个很庞大的东西。你可能已经在使用 box-sizing reset 的老办法，并且从没踩到这个坑。但是，只要我们推广一个“最佳实践”风格的片段，我们也可以慢慢把它变成最好的。
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbNDc5NzYxNDU0XX0=
--->
+
+## 参考链接
+英文原文 ：[Inheriting box-sizing Probably Slightly Better Best-Practice](https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/)

@@ -1,5 +1,5 @@
 ---
-title: 译：JavaScript的执行上下文和调用堆栈
+title: 翻译：JavaScript的执行上下文和调用堆栈
 date: 2019-10-05
 categories: 翻译
 tags: [翻译, JavaScript]
