@@ -67,8 +67,8 @@
         <category>随笔</category>
       </categories>
       <tags>
-        <tag>随笔</tag>
         <tag>笔记</tag>
+        <tag>随笔</tag>
         <tag>哲学</tag>
       </tags>
   </entry>
@@ -92,8 +92,8 @@
         <category>随笔</category>
       </categories>
       <tags>
-        <tag>随笔</tag>
         <tag>文摘</tag>
+        <tag>随笔</tag>
         <tag>演讲</tag>
       </tags>
   </entry>
@@ -189,18 +189,6 @@
       </categories>
       <tags>
         <tag>CSS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[翻译了第一篇英文文档]]></title>
-    <url>%2F2017%2F09%2F05%2F2017-09-05%20%E9%9A%8F%E7%AC%94-%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%BF%BB%E8%AF%91MDN%E6%96%87%E6%A1%A3%2F</url>
-    <content type="text"><![CDATA[9月4日翻译了MDN上的一篇英文文档，这是第一次尝试翻译，尝到了成就感. MDN是Web开发者的参考文档的官方网站——MDN Web 文档，有大量开发者不断贡献和更新文档和教程。 做了什么最近，在对JavaScript中this关键字的细节整理中，查阅MDN的中文文档，有些语句翻译的不错，但是还是存在部分疏漏。 仔细一番MDN的一些中文文档，少数文档的部分语句有明显的语义和内容上的毛病。 索性去看英文文档，豁然开朗，遂决定更新中文翻译文档。 在9月4日翻译了MDN上JavaScript的this关键字的英文文档：原版英文文档。 保留了部分原有翻译，纠正了大部分语义措辞漏洞，并更新了关于箭头函数的this指向。 部分语句参考了谷歌翻译，我承认谷歌翻译真的很NB。 有什么总结 要彻底弄懂this的机制，首先你要准备好面向对象的基础，理解OOP的重要概念： JavaScript面向对象编程 然后记住，this是一个变量，它是一个指针，指向一个对象。再看我的文档: this关键字 在过程中看不懂时，及时查阅相关API的文档: 箭头函数 Function.prototype.call() Function.prototype.apply() Function.prototype.bind() 写在结尾在英文文档末尾的参考链接，有一篇写得非常精彩的博客：Gentle-explanation-of-this-in-JavaScript, 温和解释JS中的this 计划在不久将来，我会挤出时间认真翻译这篇英文博客。 The end.]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-        <tag>翻译</tag>
       </tags>
   </entry>
   <entry>
