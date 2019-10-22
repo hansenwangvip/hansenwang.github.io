@@ -14,7 +14,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -85,9 +85,9 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '7.0.1',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false,"dimmer":false},
     fancybox: false,
     fastclick: true,
     lazyload: true,
@@ -117,7 +117,7 @@
 <meta property="og:site_name" content="Hansenwang&#39;s Blog">
 <meta property="og:description" content="这篇博客延续上一篇，继续总结JavaScript语言的核心特性和思想精髓。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-19T12:49:28.196Z">
+<meta property="og:updated_time" content="2019-10-22T23:05:19.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 基本概念(2)">
 <meta name="twitter:description" content="这篇博客延续上一篇，继续总结JavaScript语言的核心特性和思想精髓。">
@@ -249,6 +249,51 @@
     <a href="/archives/" rel="section">归档</a>
 
   </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+
+    
+
+    <a href="/tags/" rel="section">标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+
+    
+
+    <a href="/categories/" rel="section">分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+
+    
+
+    <a href="https://hansenwangvip.github.io/me/" rel="section">关于</a>
+
+  </li>
 
       
       
@@ -261,9 +306,6 @@
       
     </ul>
   
-
-  
-    
 
   
 
@@ -311,6 +353,9 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+            
+
+          
           <div id="content" class="content">
             
 
@@ -349,7 +394,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript 基本概念(2)
+          <h1 class="post-title" itemprop="name headline">JavaScript 基本概念(2)<a href="https://github.com/hansenwangvip/hansenwangvip.github.io/tree/hexo/source/_posts/2017-03-07%20%E5%89%8D%E7%AB%AF-JavaScript%E7%B2%BE%E9%AB%93(2).md" class="post-edit-link" title="编辑" rel="noopener" target="_blank">&lt;i class=&quot;fa fa-pencil&quot;&gt;&lt;&#x2F;i&gt;</a>
 
               
             
@@ -641,6 +686,10 @@ eyJoaXN0b3J5IjpbLTEzNjI1MDY2MjhdfQ==
                 <div class="site-state-item site-state-categories">
                   
                     
+                      <a href="/categories/">
+                    
+                  
+                    
                     
                       
                     
@@ -658,7 +707,7 @@ eyJoaXN0b3J5IjpbLTEzNjI1MDY2MjhdfQ==
                     
                     <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">分类</span>
-                  
+                  </a>
                 </div>
               
 
@@ -666,6 +715,10 @@ eyJoaXN0b3J5IjpbLTEzNjI1MDY2MjhdfQ==
                 
                 
                 <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
                   
                     
                     
@@ -717,7 +770,7 @@ eyJoaXN0b3J5IjpbLTEzNjI1MDY2MjhdfQ==
                     
                     <span class="site-state-item-count">23</span>
                     <span class="site-state-item-name">标签</span>
-                  
+                  </a>
                 </div>
               
             </nav>
@@ -725,6 +778,32 @@ eyJoaXN0b3J5IjpbLTEzNjI1MDY2MjhdfQ==
 
           
 
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/hansenwangvip" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;hansenwangvip" rel="noopener" target="_blank">&lt;i class=&quot;fa fa-fw fa-github&quot;&gt;&lt;&#x2F;i&gt;GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:hansenwangvip@gmail.com" title="E-Mail &amp;rarr; mailto:hansenwangvip@gmail.com" rel="noopener" target="_blank">&lt;i class=&quot;fa fa-fw fa-envelope&quot;&gt;&lt;&#x2F;i&gt;E-Mail</a>
+                </span>
+              
+            </div>
           
 
           
@@ -923,7 +1002,10 @@ eyJoaXN0b3J5IjpbLTEzNjI1MDY2MjhdfQ==
   
 
 
-  <script src="/js/src/schemes/muse.js?v=7.0.1"></script>
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
+
 
 
 
