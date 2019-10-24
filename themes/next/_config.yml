@@ -351,7 +351,7 @@ related_posts:
 # Post edit
 # Dependencies: https://github.com/hexojs/hexo-deployer-git
 post_edit:
-  enable: true
+  enable: false
   url: https://github.com/hansenwangvip/hansenwangvip.github.io/tree/hexo/source/ # Link for view source.
   #url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name # Link for fork & edit.
 
