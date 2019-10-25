@@ -15,7 +15,29 @@
   <entry>
     <title><![CDATA[异步的灵魂：JavaScript 的事件轮询]]></title>
     <url>%2F2019%2F09%2F24%2F2019-09-24%20%E5%BC%82%E6%AD%A5%E7%9A%84%E7%81%B5%E9%AD%82%EF%BC%9AJavaScript%20%E7%9A%84%E4%BA%8B%E4%BB%B6%E8%BD%AE%E8%AF%A2%2F</url>
-    <content type="text"><![CDATA[JavaScript是一门单线程的异步语言。我好奇事件轮询是怎么实现的，它又是如何跟其他几个核心功能进行协作的？比如 Call Stack, Callback Queue。 但是我在ECMA-262标准中，发现异步功能的实现不属于ECMAScript的范畴。在Google了一番后，我才知道，事件轮询 (Event Loop) 是JavaScript异步编程的基础，这个功能由宿主环境实现。如此核心底层的功能，在浏览器和Node中都有实现。 在Youtube上找到了两个很精彩的演讲，通俗地解释了事件轮询的工作原理。 What the heck is the event loop anyway? | Philip Roberts | JSConf EU - YouTube Jake Archibald: In The Loop - JSConf.Asia - YouTube 了解事件轮询的工作原理，就能克服JavaScript异步编程的难点。 参考文章：https://blog.csdn.net/cofecode/article/details/80840817]]></content>
+    <content type="text"><![CDATA[JavaScript是一门单线程的异步语言。我好奇事件轮询是怎么实现的，它又是如何跟其他几个核心功能进行协作的？比如 Call Stack, Callback Queue。 但是我在ECMA-262标准中，发现异步功能的实现不属于ECMAScript的范畴。在Google了一番后，我才知道，事件轮询 (Event Loop) 是JavaScript异步编程的基础，这个功能由宿主环境实现。如此核心底层的功能，在浏览器和Node中都有实现。 在Youtube上找到了两个很精彩的演讲，通俗地解释了事件轮询的工作原理。 了解事件轮询的工作原理，就能克服JavaScript异步编程的难点。 参考文章：https://blog.csdn.net/cofecode/article/details/80840817]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JSConf EU 2019 ｜ TC39 委员会的采访]]></title>
+    <url>%2F2019%2F09%2F22%2F2019-09-22%20TC39%2F</url>
+    <content type="text"><![CDATA[视频链接来自Youtube：Panel by TC39 Committee | JSConf EU 2019]]></content>
+      <categories>
+        <category>Speech</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JavaScript的历史]]></title>
+    <url>%2F2019%2F09%2F18%2F2019-09-18%20JavaScript%E7%9A%84%E5%8E%86%E5%8F%B2%2F</url>
+    <content type="text"><![CDATA[参考资料 The History of JavaScript [INFOGRAPHIC] JavaScript 语言的历史 Javascript诞生记]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
       <tags>
         <tag>JavaScript</tag>
       </tags>
