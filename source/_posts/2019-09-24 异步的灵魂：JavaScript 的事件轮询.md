@@ -12,9 +12,10 @@ JavaScript是一门单线程的异步语言。我好奇事件轮询是怎么实�
 
 在Youtube上找到了两个很精彩的演讲，通俗地解释了事件轮询的工作原理。
 
-> [What the heck is the event loop anyway? | Philip Roberts | JSConf EU - YouTube](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
+<iframe width="1440" height="620" src="https://www.youtube.com/embed/8aGhZQkoFbQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-> [Jake Archibald: In The Loop - JSConf.Asia - YouTube](https://www.youtube.com/watch?v=cCOL7MC4Pl0)
+<iframe width="1440" height="620" src="https://www.youtube.com/embed/cCOL7MC4Pl0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 了解事件轮询的工作原理，就能克服JavaScript异步编程的难点。
 
