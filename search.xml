@@ -13,6 +13,14 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[异步的灵魂：JavaScript 的事件轮询]]></title>
+    <url>%2F2019%2F09%2F24%2F2019-09-24%20%E5%BC%82%E6%AD%A5%E7%9A%84%E7%81%B5%E9%AD%82%EF%BC%9AJavaScript%20%E7%9A%84%E4%BA%8B%E4%BB%B6%E8%BD%AE%E8%AF%A2%2F</url>
+    <content type="text"><![CDATA[JavaScript是一门单线程的异步语言。我好奇事件轮询是怎么实现的，它又是如何跟其他几个核心功能进行协作的？比如 Call Stack, Callback Queue。 但是我在ECMA-262标准中，发现异步功能的实现不属于ECMAScript的范畴。在Google了一番后，我才知道，事件轮询 (Event Loop) 是JavaScript异步编程的基础，这个功能由宿主环境实现。如此核心底层的功能，在浏览器和Node中都有实现。 在Youtube上找到了两个很精彩的演讲，通俗地解释了事件轮询的工作原理。 What the heck is the event loop anyway? | Philip Roberts | JSConf EU - YouTube Jake Archibald: In The Loop - JSConf.Asia - YouTube 了解事件轮询的工作原理，就能克服JavaScript异步编程的难点。 参考文章：https://blog.csdn.net/cofecode/article/details/80840817]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[认真对待技术翻译]]></title>
     <url>%2F2019%2F08%2F01%2F2019-08-01%20%E9%9A%8F%E7%AC%94-%E6%8A%80%E6%9C%AF%E7%BF%BB%E8%AF%91%E9%9C%80%E8%A6%81%E8%AE%A4%E7%9C%9F%E7%9A%84%E6%80%81%E5%BA%A6%2F</url>
     <content type="text"><![CDATA[技术翻译需要认真的态度译者首先要理解原文作者的语意和语气，然后通过自己对中文的文化理解，用中文翻译出来。既要保留原文的意义，又要符合中文读者的阅读习惯。这就是“意译”。 国内的技术翻译，质量良莠不齐。有精心校对的技术翻译组，也有凭着一脑子热情的独立译者。前者有审稿和校对，后者有热情。一般来说，前者质量高于后者。 独立译者又分为高水平的专家和普通水平的爱好者。专家会驾轻就熟地将一篇外文文章翻译成很流利的译文，他们经过了无数的练习，修订，核对，才练就一身高超的“译术”。普通爱好者往往半途而废，草草收尾后不再审稿和修订。 要把一篇文章翻译成一篇本土文风的文章，实属难事。 一个优秀的译者首先要有扎实的技术功底，然后要有优秀的中文文笔，再加上认真和谦卑的精神，才能不断打磨一篇文章，一本书。 认真翻译，不要做一个平庸的门外汉。 MDN 翻译规范]]></content>
