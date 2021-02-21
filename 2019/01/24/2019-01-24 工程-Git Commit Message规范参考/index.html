@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -53,19 +53,20 @@
 </script>
 
   <meta name="description" content="在Git协作模式的团队中，Commit Message的规范对版本控制起着很重要的作用。本文引用自团队内部的规范，分享出来，一是为了贡献社区，二是为了加深印象。">
-<meta name="keywords" content="规范,软件工程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="专业团队的Git Commit Message规范">
-<meta property="og:url" content="https://hansenwangvip.github.io/2019/01/24/2019-01-24 工程-Git Commit Message规范参考/index.html">
-<meta property="og:site_name" content="Hansenwang&#39;s Blog">
+<meta property="og:url" content="https://hansenwangvip.github.io/2019/01/24/2019-01-24%20%E5%B7%A5%E7%A8%8B-Git%20Commit%20Message%E8%A7%84%E8%8C%83%E5%8F%82%E8%80%83/index.html">
+<meta property="og:site_name" content="Hansen 的博客">
 <meta property="og:description" content="在Git协作模式的团队中，Commit Message的规范对版本控制起着很重要的作用。本文引用自团队内部的规范，分享出来，一是为了贡献社区，二是为了加深印象。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-25T03:55:33.576Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-01-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-21T16:11:34.292Z">
+<meta property="article:author" content="Hansenwang">
+<meta property="article:tag" content="规范">
+<meta property="article:tag" content="软件工程">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="专业团队的Git Commit Message规范">
-<meta name="twitter:description" content="在Git协作模式的团队中，Commit Message的规范对版本控制起着很重要的作用。本文引用自团队内部的规范，分享出来，一是为了贡献社区，二是为了加深印象。">
 
-<link rel="canonical" href="https://hansenwangvip.github.io/2019/01/24/2019-01-24 工程-Git Commit Message规范参考/">
+<link rel="canonical" href="https://hansenwangvip.github.io/2019/01/24/2019-01-24%20%E5%B7%A5%E7%A8%8B-Git%20Commit%20Message%E8%A7%84%E8%8C%83%E5%8F%82%E8%80%83/">
 
 
 <script id="page-configurations">
@@ -79,7 +80,7 @@
   };
 </script>
 
-  <title>专业团队的Git Commit Message规范 | Hansenwang's Blog</title>
+  <title>专业团队的Git Commit Message规范 | Hansen 的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149670973-1"></script>
     <script>
@@ -135,7 +136,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hansenwang's Blog</span>
+        <span class="site-title">Hansen 的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -230,7 +231,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2019/01/24/2019-01-24 工程-Git Commit Message规范参考/">
+    <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2019/01/24/2019-01-24%20%E5%B7%A5%E7%A8%8B-Git%20Commit%20Message%E8%A7%84%E8%8C%83%E5%8F%82%E8%80%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/18462980?s=460&v=4">
@@ -239,7 +240,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hansenwang's Blog">
+      <meta itemprop="name" content="Hansen 的博客">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -261,7 +262,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
                     <span itemprop="name">技术</span>
                   </a>
                 </span>
@@ -281,13 +282,14 @@
         <blockquote>
 <p>在Git协作模式的团队中，Commit Message的规范对版本控制起着很重要的作用。本文引用自团队内部的规范，分享出来，一是为了贡献社区，二是为了加深印象。</p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
+
 <h2 id="Commit-Message规范"><a href="#Commit-Message规范" class="headerlink" title="Commit Message规范"></a>Commit Message规范</h2><p>在<code>git</code>开发流程中，每次<code>git commit</code>，都需要对该次<code>commit</code>添加描述信息，描述此次<code>commit</code>的具体改动内容。规范的<code>commit message</code>格式，可以让团队成员对每次改动内容进行快速了解，也可以方便<code>git log</code>时的浏览和筛选。</p>
 <p>目前社区使用最广的是 AngularJS 的规范：</p>
 <ul>
-<li><p><a href="https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.greljkmo14y0" target="_blank" rel="noopener">Google Docs 原文</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.greljkmo14y0">Google Docs 原文</a></p>
 </li>
-<li><p><a href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html" target="_blank" rel="noopener">阮一峰博客对于commit message的介绍</a></p>
+<li><p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html">阮一峰博客对于commit message的介绍</a></p>
 </li>
 </ul>
 <h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><p>一条完整的提交信息(<code>commit message</code>)一般来说包含<code>Header</code>和<code>Body</code>，其中<code>Header</code>是必须的，<code>Body</code>是可选的。</p>
@@ -295,9 +297,11 @@
 <p>而对于一些需要更详细说明、要分条列出的改动，我们在<code>Header</code>进行简述之外，还要在<code>Body</code>中详细描述。</p>
 <p>一般而言，<code>Header</code>长度不应超过50个字符，如果超过的话则考虑添加<code>Body</code>进行详述。</p>
 <p>我们通常使用的<code>git commit -m &quot;&lt;Commit Message Header&gt;&quot;</code>，就是只添加单行的<code>Header</code>信息。例如：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里只添加了Header</span></span><br><span class="line">git commit -m <span class="string">"feat(官网主页): 将iOS的头部背景与Android统一，不再使用默认蓝色图片"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里只添加了Header</span></span><br><span class="line">git commit -m <span class="string">&quot;feat(官网主页): 将iOS的头部背景与Android统一，不再使用默认蓝色图片&quot;</span></span><br></pre></td></tr></table></figure>
+
 <p>如果需要添加<code>Body</code>详细信息，则使用<code>git commit</code>进入文本编辑器，再进行具体编辑。例如：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里既添加了Header，又添加了Body</span></span><br><span class="line">chore(构建优化): 解决构建流程几个问题</span><br><span class="line"></span><br><span class="line">- 每次构建chunkhash会改变的问题</span><br><span class="line">- 内联和外链样式重复问题</span><br><span class="line">- 图片md5错误问题</span><br><span class="line">- 提取项目公共vendor</span><br></pre></td></tr></table></figure>
+
 <h3 id="具体规范"><a href="#具体规范" class="headerlink" title="具体规范"></a>具体规范</h3><p>从上面的示例可以看到，<code>Header</code>的格式为：<code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</code>。</p>
 <p><code>Header</code>主要由<code>type</code>, <code>scope</code>和<code>subject</code>三部分组成：</p>
 <ul>
@@ -321,8 +325,10 @@
 <h3 id="Revert"><a href="#Revert" class="headerlink" title="Revert"></a>Revert</h3><p>在需要回滚某些改动的时候，使用<code>revert: &lt;reverted commit Header&gt;</code>格式，也就是将回滚的那一条提交的<code>Header</code>作为<code>revert</code>后的内容。</p>
 <p>例如，之前进行了某些改动：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fix(礼包页): 修复了礼包页展示不完全的bug</span><br></pre></td></tr></table></figure>
+
 <p>之后发现这个改动会引起一些其他的bug，不得已需要回滚：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">revert: fix(礼包页): 修复了礼包页展示不完全的bug</span><br></pre></td></tr></table></figure>
+
 <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
 <li><code>scope</code>不是必须的，也没有具体的限定，但是有明显范围特征的尽量写上。（比如下面例子中的<code>(详情页)</code>）；</li>
 <li>注意描述要清晰，要针对改动本身，让其他成员在没有任何上下文的情况下，也能看懂改动了什么。</li>
@@ -333,6 +339,7 @@
 <li>一处改动、一个需求或一个BUG，应尽量集中在同一个<code>commit</code>中，不要开发到中途先提交一次，开发完成再提交一次。</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Bad</span></span><br><span class="line">fix: bug修复</span><br><span class="line">fix: 修复了测试昨天发现的bug</span><br><span class="line">feat: 完成了今天排期的需求</span><br><span class="line"></span><br><span class="line"><span class="comment"># OK</span></span><br><span class="line">chore: 修正了几处拼写错误</span><br><span class="line"></span><br><span class="line"><span class="comment"># Good</span></span><br><span class="line">feat: 在新的主页新增了一个关闭按钮</span><br><span class="line">fix(详情页): 修复展开活动的sid为string的bug</span><br></pre></td></tr></table></figure>
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTUxMTk4NDcyNiw2MTI0NDk4NCwtNTExOT
 g0NzI2XX0=
@@ -345,15 +352,15 @@ g0NzI2XX0=
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/规范/" rel="tag"># 规范</a>
-              <a href="/tags/软件工程/" rel="tag"># 软件工程</a>
+              <a href="/tags/%E8%A7%84%E8%8C%83/" rel="tag"># 规范</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" rel="tag"># 软件工程</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2018/09/08/2018-09-08 笔记-学会阅读英文文档/" rel="next" title="阅读英文文档">
+                <a href="/2018/09/08/2018-09-08%20%E7%AC%94%E8%AE%B0-%E5%AD%A6%E4%BC%9A%E9%98%85%E8%AF%BB%E8%8B%B1%E6%96%87%E6%96%87%E6%A1%A3/" rel="next" title="阅读英文文档">
                   <i class="fa fa-chevron-left"></i> 阅读英文文档
                 </a>
             </div>
@@ -361,7 +368,7 @@ g0NzI2XX0=
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/03/09/2019-03-09 阅读-《远见》读书笔记/" rel="prev" title="读《远见》">
+                <a href="/2019/03/09/2019-03-09%20%E9%98%85%E8%AF%BB-%E3%80%8A%E8%BF%9C%E8%A7%81%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="prev" title="读《远见》">
                   读《远见》 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -409,7 +416,7 @@ g0NzI2XX0=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Commit-Message规范"><span class="nav-number">1.</span> <span class="nav-text">Commit Message规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简述"><span class="nav-number">1.1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体规范"><span class="nav-number">1.2.</span> <span class="nav-text">具体规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#type类别"><span class="nav-number">1.3.</span> <span class="nav-text">type类别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Revert"><span class="nav-number">1.4.</span> <span class="nav-text">Revert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事项"><span class="nav-number">1.5.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Commit-Message%E8%A7%84%E8%8C%83"><span class="nav-number">1.</span> <span class="nav-text">Commit Message规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%80%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E8%A7%84%E8%8C%83"><span class="nav-number">1.2.</span> <span class="nav-text">具体规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#type%E7%B1%BB%E5%88%AB"><span class="nav-number">1.3.</span> <span class="nav-text">type类别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Revert"><span class="nav-number">1.4.</span> <span class="nav-text">Revert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">1.5.</span> <span class="nav-text">注意事项</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -471,13 +478,13 @@ g0NzI2XX0=
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Hansenwang</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
@@ -506,9 +513,17 @@ g0NzI2XX0=
   <script src="//cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 
@@ -519,7 +534,9 @@ g0NzI2XX0=
 
 
 
-  <script src="/js/local-search.js"></script>
+  
+<script src="/js/local-search.js"></script>
+
 
 
 
@@ -545,7 +562,7 @@ g0NzI2XX0=
       DISQUS.reset({
         reload: true,
         config: {page: {
-            url: "https://hansenwangvip.github.io/2019/01/24/2019-01-24 工程-Git Commit Message规范参考/",
+            url: "https://hansenwangvip.github.io/2019/01/24/2019-01-24%20%E5%B7%A5%E7%A8%8B-Git%20Commit%20Message%E8%A7%84%E8%8C%83%E5%8F%82%E8%80%83/",
             identifier: "2019/01/24/2019-01-24 工程-Git Commit Message规范参考/",
             title: "专业团队的Git Commit Message规范"
           }

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -52,20 +52,21 @@
   };
 </script>
 
-  <meta name="description" content="作用域是JavaScript语言的基础概念之一，也可能是我在编写复杂程序时最挣扎的一个概念。我已数不清多少次，在函数间传递控制时，丢失了`this`关键字的指向。我也经常发现自己经常以各种令人困惑的方式扭曲自己的代码，试图在我理解哪些变量可以访问哪些地方的时候，让我保持清醒。">
-<meta name="keywords" content="JavaScript,翻译">
+  <meta name="description" content="作用域是JavaScript语言的基础概念之一，也可能是我在编写复杂程序时最挣扎的一个概念。我已数不清多少次，在函数间传递控制时，丢失了&#96;this&#96;关键字的指向。我也经常发现自己经常以各种令人困惑的方式扭曲自己的代码，试图在我理解哪些变量可以访问哪些地方的时候，让我保持清醒。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="翻译：JavaScript作用域的通俗解读">
-<meta property="og:url" content="https://hansenwangvip.github.io/2019/06/22/2019-06-22 翻译-JavaScript作用域的通俗解读/index.html">
-<meta property="og:site_name" content="Hansenwang&#39;s Blog">
-<meta property="og:description" content="作用域是JavaScript语言的基础概念之一，也可能是我在编写复杂程序时最挣扎的一个概念。我已数不清多少次，在函数间传递控制时，丢失了`this`关键字的指向。我也经常发现自己经常以各种令人困惑的方式扭曲自己的代码，试图在我理解哪些变量可以访问哪些地方的时候，让我保持清醒。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-25T03:55:33.576Z">
+<meta property="og:url" content="https://hansenwangvip.github.io/2019/06/22/2019-06-22%20%E7%BF%BB%E8%AF%91-JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E9%80%9A%E4%BF%97%E8%A7%A3%E8%AF%BB/index.html">
+<meta property="og:site_name" content="Hansen 的博客">
+<meta property="og:description" content="作用域是JavaScript语言的基础概念之一，也可能是我在编写复杂程序时最挣扎的一个概念。我已数不清多少次，在函数间传递控制时，丢失了&#96;this&#96;关键字的指向。我也经常发现自己经常以各种令人困惑的方式扭曲自己的代码，试图在我理解哪些变量可以访问哪些地方的时候，让我保持清醒。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-06-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-21T16:11:34.292Z">
+<meta property="article:author" content="Hansenwang">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="翻译">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="翻译：JavaScript作用域的通俗解读">
-<meta name="twitter:description" content="作用域是JavaScript语言的基础概念之一，也可能是我在编写复杂程序时最挣扎的一个概念。我已数不清多少次，在函数间传递控制时，丢失了`this`关键字的指向。我也经常发现自己经常以各种令人困惑的方式扭曲自己的代码，试图在我理解哪些变量可以访问哪些地方的时候，让我保持清醒。">
 
-<link rel="canonical" href="https://hansenwangvip.github.io/2019/06/22/2019-06-22 翻译-JavaScript作用域的通俗解读/">
+<link rel="canonical" href="https://hansenwangvip.github.io/2019/06/22/2019-06-22%20%E7%BF%BB%E8%AF%91-JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E9%80%9A%E4%BF%97%E8%A7%A3%E8%AF%BB/">
 
 
 <script id="page-configurations">
@@ -79,7 +80,7 @@
   };
 </script>
 
-  <title>翻译：JavaScript作用域的通俗解读 | Hansenwang's Blog</title>
+  <title>翻译：JavaScript作用域的通俗解读 | Hansen 的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149670973-1"></script>
     <script>
@@ -135,7 +136,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hansenwang's Blog</span>
+        <span class="site-title">Hansen 的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -230,7 +231,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2019/06/22/2019-06-22 翻译-JavaScript作用域的通俗解读/">
+    <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2019/06/22/2019-06-22%20%E7%BF%BB%E8%AF%91-JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E9%80%9A%E4%BF%97%E8%A7%A3%E8%AF%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/18462980?s=460&v=4">
@@ -239,7 +240,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hansenwang's Blog">
+      <meta itemprop="name" content="Hansen 的博客">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -261,7 +262,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/翻译/" itemprop="url" rel="index">
+                  <a href="/categories/%E7%BF%BB%E8%AF%91/" itemprop="url" rel="index">
                     <span itemprop="name">翻译</span>
                   </a>
                 </span>
@@ -282,12 +283,8 @@
         <h1 id="JavaScript作用域的通俗解读-（上篇）"><a href="#JavaScript作用域的通俗解读-（上篇）" class="headerlink" title="JavaScript作用域的通俗解读 （上篇）"></a>JavaScript作用域的通俗解读 （上篇）</h1><p>作用域是JavaScript语言的基础概念之一，也可能是我在编写复杂程序时最挣扎的一个概念。我已数不清多少次，在函数间传递控制时，丢失了<code>this</code>关键字的指向。我也经常发现自己经常以各种令人困惑的方式扭曲自己的代码，试图在我理解哪些变量可以访问哪些地方的时候，让我保持清醒。</p>
 <p>这篇文章将正面解决问题，概述上下文和作用域的定义，检查两个允许我们修改上下文的JavaScript方法，并深入探讨我遇到的百分之九十的问题的有效解决方案。</p>
 <blockquote>
-<p>原文：<a href="http://www.digital-web.com/articles/scope_in_javascript/" target="_blank" rel="noopener">http://www.digital-web.com/articles/scope_in_javascript/</a><br>原文发表于2006年11月11日。<br>译文发表于2019年6月22日。<br>译注单词表：</p>
-<pre><code>- Scope : 作用域
-- Context：上下文
-- Scope Chain：作用域链
-- Execution context: 执行上下文
-</code></pre></blockquote>
+<p>原文：<a target="_blank" rel="noopener" href="http://www.digital-web.com/articles/scope_in_javascript/">http://www.digital-web.com/articles/scope_in_javascript/</a><br>原文发表于2006年11月11日。<br>译文发表于2019年6月22日。<br>译注单词表：<br>    - Scope : 作用域<br>    - Context：上下文<br>    - Scope Chain：作用域链<br>    - Execution context: 执行上下文</p>
+</blockquote>
 <h2 id="我在哪里？你是谁？"><a href="#我在哪里？你是谁？" class="headerlink" title="我在哪里？你是谁？"></a>我在哪里？你是谁？</h2><p>JavaScript程序的每一部分都在一个执行上下文中执行。你可以把这些上下文当作你的代码的邻居，告诉每一行代码它从哪来，还有它有哪些朋友和邻居。事实证明，这是重要的信息，因为JavaScript社会对谁可以与谁联系有着相当严格的规则；执行上下文更多地被认为是封闭社区，而不是开放式小区。</p>
 <blockquote>
 <p>译注：封闭社区(gated communities): 一个通过大门控制交通和人流进出的住宅区。</p>
@@ -295,7 +292,8 @@
 <p>我们通常可以将这些社会边界称为作用域，并且它们很重要，可以在每个社区的章程中编纂，我们将其称为上下文的作用域链。特定的相邻的代码只能访问其作用域链中列出的变量，并且相较于跟邻里之外的联系，代码更喜欢与本地变量的交互。</p>
 <p>实际上说，评估一个函数的时候，会简历一个独特的执行上下文，将其本地作用域附加到其定义的范围链中。在一个特定上下文中，JavaScript通过作用域链的攀爬，从本地到全局地，解析标志符。这就意味着，同名的作用域链上更高的局部变量，优先级更高。这是有道理的：如果我的好朋友在一起讨论”Mike West”，很明显它们在谈论我，而不是同名的歌手或者教授，就算他们更加出名。</p>
 <p>让我们通过一些实例代码来探讨其含义：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> ima_celebrity = <span class="string">"Everyone can see me! I'm famous!"</span>, <span class="comment">// 明星 </span></span><br><span class="line">the_president = <span class="string">"I'm the decider!"</span>;` <span class="comment">//  总统</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pleasantville</span><span class="params">()</span> </span>&#123; <span class="comment">// 欢乐谷 </span></span><br><span class="line">	<span class="keyword">var</span> the_mayor = “I rule Pleasantville <span class="keyword">with</span> an iron fist!”, <span class="comment">// 市长</span></span><br><span class="line">	ima_celebrity = “All my neighbors know who I am!”;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">lonely_house</span><span class="params">()</span> </span>&#123; <span class="comment">// 山上的小屋</span></span><br><span class="line">		<span class="keyword">var</span> agoraphobic = “I fear the day star!”, <span class="comment">// 广场恐惧症患者</span></span><br><span class="line">		a_cat = “Meow.”;  <span class="comment">// 猫</span></span><br><span class="line">	&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var ima_celebrity = <span class="string">&quot;Everyone can see me! I&#x27;m famous!&quot;</span>, <span class="regexp">//</span> 明星 </span><br><span class="line">the_president = <span class="string">&quot;I&#x27;m the decider!&quot;</span>;` <span class="regexp">//</span>  总统</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> pleasantville() &#123; <span class="regexp">//</span> 欢乐谷 </span><br><span class="line">	var the_mayor = “I rule Pleasantville with an iron fist!”, <span class="regexp">//</span> 市长</span><br><span class="line">	ima_celebrity = “All my neighbors know who I am!”;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">function</span> lonely_house() &#123; <span class="regexp">//</span> 山上的小屋</span><br><span class="line">		var agoraphobic = “I fear the day star!”, <span class="regexp">//</span> 广场恐惧症患者</span><br><span class="line">		a_cat = “Meow.”;  <span class="regexp">//</span> 猫</span><br><span class="line">	&#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>我们的明星<code>ima_celebrity</code>，每个人都认识她。她在政治上很活跃，经常和总统联系，并且非常友好；她会为遇到的任何人签名并回答问题。也就是说，她和她的粉丝没有很多个人接触。她很确定他们的存在，并且他们可能在某个地方有自己的生活，但她当然不知道他们在做什么，甚至不知道他们的名字。</p>
 <p>在欢乐谷（pleasantville）中，市长是一个众所周知的面孔。她经常在城市的街道穿行，和她的选民谈话，握手，还有亲吻小孩子。因为欢乐谷是一个很大很重要的社区，所以她的办公室里又一个大大的红色电话，给她一条直连总统的线，一周七天，一天24小时无休。她看到过城郊小山上有一间孤独的小屋（lonely_house），但是从不去关心谁住在里面。</p>
 <p>那间孤独的小屋对它自己来说就是一个世界。有个广场恐惧症患者（agoraphobic）大多数时间待在里面，玩纸牌，喂猫(a_cat)。他好几次打电话给市长询问关于本地噪音的法规，并且在本地新闻上看到明星(ima_celebrity)后，甚至还给她写过一些粉丝信。</p>
@@ -303,35 +301,46 @@
 <ul>
 <li>调用一个对象的方法<br>在典型的面向对象语言中，我们需要一种识别和引用我们当前正在使用的对象的方法。<code>this</code>令人欣慰，为我们的对象提供了检查自己的能力，并指出了自己的属性。</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> deep_thought = &#123;</span><br><span class="line">	the_answer: <span class="number">42</span>,</span><br><span class="line">	ask_question: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.the_answer;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> the_meaning = deep_thought.ask_question();</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> deep_thought = &#123;</span><br><span class="line">	the_answer: <span class="number">42</span>,</span><br><span class="line">	ask_question: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>.the_answer;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> the_meaning = deep_thought.ask_question();</span><br></pre></td></tr></table></figure>
+
 <p>这个例子新建了一个名为”deep_thought”的对象，将它的the_answer属性设置为42，并且创建了一个ask_question方法。当deep-thought.ask_question()执行了，JS为函数调用创建了一个执行上下文，将this设置为”.”之前引用的对象，在这个示例中就是deep_thought。这个方法通过this查看镜像以检查其自身的属性，并返回存储在this.the_answer中的值：42。</p>
 <ul>
 <li>调用构造函数<br>同样地，当定义一个要作为new关键字的构造器函数时，this可被用来指代正在创建的对象。让我们重写商民的例子来演示这个场景：</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">BigComputer</span>(<span class="params">answer</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.the_answer = answer;</span><br><span class="line">	<span class="keyword">this</span>.ask_question = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.the_answer;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> deep_thought = <span class="keyword">new</span> BigComputer(<span class="number">42</span>);</span><br><span class="line"><span class="keyword">var</span> the_meaning = deep_thought.ask_question(); <span class="comment">// 42</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">BigComputer</span>(<span class="params">answer</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.the_answer = answer;</span><br><span class="line">	<span class="built_in">this</span>.ask_question = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">this</span>.the_answer;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> deep_thought = <span class="keyword">new</span> BigComputer(<span class="number">42</span>);</span><br><span class="line"><span class="keyword">var</span> the_meaning = deep_thought.ask_question(); <span class="comment">// 42</span></span><br></pre></td></tr></table></figure>
+
 <p>我们没有直接创建这个<code>deep_thought</code>对象，而是写了一个函数去创建BigComputer对象，并且通过new关键字，实例化了一个deep_thought实例变量。当 <code>new BigComputer()</code>执行的时候，在后台公开地创建了一个全新的对象。<code>BigComputer</code>被调用了，并且它的<code>this</code>关键字被设置为引用那个新对象。这个函数可以在<code>this</code>上设置属性和方法，在BigComputer执行结束时公开地返回。</p>
 <p>但是请注意，deep_thought.the_question()仍然像以前一样工作。那里发生了什么？为什么this在the_question内部与BigComputer内部的意义不一样？简单来说，我们通过new 进入了BigComputer，所以this表示”新对象”。另一方面，我们通过deep_thought进入了the_question，所以当我们执行了那个方法，this意味着”deep_thought指向的任何值”。this不像其他变量一样，从作用域链中读取，而是在上下文的基础上重置。</p>
 <ul>
 <li>调用普通函数</li>
 </ul>
 <p>如果我们只是调用一个普通的日常的没有其他花样的函数呢？在这种场景中<code>this</code>又如何指向？</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test_this</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> i_wonder_what_this_is = test_this();</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test_this</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> i_wonder_what_this_is = test_this();</span><br></pre></td></tr></table></figure>
+
 <p>在这种情况下，我们没有提供新的上下文，也没有给出一个背景形式的上下文来捎带。在这里，this可以引用最全局的东西：对于网页，就是window对象。</p>
 <ul>
-<li>事件处理器（<strong>Event Handler</strong>）<br>对于正常函数调用的更复杂的转换，假设我们正在使用函数来处理onclick事件。当事件出发我们的函数执行时，this指向哪里呢？不幸的是，这个问题没有简单的答案。如果我们内联地写一个事件处理函数，this指向全局的window对象：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">click_handler</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>); <span class="comment">// alerts the window object</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="comment">// &lt;button id="thebutton" onclick="click_handler()"&gt;Click me!&lt;/button&gt;</span></span><br></pre></td></tr></table></figure>
+<li>事件处理器（<strong>Event Handler</strong>）<br>对于正常函数调用的更复杂的转换，假设我们正在使用函数来处理onclick事件。当事件出发我们的函数执行时，this指向哪里呢？不幸的是，这个问题没有简单的答案。如果我们内联地写一个事件处理函数，this指向全局的window对象：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">click_handler</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="built_in">this</span>); <span class="comment">// alerts the window object</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"><span class="comment">// &lt;button id=&quot;thebutton&quot; onclick=&quot;click_handler()&quot;&gt;Click me!&lt;/button&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
-<p>然而，当我们通过JS来添加一个事件处理函数，this就指向了生成事件的DOM元素。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">click_handler</span>(<span class="params"></span>) </span>&#123;  </span><br><span class="line">	alert(<span class="keyword">this</span>); <span class="comment">// alerts the button DOM node  </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addhandler</span>(<span class="params"></span>) </span>&#123;  </span><br><span class="line"><span class="built_in">document</span>.getElementById(‘thebutton’).onclick = click_handler;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload = addhandler;</span><br></pre></td></tr></table></figure></p>
-<h2 id="难题"><a href="#难题" class="headerlink" title="难题"></a>难题</h2><p>让我们在最后一个例子中运行一会儿。如果不是运行click_handler，我们每次点击按钮时都想”问deep_thought一个question”怎么办？代码看起来非常简单:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">BigComputer</span>(<span class="params">answer</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.the_answer = answer;</span><br><span class="line">	<span class="keyword">this</span>.ask_question = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">		alert(<span class="keyword">this</span>.the_answer);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addhandler</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> deep_thought = <span class="keyword">new</span> BigComputer(<span class="number">42</span>),</span><br><span class="line">	the_button = <span class="built_in">document</span>.getElementById(’thebutton‘);</span><br><span class="line">	the_button.onclick = deep_thought.ask_question;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload = addhandler;</span><br></pre></td></tr></table></figure></p>
+<p>然而，当我们通过JS来添加一个事件处理函数，this就指向了生成事件的DOM元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">click_handler</span>(<span class="params"></span>) </span>&#123;  </span><br><span class="line">	alert(<span class="built_in">this</span>); <span class="comment">// alerts the button DOM node  </span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addhandler</span>(<span class="params"></span>) </span>&#123;  </span><br><span class="line"><span class="built_in">document</span>.getElementById(‘thebutton’).onclick = click_handler;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload = addhandler;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="难题"><a href="#难题" class="headerlink" title="难题"></a>难题</h2><p>让我们在最后一个例子中运行一会儿。如果不是运行click_handler，我们每次点击按钮时都想”问deep_thought一个question”怎么办？代码看起来非常简单:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">BigComputer</span>(<span class="params">answer</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.the_answer = answer;</span><br><span class="line">	<span class="built_in">this</span>.ask_question = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">		alert(<span class="built_in">this</span>.the_answer);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addhandler</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> deep_thought = <span class="keyword">new</span> BigComputer(<span class="number">42</span>),</span><br><span class="line">	the_button = <span class="built_in">document</span>.getElementById(’thebutton‘);</span><br><span class="line">	the_button.onclick = deep_thought.ask_question;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload = addhandler;</span><br></pre></td></tr></table></figure>
+
 <p>很完美，对吧？我们点击了按钮，<code>deep_thought.ask_question</code>被执行了，然后我们得到”42”。那么为什么浏览器却给我们返回了 undefined？我们那里错了？</p>
 <p>问题很简单：我们传递了对ask_question方法的引用，当作为事件处理程序执行时，该方法在与作为对象方法执行时不同的上下文中执行。简短来说，ask_question中的 this 关键字，指向了生成事件的DOM元素，而不是BigComputer对象。这个DOM元素没有the_answer属性，因此我们将返回undefined，而不是“42”。setTimeout 表现出类似的行为，延迟函数的执行，同时将其移动到了全局上下文中。</p>
 <p>这个问题遍布在我们的程序中，如果没有仔细跟踪程序所有角落的情况，调试是一个非常困难的问题，特别是如果你的对象具有DOM元素上存在的属性或者window对象。</p>
-<h2 id="使用-apply-和-call-修改上下文"><a href="#使用-apply-和-call-修改上下文" class="headerlink" title="使用.apply() 和 .call()修改上下文"></a>使用<code>.apply()</code> 和 <code>.call()</code>修改上下文</h2><p>我们很想在点击按钮的时候向<code>deep_thought</code>提一个问题，并且更一般地说，我们希望能够在响应事件和setTimeout调用之类的事情时在其本地上下文中调用对象方法。两个鲜为人知的JavaScript方法，<code>apply()</code>和<code>call()</code>，通过允许我们在执行函数调用时手动覆盖this的值，来间接启用这个功能。我们先来看<code>call</code>:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> first_object = &#123;  </span><br><span class="line">	num: <span class="number">42</span>  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="keyword">var</span> second_object = &#123;  </span><br><span class="line">	num: <span class="number">24</span>  </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">multiply</span>(<span class="params">mult</span>) </span>&#123;  </span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.num * mult;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">multiply.call(first_object, <span class="number">5</span>); <span class="comment">// returns 42 * 5  </span></span><br><span class="line">multiply.call(second_object, <span class="number">5</span>); <span class="comment">// returns 24 * 5</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-<p>未完待续…<br>下一篇：《JavaScript作用域的通俗解读 （下篇）》<br><!--stackedit_data:
-eyJoaXN0b3J5IjpbMjk2MDAzMzkwLDcxNjYwODY4M119
---></p>
+<h2 id="使用-apply-和-call-修改上下文"><a href="#使用-apply-和-call-修改上下文" class="headerlink" title="使用.apply() 和 .call()修改上下文"></a>使用<code>.apply()</code> 和 <code>.call()</code>修改上下文</h2><p>我们很想在点击按钮的时候向<code>deep_thought</code>提一个问题，并且更一般地说，我们希望能够在响应事件和setTimeout调用之类的事情时在其本地上下文中调用对象方法。两个鲜为人知的JavaScript方法，<code>apply()</code>和<code>call()</code>，通过允许我们在执行函数调用时手动覆盖this的值，来间接启用这个功能。我们先来看<code>call</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> first_object = &#123;  </span><br><span class="line">	num: <span class="number">42</span>  </span><br><span class="line">&#125;;  </span><br><span class="line"><span class="keyword">var</span> second_object = &#123;  </span><br><span class="line">	num: <span class="number">24</span>  </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">multiply</span>(<span class="params">mult</span>) </span>&#123;  </span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">this</span>.num * mult;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">multiply.call(first_object, <span class="number">5</span>); <span class="comment">// returns 42 * 5  </span></span><br><span class="line">multiply.call(second_object, <span class="number">5</span>); <span class="comment">// returns 24 * 5</span></span><br></pre></td></tr></table></figure>
 
+<hr>
+<p>未完待续…<br>下一篇：《JavaScript作用域的通俗解读 （下篇）》</p>
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMjk2MDAzMzkwLDcxNjYwODY4M119
+-->
     </div>
 
     
@@ -341,14 +350,14 @@ eyJoaXN0b3J5IjpbMjk2MDAzMzkwLDcxNjYwODY4M119
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
-              <a href="/tags/翻译/" rel="tag"># 翻译</a>
+              <a href="/tags/%E7%BF%BB%E8%AF%91/" rel="tag"># 翻译</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/05/19/2019-05-19 算法-leetcode-js-1-two-sum/" rel="next" title="LeetCode in JavaScript(1)： Two Sum">
+                <a href="/2019/05/19/2019-05-19%20%E7%AE%97%E6%B3%95-leetcode-js-1-two-sum/" rel="next" title="LeetCode in JavaScript(1)： Two Sum">
                   <i class="fa fa-chevron-left"></i> LeetCode in JavaScript(1)： Two Sum
                 </a>
             </div>
@@ -356,7 +365,7 @@ eyJoaXN0b3J5IjpbMjk2MDAzMzkwLDcxNjYwODY4M119
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/08/01/2019-08-01 随笔-技术翻译需要认真的态度/" rel="prev" title="认真对待技术翻译">
+                <a href="/2019/08/01/2019-08-01%20%E9%9A%8F%E7%AC%94-%E6%8A%80%E6%9C%AF%E7%BF%BB%E8%AF%91%E9%9C%80%E8%A6%81%E8%AE%A4%E7%9C%9F%E7%9A%84%E6%80%81%E5%BA%A6/" rel="prev" title="认真对待技术翻译">
                   认真对待技术翻译 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -404,7 +413,7 @@ eyJoaXN0b3J5IjpbMjk2MDAzMzkwLDcxNjYwODY4M119
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript作用域的通俗解读-（上篇）"><span class="nav-number">1.</span> <span class="nav-text">JavaScript作用域的通俗解读 （上篇）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#我在哪里？你是谁？"><span class="nav-number">1.1.</span> <span class="nav-text">我在哪里？你是谁？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-是什么东西？"><span class="nav-number">1.2.</span> <span class="nav-text">this? 是什么东西？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#难题"><span class="nav-number">1.3.</span> <span class="nav-text">难题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-apply-和-call-修改上下文"><span class="nav-number">1.4.</span> <span class="nav-text">使用.apply() 和 .call()修改上下文</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E9%80%9A%E4%BF%97%E8%A7%A3%E8%AF%BB-%EF%BC%88%E4%B8%8A%E7%AF%87%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">JavaScript作用域的通俗解读 （上篇）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E5%9C%A8%E5%93%AA%E9%87%8C%EF%BC%9F%E4%BD%A0%E6%98%AF%E8%B0%81%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">我在哪里？你是谁？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-%E6%98%AF%E4%BB%80%E4%B9%88%E4%B8%9C%E8%A5%BF%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">this? 是什么东西？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%BE%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">难题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-apply-%E5%92%8C-call-%E4%BF%AE%E6%94%B9%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="nav-number">1.4.</span> <span class="nav-text">使用.apply() 和 .call()修改上下文</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -466,13 +475,13 @@ eyJoaXN0b3J5IjpbMjk2MDAzMzkwLDcxNjYwODY4M119
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Hansenwang</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
@@ -501,9 +510,17 @@ eyJoaXN0b3J5IjpbMjk2MDAzMzkwLDcxNjYwODY4M119
   <script src="//cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 
@@ -514,7 +531,9 @@ eyJoaXN0b3J5IjpbMjk2MDAzMzkwLDcxNjYwODY4M119
 
 
 
-  <script src="/js/local-search.js"></script>
+  
+<script src="/js/local-search.js"></script>
+
 
 
 
@@ -540,7 +559,7 @@ eyJoaXN0b3J5IjpbMjk2MDAzMzkwLDcxNjYwODY4M119
       DISQUS.reset({
         reload: true,
         config: {page: {
-            url: "https://hansenwangvip.github.io/2019/06/22/2019-06-22 翻译-JavaScript作用域的通俗解读/",
+            url: "https://hansenwangvip.github.io/2019/06/22/2019-06-22%20%E7%BF%BB%E8%AF%91-JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E9%80%9A%E4%BF%97%E8%A7%A3%E8%AF%BB/",
             identifier: "2019/06/22/2019-06-22 翻译-JavaScript作用域的通俗解读/",
             title: "翻译：JavaScript作用域的通俗解读"
           }

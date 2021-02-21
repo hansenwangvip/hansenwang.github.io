@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -53,19 +53,20 @@
 </script>
 
   <meta name="description" content="一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？">
-<meta name="keywords" content="网络,技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从URL到页面，发生了什么事情？">
-<meta property="og:url" content="https://hansenwangvip.github.io/2017/06/06/2017-06-06 前端-前端网络原理和优化/index.html">
-<meta property="og:site_name" content="Hansenwang&#39;s Blog">
+<meta property="og:url" content="https://hansenwangvip.github.io/2017/06/06/2017-06-06%20%E5%89%8D%E7%AB%AF-%E5%89%8D%E7%AB%AF%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%E5%92%8C%E4%BC%98%E5%8C%96/index.html">
+<meta property="og:site_name" content="Hansen 的博客">
 <meta property="og:description" content="一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-25T03:55:33.576Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-06-06T09:01:19.000Z">
+<meta property="article:modified_time" content="2021-02-21T16:11:34.292Z">
+<meta property="article:author" content="Hansenwang">
+<meta property="article:tag" content="网络">
+<meta property="article:tag" content="技术">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从URL到页面，发生了什么事情？">
-<meta name="twitter:description" content="一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？">
 
-<link rel="canonical" href="https://hansenwangvip.github.io/2017/06/06/2017-06-06 前端-前端网络原理和优化/">
+<link rel="canonical" href="https://hansenwangvip.github.io/2017/06/06/2017-06-06%20%E5%89%8D%E7%AB%AF-%E5%89%8D%E7%AB%AF%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%E5%92%8C%E4%BC%98%E5%8C%96/">
 
 
 <script id="page-configurations">
@@ -79,7 +80,7 @@
   };
 </script>
 
-  <title>从URL到页面，发生了什么事情？ | Hansenwang's Blog</title>
+  <title>从URL到页面，发生了什么事情？ | Hansen 的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149670973-1"></script>
     <script>
@@ -135,7 +136,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hansenwang's Blog</span>
+        <span class="site-title">Hansen 的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -230,7 +231,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2017/06/06/2017-06-06 前端-前端网络原理和优化/">
+    <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2017/06/06/2017-06-06%20%E5%89%8D%E7%AB%AF-%E5%89%8D%E7%AB%AF%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%E5%92%8C%E4%BC%98%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/18462980?s=460&v=4">
@@ -239,7 +240,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hansenwang's Blog">
+      <meta itemprop="name" content="Hansen 的博客">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -261,7 +262,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index">
                     <span itemprop="name">技术</span>
                   </a>
                 </span>
@@ -290,25 +291,36 @@
 <h2 id="1-9-DOM树建立，加载外部文件"><a href="#1-9-DOM树建立，加载外部文件" class="headerlink" title="1.9 DOM树建立，加载外部文件"></a>1.9 DOM树建立，加载外部文件</h2><p>文档树开始建立，根据标记请求所需指定MIME类型的文件（比如CSS，JS），同时设置Cookie。</p>
 <h2 id="1-10-页面渲染"><a href="#1-10-页面渲染" class="headerlink" title="1.10 页面渲染"></a>1.10 页面渲染</h2><p>页面开始渲染DOM，JS根据DOM API操作DOM，执行事件绑定等，页面显示完成。</p>
 <h1 id="2-HTTP状态码"><a href="#2-HTTP状态码" class="headerlink" title="2. HTTP状态码"></a>2. HTTP状态码</h1><ul>
-<li>100  继续， 一般在发送post请求时， 已发送了http header之后，服务器将返回此信息，表示确认。</li>
-<li>200 正常返回信息</li>
-<li>201 请求成功并且服务器创建了新的资源</li>
-<li>202 服务器已接受请求，但尚未处理</li>
-<li>301 永久重定向</li>
-<li>302 临时重定向</li>
-<li>303 临时重定向，且总是使用GET请求新的URI</li>
+<li><p>100  继续， 一般在发送post请求时， 已发送了http header之后，服务器将返回此信息，表示确认。</p>
+</li>
+<li><p>200 正常返回信息</p>
+</li>
+<li><p>201 请求成功并且服务器创建了新的资源</p>
+</li>
+<li><p>202 服务器已接受请求，但尚未处理</p>
+</li>
+<li><p>301 永久重定向</p>
+</li>
+<li><p>302 临时重定向</p>
+</li>
+<li><p>303 临时重定向，且总是使用GET请求新的URI</p>
+</li>
 <li><p>304 资源未修改，自从上次请求后，请求的网页未修改过。</p>
 </li>
 <li><p>400 请求格式错误，客户端不应当再犯同样的错误</p>
 </li>
-<li>401 请求未授权</li>
-<li>403 禁止访问</li>
+<li><p>401 请求未授权</p>
+</li>
+<li><p>403 禁止访问</p>
+</li>
 <li><p>404 找不到资源</p>
 </li>
 <li><p>500 服务器内部错误</p>
 </li>
-<li>502 网关错误</li>
-<li>503 服务器暂时无法处理请求，可能是过载或者维护</li>
+<li><p>502 网关错误</p>
+</li>
+<li><p>503 服务器暂时无法处理请求，可能是过载或者维护</p>
+</li>
 </ul>
 <h1 id="3-前端性能优化"><a href="#3-前端性能优化" class="headerlink" title="3. 前端性能优化"></a>3. 前端性能优化</h1><h2 id="3-1-减少http请求次数"><a href="#3-1-减少http请求次数" class="headerlink" title="3.1 减少http请求次数"></a>3.1 减少http请求次数</h2><p>CSS雪碧图，JS、CSS代码压缩，图片压缩；</p>
 <p>网页Gzip，CDN托管，data缓存，分离图片服务器。</p>
@@ -319,10 +331,10 @@
 <h2 id="3-4-避免直接操作style"><a href="#3-4-避免直接操作style" class="headerlink" title="3.4 避免直接操作style"></a>3.4 避免直接操作style</h2><p>当需要设置的样式很多时，设置className，而非直接操作style。</p>
 <h2 id="3-5-少用全局变量"><a href="#3-5-少用全局变量" class="headerlink" title="3.5 少用全局变量"></a>3.5 少用全局变量</h2><p>不要给windows添加变量了，他已经很胖了！</p>
 <hr>
-<p>The End.<br><!--stackedit_data:
+<p>The End.</p>
+<!--stackedit_data:
 eyJoaXN0b3J5IjpbLTEzNzEwODE2MjJdfQ==
---></p>
-
+-->
     </div>
 
     
@@ -331,15 +343,15 @@ eyJoaXN0b3J5IjpbLTEzNzEwODE2MjJdfQ==
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/网络/" rel="tag"># 网络</a>
-              <a href="/tags/技术/" rel="tag"># 技术</a>
+              <a href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag"># 网络</a>
+              <a href="/tags/%E6%8A%80%E6%9C%AF/" rel="tag"># 技术</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2017/05/23/2017-05-23 技术-深入研究CSRF/" rel="next" title="如何应对CSRF攻击">
+                <a href="/2017/05/23/2017-05-23%20%E6%8A%80%E6%9C%AF-%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6CSRF/" rel="next" title="如何应对CSRF攻击">
                   <i class="fa fa-chevron-left"></i> 如何应对CSRF攻击
                 </a>
             </div>
@@ -347,7 +359,7 @@ eyJoaXN0b3J5IjpbLTEzNzEwODE2MjJdfQ==
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2017/06/07/2017-06-07 技术-Mac安装Sass万能方法/" rel="prev" title="Mac安装Sass万能方法">
+                <a href="/2017/06/07/2017-06-07%20%E6%8A%80%E6%9C%AF-Mac%E5%AE%89%E8%A3%85Sass%E4%B8%87%E8%83%BD%E6%96%B9%E6%B3%95/" rel="prev" title="Mac安装Sass万能方法">
                   Mac安装Sass万能方法 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -395,7 +407,7 @@ eyJoaXN0b3J5IjpbLTEzNzEwODE2MjJdfQ==
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？"><span class="nav-number">1.</span> <span class="nav-text">1. 一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-浏览器处理请求"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 浏览器处理请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-浏览器处理URL"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 浏览器处理URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-DNS解析"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 DNS解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-建立连接"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 建立连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-服务器系统响应"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 服务器系统响应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-服务器程序处理"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 服务器程序处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-服务器处理完成，返回数据"><span class="nav-number">1.7.</span> <span class="nav-text">1.7 服务器处理完成，返回数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-浏览器开始下载HTML"><span class="nav-number">1.8.</span> <span class="nav-text">1.8 浏览器开始下载HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-DOM树建立，加载外部文件"><span class="nav-number">1.9.</span> <span class="nav-text">1.9 DOM树建立，加载外部文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10-页面渲染"><span class="nav-number">1.10.</span> <span class="nav-text">1.10 页面渲染</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-HTTP状态码"><span class="nav-number">2.</span> <span class="nav-text">2. HTTP状态码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-前端性能优化"><span class="nav-number">3.</span> <span class="nav-text">3. 前端性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-减少http请求次数"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 减少http请求次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-前端模板优化"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 前端模板优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-DOM操作"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 DOM操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-避免直接操作style"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 避免直接操作style</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-少用全局变量"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 少用全局变量</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%B8%80%E4%B8%AA%E9%A1%B5%E9%9D%A2%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%8A%A0%E8%BD%BD%E6%98%BE%E7%A4%BA%E5%AE%8C%E6%88%90%EF%BC%8C%E8%BF%99%E4%B8%AA%E8%BF%87%E7%A8%8B%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">1. 一个页面从输入URL到页面加载显示完成，这个过程都发生了什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 浏览器处理请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A4%84%E7%90%86URL"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 浏览器处理URL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-DNS%E8%A7%A3%E6%9E%90"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 DNS解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 建立连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%B3%BB%E7%BB%9F%E5%93%8D%E5%BA%94"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 服务器系统响应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A8%8B%E5%BA%8F%E5%A4%84%E7%90%86"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 服务器程序处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%A4%84%E7%90%86%E5%AE%8C%E6%88%90%EF%BC%8C%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE"><span class="nav-number">1.7.</span> <span class="nav-text">1.7 服务器处理完成，返回数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%80%E5%A7%8B%E4%B8%8B%E8%BD%BDHTML"><span class="nav-number">1.8.</span> <span class="nav-text">1.8 浏览器开始下载HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-DOM%E6%A0%91%E5%BB%BA%E7%AB%8B%EF%BC%8C%E5%8A%A0%E8%BD%BD%E5%A4%96%E9%83%A8%E6%96%87%E4%BB%B6"><span class="nav-number">1.9.</span> <span class="nav-text">1.9 DOM树建立，加载外部文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10-%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93"><span class="nav-number">1.10.</span> <span class="nav-text">1.10 页面渲染</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-HTTP%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">2. HTTP状态码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">3. 前端性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E5%87%8F%E5%B0%91http%E8%AF%B7%E6%B1%82%E6%AC%A1%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 减少http请求次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E5%89%8D%E7%AB%AF%E6%A8%A1%E6%9D%BF%E4%BC%98%E5%8C%96"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 前端模板优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-DOM%E6%93%8D%E4%BD%9C"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 DOM操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-%E9%81%BF%E5%85%8D%E7%9B%B4%E6%8E%A5%E6%93%8D%E4%BD%9Cstyle"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 避免直接操作style</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-%E5%B0%91%E7%94%A8%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 少用全局变量</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -457,13 +469,13 @@ eyJoaXN0b3J5IjpbLTEzNzEwODE2MjJdfQ==
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Hansenwang</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
@@ -492,9 +504,17 @@ eyJoaXN0b3J5IjpbLTEzNzEwODE2MjJdfQ==
   <script src="//cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 
@@ -505,7 +525,9 @@ eyJoaXN0b3J5IjpbLTEzNzEwODE2MjJdfQ==
 
 
 
-  <script src="/js/local-search.js"></script>
+  
+<script src="/js/local-search.js"></script>
+
 
 
 
@@ -531,7 +553,7 @@ eyJoaXN0b3J5IjpbLTEzNzEwODE2MjJdfQ==
       DISQUS.reset({
         reload: true,
         config: {page: {
-            url: "https://hansenwangvip.github.io/2017/06/06/2017-06-06 前端-前端网络原理和优化/",
+            url: "https://hansenwangvip.github.io/2017/06/06/2017-06-06%20%E5%89%8D%E7%AB%AF-%E5%89%8D%E7%AB%AF%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86%E5%92%8C%E4%BC%98%E5%8C%96/",
             identifier: "2017/06/06/2017-06-06 前端-前端网络原理和优化/",
             title: "从URL到页面，发生了什么事情？"
           }

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.7.0">
+<meta name="generator" content="Hexo 5.4.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -53,19 +53,19 @@
 </script>
 
   <meta name="description" content="翻译文章">
-<meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="翻译：更好用的border-box">
-<meta property="og:url" content="https://hansenwangvip.github.io/2017/10/23/2017-10-23 前端-更好用的border-box/index.html">
-<meta property="og:site_name" content="Hansenwang&#39;s Blog">
+<meta property="og:url" content="https://hansenwangvip.github.io/2017/10/23/2017-10-23%20%E5%89%8D%E7%AB%AF-%E6%9B%B4%E5%A5%BD%E7%94%A8%E7%9A%84border-box/index.html">
+<meta property="og:site_name" content="Hansen 的博客">
 <meta property="og:description" content="翻译文章">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-25T03:55:33.576Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-10-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-02-21T16:11:34.292Z">
+<meta property="article:author" content="Hansenwang">
+<meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="翻译：更好用的border-box">
-<meta name="twitter:description" content="翻译文章">
 
-<link rel="canonical" href="https://hansenwangvip.github.io/2017/10/23/2017-10-23 前端-更好用的border-box/">
+<link rel="canonical" href="https://hansenwangvip.github.io/2017/10/23/2017-10-23%20%E5%89%8D%E7%AB%AF-%E6%9B%B4%E5%A5%BD%E7%94%A8%E7%9A%84border-box/">
 
 
 <script id="page-configurations">
@@ -79,7 +79,7 @@
   };
 </script>
 
-  <title>翻译：更好用的border-box | Hansenwang's Blog</title>
+  <title>翻译：更好用的border-box | Hansen 的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149670973-1"></script>
     <script>
@@ -135,7 +135,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hansenwang's Blog</span>
+        <span class="site-title">Hansen 的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -230,7 +230,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2017/10/23/2017-10-23 前端-更好用的border-box/">
+    <link itemprop="mainEntityOfPage" href="https://hansenwangvip.github.io/2017/10/23/2017-10-23%20%E5%89%8D%E7%AB%AF-%E6%9B%B4%E5%A5%BD%E7%94%A8%E7%9A%84border-box/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/18462980?s=460&v=4">
@@ -239,7 +239,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hansenwang's Blog">
+      <meta itemprop="name" content="Hansen 的博客">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -261,7 +261,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
                     <span itemprop="name">前端</span>
                   </a>
                 </span>
@@ -280,20 +280,27 @@
 
       
         <h1 id="更好用的border-box"><a href="#更好用的border-box" class="headerlink" title="更好用的border-box"></a>更好用的border-box</h1><p>我是把<code>box-sizing</code>重置为<code>border-box</code>的忠实粉丝，甚至于我们有一个“年度特别日子”。但是这里有一个细小的调整，而且看起来是个不错的思路。</p>
-<p>这是微调的版本：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   <span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line">*, *<span class="selector-pseudo">:before</span>, *<span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">	<span class="attribute">box-sizing</span>:inherit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>感谢<a href="http://blog.teamtreehouse.com/box-sizing-secret-simple-css-layouts#comment-50223" target="_blank" rel="noopener">Job Neal的继承思想</a>，他说：</p>
+<p>这是微调的版本：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   <span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line">*, *:before, *:after&#123;</span><br><span class="line">	box-sizing:inherit;</span><br><span class="line">&#125;	</span><br></pre></td></tr></table></figure>
+
+<p>感谢<a target="_blank" rel="noopener" href="http://blog.teamtreehouse.com/box-sizing-secret-simple-css-layouts#comment-50223">Job Neal的继承思想</a>，他说：</p>
 <blockquote>
 <p>This will give you the same result ,and make it easier to change the box-sizing in plugins or other components that leverage other behavior.<br>这会给你同样的结果，而且使得在插件中或其他组件中更容易改变 box-sizing 的值，而不会影响别的表现。</p>
 </blockquote>
 <p>进一步解释，打个比方，你有一个组件，它本被设计为默认的<code>box-sizing</code> 为 <code>content-box</code>. 你只想要使用，又不搞砸它。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.component</span>&#123;</span><br><span class="line">	<span class="comment">/*旨在以默认的box-sizing工作*/</span></span><br><span class="line">	<span class="comment">/*在你的页面中， 你可以把它重置为normal */</span></span><br><span class="line">	<span class="attribute">box-sizing</span>: content-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.component</span>&#123;</span><br><span class="line">	<span class="comment">/*旨在以默认的box-sizing工作*/</span></span><br><span class="line">	<span class="comment">/*在你的页面中， 你可以把它重置为normal */</span></span><br><span class="line">	<span class="attribute">box-sizing</span>: content-box;</span><br><span class="line">&#125;	</span><br></pre></td></tr></table></figure>
+
 <p>但问题是，这样实际上并不重置整个组件。也许在组件内部有一个<code>&lt;header&gt;</code>，期望它在一个<code>content-box</code>中。如果这个选择器在你的CSS中，老办法就是做一个 box-sizing <strong>reset</strong>…</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">	<span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后这个header不是你想要的<code>content-box</code>, 而是 <code>border-box</code>. 就像：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>= <span class="string">"component"</span>&gt;</span> <span class="comment">&lt;!-- I'm content box --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">header</span>&gt;</span> <span class="comment">&lt;!-- I'm border-box still&gt;</span></span><br><span class="line"><span class="comment">	&lt;/header&gt;</span></span><br><span class="line"><span class="comment">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>为了更简单直观地做到<strong>reset</strong>，你可以使用文章顶部的继承的代码段，继承的值就会被保留。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   <span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line">*, *<span class="selector-pseudo">:before</span>, *<span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">	<span class="attribute">box-sizing</span>:inherit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+<p>然后这个header不是你想要的<code>content-box</code>, 而是 <code>border-box</code>. 就像：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>= <span class="string">&quot;component&quot;</span>&gt;</span> <span class="comment">&lt;!-- I&#x27;m content box --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">header</span>&gt;</span> <span class="comment">&lt;!-- I&#x27;m border-box still&gt;</span></span><br><span class="line"><span class="comment">	&lt;/header&gt;</span></span><br><span class="line"><span class="comment">&lt;/div&gt;	</span></span><br></pre></td></tr></table></figure>
+<p>为了更简单直观地做到<strong>reset</strong>，你可以使用文章顶部的继承的代码段，继承的值就会被保留。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   <span class="selector-tag">html</span>&#123;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line">*, *:before, *:after&#123;</span><br><span class="line">	box-sizing:inherit;</span><br><span class="line">&#125;	</span><br></pre></td></tr></table></figure>
+
 <hr>
 <p>这并不是一个很庞大的东西。你可能已经在使用 box-sizing reset 的老办法，并且从没踩到这个坑。但是，只要我们推广一个“最佳实践”风格的片段，我们也可以慢慢把它变成最好的。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>英文原文 ：<a href="https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/" target="_blank" rel="noopener">Inheriting box-sizing Probably Slightly Better Best-Practice</a></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>英文原文 ：<a target="_blank" rel="noopener" href="https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/">Inheriting box-sizing Probably Slightly Better Best-Practice</a></p>
 
     </div>
 
@@ -310,7 +317,7 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2017/07/22/2017-12-03 随笔-人生没有那么多“太晚”/" rel="next" title="人生没有那么多太晚">
+                <a href="/2017/07/22/2017-12-03%20%E9%9A%8F%E7%AC%94-%E4%BA%BA%E7%94%9F%E6%B2%A1%E6%9C%89%E9%82%A3%E4%B9%88%E5%A4%9A%E2%80%9C%E5%A4%AA%E6%99%9A%E2%80%9D/" rel="next" title="人生没有那么多太晚">
                   <i class="fa fa-chevron-left"></i> 人生没有那么多太晚
                 </a>
             </div>
@@ -318,7 +325,7 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2018/01/02/2018-01-02 随笔-Google工程师等级评分卡/" rel="prev" title="Google工程师等级评分卡">
+                <a href="/2018/01/02/2018-01-02%20%E9%9A%8F%E7%AC%94-Google%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%AD%89%E7%BA%A7%E8%AF%84%E5%88%86%E5%8D%A1/" rel="prev" title="Google工程师等级评分卡">
                   Google工程师等级评分卡 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -366,7 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#更好用的border-box"><span class="nav-number">1.</span> <span class="nav-text">更好用的border-box</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">1.1.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E5%A5%BD%E7%94%A8%E7%9A%84border-box"><span class="nav-number">1.</span> <span class="nav-text">更好用的border-box</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">1.1.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -428,13 +435,13 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Hansenwang</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.7.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v5.4.0
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
@@ -463,9 +470,17 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
-<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
 <script src="/js/schemes/pisces.js"></script>
+
+
 <script src="/js/next-boot.js"></script>
+
 
 
 
@@ -476,7 +491,9 @@
 
 
 
-  <script src="/js/local-search.js"></script>
+  
+<script src="/js/local-search.js"></script>
+
 
 
 
@@ -502,7 +519,7 @@
       DISQUS.reset({
         reload: true,
         config: {page: {
-            url: "https://hansenwangvip.github.io/2017/10/23/2017-10-23 前端-更好用的border-box/",
+            url: "https://hansenwangvip.github.io/2017/10/23/2017-10-23%20%E5%89%8D%E7%AB%AF-%E6%9B%B4%E5%A5%BD%E7%94%A8%E7%9A%84border-box/",
             identifier: "2017/10/23/2017-10-23 前端-更好用的border-box/",
             title: "翻译：更好用的border-box"
           }
