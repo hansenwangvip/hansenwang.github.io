@@ -1,10 +1,9 @@
 ---
-title: 翻译：JavaScript的执行上下文和调用堆栈
+title: 【译】JavaScript的执行上下文和调用堆栈
 date: 2019-10-05
 categories: 翻译
 tags: [翻译, JavaScript]
-keywords: 翻译
-description: 这篇文章用简洁的文字解释了JS的执行上下文和调用堆栈的概念，并通过让读者换位思考的方式，理解JS引擎在运行代码时的行为。对于进阶的JS程序员来说，执行上下文和调用堆栈是理解JS代码运行原理的关键。
+description: 对于进阶的JS程序员来说，执行上下文和调用堆栈是理解JS代码运行原理的关键。
 
 ---
 
@@ -12,19 +11,6 @@ description: 这篇文章用简洁的文字解释了JS的执行上下文和调�
 > 原文更新日期：2019.5.14  
 > 译文更新日期：2019.10.5  
  
- <!--more-->
- 
-术语对照表：  
-  
-英文|译文  
------|-----  
-Execution Context | 执行上下文  
-Scope | 作用域  
-Closure | 闭包  
-Call Stack | 调用堆栈  
-
-
-
 正文：
 
 ---
@@ -36,23 +22,19 @@ Call Stack | 调用堆栈
   
 **JavaScript中的执行上下文**是什么？  
   
-我打赌您不知道这个答案。一门编程语言的最基础的组件是什么？  
+你应该不知道这个问题的答案。一门编程语言最基础的组件是什么？  
   
-> 更新：这里有一片改进并扩展的博客文章：[JavaScript引擎：它们是如何工作的？从调用堆栈到Promise，您需要知道的一切](https://www.valentinog.com/blog/engines/)  
+> 更新：这里有一篇改进并扩展的博客文章：[JavaScript引擎：它们是如何工作的？从调用堆栈到Promise，您需要知道的一切](https://www.valentinog.com/blog/engines/)  
   
 变量和函数对吗？每个人都可以学会这些基础的概念。但是，除了这些基础之外还有什么？  
   
-在成为中级（甚至是高级）JavaScript开发者之前，您应该掌握哪些**JavaScript的核心**？  
+在成为中高级JavaScript开发者之前，您应该掌握哪些**JavaScript的核心概念**？  
   
 答案有许多：作用域，闭包，回调函数，原型等等。  
   
 但是在深入理解这些概念之前，您至少应该知道**JavaScript引擎如何工作？**  
   
 这篇文章，我们将介绍每个JavaScript引擎都具备的两个基本部分：**执行上下文和调用堆栈**  
-  
-（不要害怕，比您想象的要简单）  
-  
-准备好了吗？  
   
 
 ## 您将会学到哪些东西  
@@ -78,15 +60,11 @@ function pow(num){
     return num * num  
 }  
 ```
-  
-好了吗？  
-  
-看起来不难嘛！  
-  
-现在告诉我：**您认为浏览器会以什么顺序来执行这段代码？**  
+
+试着回答我：**您认为浏览器会以什么顺序来执行这段代码？**  
   
 换句话说，如果**您**是浏览器，您会如何解读这段代码？  
-  
+
 这看起来好像很简单。  
   
 大多数人认为：“嗯，浏览器先执行函数`pow`，返回了结果，然后把2赋值给num。”  
@@ -106,18 +84,12 @@ function pow(num){
   
 ## JavaScript 引擎  
   
-要理解JavaScript如何运行，我们首先要了解第一个可怕的东西：**执行上下文**。  
+要理解JavaScript如何运行，我们首先要了解第一个可怕的东西：**执行上下文(execution context)**。  
   
 JavaScript中的执行上下文是什么？  
   
-**每次在浏览器（或者Node）中运行JavaScript时，引擎都会执行一系列步骤。**  
-  
-其中一步就是：**创建全局执行上下文**。  
-  
-等等，瓦伦蒂诺(作者名字)，**引擎是啥？**  
-  
-简单来说，JavaScript引擎就是运行JavaScript代码的“引擎”。  
-  
+**每次在浏览器（或者Node）中运行JavaScript时，JS引擎都会执行一系列步骤。**  
+    
 如今有两个著名的JavaScript引擎：[Google V8](https://developers.google.com/v8/) 和 [SpiderMonkey](https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey)  
   
 V8是Google开源的 JavaScript 引擎，被用于Chrome浏览器和 Node.js 中。  
@@ -156,8 +128,8 @@ function pow(num) {
   
 这是一个简化的版本：  
   
-**引擎**：第一行。这里有一个变量！酷！我们把它存到全局内存(Global Memory)里吧。  
-**引擎**：第三行。我看到了一个函数声明。酷！我们把它也存进全局内存吧！  
+**引擎**：第一行。这里有一个变量！我们把它存到全局内存(Global Memory)里吧。  
+**引擎**：第三行。我看到了一个函数声明。我们把它也存进全局内存吧！  
 **引擎**：看起来我完事了。  
   
 如果我再问您一次：浏览器怎么“看”这些代码，您会怎么回答？  
