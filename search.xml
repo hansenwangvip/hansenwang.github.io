@@ -195,10 +195,7 @@ eyJoaXN0b3J5IjpbMjk0MTU3NTgyXX0=
   <entry>
     <title>JavaScript 基本概念(1)</title>
     <url>/2017/03/06/2017-03-06%20%E5%89%8D%E7%AB%AF-JavaScript%E7%B2%BE%E9%AB%93(1)/</url>
-    <content><![CDATA[<p>这篇文章主要总结了JavaScript的基础，包括数据类型，值和易混淆的概念。</p>
-<span id="more"></span>
-
-<h1 id="1-JavaScript的基本数据类型"><a href="#1-JavaScript的基本数据类型" class="headerlink" title="1. JavaScript的基本数据类型"></a>1. JavaScript的基本数据类型</h1><ol>
+    <content><![CDATA[<h1 id="1-JavaScript的基本数据类型"><a href="#1-JavaScript的基本数据类型" class="headerlink" title="1. JavaScript的基本数据类型"></a>1. JavaScript的基本数据类型</h1><ol>
 <li>Undefined</li>
 <li>Null</li>
 <li>Number</li>
@@ -363,12 +360,9 @@ eyJoaXN0b3J5IjpbMTMyNjgwOTE5Nyw4MDc3MDE4MzZdfQ==</li>
       </tags>
   </entry>
   <entry>
-    <title>JavaScript 基本概念(2)</title>
+    <title>JavaScript 核心特性(2)</title>
     <url>/2017/03/07/2017-03-07%20%E5%89%8D%E7%AB%AF-JavaScript%E7%B2%BE%E9%AB%93(2)/</url>
-    <content><![CDATA[<p>这篇博客延续上一篇，继续总结JavaScript语言的核心特性和思想精髓。</p>
-<span id="more"></span>
-
-<h1 id="1-JavaScript继承的实现方式"><a href="#1-JavaScript继承的实现方式" class="headerlink" title="1. JavaScript继承的实现方式"></a>1. JavaScript继承的实现方式</h1><ol>
+    <content><![CDATA[<h1 id="1-JavaScript继承的实现方式"><a href="#1-JavaScript继承的实现方式" class="headerlink" title="1. JavaScript继承的实现方式"></a>1. JavaScript继承的实现方式</h1><ol>
 <li>构造继承</li>
 <li>原型继承</li>
 <li>实例继承</li>
@@ -441,27 +435,8 @@ eyJoaXN0b3J5IjpbLTEzNjI1MDY2MjhdfQ==
       </tags>
   </entry>
   <entry>
-    <title>JavaScript 观察者模式的通用实现</title>
-    <url>/2017/05/07/2017-05-07%20%E5%89%8D%E7%AB%AF-JavaScript%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%80%9A%E7%94%A8%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//封装观察者模式，放进一个对象中，可复用。</span></span><br><span class="line"><span class="keyword">var</span> event = &#123;</span><br><span class="line">	clientList:[],</span><br><span class="line">	<span class="comment">//订阅的消息添加进缓存列表</span></span><br><span class="line">	listen: <span class="function"><span class="keyword">function</span>(<span class="params">key, fn</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>( !<span class="built_in">this</span>.clientList[key])&#123;</span><br><span class="line">			<span class="built_in">this</span>.clientList[key] = [];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">this</span>.clientList[key].push(fn);</span><br><span class="line">	&#125;,</span><br><span class="line">	trigger: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> key = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>),</span><br><span class="line">			fns = <span class="built_in">this</span>.clientList[key];</span><br><span class="line">		<span class="keyword">if</span>(!fns || fns.length === <span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, fn; fn = fns[i++];)&#123;</span><br><span class="line">			fn.apply(<span class="built_in">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;，</span><br><span class="line">	remove: <span class="function"><span class="keyword">function</span>(<span class="params">key, fn</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> fns = ClientList[key];</span><br><span class="line">		<span class="keyword">if</span>( !fns )&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(!fn)&#123;</span><br><span class="line">			fns &amp;&amp; fns.length = <span class="number">0</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">var</span> len = fns.length-<span class="number">1</span>; len&gt;=<span class="number">0</span>; len--)&#123;</span><br><span class="line">				<span class="keyword">var</span> _fn = fns[len&#125;;</span><br><span class="line">				<span class="keyword">if</span>(_fn === fn)&#123;</span><br><span class="line">					fns.splice(len, <span class="number">1</span>);</span><br><span class="line">				&#125;	</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//所有对象都能动态安装 ‘观察者模式’</span></span><br><span class="line"><span class="keyword">var</span> installEvent = <span class="keyword">function</span>(obj)&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i in <span class="keyword">event</span>)&#123;</span><br><span class="line">		obj[i] = <span class="keyword">event</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">//</span>测试</span><br><span class="line">var salesOffices = &#123;&#125;;</span><br><span class="line">installEvent(salesOffices);</span><br><span class="line">	<span class="regexp">//</span>订阅</span><br><span class="line">salesOffices.listen(<span class="string">&#x27;squareMeter88&#x27;</span>, <span class="keyword">function</span>(price)&#123;</span><br><span class="line">	console.log(<span class="string">&#x27;88平方米的价格=&#x27;</span>+price);</span><br><span class="line">&#125;);</span><br><span class="line">salesOffices.listen(<span class="string">&#x27;squareMeter110&#x27;</span>,<span class="keyword">function</span>(price)&#123;</span><br><span class="line">	console.log(<span class="string">&#x27;110平方米的价格=&#x27;</span>+price);</span><br><span class="line">&#125;);</span><br><span class="line">	<span class="regexp">//</span>发布</span><br><span class="line">salesOffices.trigger(<span class="string">&#x27;squareMeter88&#x27;</span>,<span class="number">2000000</span>);	<span class="regexp">//</span>输出：<span class="string">&quot;88平方米的价格=2000000&quot;</span></span><br><span class="line">salesOffices.trigger(<span class="string">&#x27;squareMeter110&#x27;</span>,<span class="number">3000000</span>);	<span class="regexp">//</span>输出：<span class="string">&quot;110平方米的价格=3000000&quot;</span>	</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1NjY3NTEyNF19
--->]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript 对象数组排序</title>
-    <url>/2017/05/07/2017-05-07%20%E7%AE%97%E6%B3%95-JavaScript%E5%AF%B9%E8%B1%A1%E6%95%B0%E7%BB%84%E6%8E%92%E5%BA%8F/</url>
+    <url>/2017/05/07/2017-05-07%20%E5%89%8D%E7%AB%AF-JavaScript%E5%AF%B9%E8%B1%A1%E6%95%B0%E7%BB%84%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<h1 id="对象数组排序"><a href="#对象数组排序" class="headerlink" title="对象数组排序"></a>对象数组排序</h1><hr>
 <h2 id="一、按照对象的属性排序"><a href="#一、按照对象的属性排序" class="headerlink" title="一、按照对象的属性排序"></a>一、按照对象的属性排序</h2><p>我要一个函数，传入要对比的key，就能以这个key，把对象数组进行排序。</p>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//示例代码</span></span><br><span class="line"><span class="keyword">var</span> by = <span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">o, p</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> a, b;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">typeof</span> o === <span class="string">&#x27;object&#x27;</span> &amp;&amp; <span class="keyword">typeof</span> p === <span class="string">&#x27;object&#x27;</span> &amp;&amp; o &amp;&amp; p) &#123;</span><br><span class="line">			a = o[key];</span><br><span class="line">			b = p[key];</span><br><span class="line">			<span class="keyword">if</span> (a === b) &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (<span class="keyword">typeof</span> a === <span class="keyword">typeof</span> b) &#123;</span><br><span class="line">				<span class="keyword">return</span> a &lt; b ? -<span class="number">1</span> : <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//如果a,b所属类型不同，则按类型的英文字符排序，比如&#x27;function&#x27;排在&#x27;object&#x27;前面。</span></span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">typeof</span> a &lt; <span class="keyword">typeof</span> b ? -<span class="number">1</span> : <span class="number">1</span>;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">throw</span>(<span class="string">&#x27;error&#x27;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> employees=[]</span><br><span class="line">employees[<span class="number">0</span>]=&#123;<span class="attr">name</span>:<span class="string">&quot;George&quot;</span>, <span class="attr">age</span>:<span class="number">32</span>, <span class="attr">retiredate</span>:<span class="string">&quot;March 12, 2014&quot;</span>&#125;</span><br><span class="line">employees[<span class="number">1</span>]=&#123;<span class="attr">name</span>:<span class="string">&quot;Edward&quot;</span>, <span class="attr">age</span>:<span class="number">17</span>, <span class="attr">retiredate</span>:<span class="string">&quot;June 2, 2023&quot;</span>&#125;</span><br><span class="line">employees[<span class="number">2</span>]=&#123;<span class="attr">name</span>:<span class="string">&quot;Christine&quot;</span>, <span class="attr">age</span>:<span class="number">58</span>, <span class="attr">retiredate</span>:<span class="string">&quot;December 20, 2036&quot;</span>&#125;</span><br><span class="line">employees[<span class="number">3</span>]=&#123;<span class="attr">name</span>:<span class="string">&quot;Sarah&quot;</span>, <span class="attr">age</span>:<span class="number">62</span>, <span class="attr">retiredate</span>:<span class="string">&quot;April 30, 2020&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line">employees.sort(by(<span class="string">&#x27;age&#x27;</span>));</span><br><span class="line"><span class="comment">//得到根据age属性排序的数组。</span></span><br><span class="line"><span class="comment">//[&#123;name:&quot;Edward&quot;, age:17, retiredate:&quot;June 2, 2023&quot;&#125;,</span></span><br><span class="line"><span class="comment">//&#123;name:&quot;George&quot;, age:32, retiredate:&quot;March 12, 2014&quot;&#125;,</span></span><br><span class="line"><span class="comment">//&#123;name:&quot;Christine&quot;, age:58, retiredate:&quot;December 20, 2036&quot;&#125;,</span></span><br><span class="line"><span class="comment">//&#123;name:&quot;Sarah&quot;, age:62, retiredate:&quot;April 30, 2020&quot;&#125;]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -482,12 +457,28 @@ eyJoaXN0b3J5IjpbLTQxNDgxNDY3NV19
       </tags>
   </entry>
   <entry>
+    <title>JavaScript 观察者模式的通用实现</title>
+    <url>/2017/05/07/2017-05-07%20%E5%89%8D%E7%AB%AF-JavaScript%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%80%9A%E7%94%A8%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//封装观察者模式，放进一个对象中，可复用。</span></span><br><span class="line"><span class="keyword">var</span> event = &#123;</span><br><span class="line">	clientList:[],</span><br><span class="line">	<span class="comment">//订阅的消息添加进缓存列表</span></span><br><span class="line">	listen: <span class="function"><span class="keyword">function</span>(<span class="params">key, fn</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>( !<span class="built_in">this</span>.clientList[key])&#123;</span><br><span class="line">			<span class="built_in">this</span>.clientList[key] = [];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">this</span>.clientList[key].push(fn);</span><br><span class="line">	&#125;,</span><br><span class="line">	trigger: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> key = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>),</span><br><span class="line">			fns = <span class="built_in">this</span>.clientList[key];</span><br><span class="line">		<span class="keyword">if</span>(!fns || fns.length === <span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, fn; fn = fns[i++];)&#123;</span><br><span class="line">			fn.apply(<span class="built_in">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;，</span><br><span class="line">	remove: <span class="function"><span class="keyword">function</span>(<span class="params">key, fn</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> fns = ClientList[key];</span><br><span class="line">		<span class="keyword">if</span>( !fns )&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(!fn)&#123;</span><br><span class="line">			fns &amp;&amp; fns.length = <span class="number">0</span>;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">var</span> len = fns.length-<span class="number">1</span>; len&gt;=<span class="number">0</span>; len--)&#123;</span><br><span class="line">				<span class="keyword">var</span> _fn = fns[len&#125;;</span><br><span class="line">				<span class="keyword">if</span>(_fn === fn)&#123;</span><br><span class="line">					fns.splice(len, <span class="number">1</span>);</span><br><span class="line">				&#125;	</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="comment">//所有对象都能动态安装 ‘观察者模式’</span></span><br><span class="line"><span class="keyword">var</span> installEvent = <span class="keyword">function</span>(obj)&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i in <span class="keyword">event</span>)&#123;</span><br><span class="line">		obj[i] = <span class="keyword">event</span>[i];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">//</span>测试</span><br><span class="line">var salesOffices = &#123;&#125;;</span><br><span class="line">installEvent(salesOffices);</span><br><span class="line">	<span class="regexp">//</span>订阅</span><br><span class="line">salesOffices.listen(<span class="string">&#x27;squareMeter88&#x27;</span>, <span class="keyword">function</span>(price)&#123;</span><br><span class="line">	console.log(<span class="string">&#x27;88平方米的价格=&#x27;</span>+price);</span><br><span class="line">&#125;);</span><br><span class="line">salesOffices.listen(<span class="string">&#x27;squareMeter110&#x27;</span>,<span class="keyword">function</span>(price)&#123;</span><br><span class="line">	console.log(<span class="string">&#x27;110平方米的价格=&#x27;</span>+price);</span><br><span class="line">&#125;);</span><br><span class="line">	<span class="regexp">//</span>发布</span><br><span class="line">salesOffices.trigger(<span class="string">&#x27;squareMeter88&#x27;</span>,<span class="number">2000000</span>);	<span class="regexp">//</span>输出：<span class="string">&quot;88平方米的价格=2000000&quot;</span></span><br><span class="line">salesOffices.trigger(<span class="string">&#x27;squareMeter110&#x27;</span>,<span class="number">3000000</span>);	<span class="regexp">//</span>输出：<span class="string">&quot;110平方米的价格=3000000&quot;</span>	</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTY1NjY3NTEyNF19
+-->]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何应对CSRF攻击</title>
     <url>/2017/05/23/2017-05-23%20%E6%8A%80%E6%9C%AF-%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6CSRF/</url>
-    <content><![CDATA[<p>摘要：作为Web安全数一数二的隐患，CSRF一直让开发人员头疼。本文详细介绍了CSRF攻击的概念，危害，案例和解决方案，为网站安全优化理清思路。</p>
-<span id="more"></span>
-
-<h1 id="CSRF攻击的应对之道"><a href="#CSRF攻击的应对之道" class="headerlink" title="CSRF攻击的应对之道"></a>CSRF攻击的应对之道</h1><h1 id="一、CSRF的来龙去脉"><a href="#一、CSRF的来龙去脉" class="headerlink" title="一、CSRF的来龙去脉"></a>一、CSRF的来龙去脉</h1><h2 id="1-什么是CSRF？"><a href="#1-什么是CSRF？" class="headerlink" title="1. 什么是CSRF？"></a>1. 什么是CSRF？</h2><p>CSRF（Cross Site Request Forgery, <strong>跨站域请求伪造</strong>）是一种网络的攻击方式，它在 2007 年曾被列为互联网 20 大安全隐患之一。<br>其他安全隐患，比如 SQL 脚本注入，跨站域脚本攻击等在近年来已经逐渐为众人熟知，很多网站也都针对他们进行了防御。然而，对于大多数人来说，CSRF 却依然是一个陌生的概念。即便是大名鼎鼎的 Gmail, 在 2007 年底也存在着 CSRF 漏洞，从而被黑客攻击而使 Gmail 的用户造成巨大的损失。</p>
+    <content><![CDATA[<h1 id="CSRF攻击的应对之道"><a href="#CSRF攻击的应对之道" class="headerlink" title="CSRF攻击的应对之道"></a>CSRF攻击的应对之道</h1><h1 id="一、CSRF的来龙去脉"><a href="#一、CSRF的来龙去脉" class="headerlink" title="一、CSRF的来龙去脉"></a>一、CSRF的来龙去脉</h1><h2 id="1-什么是CSRF？"><a href="#1-什么是CSRF？" class="headerlink" title="1. 什么是CSRF？"></a>1. 什么是CSRF？</h2><p>CSRF（Cross Site Request Forgery, <strong>跨站域请求伪造</strong>）是一种网络的攻击方式，它在 2007 年曾被列为互联网 20 大安全隐患之一。<br>其他安全隐患，比如 SQL 脚本注入，跨站域脚本攻击等在近年来已经逐渐为众人熟知，很多网站也都针对他们进行了防御。然而，对于大多数人来说，CSRF 却依然是一个陌生的概念。即便是大名鼎鼎的 Gmail, 在 2007 年底也存在着 CSRF 漏洞，从而被黑客攻击而使 Gmail 的用户造成巨大的损失。</p>
 <hr>
 <h2 id="2-CSRF攻击实例"><a href="#2-CSRF攻击实例" class="headerlink" title="2. CSRF攻击实例"></a>2. CSRF攻击实例</h2><p>CSRF 攻击可以在受害者毫不知情的情况下以受害者名义伪造请求发送给受攻击站点，从而在并未授权的情况下执行在权限保护之下的操作。</p>
 <p>比如说，受害者 Bob 在银行有一笔存款，通过对银行的网站发送请求</p>
@@ -724,7 +715,7 @@ eyJoaXN0b3J5IjpbNTMzNDg4NjMxXX0=
   </entry>
   <entry>
     <title>React项目中的高频ES6语法</title>
-    <url>/2017/07/08/2017-07-08%20%E7%AC%94%E8%AE%B0-React%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E9%AB%98%E9%A2%91ES6%E8%AF%AD%E6%B3%95/</url>
+    <url>/2017/07/08/2017-07-08%20%E5%89%8D%E7%AB%AF-React%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E9%AB%98%E9%A2%91ES6%E8%AF%AD%E6%B3%95/</url>
     <content><![CDATA[<p>在学习React过程中，注意到无论是GitHub上的Demo还是React相关文档，ES6语法都有大量使用。如果不了解其中一些语法，学习曲线就会越来越陡峭。但是要系统学习ES6，又会消耗大量时间。</p>
 <p>在线练习ES6的工具：<a href="http://www.es6fiddle.net/">ES6 fiddle</a></p>
 <hr>
@@ -907,71 +898,12 @@ eyJoaXN0b3J5IjpbNjU1OTY4MjM0XX0=
       </tags>
   </entry>
   <entry>
-    <title>Google工程师等级评分卡</title>
-    <url>/2018/01/02/2018-01-02%20%E9%9A%8F%E7%AC%94-Google%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%AD%89%E7%BA%A7%E8%AF%84%E5%88%86%E5%8D%A1/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<h1 id="评分等级"><a href="#评分等级" class="headerlink" title="评分等级"></a>评分等级</h1><ol start="0">
-<li><p>You are unfamiliar with the subject area.</p>
-</li>
-<li><p>You can read/understand the most fundamental aspects of the subject area.</p>
-</li>
-<li><p>Ability to implement small changes, understand basic principles and able to figure out additional details with minimal help.</p>
-</li>
-<li><p>Basic proficiency in a subject area without relying on help.</p>
-</li>
-<li><p>You are comfirtable with the subject area and all routine work on it:</p>
-</li>
-</ol>
-<ul>
-<li>For software areas - ability to develop medium programs using all basic language features w/o book, awareness of more esoteric feature(with book).</li>
-<li>For systems areas - understanding of many fundamentals of networking and systems administration, ability to run a small network of system including recovery, debugging and nontrivial troubleshooting that relies on the knowledge of internals.</li>
-</ul>
-<ol start="5">
-<li><p>An even lower degree of reliance on reference materials. Deeper skills in a field or specific technology in the subject area.</p>
-</li>
-<li><p>Ability to develop large programs and systems from scratch. Understanding of low level details and internals. Ability to design / deploy most large, distributed systems from scratch.</p>
-</li>
-<li><p>You understand and make use of most lesser known language features, technologies, and associated internals. Ability to automate significant amounts of systems administration.</p>
-</li>
-<li><p>Deep understanding of corner cases, esoteric features, protocols and systems including “theory of operation”. Demonstrated ability to design, deploy and own very critical or large infrastructure, build accompanying automation.</p>
-</li>
-<li><p>Could have written the book about the subject area but didn’t; works with standards committees on defining new standards and methodologies.</p>
-</li>
-<li><p>Wrote the book on the subject area(there actually has to be a book). Recognized industry expert in the field, might have invented it.</p>
-<h1 id="科目领域"><a href="#科目领域" class="headerlink" title="科目领域"></a>科目领域</h1></li>
-</ol>
-<ul>
-<li>TCP/IP Networking (OSI stack, DNS etc)</li>
-<li>Unix/Linux internals</li>
-<li>Unix/Linux Systems administration</li>
-<li>Algorithms and Data Structures</li>
-<li>C</li>
-<li>C++</li>
-<li>Python</li>
-<li>Java</li>
-<li>Perl</li>
-<li>Go</li>
-<li>Shell Scripting(sh, Bash, ksh, csh)</li>
-<li>SQL and/or Database Admin</li>
-<li>Scripting language of your choice(not already mentioned)</li>
-<li>People Management</li>
-<li>Project Management<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwMDAxNTEyMl19</li>
-<li>-&gt;</li>
-</ul>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>成长，职业</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Array.prototype.sort()的高级用法</title>
     <url>/2018/01/28/2018-01-28%20%E5%89%8D%E7%AB%AF-Array.prototype.sort%E7%9A%84%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/</url>
     <content><![CDATA[<h1 id="Array-prototype-sort"><a href="#Array-prototype-sort" class="headerlink" title="Array.prototype.sort()"></a>Array.prototype.sort()</h1><h2 id="一、基本操作"><a href="#一、基本操作" class="headerlink" title="一、基本操作"></a>一、基本操作</h2><p><code>sort()</code>方法的默认排序顺序是根据串Unicode码点。</p>
+<span id="more"></span>
+
+
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">var fruit = [<span class="string">&#x27;cherries&#x27;</span>, <span class="string">&#x27;apples&#x27;</span>, <span class="string">&#x27;bananas&#x27;</span>];</span><br><span class="line">fruit.sort();</span><br><span class="line"><span class="regexp">//</span>[<span class="string">&#x27;apples&#x27;</span>, <span class="string">&#x27;bananas&#x27;</span>, <span class="string">&#x27;cherries&#x27;</span>]</span><br><span class="line"></span><br><span class="line">var scores = [<span class="number">1</span>, <span class="number">10</span>, <span class="number">21</span>, <span class="number">2</span>];</span><br><span class="line">scores.sort();</span><br><span class="line"><span class="regexp">//</span>[<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>, <span class="number">21</span>]</span><br><span class="line"><span class="regexp">//</span>这里的<span class="number">10</span>竟然在<span class="number">2</span>之前，因为在Unicode指针顺序中 <span class="string">&#x27;10&#x27;</span> 在 <span class="string">&#x27;2&#x27;</span> 之前。</span><br></pre></td></tr></table></figure>
 
 <h2 id="二、进阶操作（compareFunction）"><a href="#二、进阶操作（compareFunction）" class="headerlink" title="二、进阶操作（compareFunction）"></a>二、进阶操作（compareFunction）</h2><p>这时我们需要一个比较函数，来得到我们所需要的排序。<br>如果指明了<code>compareFunction</code>,那么数组会按照调用<strong>该函数的返回值</strong>排序。即a和b是两个将要被比较的元素：</p>
@@ -1002,10 +934,8 @@ eyJoaXN0b3J5IjpbLTYwMDAxNTEyMl19</li>
   </entry>
   <entry>
     <title>探究 JavaScript 的深拷贝</title>
-    <url>/2018/05/22/2018-05-22%20%E5%89%8D%E7%AB%AF-JS%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
+    <url>/2018/05/22/2018-05-22%20%E5%89%8D%E7%AB%AF-%E6%8E%A2%E7%A9%B6%20JavaScript%20%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D/</url>
     <content><![CDATA[<h1 id="为什么要深拷贝？"><a href="#为什么要深拷贝？" class="headerlink" title="为什么要深拷贝？"></a>为什么要深拷贝？</h1><p>JS的值分为引用类型和原始类型，当我们在开发过程中需要拷贝一个对象时，希望生成一份完全独立的副本，这时候我们就需要深拷贝。</p>
-<span id="more"></span>
-
 <h1 id="最高效的深拷贝？"><a href="#最高效的深拷贝？" class="headerlink" title="最高效的深拷贝？"></a>最高效的深拷贝？</h1><h2 id="不要重复造轮子"><a href="#不要重复造轮子" class="headerlink" title="不要重复造轮子"></a>不要重复造轮子</h2><p>如果你的项目中依赖了第三方类库，并且它们提供了克隆方法，请使用它们的方法，不要重复造轮子！</p>
 <p>比如：</p>
 <ul>
@@ -1045,8 +975,8 @@ eyJoaXN0b3J5IjpbLTUwNjgyMjM0Ml19
       </tags>
   </entry>
   <entry>
-    <title>阅读英文文档</title>
-    <url>/2018/09/08/2018-09-08%20%E7%AC%94%E8%AE%B0-%E5%AD%A6%E4%BC%9A%E9%98%85%E8%AF%BB%E8%8B%B1%E6%96%87%E6%96%87%E6%A1%A3/</url>
+    <title>培养阅读英文文档的习惯</title>
+    <url>/2018/09/08/2018-09-08%20%E7%AC%94%E8%AE%B0-%E5%9F%B9%E5%85%BB%E9%98%85%E8%AF%BB%E8%8B%B1%E6%96%87%E6%96%87%E6%A1%A3%E7%9A%84%E4%B9%A0%E6%83%AF/</url>
     <content><![CDATA[<h1 id="如何阅读英文技术文档"><a href="#如何阅读英文技术文档" class="headerlink" title="如何阅读英文技术文档"></a>如何阅读英文技术文档</h1><h2 id="为什么要读英文文档？"><a href="#为什么要读英文文档？" class="headerlink" title="为什么要读英文文档？"></a>为什么要读英文文档？</h2><ol>
 <li>阅读英文文档是程序员的基础能力</li>
 <li>很多技术都是国外开发者创造的，英文文档最接近作者的本意</li>
@@ -1110,14 +1040,9 @@ eyJoaXN0b3J5IjpbLTUwNjgyMjM0Ml19
       </tags>
   </entry>
   <entry>
-    <title>专业团队的Git Commit Message规范</title>
-    <url>/2019/01/24/2019-01-24%20%E5%B7%A5%E7%A8%8B-Git%20Commit%20Message%E8%A7%84%E8%8C%83%E5%8F%82%E8%80%83/</url>
-    <content><![CDATA[<blockquote>
-<p>在Git协作模式的团队中，Commit Message的规范对版本控制起着很重要的作用。本文引用自团队内部的规范，分享出来，一是为了贡献社区，二是为了加深印象。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="Commit-Message规范"><a href="#Commit-Message规范" class="headerlink" title="Commit Message规范"></a>Commit Message规范</h2><p>在<code>git</code>开发流程中，每次<code>git commit</code>，都需要对该次<code>commit</code>添加描述信息，描述此次<code>commit</code>的具体改动内容。规范的<code>commit message</code>格式，可以让团队成员对每次改动内容进行快速了解，也可以方便<code>git log</code>时的浏览和筛选。</p>
+    <title>Git Commit Message的最佳实践</title>
+    <url>/2019/01/24/2019-01-24%20%E6%8A%80%E6%9C%AF-Git%20Commit%20Message%E8%A7%84%E8%8C%83%E5%8F%82%E8%80%83/</url>
+    <content><![CDATA[<h2 id="Commit-Message规范"><a href="#Commit-Message规范" class="headerlink" title="Commit Message规范"></a>Commit Message规范</h2><p>在<code>git</code>开发流程中，每次<code>git commit</code>，都需要对该次<code>commit</code>添加描述信息，描述此次<code>commit</code>的具体改动内容。规范的<code>commit message</code>格式，可以让团队成员对每次改动内容进行快速了解，也可以方便<code>git log</code>时的浏览和筛选。</p>
 <p>目前社区使用最广的是 AngularJS 的规范：</p>
 <ul>
 <li><p><a href="https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.greljkmo14y0">Google Docs 原文</a></p>
@@ -1187,7 +1112,7 @@ g0NzI2XX0=
   </entry>
   <entry>
     <title>读《远见》</title>
-    <url>/2019/03/09/2019-03-09%20%E9%98%85%E8%AF%BB-%E3%80%8A%E8%BF%9C%E8%A7%81%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
+    <url>/2019/03/09/2019-03-09%20%E8%AF%BB%E3%80%8A%E8%BF%9C%E8%A7%81%E3%80%8B/</url>
     <content><![CDATA[<ul>
 <li><p>职业生涯至少长达45年，分为三个阶段</p>
 <ol>
@@ -1236,97 +1161,9 @@ g0NzI2XX0=
       </tags>
   </entry>
   <entry>
-    <title>对外输出是重要的学习方法</title>
-    <url>/2019/03/27/2019-03-27%20%E9%9A%8F%E7%AC%94-%E5%AD%A6%E4%B9%A0%E7%9A%84%E8%AF%80%E7%AA%8D%EF%BC%9A%E8%BE%93%E5%87%BA/</url>
-    <content><![CDATA[<h2 id="学习是一项输入的过程"><a href="#学习是一项输入的过程" class="headerlink" title="学习是一项输入的过程"></a>学习是一项输入的过程</h2><p>我们四处收集信息，然后经过大脑的理解和记忆，输入到大脑皮层，存储在神经元。</p>
-<p>外界通过<a href="http://www.a-hospital.com/w/%E6%84%9F%E8%A7%89%E5%99%A8" title="感觉器">感觉器</a>官进入<a href="http://www.a-hospital.com/w/%E5%A4%A7%E8%84%91" title="大脑">大脑</a>的信息量是很大的，但估计仅有1%的信息能被较长期地贮存记忆，而大部分却被<a href="http://www.a-hospital.com/w/%E9%81%97%E5%BF%98" title="遗忘">遗忘</a>。能被长期贮存的信息都是对个体具有重要意义的，而且是反复作用的信息。因此，在信息贮存过程中必然包含着对信息的选择和遗忘两个因素。信息的贮存要经过多个步骤，但简略地可把记忆划分为两个阶段，即短时性记忆和长时性记忆。在短时性记忆中，信息的贮存是不牢固的，例如，对于一个电话号码，当人们刚刚看过但没有通过反复运用而转入长时性记忆的话，很快便会遗忘。但如果通过较长时间的反复运动，则所形成的痕迹将随每一次的使用而加强起来；最后可形成一种非常牢固的记忆，这种记忆不易受干扰而发生障碍。</p>
-<h2 id="“输出”如何加强学习？"><a href="#“输出”如何加强学习？" class="headerlink" title="“输出”如何加强学习？"></a>“输出”如何加强学习？</h2><p>我写博客，对外输出文字，为了让大家认可，我会努力将文章写的简洁易懂，并且反复检查自己的观点、看法，思考自己的理解是否准确。</p>
-<p>输出对学习的帮助主要在于输出的过程，而不是输出的成果。</p>
-<p>写博客，翻译技术文档，发表社区文章，都是输出的优秀渠道。</p>
-<p>所以，不用在意大多数是否认同，追求认同感是虚荣的表现。</p>
-<p>自己努力了，就能学到很多，理解的更彻底。</p>
-<hr>
-<blockquote>
-<p>参考链接：<a href="http://www.a-hospital.com/w/%E7%94%9F%E7%90%86%E5%AD%A6/%E5%AD%A6%E4%B9%A0%E5%92%8C%E8%AE%B0%E5%BF%86">http://www.a-hospital.com/w/%E7%94%9F%E7%90%86%E5%AD%A6/%E5%AD%A6%E4%B9%A0%E5%92%8C%E8%AE%B0%E5%BF%86</a></p>
-</blockquote>
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbNDg5MDA2MzYsNjc2NTA3NTM0XX0=
--->]]></content>
-      <categories>
-        <category>方法论</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-        <tag>学习方法</tag>
-        <tag>方法论</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>乔布斯在斯坦福大学的演讲</title>
-    <url>/2019/04/05/2019-04-07%20%E9%9A%8F%E7%AC%94-%E4%B9%94%E5%B8%83%E6%96%AF%E5%9C%A8%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%A4%A7%E5%AD%A6%E7%9A%84%E6%BC%94%E8%AE%B2/</url>
-    <content><![CDATA[<h1 id="乔布斯在斯坦福大学的演讲《Speech-in-Stanford》"><a href="#乔布斯在斯坦福大学的演讲《Speech-in-Stanford》" class="headerlink" title="乔布斯在斯坦福大学的演讲《Speech in Stanford》"></a>乔布斯在斯坦福大学的演讲《Speech in Stanford》</h1><h2 id="中心观点"><a href="#中心观点" class="headerlink" title="中心观点"></a>中心观点</h2><ol>
-<li>Love what you do, believe it is great work.</li>
-<li>Keep looking for things you love, don’t settle. </li>
-<li>Your time is limited, don’t waste it living someone else’s life.</li>
-<li>Don’t let the noise of others’ opinions drown out your inner voice.</li>
-<li>Have the courage to follow your heart and intuition.</li>
-<li>Stay Hungry. Stay Foolish.</li>
-</ol>
-<h2 id="Time-point-of-the-speech"><a href="#Time-point-of-the-speech" class="headerlink" title="Time point of the speech"></a>Time point of the speech</h2><p>This is a prepared text of the Commencement address delivered by Steve Jobs, CEO of Apple Computer and of Pixar Animation Studios, on June 12, 2005.</p>
-<h2 id="The-original-text-of-the-speech"><a href="#The-original-text-of-the-speech" class="headerlink" title="The original text of the speech"></a>The original text of the speech</h2><p>I am honored to be with you today at your commencement from one of the finest universities in the world.<br>I never graduated from college.<br>Truth be told, this is the closest i’ve ever gotten to a college graduation.<br>Today I want to tell you three stories from my life.<br>That’s it. No big deal. Just three stories.</p>
-<hr>
-<p>The first story is about connecting the dots.</p>
-<p>I dropped out of Reed College after the first 6 months, but then stayed around as a drop-in for another 18 months or so before I really quit. So why did I drop out?</p>
-<p>It started before I was born.<br>My biological mother was a young, unwed college graduate student, and she decided to put me up for adoption.<br>She felt very strongly that I should be adopted by college graduates, so everything was all set for me to be adopted at birth by a lawyer and his wife.<br>Except that when I popped out they decided at the last minute that they really wanted a girl.<br>So my parents, who were on a waiting list, got a call in the middle of the night asking: “ We have an unexpected baby boy; do you want him?”<br>They said: “Of course.”<br>My biological mother later found out that my mother had never graduated from high school.<br>She refused to sign the final adoption papers.<br>She only relented a few months later when my parents promised that I would someday go to college.</p>
-<p>And 17 years later I did go to college. But I naively chose a college that was almost as expensive as Stanford, and all of my working-class parents’ savings were being spent on my college tuition.<br>After six months, I couldn’t see the value in it.<br>I had no idea what I wanted to do with my life and no idea how college was going to help me figure it out.<br>And here I was spending all of the money my parents had saved their entire life.<br>So I decided to drop out and trust that it would all work out OK.<br>It was pretty scary at the time, but looking back it was one of the best decisions I ever made.<br>The minute I dropped out I could stop taking the required classes that didn’t interest me, and begin dropping in on the ones that looked interesting.</p>
-<p>It wasn’t all romantic.<br>I didn’t have a dorm room, so I slept on the floor in friends’ rooms, I returned Coke bottles for 5$ deposit to buy foods with, and I would walk the 7 miles across town every Sunday night to get one good meal a week at the Hare Krishna temple.<br>I love it.<br>And much of what I stumbled into by following my curiosity and intuition turned out be priceless laster on.</p>
-<blockquote>
-<p>我追随自己的好奇心和直觉，偶然发现其中的大部分内容，后来都变得无价之宝。</p>
-</blockquote>
-<p>Let me give you one example:<br>Reed College at that time offered perhaps the best calligraphy instruction in the country.<br>Throughout the campus every poster, every label on every drawer, was beautifully hand calligraphed.<br>Because i had dropped out and didn’t have to take the normal classes, I decided to take a calligraphy class to learn how to do this.<br>I learned about serif and sans serif typefaces, about varying the amount of space between defferent letter combinations, about what makes great typography great.<br>It was beautiful, historical, artistically subtle in a way that science can’t capture, and I found it fascinating.</p>
-<p>None of this had even a hope of any practical application in my life.<br>But 10 years later, when we were designing the first Macintosh computer, it all came back to me.<br>And we designed it all into the Mac.<br>It was the first computer with beautiful typography.<br>If I had never dropped in on that single course in college, the Mac would have never had multiple typefaces or proportionally spaced fonts.<br>And since Windows just copied the Mac, it’s likely that no personal computer would have them.<br>If I had never dropped out, I would have never dropped in on the calligraphy class, and personal computers might not have the wonderful typography that they do.<br>Of course it was impossible to connect the dots looking forward when I was in college.<br>But it was very, very clear looking backward 10 years later.</p>
-<p>Again, you can’t connect the dots looking forward; you can only connect them looking backward.<br>So you have to trust that the dots will somehow connect in your future.<br>You have to trust in something - your gut, destiny, life, karma, whatever.<br>This approach has never let me down, and it has made all the difference in<br>my life.</p>
-<hr>
-<p>My second story is about love and loss.</p>
-<p>I was lucky – I found what I loved to do early in life.<br>Woz and I started Apple in my parents’ garage when I was 20.<br>We worked hard, and in 10 years Apple had grown from just the two of us in a garage into a $2 billion company with over 4,000 employees.<br>We had just released our finest creation – the Macintosh – a year earlier, and i had just turned 30.<br>And then I got fired.<br>How can you get fired from a company you started?<br>Well, as Apple grew we hired someone who I thought was very talented to run the company with me, and for the first year or so things went well.<br>But then our visions of the future began to diverge and eventually we had a falling out.<br>When we did, our Board of Directors sided with him.<br>So at 30 I was out.<br>And very publicly out.<br>What had been the focus of my entire adult life was gone, and it was devastating.</p>
-<p>I really din’t know what to do for a few months.<br>I felt that I had let the  previous generation of entrepreneurs down – that I had dropped the baton as it was being passed to me.<br>I met with David Packard and Bod Noyce and tried to apologize for screwing up so badly.<br>I was a very public failure, and I even thought about running away from the valley.<br>But something slowly began to dawn on me – I still loved what I did.<br>The turn of events at Apple had not changed that one bit.<br>I had been rejected, but I was still in love.<br>And so I decided to start over.</p>
-<p>I didn’t see it then, but it turned out that getting fired from Apple was the best thing that could have ever happened to me.<br>The heaviness of being successful was replaced by the lightness of being a beginner again, less sure about everything.<br>It freed me to enter one of the most creative periods of my life.</p>
-<p>During the next five years, I started a company name NeXT, another company name Pixar, and fell in love with an amazing woman who would become my wife.<br>Pixar went on to create the world’s first computer animated feature film, <em>Toy Story</em>, and is now the most successful animation studio in the world.<br>In a remarkable turn of events, Apple bought NeXT, I returned to Apple, and the technology we developed at NeXT is at the heart of Apple’s current renaissance.<br>And Laurene and I have a wonderful family together.</p>
-<p>I’m pretty sure none of this would have happened if I hadn’t been fired from Apple.<br>It was awful tasting medicine, but I guess the patient needed it.<br>Sometimes life hits you in the head with a brick.<br>Don’t lose faith.<br>I’m convinced that the only thine that kept me going was that I loved what I did.<br>You’ve got to find what you love.<br>And that is as true for your work as it is for your lovers.<br>Your work is going to fill a large part of your life, and the only way to be truly satisfied is  to do what you believe is great work.<br>And the only way to do great work is to love what you do.<br>If you haven’t found it yet, keep looking.<br>Don’t settle.<br>As with all matters of the heart, you’ll know when you find it.<br>And, like any great relationship, it just gets better and better as the years roll on.<br>So keep looking until you find it.<br>Don’t settle.</p>
-<hr>
-<p>My third story is about death.</p>
-<p>When I was 17, I read a quote that went something like: “If you live each day as if it was your last, somyday you’ll most certainly be right.”<br>It made an impression on me, and since then, for the past 33 years, I have looked in the mirror every morning and asked myself: “if today were the last day of my life, would I want to do what I’m about to do today?”<br>And whenever the answer has been “No” for too many days in a row, I know I need to change something.</p>
-<p>Remembering that I’ll be dead soon is the most important tool I’ve ever encountered to help m make the big choices in life.<br>Because almost everything – all external expectations, all pride, all fear of embarrassment or failure – these thins just fall away in the face of death, leaving only what is truly important.<br>Remembering that you are going to die is the best way I know to avoid the trap of thinking you have something to lose.<br>You are already naked.<br>There is no reason not to follow your heart.</p>
-<p>About a year ago I was diagnosed with cancer.<br>I had a scan at 7:30 in the moning, and it clearly showed a tumor on my pancreas.<br>I didn’t even know what a pancreas was.<br>The doctors told me this was almost certainly a type of cancer that is incurable, and that I should expect to live no longer than three to six months.<br>My doctor advised me to go home and get my affairs in order, which is doctor’s code for prepare to die.<br>it means to try to tell your kids everything you thought you’d have the next 10 years to tell them in just a few months.<br>It means to make sure everything is buttoned up so that it will be as easy as possible for your family.<br>It means to say your goodbyes.</p>
-<p>I lived with that diagnosis all day.<br>Later that evening I had a biopsy, where they stuck an endoscope down my throat, through my stomach and into my intestines, put a needle into my pancreas and got a few cells from the tumor.<br>I was sedated, but my wife, who was there, told me that when they viewed the cells under a microscope the doctors started crying because it turned out to be a very rare form of pancreatic cancer that is curable with surgery.<br>I had the surgery and I’m fine now.</p>
-<p>This was the closest I’ve been to facing death, and I hope it’s the closest I get for a few more decades.<br>Having lived through it, I can now say this to you with a bit more certainty that when death was a useful but purely intellectual concept:</p>
-<p>No one wants to die. Even people who want to go to heaven don’t want to die to get there. And yet death is the destination we all share. No one  has ever escaped it. And that is as it should be, because Death is very likely the single best invention of Life. It is Life’s change agent. It clears out the old to make way for the new. Right now the new is you, but somyday not too long from now, you will gradually become the old and be cleared away. Sorry to be so dramatic, but it is quite true.</p>
-<p>Your time is limited, so don’t waste it living someone else’s life.<br>Don’t be trapped by dogma – which is living with the results of other people’s thinking.<br>Don’t let the noise of others’ opinions drown out your own inner voice.<br>And most important, have the courage to follow your heart and intuition.<br>They somehow already know what you truly want to become.<br>Everything else is secondary.</p>
-<p>When I was young, there was an amazing publication called <em>The Whole Earth Catalog</em>, which was one of the bibles of my generation. It was created by a fellow named Stewart Brand not far from here in Menlo Park, and he brought it to life with his poetic touch. This was in the late 1960s, before personal computers and desktop publishing, so it was all made with typewriters, scissors and Polaroid cameras. It was sort of like Google in paperback form, 35 years before Google came along: It was idealistic, and overflowing with neat tools and great notions.</p>
-<p>Stewart and his team put out a final issue. It was the mid-1970s, and I was your age. On the back cover of their final issue was a photograph of an early morning country road, the kind you might find yourself hitchhiking on if you were so adventurous. Beneath it were the words:” Stay Hungry. Stay Foolish.” It was their farewell message as they signed off. Stay Hungry. Stay Foolish. And I have always wished that for myself. And now, as you graduate to begin anew, I wish that for you.</p>
-<p>Stay Hungry. Stay Foolish.</p>
-<p>Thank you all very much.</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>演讲视频链接：<a href="https://www.youtube.com/watch?v=UF8uR6Z6KLc">https://www.youtube.com/watch?v=UF8uR6Z6KLc</a><br>演讲报告原文：<a href="https://news.stanford.edu/2005/06/14/jobs-061505/">https://news.stanford.edu/2005/06/14/jobs-061505/</a></p>
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5Mzg2MTk2ODcsLTE4MDUyMjQ0NDldfQ
-==
--->]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>文摘</tag>
-        <tag>随笔</tag>
-        <tag>演讲</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git log 的几个骚操作</title>
     <url>/2019/04/17/2019-04-17%20%E6%8A%80%E6%9C%AF-git%20log%E7%9A%84%E5%90%84%E7%A7%8D%E5%A7%BF%E5%8A%BF/</url>
-    <content><![CDATA[<span id="more"></span>
-
-
-<h2 id="原始命令，不好看"><a href="#原始命令，不好看" class="headerlink" title="原始命令，不好看"></a>原始命令，不好看</h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h2 id="原始命令，不好看"><a href="#原始命令，不好看" class="headerlink" title="原始命令，不好看"></a>原始命令，不好看</h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">git log</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="单行log，好一点，但是不够"><a href="#单行log，好一点，但是不够" class="headerlink" title="单行log，好一点，但是不够"></a>单行log，好一点，但是不够</h2><figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span> <span class="comment">--pretty=oneline</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -1346,30 +1183,6 @@ eyJoaXN0b3J5IjpbLTE5Mzg2MTk2ODcsLTE4MDUyMjQ0NDldfQ
       <tags>
         <tag>技术</tag>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何做一个受欢迎的人？</title>
-    <url>/2019/04/19/2019-04-19%20%E7%AC%94%E8%AE%B0-%E3%80%8A%E7%9F%A5%E8%AF%86%E5%B0%B1%E6%98%AF%E5%8A%9B%E9%87%8F%E3%80%8B%E5%A6%82%E4%BD%95%E5%81%9A%E4%B8%80%E4%B8%AA%E5%8F%97%E6%AC%A2%E8%BF%8E%E7%9A%84%E4%BA%BA%EF%BC%9F/</url>
-    <content><![CDATA[<h2 id="受欢迎的必要性"><a href="#受欢迎的必要性" class="headerlink" title="受欢迎的必要性"></a>受欢迎的必要性</h2><h3 id="社会属性动物的天性"><a href="#社会属性动物的天性" class="headerlink" title="社会属性动物的天性"></a>社会属性动物的天性</h3><p>这是人类天性决定的，人类时社会性动物。</p>
-<p>每个人都需要，都想要“受欢迎”，这是人的个人价值体现。</p>
-<h3 id="你永远无法预知谁能在什么时候帮你一把！"><a href="#你永远无法预知谁能在什么时候帮你一把！" class="headerlink" title="你永远无法预知谁能在什么时候帮你一把！"></a>你永远无法预知谁能在什么时候帮你一把！</h3><p>人生是一个无限游戏，无限游戏的特点就是不断扩展游戏的边界。<br>人生的边界一直在扩展，你无法预知谁会在关键时刻，帮你一把。<br>做一个受欢迎的人，就像买了保险一样，在关键时刻，会有人支持和帮助你。</p>
-<h2 id="如何受别人欢迎？"><a href="#如何受别人欢迎？" class="headerlink" title="如何受别人欢迎？"></a>如何受别人欢迎？</h2><h3 id="1-重视别人，尊重别人"><a href="#1-重视别人，尊重别人" class="headerlink" title="1. 重视别人，尊重别人"></a>1. 重视别人，尊重别人</h3><p>尊重每一个人，喜欢别人。</p>
-<p>人的互惠天性导致会喜欢那些喜欢我们的人。 </p>
-<p>永远不要鄙视别人，否则将永远得不到原谅</p>
-<h3 id="2-诚恳对人，用“无知之幕”忽略别人的背景"><a href="#2-诚恳对人，用“无知之幕”忽略别人的背景" class="headerlink" title="2. 诚恳对人，用“无知之幕”忽略别人的背景"></a>2. 诚恳对人，用“无知之幕”忽略别人的背景</h3><p>尊重要落到实处，要真诚，尽量不假手于他人。</p>
-<h3 id="3-找人帮忙，体现别人的价值"><a href="#3-找人帮忙，体现别人的价值" class="headerlink" title="3. 找人帮忙，体现别人的价值"></a>3. 找人帮忙，体现别人的价值</h3><p>找人帮忙，别人帮你一个忙，就会倾向于帮你一个更大的忙 </p>
-<h3 id="4-成为有价值的人"><a href="#4-成为有价值的人" class="headerlink" title="4. 成为有价值的人"></a>4. 成为有价值的人</h3><p>有实力，有用处，能够提供交换价值，这也是人生的意义所在。</p>
-<p>你的存在要能够改变一些东西的价值。 </p>
-<p>乡愿，德之贼也。你到处想要讨好人，所有人都会看不起你。</p>
-]]></content>
-      <categories>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>随笔</tag>
-        <tag>哲学</tag>
       </tags>
   </entry>
   <entry>
@@ -1397,42 +1210,7 @@ eyJoaXN0b3J5IjpbLTE5Mzg2MTk2ODcsLTE4MDUyMjQ0NDldfQ
       </tags>
   </entry>
   <entry>
-    <title>LeetCode in JavaScript(1)： Two Sum</title>
-    <url>/2019/05/19/2019-05-19%20%E7%AE%97%E6%B3%95-leetcode-js-1-two-sum/</url>
-    <content><![CDATA[<h1 id="LeetCode-JavaScript-1-Two-Sum"><a href="#LeetCode-JavaScript-1-Two-Sum" class="headerlink" title="LeetCode JavaScript (1): Two Sum"></a>LeetCode JavaScript (1): Two Sum</h1><blockquote>
-<p><a href="https://leetcode.com/problems/two-sum/">直达链接：https://leetcode.com/problems/two-sum/</a></p>
-</blockquote>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>Given an array of integers, return  <strong>indices</strong>  of the two numbers such that they add up to a specific target.</p>
-<p>You may assume that each input would have  <strong><em>exactly</em></strong>  one solution, and you may not use the  <em>same</em>  element twice.</p>
-<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><blockquote>
-<p>Given nums = [2, 7, 11, 15], target = 9,<br>Because nums[<strong>0</strong>] + nums[<strong>1</strong>] = 2 + 7 = 9,<br>return [<strong>0</strong>, <strong>1</strong>].</p>
-</blockquote>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>给定一个数组<code>nums</code>和一个目标值<code>target</code>，数组<code>nums</code>中如果有两数之和等于<code>target</code>，那么返回包含这个两个值的坐标的数组<code>[i,j]</code>。</p>
-<h2 id="解法一：暴力遍历"><a href="#解法一：暴力遍历" class="headerlink" title="解法一：暴力遍历"></a>解法一：暴力遍历</h2><p>最简单暴力的方法，就是遍历整个数组，最坏的情况是两个结果分别位于两端，数组要遍历两边。<br>时间复杂度：O(n^2)<br>空间复杂度：O(1)</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> twoSum = <span class="function"><span class="keyword">function</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> i,len = nums.length;</span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;len-<span class="number">1</span>;i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (j=i+<span class="number">1</span>;j&lt;len;j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] + nums[j] === target) &#123;</span><br><span class="line">                <span class="keyword">return</span> [i,j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="解法二：哈希表"><a href="#解法二：哈希表" class="headerlink" title="解法二：哈希表"></a>解法二：哈希表</h2><p>比较高效的一个方法就是，以JavaScript的对象作为哈希表，通过对象的键值查询快速判断。<br>将js对象当做hashtable来使用，key是数组元素的值，value是数组元素的索引，只遍历一次数组，每次先查找哈希表中是否有匹配的元素，如果没有就将现有元素添加进哈希表中。</p>
-<p>从头遍历数组，通过哈希表，查找第一个元素a1的匹配值，如果哈希表中没有，就先缓存当前元素，以此类推。</p>
-<p>每个元素都要通过对象查到匹配值，JavaScript对于对象的取值有所优化，所以查询哈希表的方法很高效。</p>
-<p>所以哈希表的方法看似还是在遍历两次，但是其中的第二次遍历是在哈希表中执行的。JavaScript的对象取值速度很快，远远快于数组遍历。这就是优势所在。</p>
-<blockquote>
-<p>关于JavaScript的性能问题，我打算在后面的博客写一篇性能分析。这里我推荐《高性能JavaScript》这本书，里面有关于优化性能的措施和原理。</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> <span class="variable">target</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number[]&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">twoSum</span>(<span class="params">nums, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> len = nums.length;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> hash = &#123;&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</span><br><span class="line">        <span class="keyword">let</span> j = target - nums[i]; <span class="comment">// hash table 要找的值</span></span><br><span class="line">        <span class="keyword">if</span>(hash[j] !== <span class="literal">undefined</span>)&#123; <span class="comment">// hash table里面有这个值，说明这个数组中存在匹配nums[i]的另一个数nums[j]</span></span><br><span class="line">            <span class="keyword">return</span> [i, hash[j]];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            hash[nums[i]] = i <span class="comment">// hash table没有这个值,就先把它加入哈希表中，缓存。</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyOTY4NTk3NiwyMTIyOTg5NjQ5LDIwMj
-c1OTA0MjMsODQ3MjM1OTU1XX0=
--->]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>翻译：JavaScript作用域的通俗解读</title>
+    <title>【译】JavaScript作用域的通俗解读</title>
     <url>/2019/06/22/2019-06-22%20%E7%BF%BB%E8%AF%91-JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F%E7%9A%84%E9%80%9A%E4%BF%97%E8%A7%A3%E8%AF%BB/</url>
     <content><![CDATA[<h1 id="JavaScript作用域的通俗解读-（上篇）"><a href="#JavaScript作用域的通俗解读-（上篇）" class="headerlink" title="JavaScript作用域的通俗解读 （上篇）"></a>JavaScript作用域的通俗解读 （上篇）</h1><p>作用域是JavaScript语言的基础概念之一，也可能是我在编写复杂程序时最挣扎的一个概念。我已数不清多少次，在函数间传递控制时，丢失了<code>this</code>关键字的指向。我也经常发现自己经常以各种令人困惑的方式扭曲自己的代码，试图在我理解哪些变量可以访问哪些地方的时候，让我保持清醒。</p>
 <p>这篇文章将正面解决问题，概述上下文和作用域的定义，检查两个允许我们修改上下文的JavaScript方法，并深入探讨我遇到的百分之九十的问题的有效解决方案。</p>
@@ -1505,7 +1283,7 @@ eyJoaXN0b3J5IjpbMjk2MDAzMzkwLDcxNjYwODY4M119
   </entry>
   <entry>
     <title>认真对待技术翻译</title>
-    <url>/2019/08/01/2019-08-01%20%E9%9A%8F%E7%AC%94-%E6%8A%80%E6%9C%AF%E7%BF%BB%E8%AF%91%E9%9C%80%E8%A6%81%E8%AE%A4%E7%9C%9F%E7%9A%84%E6%80%81%E5%BA%A6/</url>
+    <url>/2019/08/01/2019-08-01%20%E9%9A%8F%E7%AC%94-%E8%AE%A4%E7%9C%9F%E5%AF%B9%E5%BE%85%E6%8A%80%E6%9C%AF%E7%BF%BB%E8%AF%91/</url>
     <content><![CDATA[<span id="more"></span>
 
 <h1 id="技术翻译需要认真的态度"><a href="#技术翻译需要认真的态度" class="headerlink" title="技术翻译需要认真的态度"></a>技术翻译需要认真的态度</h1><p>译者首先要理解原文作者的语意和语气，然后通过自己对中文的文化理解，用中文翻译出来。既要保留原文的意义，又要符合中文读者的阅读习惯。这就是“意译”。</p>
@@ -1528,36 +1306,7 @@ eyJoaXN0b3J5IjpbLTk1ODUyMDEyMF19
       </tags>
   </entry>
   <entry>
-    <title>JavaScript的历史</title>
-    <url>/2019/09/18/2019-09-18%20JavaScript%E7%9A%84%E5%8E%86%E5%8F%B2/</url>
-    <content><![CDATA[<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a href="https://www.checkmarx.com/blog/javascript-history-infographic/">The History of JavaScript [INFOGRAPHIC]</a></li>
-<li><a href="https://wangdoc.com/javascript/basic/history.html">JavaScript 语言的历史</a></li>
-<li><a href="https://github.com/hansenwangvip/hansenwangvip.github.io/issues/18#issue-495096823">Javascript诞生记</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JSConf EU 2019 ｜ TC39 委员会的采访</title>
-    <url>/2019/09/22/2019-09-22%20TC39/</url>
-    <content><![CDATA[<p>视频链接来自Youtube：<a href="https://www.youtube.com/watch?v=slA06pbTRi4&t=1048s">Panel by TC39 Committee | JSConf EU 2019</a></p>
-<iframe width="1440" height="620" src="https://www.youtube.com/embed/slA06pbTRi4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-]]></content>
-      <categories>
-        <category>Speech</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>异步的灵魂：JavaScript 的事件轮询</title>
+    <title>Event Loop in JavaScript</title>
     <url>/2019/09/24/2019-09-24%20%E5%BC%82%E6%AD%A5%E7%9A%84%E7%81%B5%E9%AD%82%EF%BC%9AJavaScript%20%E7%9A%84%E4%BA%8B%E4%BB%B6%E8%BD%AE%E8%AF%A2/</url>
     <content><![CDATA[<p>JavaScript是一门单线程的异步语言。我好奇事件轮询是怎么实现的，它又是如何跟其他几个核心功能进行协作的？比如 Call Stack, Callback Queue。</p>
 <p>但是我在ECMA-262标准中，发现异步功能的实现不属于ECMAScript的范畴。在Google了一番后，我才知道，事件轮询 (Event Loop) 是JavaScript异步编程的基础，这个功能由宿主环境实现。如此核心底层的功能，在浏览器和Node中都有实现。</p>
@@ -1575,77 +1324,24 @@ eyJoaXN0b3J5IjpbLTk1ODUyMDEyMF19
       </tags>
   </entry>
   <entry>
-    <title>敬业才是前端工程师最重要的特质</title>
-    <url>/2019/10/01/2019-10-01%20%E5%B7%A5%E7%A8%8B%E5%B8%88%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E7%89%B9%E8%B4%A8/</url>
-    <content><![CDATA[<p>以前我觉得作为一名软件工程师，有很多优秀的必备特质，比如：专业，负责，严谨，认真，善于沟通，合作，眼光长远…。</p>
-<p>现在我才意识到，一名工程师最重要的特质，就是<strong>敬业</strong>。</p>
-<p>敬业精神作为一个万能的特质，却很少有人能意识到并为之付诸实践。</p>
-<p>作为一名前端工程师，敬业的精神如何诠释？</p>
-<p>我把前端工程视为自己终生的事业，而不是暂时的谋生手段。在互联网领域的前端工程，就像建筑工程的装饰工程。</p>
-<h2 id="前端工程师的敬业精神"><a href="#前端工程师的敬业精神" class="headerlink" title="前端工程师的敬业精神"></a>前端工程师的敬业精神</h2><p>前端工程师了解多平台的特性，知道如何解决兼容性问题。</p>
-<p>前端工程师可以完美还原设计稿，并为页面赋予交互功能，赋予灵魂。</p>
-<p>前端工程师可以独立或者和团队一起构建可维护的大型前端项目，设计项目架构和维护模式。</p>
-<p>前端工程师能快速定位和修复前端工程的BUG，优化和提升项目性能。</p>
-<p>前端工程师要时刻关注前端领域的行业动态，浏览器特性的发布，语言版本的更新，大公司的实践经验，社区新奇的创意。</p>
-<p>前端工程师要熟读标准规范，在建筑工程中，我们的规范都是砖块一样的厚厚一本册子。在前端工程中，很多同行不重视规范，然后在开发过程中遇到 “看似棘手” 的问题时束手无策。规范不一定要熟稔于心，关键是要能快速检索。比如遇到 JavaScript 作用域的问题，我能很快打开ECMA-262标准或者MDN参考，找到对应的一章，重温作用域的概念。</p>
-<p>前端工程师把整个项目视为自己的作品，而不是公司的一个业务。在需求迭代中，我会考虑对整个项目的影响，而不是为了赶时间，随意修改大范围的代码。或者不考虑性能，把恶意代码留在项目中。更不会不考虑维护性，写出令人费解甚至恶心的代码。</p>
-<p>前端工程师把各个部门的同事视为战友，知道如何与人沟通，如何在保证开发效率的前提下，加快沟通效率。如何面对压力，依然有条不紊地进行开发。如何面对怀疑，提出令人信服的论据。如何说服产品经理，某个需求的可行性和多个方案的权衡利弊。</p>
-<p>前端工程师把各种工具视为手段，解决问题的手段。工具层出不穷，而解决问题的本质依旧如初。讨论工具的优劣是没有意义的，任何工具只有在某个特定场景下，有局部优势。没有哪个工具是完美的，是万能的。只有工程师的智慧，理解需求后，选择最好的工具进行组合，才能发挥工具的最大效用。</p>
-]]></content>
-      <categories>
-        <category>思考</category>
-      </categories>
-      <tags>
-        <tag>价值观</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>翻译：JavaScript的执行上下文和调用堆栈</title>
+    <title>【译】JavaScript的执行上下文和调用堆栈</title>
     <url>/2019/10/05/2019-10-05%20%E7%BF%BB%E8%AF%91-JavaScript%E7%9A%84%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88/</url>
     <content><![CDATA[<blockquote>
 <p>原文链接：<a href="https://www.valentinog.com/blog/context/">JavaScript: What Is The Execution Context? What Is The Call Stack?</a><br>原文更新日期：2019.5.14<br>译文更新日期：2019.10.5  </p>
 </blockquote>
- <span id="more"></span>
-<p>术语对照表：  </p>
-<table>
-<thead>
-<tr>
-<th>英文</th>
-<th>译文</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Execution Context</td>
-<td>执行上下文</td>
-</tr>
-<tr>
-<td>Scope</td>
-<td>作用域</td>
-</tr>
-<tr>
-<td>Closure</td>
-<td>闭包</td>
-</tr>
-<tr>
-<td>Call Stack</td>
-<td>调用堆栈</td>
-</tr>
-</tbody></table>
 <p>正文：</p>
 <hr>
 <p><img src="https://user-images.githubusercontent.com/18462980/66252280-3e68bd00-e78c-11e9-82b4-facf99258546.png" alt="image">  </p>
 <h1 id="JavaScript：什么是执行上下文？什么是调用堆栈？"><a href="#JavaScript：什么是执行上下文？什么是调用堆栈？" class="headerlink" title="JavaScript：什么是执行上下文？什么是调用堆栈？"></a>JavaScript：什么是执行上下文？什么是调用堆栈？</h1><p><strong>JavaScript中的执行上下文</strong>是什么？  </p>
-<p>我打赌您不知道这个答案。一门编程语言的最基础的组件是什么？  </p>
+<p>你应该不知道这个问题的答案。一门编程语言最基础的组件是什么？  </p>
 <blockquote>
-<p>更新：这里有一片改进并扩展的博客文章：<a href="https://www.valentinog.com/blog/engines/">JavaScript引擎：它们是如何工作的？从调用堆栈到Promise，您需要知道的一切</a>  </p>
+<p>更新：这里有一篇改进并扩展的博客文章：<a href="https://www.valentinog.com/blog/engines/">JavaScript引擎：它们是如何工作的？从调用堆栈到Promise，您需要知道的一切</a>  </p>
 </blockquote>
 <p>变量和函数对吗？每个人都可以学会这些基础的概念。但是，除了这些基础之外还有什么？  </p>
-<p>在成为中级（甚至是高级）JavaScript开发者之前，您应该掌握哪些<strong>JavaScript的核心</strong>？  </p>
+<p>在成为中高级JavaScript开发者之前，您应该掌握哪些<strong>JavaScript的核心概念</strong>？  </p>
 <p>答案有许多：作用域，闭包，回调函数，原型等等。  </p>
 <p>但是在深入理解这些概念之前，您至少应该知道<strong>JavaScript引擎如何工作？</strong>  </p>
 <p>这篇文章，我们将介绍每个JavaScript引擎都具备的两个基本部分：<strong>执行上下文和调用堆栈</strong>  </p>
-<p>（不要害怕，比您想象的要简单）  </p>
-<p>准备好了吗？  </p>
 <h2 id="您将会学到哪些东西"><a href="#您将会学到哪些东西" class="headerlink" title="您将会学到哪些东西"></a>您将会学到哪些东西</h2><p>通过这篇文章，您将学到：  </p>
 <ul>
 <li><p>JavaScript引擎如何工作  </p>
@@ -1659,9 +1355,9 @@ eyJoaXN0b3J5IjpbLTk1ODUyMDEyMF19
 <p>现在，看看下面的代码：  </p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">2</span>;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pow</span>(<span class="params">num</span>)</span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> num * num  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
 
-<p>好了吗？  </p>
-<p>看起来不难嘛！  </p>
-<p>现在告诉我：<strong>您认为浏览器会以什么顺序来执行这段代码？</strong>  </p>
+</li>
+</ul>
+<p>试着回答我：<strong>您认为浏览器会以什么顺序来执行这段代码？</strong>  </p>
 <p>换句话说，如果<strong>您</strong>是浏览器，您会如何解读这段代码？  </p>
 <p>这看起来好像很简单。  </p>
 <p>大多数人认为：“嗯，浏览器先执行函数<code>pow</code>，返回了结果，然后把2赋值给num。”  </p>
@@ -1672,14 +1368,9 @@ eyJoaXN0b3J5IjpbLTk1ODUyMDEyMF19
 <p>我倒是希望那样。  </p>
 <p>几年前我也说过同样的回答。  </p>
 <p>在接下来的几个部分，您将了解这些<strong>貌似简单的几行代码</strong>背后的机制。  </p>
-<h2 id="JavaScript-引擎"><a href="#JavaScript-引擎" class="headerlink" title="JavaScript 引擎"></a>JavaScript 引擎</h2><p>要理解JavaScript如何运行，我们首先要了解第一个可怕的东西：<strong>执行上下文</strong>。  </p>
+<h2 id="JavaScript-引擎"><a href="#JavaScript-引擎" class="headerlink" title="JavaScript 引擎"></a>JavaScript 引擎</h2><p>要理解JavaScript如何运行，我们首先要了解第一个可怕的东西：**执行上下文(execution context)**。  </p>
 <p>JavaScript中的执行上下文是什么？  </p>
-</li>
-</ul>
-<p><strong>每次在浏览器（或者Node）中运行JavaScript时，引擎都会执行一系列步骤。</strong>  </p>
-<p>其中一步就是：<strong>创建全局执行上下文</strong>。  </p>
-<p>等等，瓦伦蒂诺(作者名字)，<strong>引擎是啥？</strong>  </p>
-<p>简单来说，JavaScript引擎就是运行JavaScript代码的“引擎”。  </p>
+<p><strong>每次在浏览器（或者Node）中运行JavaScript时，JS引擎都会执行一系列步骤。</strong>  </p>
 <p>如今有两个著名的JavaScript引擎：<a href="https://developers.google.com/v8/">Google V8</a> 和 <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey">SpiderMonkey</a>  </p>
 <p>V8是Google开源的 JavaScript 引擎，被用于Chrome浏览器和 Node.js 中。  </p>
 <p>SpiderMonkey 是Mozilla的JavaScript引擎， 被用于Firefox浏览器。  </p>
@@ -1696,7 +1387,7 @@ eyJoaXN0b3J5IjpbLTk1ODUyMDEyMF19
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">2</span>;  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pow</span>(<span class="params">num</span>) </span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> num * num;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
 <p>引擎会如何解读这些代码？  </p>
 <p>这是一个简化的版本：  </p>
-<p><strong>引擎</strong>：第一行。这里有一个变量！酷！我们把它存到全局内存(Global Memory)里吧。<br><strong>引擎</strong>：第三行。我看到了一个函数声明。酷！我们把它也存进全局内存吧！<br><strong>引擎</strong>：看起来我完事了。  </p>
+<p><strong>引擎</strong>：第一行。这里有一个变量！我们把它存到全局内存(Global Memory)里吧。<br><strong>引擎</strong>：第三行。我看到了一个函数声明。我们把它也存进全局内存吧！<br><strong>引擎</strong>：看起来我完事了。  </p>
 <p>如果我再问您一次：浏览器怎么“看”这些代码，您会怎么回答？  </p>
 <p>是的，它是自上而下的，但是…  </p>
 <p>您能看到，引擎并没有执行函数<code>pow</code>！  </p>
@@ -1817,34 +1508,6 @@ eyJoaXN0b3J5IjpbLTE1MTc0NTA2OTRdfQ==</li>
       <tags>
         <tag>JavaScript</tag>
         <tag>翻译</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>程序员的誓言</title>
-    <url>/2019/10/24/2019-10-24%20%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%AA%93%E8%A8%80/</url>
-    <content><![CDATA[<p>Bob Martin 是软件开发理论的巨头之一。他提出的程序员誓言，是这个行业的基本职业道德。</p>
-<p>誓言由关于软件开发人员的九个道德目标组成。</p>
-<blockquote>
-<p>为了捍卫和维护计算机程序员的职业荣誉，我承诺，尽我所能和判断力：</p>
-<ol>
-<li>我不会产生有害的代码</li>
-<li>我制作的代码永远是我最好的作品。我不会故意允许在行为或结构上有缺陷的代码。</li>
-<li>每次发布时，我都会生成一个快速、可靠、可重复的证据，证明代码的每个元素都应该正常工作。</li>
-<li>我将经常发布小版本，这样我就不会妨碍其他人的进展。</li>
-<li>我会抓住每个机会，无畏地、不懈地改进我的代码。我永远不会损害它们。</li>
-<li>我将尽我所能保持自己和他人的生产力。我不会做任何降低生产力的事情。</li>
-<li>我将继续确保支持其他人的工作，并且它们也可以支持我的工作。</li>
-<li>我将对幅度和精度作出诚实的估计。我不会作出做不到的诺言。</li>
-<li>我将永远不会停止学习和改进我的手艺。</li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>程序员</category>
-      </categories>
-      <tags>
-        <tag>程序员</tag>
-        <tag>有意思</tag>
       </tags>
   </entry>
 </search>
