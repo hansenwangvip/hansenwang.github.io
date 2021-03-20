@@ -5,13 +5,13 @@ date: 2018-05-22
 categories: 前端
 tags: [JavaScript]
 keywords: 技术
+description: 这个很常见的功能希望ECMAScript早点集成到内置函数中。
 
 ---
 
 # 为什么要深拷贝？
 JS的值分为引用类型和原始类型，当我们在开发过程中需要拷贝一个对象时，希望生成一份完全独立的副本，这时候我们就需要深拷贝。
 
-<!--more-->
 
 # 最高效的深拷贝？
 

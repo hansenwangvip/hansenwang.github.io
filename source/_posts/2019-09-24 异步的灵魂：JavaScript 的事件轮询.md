@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 异步的灵魂：JavaScript 的事件轮询
+title: Event Loop in JavaScript 
 date: 2019-9-24 10:00:59
 tags: JavaScript
 description: 在Youtube上找到了两个很精彩的演讲，通俗地解释了事件轮询的工作原理。

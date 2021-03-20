@@ -1,20 +1,14 @@
 ---
 
-title: 专业团队的Git Commit Message规范
-
+title: Git Commit Message的最佳实践
 categories: 技术
-
 date: 2019-01-24
-
 update: 2019-01-24
-
 tags: ['规范', '软件工程']
+description: 在Git协作模式的团队中，Commit Message的规范对版本控制起着很重要的作用。
 
 ---
 
-> 在Git协作模式的团队中，Commit Message的规范对版本控制起着很重要的作用。本文引用自团队内部的规范，分享出来，一是为了贡献社区，二是为了加深印象。
-
-<!-- more -->
 
 ## Commit Message规范
 

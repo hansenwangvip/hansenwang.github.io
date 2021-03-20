@@ -5,11 +5,9 @@ categories: 前端
 date: 2017-03-06 
 update: 2017-07-11
 tags: [JavaScript]
+description: 总结了JavaScript的基本概念，包括数据类型、值和易混淆的概念。
 
 ---
-
-这篇文章主要总结了JavaScript的基础，包括数据类型，值和易混淆的概念。
-<!--more-->
 
 # 1. JavaScript的基本数据类型
 

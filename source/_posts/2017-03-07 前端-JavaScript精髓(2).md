@@ -1,15 +1,13 @@
 ---
 
-title: JavaScript 基本概念(2)
+title: JavaScript 核心特性(2)
 categories: 前端
 date: 2017-03-07 
 update: 2017-07-11
 tags: [JavaScript]
+description: 继续总结JavaScript语言的核心特性。
 
 ---
-
-这篇博客延续上一篇，继续总结JavaScript语言的核心特性和思想精髓。
-<!--more-->
 
 # 1. JavaScript继承的实现方式
  1. 构造继承
